@@ -1,13 +1,24 @@
 .grid {
   display: grid;
-  height: 100vh;
+  height: 100%;
   width: 100%;
+  gap: 0.5rem;
+  grid-template-rows: 80px auto;
+  grid-template-columns: 180px auto;
+  grid-template-areas:
+    "navbar navbar"
+    "sidemenu maincontent";
 }
 
-.menu {
+.gd-navbar {
+  grid-area: navbar;
+}
+
+.gd-sidemenu {
+  grid-area: sidemenu;
   background: lightgrey;
 }
 
-.main{
-  margin: 0 0.5rem;  
+.gd-maincontent {
+  grid-area: maincontent;
 }

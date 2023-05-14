@@ -1,8 +1,6 @@
 @import "theme/reset.scss";
+@import "theme/mat-overrides.scss";
 
-mat-form-field {
-  width: 100%;
-}
 
 .table {
   width: 100%;
