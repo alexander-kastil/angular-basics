@@ -11,10 +11,10 @@ export class FoodContainerComponent implements OnInit {
   food: FoodItem[] = [];
   selected: FoodItem | null = null;
 
-  constructor(private fs: FoodService) { }
+  constructor(private fs: FoodService) {}
 
   ngOnInit() {
-    this.fs.getFood().subscribe((data: FoodItem[]) => (this.food = data));
+    this.fs.getFood().subscribe((data) => (this.food = data));
   }
 
   addFood(item: FoodItem) {
