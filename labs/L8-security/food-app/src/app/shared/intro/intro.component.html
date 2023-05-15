@@ -17,19 +17,11 @@
         Proceed
       </button>
     </div>
-    <div *ngIf="(authEnabled | async)==false">
-      <button
-        mat-raised-button
-        (click)="logIn()"
-        color="primary"
-      >
+    <div *ngIf="(authEnabled | async) == false">
+      <button mat-raised-button (click)="logIn()" color="primary">
         Log In
       </button>
-      <button
-        mat-raised-button
-        (click)="registerUser()"
-        color="primary"
-      >
+      <button mat-raised-button (click)="registerUser()" color="primary">
         Register
       </button>
     </div>

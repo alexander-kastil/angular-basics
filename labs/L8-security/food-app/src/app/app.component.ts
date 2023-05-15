@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
+import { MenuService } from './shared/menu/menu.service';
+import { LoadingService } from './shared/loading/loading.service';
 import { Observable, of, tap } from 'rxjs';
 import { FirebaseAuthService } from './auth/firebase-auth.service';
-import { LoadingService } from './shared/loading/loading.service';
-import { MenuService } from './shared/menu/menu.service';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +11,17 @@ import { MenuService } from './shared/menu/menu.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  isAuthenticated: Observable<boolean> = of(false);
+  ms = inject(MenuService);
+  ls = inject(LoadingService);
+  auth = inject(FirebaseAuthService);
   title = 'Food App';
   mode: MatDrawerMode = 'side';
+  changeDetector = inject(ChangeDetectorRef);
+  isLoading = this.ls.getLoading();
+  isAuthenticated: Observable<boolean> = of(false);
 
-  constructor(
-    public ms: MenuService,
-    public ls: LoadingService,
-    private auth: FirebaseAuthService
-  ) {
-    ms.sideNavPosition.subscribe((m) => (this.mode = m));
+  constructor() {
+    this.ms.sideNavPosition.subscribe((currentMode) => { this.mode = currentMode });
   }
 
   ngOnInit() {
@@ -29,16 +30,19 @@ export class AppComponent {
       .pipe(tap((auth) => console.log('auth changed to autheticated: ', auth)));
   }
 
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
+  }
+
   getWorbenchStyle() {
     let result = {};
     this.ms.sideNavVisible.subscribe((visible) => {
       result = visible
         ? {
-            'padding-left': '10px',
-          }
+          'padding-left': '10px',
+        }
         : {};
     });
-    console.log('style:', result);
     return result;
   }
 }

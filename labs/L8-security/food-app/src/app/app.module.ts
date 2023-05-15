@@ -16,13 +16,13 @@ import { MaterialModule } from './material.module';
 import { IntroComponent } from './shared/intro/intro.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { SidemenuComponent } from './shared/sidemenu/sidemenu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SidebarComponent,
+    SidemenuComponent,
     MainComponent,
     HomeComponent,
     AboutComponent,
@@ -44,4 +44,4 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
