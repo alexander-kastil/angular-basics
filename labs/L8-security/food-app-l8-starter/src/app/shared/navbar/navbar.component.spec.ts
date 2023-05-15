@@ -1,6 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { MaterialModule } from '../../material.module';
 import { NavbarComponent } from './navbar.component';
 
 describe('navbar.component', () => {
@@ -11,11 +13,13 @@ describe('navbar.component', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NavbarComponent],
+      imports: [HttpClientModule, MaterialModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NavbarComponent);
     comp = fixture.componentInstance;
     el = fixture.debugElement;
+    comp.ngOnInit();
     fixture.detectChanges();
   });
 
@@ -30,12 +34,12 @@ describe('navbar.component', () => {
   });
 
   it('should render 3 nav items', () => {
-    const divs = el.queryAll(By.css('.navLink'));
+    const divs = el.queryAll(By.css('.navItem'));
     expect(divs.length).toBe(3);
   });
 
   it('should toggle the side menu when clicked', () => {
-    let visisble = comp.ms.sideNavVisible;
+    let visisble = comp.ms.sideNavVisible.value;
     comp.toggleMenu();
     fixture.detectChanges();
     expect(comp.ms.sideNavVisible.value).toEqual(!visisble);
