@@ -5,6 +5,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonHarness } from '@angular/material/button/testing';
 import { By } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
 import { MaterialModule } from '../../material.module';
 import { FoodEditComponent } from '../food-edit/food-edit.component';
@@ -36,8 +37,14 @@ describe('food-list-container', () => {
     fs.getFood.and.returnValue(of(foodLoadData));
 
     await TestBed.configureTestingModule({
-      declarations: [FoodListComponent, FoodEditComponent],
-      imports: [MaterialModule, FormsModule, ReactiveFormsModule, CommonModule],
+      declarations: [FoodContainerComponent, FoodListComponent, FoodEditComponent],
+      imports: [
+        CommonModule,
+        NoopAnimationsModule,
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+      ],
       providers: [{ provide: FoodService, useValue: fs }],
     }).compileComponents();
 
