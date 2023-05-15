@@ -1,5 +1,5 @@
 export class FoodItem {
-  id: number | undefined;
+  id: number;
   name: string;
   price: number;
   calories: number;

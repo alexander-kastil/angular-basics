@@ -38,7 +38,7 @@ describe('navbar.component', () => {
   });
 
   it('should toggle the side menu when clicked', () => {
-    let visisble = comp.ms.sideNavVisible;
+    let visisble = comp.ms.sideNavVisible.value;
     comp.toggleMenu();
     fixture.detectChanges();
     expect(comp.ms.sideNavVisible.value).toEqual(!visisble);
