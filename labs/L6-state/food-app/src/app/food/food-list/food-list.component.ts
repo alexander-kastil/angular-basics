@@ -15,9 +15,7 @@ import { FoodItem } from "../food.model";
   templateUrl: "./food-list.component.html",
   styleUrls: ["./food-list.component.scss"],
 })
-export class FoodListComponent implements OnInit, OnChanges {
-  constructor() {}
-
+export class FoodListComponent implements OnChanges {
   @Input() food: FoodItem[] = [];
   @Output() foodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
   @Output()
@@ -35,7 +33,7 @@ export class FoodListComponent implements OnInit, OnChanges {
   ];
   dataSource = new MatTableDataSource([]);
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngOnChanges(changes: SimpleChanges) {
     this.dataSource = new MatTableDataSource(changes["food"].currentValue);

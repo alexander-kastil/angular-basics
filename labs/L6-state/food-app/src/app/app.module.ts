@@ -12,7 +12,7 @@ import { MaterialModule } from './material.module';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { LoadingService } from './shared/loading/loading.service';
 import { SidemenuComponent } from './shared/sidemenu/sidemenu.component';
-import { LoadingInterceptor } from './loading-interceptor';
+import { LoadingInterceptor } from './shared/loading/loading-interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { LoadingInterceptor } from './loading-interceptor';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    MaterialModule
   ],
   providers: [
     LoadingService,
