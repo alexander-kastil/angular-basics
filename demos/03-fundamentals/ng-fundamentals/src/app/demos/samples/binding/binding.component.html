@@ -1,47 +1,25 @@
+<app-markdown-renderer [md]="'binding'"></app-markdown-renderer>
+
 <mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title> Bindings - Change text and watch changes</mat-card-title>
   </mat-card-header>
   <mat-card-content fxLayout="column">
-      <label for="lblOneWay">Interpolation - One Way</label> <br />
-      {{selectedPerson.name}}
-
-    <mat-form-field>
-      <label for="lblOneWay">One Way Attribute Binding</label> <br />
-      <input
-        matInput
-        id="lblOneWay"
-        type="text"
-        [value]="selectedPerson.name"
-      />
-    </mat-form-field>
-
-    <mat-form-field>
-      <label for="lblOneWayModel">One Way (Model) Binding</label> <br />
-      <input
-        matInput
-        type="text"
-        id="lblOneWayModel"
-        [ngModel]="selectedPerson.name"
-      />
-    </mat-form-field>
-
-    <mat-form-field>
-      <label for="lblTwoWay">Two Way (Model) Binding</label> <br />
-      <input
-        matInput
-        type="text"
-        id="lblTwoWay"
-        [(ngModel)]="selectedPerson.name"
-      />
-    </mat-form-field>
+      <label>Interpolation - One Way Binding:</label>
+      <div>{{selectedPerson.name}}</div>
+      <label>One Way Attribute Binding</label>
+      <input type="text" [value]="selectedPerson.name"/>
+      <label for="lblOneWayModel">One Way (Model) Binding</label>
+      <input type="text" [ngModel]="selectedPerson.name"/>
+      <label for="lblTwoWay">Two Way (Model) Binding</label>
+      <input type="text" [(ngModel)]="selectedPerson.name"/>
   </mat-card-content>
 </mat-card>
 
 <mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title
-      >Binding and Nullability - data with latency    
+      >Binding and Nullability - data with latency
       </mat-card-title
     >
   </mat-card-header>

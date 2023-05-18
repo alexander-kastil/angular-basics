@@ -1,17 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-attr-binding',
   templateUrl: './attr-binding.component.html',
   styleUrls: ['./attr-binding.component.scss'],
 })
-export class AttrBindingComponent implements OnInit {
+export class AttrBindingComponent {
   isDisabled = true;
   isHidden = false;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 
   toggleInput() {
     this.isDisabled = !this.isDisabled;

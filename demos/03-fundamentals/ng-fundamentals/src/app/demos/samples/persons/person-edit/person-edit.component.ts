@@ -19,8 +19,6 @@ export class PersonEditComponent implements OnInit, OnChanges {
   @Input() editMode: boolean = false;
   @Output() savePerson: EventEmitter<Person> = new EventEmitter<Person>();
 
-  constructor() {}
-
   ngOnInit() {
     console.log(this.person);
   }

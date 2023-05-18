@@ -41,8 +41,8 @@ The `demo-app` consists of `app.component.html` that defines the base structure 
 
 ### Fundamentals & Completing Basic Tasks
 
+- Components & Dependency Injection
 - Imperative vs Reactive Programming Styles
-- Components, Modules & Dependency Injection
 - Expressions, Templates & Directives
 - String Interpolation, Property- & Event-Binding, Two-Way Binding
 - Databinding Observables

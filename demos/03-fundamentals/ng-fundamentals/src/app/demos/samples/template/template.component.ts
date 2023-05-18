@@ -5,13 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.scss'],
 })
-export class TemplateComponent implements OnInit {
+export class TemplateComponent {
   title = 'About Templated Components';
   theValue = 100;
-
-  constructor() {}
-
-  ngOnInit() {}
 
   doDouble() {
     return this.theValue * 2;

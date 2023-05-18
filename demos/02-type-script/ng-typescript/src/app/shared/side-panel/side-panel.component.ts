@@ -20,12 +20,11 @@ export class SidePanelComponent {
   }
 
   toggleEditor() {
-    this.editorDisplayed = !this.editorDisplayed;
-    this.eb.triggerCmd(
-      this.editorDisplayed
-        ? SidebarActions.SHOW_MARKDOWN
-        : SidebarActions.HIDE_MARKDOWN
-    );
+    if (this.editorDisplayed) {
+      this.eb.triggerCmd(SidebarActions.HIDE_MARKDOWN);
+    } else {
+      this.eb.triggerCmd(SidebarActions.SHOW_MARKDOWN);
+    }
     this.editorDisplayed = !this.editorDisplayed;
   }
 

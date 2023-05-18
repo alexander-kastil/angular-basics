@@ -1,49 +1,53 @@
 {
   "demos": [
     {
+      "url": "expressions",
+      "title": "Expressions & Events"
+    },
+    {
       "url": "template",
-      "title": "Template Component"
+      "title": "Seperated Component"
     },
     {
       "url": "inline",
       "title": "Inline Component"
     },
     {
-      "url": "expressions",
-      "title": "Expressions & Interpolation"
+      "url": "di",
+      "title": "Dependency Injection"
     },
     {
       "url": "binding",
-      "title": "Model Binding"
+      "title": "Binding using ngModel"
     },
     {
       "url": "attrbinding",
       "title": "Attribute Binding"
     },
     {
-      "url": "di",
-      "title": "Dependency Injection"
+      "url": "form-controls",
+      "title": "FormControls Binding"
     },
     {
       "url": "directives",
-      "title": "Directives"
-    },
-    {
-      "url": "structdirectives",
-      "title": "Structural Directives"
+      "title": "Buildin Directives"
     },
     {
       "url": "customdirectives",
       "title": "Custom Directives"
     },
-    { "url": "pipes", "title": "Pipes" },
     {
-      "url": "localization",
-      "title": "Localization"
+      "url": "structdirectives",
+      "title": "Structural Directives"
     },
+    { "url": "pipes", "title": "Pipes" },
     {
       "url": "custompipes",
       "title": "Custom Pipes"
+    },
+    {
+      "url": "localization",
+      "title": "Localization"
     },
     {
       "url": "container",

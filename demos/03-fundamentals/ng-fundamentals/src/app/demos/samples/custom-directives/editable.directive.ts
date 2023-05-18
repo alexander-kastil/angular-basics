@@ -5,6 +5,4 @@ import { Directive, HostBinding } from '@angular/core';
 })
 export class EditableDirective {
   @HostBinding('attr.contentEditable') editable = true;
-
-  constructor() {}
 }

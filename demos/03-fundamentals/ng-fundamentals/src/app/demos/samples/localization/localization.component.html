@@ -1,3 +1,4 @@
+<app-markdown-renderer [md]="'localization'"></app-markdown-renderer>
 <mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title>Localization</mat-card-title>
@@ -7,13 +8,11 @@
     Person: {{ person.name }}, {{ person.age }}<br />
     Salery: {{ person.salery | currency }}<br />
     DoB: {{ person.dateOfBirth | date: "longDate" }}<div></div>
-    Add {{ val }} to app.module.ts - notice change<div></div>    
     Salery with fixed Currency Symbol: {{ person.salery | currency: "EUR"
     }}<br />
     Salery with fixed Currency Symbol: € {{ person.salery | number: "1.2-2"
     }}<br />
     Salery with fixed Currency Symbol: {{ person.salery | number: "1.2-2"
     }} € <br />
-
   </mat-card-content>
 </mat-card>

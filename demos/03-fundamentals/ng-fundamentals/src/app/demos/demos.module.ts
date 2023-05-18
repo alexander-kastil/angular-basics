@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { LoadingInterceptor } from '../shared/loading/loading-interceptor';
@@ -35,6 +35,9 @@ import { AttrBindingComponent } from './samples/attr-binding/attr-binding.compon
 import { DependencyInjectionComponent } from './samples/dependency-injection/dependency-injection.component';
 import { EuroPipe } from './samples/custom-pipes/euro.pipe';
 import { EditableDirective } from './samples/custom-directives/editable.directive';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
+import { FormControlsComponent } from './samples/form-controls/form-controls.component';
+import { BorderDirective, CenteredDirective } from './samples/custom-directives/formatting-directives';
 
 const demoRoutes: Routes = [
   {
@@ -59,6 +62,7 @@ const demoRoutes: Routes = [
       { path: 'expressions', component: ExpressionsComponent },
       { path: 'ng-template', component: NgTemplateComponent },
       { path: 'di', component: DependencyInjectionComponent },
+      { path: 'form-controls', component: FormControlsComponent },
     ],
   },
 ];
@@ -92,14 +96,19 @@ const demoRoutes: Routes = [
     AttrBindingComponent,
     DependencyInjectionComponent,
     EditableDirective,
+    FormControlsComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
     MaterialModule,
     HttpClientModule,
     SharedModule,
+    MarkdownRendererModule,
+    CenteredDirective,
+    BorderDirective
   ],
   providers: [
     DemoService,
@@ -107,4 +116,4 @@ const demoRoutes: Routes = [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
 })
-export class DemosModule {}
+export class DemosModule { }
