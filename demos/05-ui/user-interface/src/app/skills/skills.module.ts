@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { SkillsRoutingModule } from './skills-routing.module';
-import { MaterialModule } from '../material.module';
-import { SkillsListComponent } from './skills-list/skills-list.component';
 import { SkillRowComponent } from './skill-row/skill-row.component';
 import { SkillsEditComponent } from './skills-edit/skills-edit.component';
+import { SkillsListComponent } from './skills-list/skills-list.component';
+import { MaterialModule } from '../material.module';
+import { Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { SkillResolverService } from './skill-resolver.service';
+import { CheckPipe } from './skill-row/check.pipe';
 
 @NgModule({
-  declarations: [SkillsListComponent, SkillRowComponent, SkillsEditComponent],
+  declarations: [
+    SkillsListComponent,
+    SkillsEditComponent,
+    SkillRowComponent,
+    CheckPipe
+  ],
   imports: [
-    MaterialModule,
     CommonModule,
     FormsModule,
-    HttpClientModule,
-    SkillsRoutingModule,
+    RouterModule,
+    MaterialModule
   ],
+  providers: [SkillResolverService],
 })
-export class SkillsModule {}
+export class SkillsModule { }

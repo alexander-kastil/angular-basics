@@ -7,10 +7,14 @@
 }
 
 .mat-mdc-card img {
-  max-height: 450px;    
+  max-height: 450px;
 }
 
 .mat-mdc-card-image{
   margin: 0;
   width: calc(100% );
+}
+
+button{
+  margin-right: var(--gap-medium);
 }

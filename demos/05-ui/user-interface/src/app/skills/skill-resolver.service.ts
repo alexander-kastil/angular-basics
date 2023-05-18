@@ -8,11 +8,11 @@ import { SkillsService } from './skills.service';
   providedIn: 'root',
 })
 export class SkillResolverService {
-  constructor(private service: SkillsService) {}
+  constructor(private service: SkillsService) { }
 
   resolve(
     route: ActivatedRouteSnapshot
-  ): Skill | Observable<Skill> | Promise<Skill> {
+  ): Skill | undefined | Observable<Skill | undefined> | Promise<Skill> {
     const id = +route.params['id'];
     return this.service.getSkill(id);
   }

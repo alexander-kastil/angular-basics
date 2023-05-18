@@ -1,4 +1,21 @@
 .skillrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #8d6e63;
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.name {
+  flex: 3;
+  padding-left: 2rem
+}
+
+.completed {
+  flex: 2;
+}
+
+.cmd {
+  flex: 1;
+  text-align: end;
 }

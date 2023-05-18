@@ -30,6 +30,7 @@ import { MaterialTableComponent } from './samples/material-table/material-table.
 import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
 import { MatFormFieldComponent } from './samples/mat-form-field/mat-form-field.component';
 import { CenteredDirective, RowDirective } from '../shared/formatting/formatting-directives';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 
 const demoRoutes: Routes = [
   {
@@ -94,6 +95,7 @@ const demoRoutes: Routes = [
     HttpClientModule,
     CenteredDirective,
     RowDirective,
+    MarkdownRendererModule
   ],
   providers: [DemoService],
 })

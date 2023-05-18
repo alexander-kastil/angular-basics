@@ -20,6 +20,7 @@ import { RouteGuardsComponent } from './samples/route-guards/route-guards.compon
 import { RouterStateComponent } from './samples/router-state/router-state.component';
 import { RoutingBasicsComponent } from './samples/routing-basics/routing-basics.component';
 import { MarkdownEditorComponent } from '../shared/markdown-editor/markdown-editor.component';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MarkdownEditorComponent } from '../shared/markdown-editor/markdown-edit
     MaterialModule,
     SharedModule,
     HttpClientModule,
+    MarkdownRendererModule
   ],
   providers: [
     DemoService,
