@@ -10,18 +10,16 @@
       "title": "Objects"
     },
     { "url": "classes", "title": "Classes" },
-    { "url": "utils", "title": "ECMA Script Utils" },
+    { "url": "utils", "title": "Utils" },
     {
       "url": "interfaces",
       "title": "Interfaces"
     },
     { "url": "gernerics", "title": "Generics" },
-    { "url": "modules", "title": "Modules" },
     {
       "url": "services",
-      "title": "Async & Services"
-    },
-    { "url": "eslint", "title": "ES Lint" }
+      "title": "Async Operations"
+    }
   ],
   "top-links": [
     {

@@ -8,9 +8,9 @@ import { Voucher } from '../model';
   styleUrls: ['./types.component.scss'],
 })
 export class TypesComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   basicVariables() {
     const myname = 'alex';
@@ -88,7 +88,7 @@ export class TypesComponent implements OnInit {
     enum Sex {
       male = 'm',
       female = 'f',
-      undefined = 'u',
+      divers = 'd',
     }
 
     enum VoucherStatus {

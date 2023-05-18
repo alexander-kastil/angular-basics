@@ -18,8 +18,6 @@
 
 [Node Version Manager for Windows - nvm](https://github.com/coreybutler/nvm-windows)
 
-[Babel JS](https://babeljs.io/)
-
 [WebPack](https://webpack.js.org/)
 
 ## Using Angular CLI
@@ -71,14 +69,6 @@ Edit `launch.json` in folder `.vscode` & make sure you execute `ng serve` bevor 
       "request": "launch",
       "url": "http://localhost:9876/debug.html",
       "webRoot": "${workspaceFolder}"
-    },
-    {
-      "name": "ng e2e",
-      "type": "node",
-      "request": "launch",
-      "program": "${workspaceFolder}/node_modules/protractor/bin/protractor",
-      "protocol": "inspector",
-      "args": ["${workspaceFolder}/protractor.conf.js"]
     }
   ]
 }

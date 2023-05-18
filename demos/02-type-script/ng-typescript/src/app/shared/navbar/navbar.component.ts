@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { SnackbarService } from '../snackbar/snackbar.service';
 import { SideNavService } from '../sidenav/sidenav.service';
+import { SnackbarService } from '../snackbar/snackbar.service';
 
 @Component({
   selector: 'app-navbar',

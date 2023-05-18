@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./utils.component.scss'],
 })
 export class UtilsComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   stringFunctions() {
     const productID = 100;
@@ -94,10 +94,10 @@ export class UtilsComponent implements OnInit {
       price: number;
       region: string;
     }[] = [
-      { name: 'apples', quantity: 2, price: 3, region: 'europe' },
-      { name: 'bananas', quantity: 0, price: 5, region: 'caribean' },
-      { name: 'cherries', quantity: 5, price: 8, region: 'europe' },
-    ]; // -> Json Objects from REST call
+        { name: 'apples', quantity: 2, price: 3, region: 'europe' },
+        { name: 'bananas', quantity: 0, price: 5, region: 'caribean' },
+        { name: 'cherries', quantity: 5, price: 8, region: 'europe' },
+      ]; // -> Json Objects from REST call
 
     // forEach
     fruits.forEach(function (fruit) {
@@ -268,48 +268,5 @@ export class UtilsComponent implements OnInit {
 
     myMap.delete('keyString');
     myMap.clear();
-  }
-
-  // -> Indexed Array
-  sets() {
-    const mySet = new Set<any>();
-    mySet.add(1);
-    mySet.add('some text');
-    const o = { a: 1, b: 2 };
-    mySet.add(o);
-
-    mySet.has(1); // true
-    mySet.has(3); // false, 3 has not been added to the set
-    mySet.has(Math.sqrt(25)); // true
-    mySet.has('Some Text'.toLowerCase()); // true
-    mySet.has(o); // true
-    const size = mySet.size; // 4
-
-    console.log(`acessing using: mySet[0] gives: `, mySet[0]);
-
-    mySet.forEach((item) => console.log(`item in set: ${item}`));
-
-    mySet.delete(5); // removes 5 from set
-
-    // iterate set
-
-    const log = (caller, sum) => console.log(`${caller} returned ${sum}`);
-
-    const setNbrs: Set<number> = new Set<number>([2, 4, 88]);
-
-    const sum = Array.from(setNbrs).reduce(function (a, b) {
-      return a + b;
-    }, 100);
-
-    log('Sum with initail of 100', sum);
-
-    const totalArrow = Array.from(setNbrs).reduce((a, b) => a + b);
-
-    log('totalArrow', totalArrow);
-
-    log(
-      'totalArrow 2',
-      Array.from(setNbrs).reduce((a, b) => a + b)
-    );
   }
 }
