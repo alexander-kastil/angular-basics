@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./routing-basics.component.scss'],
 })
 export class RoutingBasicsComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   showSkills() {
     this.router.navigate(['/skills']);
@@ -23,6 +23,5 @@ export class RoutingBasicsComponent implements OnInit {
     this.router.navigate(['/skills', id], {
       queryParams: { readonly: true },
     });
-    // this.router.navigate(['/skills', id], {queryParams: {readonly: true}, fragment: 'loading'});
   }
 }
