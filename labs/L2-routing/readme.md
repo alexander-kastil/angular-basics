@@ -22,15 +22,15 @@
     - Add a [feature module](https://angular.io/guide/feature-modules) using the [Angular CLI](https://angular.io/cli/generate#module-command) and 
     use the Code Splitting Pattern 
 
-        ```
-        ng g module [NAME] --route [ROUTE] --module [PARENT-MODULE]
-        ```
+    ```
+    ng g module [NAME] --route [ROUTE] --module [PARENT-MODULE]
+    ```
 
-        ```
-        ng g module food --route food-v2 --module app.module.ts
-        ```
-        
-        >Note: To avoid a route conflict with the existing `food`-route in `app-routing.module.ts` you could use `food-v2` as input for the `--route` param. You can delete the old route later on.
+    ```
+    ng g module food --route food-v2 --module app.module.ts
+    ```
+    
+    >Note: To avoid a route conflict with the existing `food`-route in `app-routing.module.ts` you could use `food-v2` as input for the `--route` param. You can delete the old route later on.
 
     - Add the [FormsModule](https://angular.io/api/forms/FormsModule) to `food.module.ts` to support `ngModel`-binding
 
