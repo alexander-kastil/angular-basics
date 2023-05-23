@@ -2,7 +2,7 @@
 
 - Implement Routing for the navbar elements.
 
-    - Add a `home.component.ts` and a `about.component.ts` using the [Angular CLI](https://angular.io/cli/generate#component-command)
+    - Add a about component using the [Angular CLI](https://angular.io/cli/generate#component-command)
     
     - Replace `<app-food-container></app-food-container>` with a `<router-outlet></router-outlet>` in `app.component.html`
     
