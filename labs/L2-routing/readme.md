@@ -2,7 +2,7 @@
 
 - Implement Routing for the navbar elements.
 
-    - Add a about component using the [Angular CLI](https://angular.io/cli/generate#component-command)
+    - Add an about component using the [Angular CLI](https://angular.io/cli/generate#component-command)
     
     - Replace `<app-food-container></app-food-container>` with a `<router-outlet></router-outlet>` in `app.component.html`
     
@@ -13,7 +13,7 @@
         { path: "food", component: FoodContainerComponent },
         { path: "about", component: AboutComponent },
         ```
-    - Add [RouterLink](https://angular.io/api/router/RouterLink) directives to `navbar.component.html` to enable navigation. Apply a style for the active link - use [this reference](https://github.com/arambazamba/ng-dev/blob/main/demos/04-routing/routing-modules/src/app/shared/navbar/navbar.component.ts)
+    - Add [RouterLink](https://angular.io/api/router/RouterLink) directives to `navbar.component.html` to enable navigation. Apply a style for the active link - use [this reference](https://github.com/arambazamba/ng-dev/blob/main/demos/04-routing/routing-modules/src/app/shared/navbar/navbar.component.html)
 
     - Test the routing
 
