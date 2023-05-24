@@ -12,6 +12,7 @@ export class FormsBuilderComponent implements OnInit {
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
 
+  //declarative approach
   personForm = this.fb.group({
     name: [this.person.name, Validators.required],
     age: [this.person.age],
@@ -20,7 +21,7 @@ export class FormsBuilderComponent implements OnInit {
     wealth: [this.person.wealth],
   });
 
-  constructor(private fb: FormBuilder, private ps: PersonService) {}
+  constructor(private fb: FormBuilder, private ps: PersonService) { }
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {
