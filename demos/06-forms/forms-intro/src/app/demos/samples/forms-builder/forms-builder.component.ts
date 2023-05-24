@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Person, wealthOptsValues } from '../person.model';
 import { PersonService } from '../person.service';
@@ -9,6 +9,8 @@ import { PersonService } from '../person.service';
   styleUrls: ['./forms-builder.component.scss'],
 })
 export class FormsBuilderComponent implements OnInit {
+  ps = inject(PersonService);
+  fb = inject(FormBuilder);
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
 
@@ -20,8 +22,6 @@ export class FormsBuilderComponent implements OnInit {
     email: [this.person.email],
     wealth: [this.person.wealth],
   });
-
-  constructor(private fb: FormBuilder, private ps: PersonService) { }
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {
