@@ -17,24 +17,16 @@
       "title": "Unsubscribing"
     },
     {
-      "url": "imperative",
-      "title": "Imperative Programming"
-    },
-    {
-      "url": "reactive",
-      "title": "Reactive Programming"
-    },
-    {
       "url": "responsive-screen",
-      "title": "Screen & Events"
+      "title": "Responsive Screen"
+    },
+    {
+      "url": "mouse-events",
+      "title": "Mouse Events"
     },
     {
       "url": "operators",
-      "title": "Observable Operators"
-    },
-    {
-      "url": "subjects",
-      "title": "Subjects"
+      "title": "RxJs Operators"
     },
     {
       "url": "stateful",
@@ -42,9 +34,9 @@
     },
     { "url": "event-bus", "title": "Event Bus" },
     { "url": "loading", "title": "Loading Indicator" },
-    { "url": "ngrx-data", "title": "@ngrx-data" },
-    { "url": "signals-basics", "title": "Signals basics" },
-    { "url": "signals-bus", "title": "Signals event bus" }
+    { "url": "signals-basics", "title": "Signals Basics" },
+    { "url": "signals-bus", "title": "Signals Event Bus" },
+    { "url": "ngrx-data", "title": "NgRx Intro: @ngrx-data" }
   ],
   "top-links": [
     {

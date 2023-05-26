@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { OnInit, inject, Component } from '@angular/core';
+import { tr } from 'date-fns/locale';
 
 @Component({
   selector: 'app-responsive-screen',
@@ -14,12 +15,7 @@ export class ResponsiveScreenComponent implements OnInit {
     this.breakpointObserver
       .observe(['(min-width: 600px)'])
       .subscribe((state: BreakpointState) => {
-        console.log(state.matches);
-        if (state.matches) {
-          this.matches = true;
-        } else {
-          this.matches = false;
-        }
+        this.matches = state.matches ? false : true;
       })
   }
 

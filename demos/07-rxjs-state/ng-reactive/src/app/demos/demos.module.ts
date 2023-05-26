@@ -19,15 +19,13 @@ import { UnsubscribingComponent } from './samples/unsubscribing/unsubscribing.co
 import { StatefulVouchersComponent } from './samples/vouchers/stateful-vouchers/stateful-vouchers.component';
 import { FormControlsComponent } from './samples/form-controls/form-controls.component';
 import { SignPadComponent } from './samples/sign-pad/sign-pad.component';
-import { ImperativeComponent } from './samples/imperative/imperative.component';
 import { AsyncPipeComponent } from './samples/async-pipe/async-pipe.component';
-import { ReifiedReactiveComponent } from './samples/reified-reactive/reified-reactive.component';
 import { NgrxDataComponent } from './samples/ngrx-data/ngrx-data.component';
 import { ResponsiveScreenComponent } from './samples/responsive-screen/responsive-screen.component';
 import { TakeUntilDestroyedComponent } from './samples/take-until-destroyed/take-until-destroyed.component';
 import { SignalsBasicsComponent } from './samples/signals-basics/signals-basics.component';
 import { SignalsEventBusComponent } from './samples/signals-event-bus/signals-event-bus.component';
-import { BorderDirective } from '../shared/formatting/formatting-directives';
+import { BorderDirective, CenteredDirective } from '../shared/formatting/formatting-directives';
 import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 import { UnsubscribeNgdestroyComponent } from './samples/unsubscribe-ngdestroy/unsubscribe-ngdestroy.component';
 
@@ -36,10 +34,8 @@ const demoRoutes: Routes = [
     path: '',
     component: DemoContainerComponent,
     children: [
-      { path: 'subjects', component: SubjectsComponent },
-      { path: 'imperative', component: ImperativeComponent },
-      { path: 'reactive', component: ReifiedReactiveComponent },
       { path: 'creating', component: CreatingObservableComponent },
+      { path: 'mouse-events', component: SignPadComponent },
       { path: 'formcontrols', component: FormControlsComponent },
       { path: 'operators', component: OperatorsComponent },
       { path: 'responsive-screen', component: ResponsiveScreenComponent },
@@ -69,8 +65,6 @@ const demoRoutes: Routes = [
     LoadingHostComponent,
     FormControlsComponent,
     SignPadComponent,
-    ImperativeComponent,
-    ReifiedReactiveComponent,
     NgrxDataComponent,
     ResponsiveScreenComponent,
     TakeUntilDestroyedComponent,
@@ -87,7 +81,8 @@ const demoRoutes: Routes = [
     HttpClientModule,
     SharedModule,
     MarkdownRendererModule,
-    BorderDirective
+    BorderDirective,
+    CenteredDirective,
   ],
   providers: [
     DemoService,

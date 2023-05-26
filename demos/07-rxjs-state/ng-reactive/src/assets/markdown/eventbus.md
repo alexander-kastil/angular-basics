@@ -1,22 +1,17 @@
-- Show the disappearing side menu when changing screen resolution to xs
-
-- Explain `menu.service.ts`
+- Show the disappearing side menu when changing screen resolution to xs implemented in sidenav.service.ts. It is triggered using the hamburger menu in the side panel and in the navbar. 
 
 ```typescript
-export class MenuService {
-  constructor(private mediaObserver: MediaObserver) {
-    this.handleChange();
-  }
-  visible$: BehaviorSubject<boolean> = new BehaviorSubject(true);
-  position$: BehaviorSubject<string> = new BehaviorSubject('over');
+  visible$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  position$: BehaviorSubject<MatDrawerMode> = new BehaviorSubject<MatDrawerMode>('side');
 ```
 
-- Explain `menu.service.ts` and its responsive behavior when changing screen width. Also mention `navbar.component.ts` and the Hamburger-Menu.
+- `demo.component.html` toggles the mat-sidenav when these observables change
 
-```html
-<mat-toolbar color="primary">
-  <mat-toolbar-row fxLayoutGap="10px">
-    <div fxHide.gt-xs (click)="toggleMenu()" class="clickable" >
-         <mat-icon color="accent">menu</mat-icon>
-    </div>
-```
+  ```html
+  <mat-sidenav-container>
+    <mat-sidenav
+      #sidenav
+      [opened]="sidenavVisible | async"
+      [mode]="(sidenavMode | async) ?? 'side'"
+    >
+  ```

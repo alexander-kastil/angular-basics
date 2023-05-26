@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { Person } from '../reified-reactive/person.model';
-import { PersonService } from '../reified-reactive/person.service';
+import { Person } from './person.model';
+import { PersonService } from './person.service';
 
 @Component({
   selector: 'app-unsubscribe-ngdestroy',
@@ -20,15 +20,10 @@ export class UnsubscribeNgdestroyComponent {
 
 
   ngOnInit(): void {
-    // no unsubscribe needed because observable from service is finite
-    // just to demonstrate the fact that the more streams you have the more you need to manage them
-    this.personSubscription = this.service
-      .getPersons()
-      //takeUntil will unsubscribe from the stream when the destroy$ Subject emits a value
-      .subscribe((persons) => {
-        this.persons = persons;
-        this.view = persons;
-      });
+    this.personSubscription = this.service.getPersons().subscribe((persons) => {
+      this.persons = persons;
+      this.view = persons;
+    });
 
     this.filterSubscription = this.filter$.valueChanges
       .subscribe((val) => {

@@ -11,9 +11,10 @@ export class FirebaseAuthService {
   fireAuth = inject(AngularFireAuth);
   router = inject(Router);
 
-  private user: Observable<firebase.default.User | null> = this.fireAuth.authState.pipe(
-    tap((state) => console.log('auth state: ', state))
-  );
+  private user: Observable<firebase.default.User | null> = this.
+    fireAuth.authState.pipe(
+      tap((state) => console.log('auth state: ', state))
+    );
 
   private token = this.fireAuth.authState.pipe(
     switchMap((user) => {
