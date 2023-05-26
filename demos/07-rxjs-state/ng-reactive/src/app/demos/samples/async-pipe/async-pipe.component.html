@@ -1,7 +1,7 @@
 <app-markdown-renderer [md]="'async-pipe'"></app-markdown-renderer>
 <mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title> Classic View Model</mat-card-title>
+    <mat-card-title> Imperative programming using subscribe()</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div *ngFor="let t of tasks">{{ t.id }} - {{ t.title }}</div>
@@ -10,7 +10,7 @@
 
 <mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title> Using async pipe </mat-card-title>
+    <mat-card-title> Declarative Reactive Approach using async pipe </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div *ngFor="let t of tasks$ | async">{{ t.id }} - {{ t.title }}</div>
@@ -19,7 +19,7 @@
 
 <mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title> Completed task with ngModel & async pipe </mat-card-title>
+    <mat-card-title> Completed task using Observable operators </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <pre>{{ completed$ | async | json }}</pre>
@@ -32,7 +32,7 @@
   </mat-card-header>
   <mat-card-content>
     <div *ngFor="let t of arTasks">
-      <span>{{ t.title }}</span>
+      <span>{{ t.title }}</span><span> - complete: {{ t.completed }}</span>
     </div>
   </mat-card-content>
 </mat-card>
@@ -44,19 +44,3 @@
     </mat-card-content>
   </mat-card>
 </ng-template>
-
-<mat-card appearance="outlined">
-  <mat-card-header>
-    <mat-card-title> ngModel on prop & async - One way binding </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-form-field>
-      <input
-        matInput
-        type="text"
-        placeholder="Title:"
-        [ngModel]="(completed$ | async)?.title"
-      />
-    </mat-form-field>
-  </mat-card-content>
-</mat-card>

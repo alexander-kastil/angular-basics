@@ -2,7 +2,7 @@
 
 context('Demos', () => {
   beforeEach(() => {
-    cy.visit('https://localhost:4200/demos/');
+    cy.visit('http://localhost:4200/demos/');
   });
 
   describe('Left Menu', () => {

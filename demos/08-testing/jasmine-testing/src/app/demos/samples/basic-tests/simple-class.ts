@@ -1,5 +1,5 @@
 export class SimpleClass {
-  static sayHelloWorld(): string {
+  sayHelloWorld(): string {
     return 'Hello World!';
   }
 }

@@ -11,9 +11,11 @@
       <input
         matInput
         placeholder="Enter your Search Term - Watch console for output"
-        [formControl]="searchterm"
-
-      />
+        [formControl]="searchterm"/>
     </mat-form-field>
   </mat-card-content>
 </mat-card>
+
+<div border>
+  You are searching for: {{ output |async }}
+</div>

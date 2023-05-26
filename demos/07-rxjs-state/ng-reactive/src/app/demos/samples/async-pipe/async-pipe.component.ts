@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { filter, mergeMap } from 'rxjs/operators';
+import { filter, map, mergeMap } from 'rxjs/operators';
 import { TaskItem } from '../tasks/task-item.model';
 import { TaskService } from '../tasks/task.service';
 
@@ -18,10 +18,9 @@ export class AsyncPipeComponent implements OnInit {
   // Declarative Reactive Approach using async pipe
   tasks$: Observable<TaskItem[]> = this.ts.getTasks();
 
-  completed$: Observable<TaskItem> = this.tasks$.pipe(
-    mergeMap((tasks: TaskItem[]) => tasks),
-    filter((t) => t.completed)
-  );
+  completed$: Observable<TaskItem[]> = this.tasks$.pipe(
+    map((tasks) => tasks.filter((task) => task.completed === true)
+    ));
 
   ngOnInit() {
     this.getDataClassic();

@@ -12,6 +12,7 @@ export class HttpClientComponent {
   client = inject(HttpClient);
   result: any;
   fname: string = '';
+  token: string = 'mock-token';
 
   observeResponse() {
     this.client.get(`${environment.api}skills`, {
@@ -27,22 +28,15 @@ export class HttpClientComponent {
   usingHeadersHttpClient() {
     const header = new HttpHeaders({
       'Content-Type': 'application/json',
-      UserEmail: 'giro.galgo@sighthounds.at',
-      SomeHeader: 'SomeVal',
+      'Authorization': 'Bearer ' + this.token,
+      'UserEmail': 'giro.galgo@sighthounds.at',
+      'SomeHeader': 'SomeVal'
     });
 
     this.client
       .get(`${environment.api}skills`, { headers: header })
       .subscribe((data) => {
         console.log('Response using headers variable: ', data);
-        this.result = data;
-      });
-  }
-
-  usingInterceptor() {
-    this.client
-      .get<Skill[]>(`${environment.api}skills`)
-      .subscribe((data) => {
         this.result = data;
       });
   }
