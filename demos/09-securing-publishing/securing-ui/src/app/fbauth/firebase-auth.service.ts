@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Auth, authState, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { map, Observable, switchMap, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -8,15 +8,14 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class FirebaseAuthService {
-  fireAuth = inject(AngularFireAuth);
+  fireAuth = inject(Auth);
+  authState$ = authState(this.fireAuth);
   router = inject(Router);
+  user$ = this.authState$.pipe(
+    tap((state) => console.log('authState changed: ', state))
+  );
 
-  private user: Observable<firebase.default.User | null> = this.
-    fireAuth.authState.pipe(
-      tap((state) => console.log('auth state: ', state))
-    );
-
-  private token = this.fireAuth.authState.pipe(
+  private token = this.authState$.pipe(
     switchMap((user) => {
       if (user) {
         return user.getIdToken();
@@ -34,7 +33,7 @@ export class FirebaseAuthService {
   );
 
   getUser() {
-    return this.user;
+    return this.user$;
   }
 
   getToken() {
@@ -42,7 +41,7 @@ export class FirebaseAuthService {
   }
 
   isAuthenticated(): Observable<boolean> {
-    return this.user.pipe(
+    return this.user$.pipe(
       map((user) => {
         let authEnabled = environment.authEnabled;
         return authEnabled == false || user != null ? true : false;
@@ -50,31 +49,20 @@ export class FirebaseAuthService {
     );
   }
 
-  createUser(
-    email: string,
-    password: string
-  ): Promise<firebase.default.auth.UserCredential> {
-    return this.fireAuth.setPersistence('none').then(() => {
-      return this.fireAuth
-        .createUserWithEmailAndPassword(email, password)
-        .catch((err: any) => {
-          console.log('Error creating User', err);
-          return err;
-        });
+  createUser(email: string, password: string) {
+    createUserWithEmailAndPassword(this.fireAuth, email, password).then((userCredential) => {
+      // you could take the user from here
+      const user = userCredential.user;
     });
   }
 
   logIn(
     email: string,
     password: string
-  ): Promise<firebase.default.auth.UserCredential> {
-    return this.fireAuth.setPersistence('none').then(() => {
-      return this.fireAuth
-        .signInWithEmailAndPassword(email, password)
-        .catch((err: any) => {
-          console.log('Error logging in', err);
-          return err;
-        });
+  ) {
+    signInWithEmailAndPassword(this.fireAuth, email, password).then((userCredential) => {
+      // you could take the user from here
+      const user = userCredential.user;
     });
   }
 

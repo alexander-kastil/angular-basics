@@ -13,7 +13,7 @@
           formControlName="email"
         />
         <mat-error *ngIf="loginForm.get('email')?.errors != undefined"
-          >Keine oder ungültige E-Mail-Adresse
+          >Invalid E-Mail
         </mat-error>
       </mat-form-field>
 
@@ -26,8 +26,8 @@
           placeholder="Password"
           formControlName="password"
         />
-        <mat-error *ngIf="loginForm.get('email')?.errors != undefined"
-          >Min 4 Zeichen
+        <mat-error *ngIf="loginForm.get('password')?.errors != undefined"
+          >Min length 6
         </mat-error>
       </mat-form-field>
     </mat-card-content>
