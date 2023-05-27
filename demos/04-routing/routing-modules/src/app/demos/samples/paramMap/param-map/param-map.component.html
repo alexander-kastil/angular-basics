@@ -11,7 +11,7 @@
         *ngFor="let lnk of links"
         [routerLink]="['./' + lnk.id]"
         [queryParams]="{ readonly: lnk.readonly }"
-        color="primary"
+        color="accent"
       >
         {{ lnk.label }}
       </button>
