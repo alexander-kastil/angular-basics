@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, inject } from '@angular/core';
 import { NavbarService } from "./navbar.service";
 import { NavItem } from "./nav-item.model";
 
@@ -8,8 +8,7 @@ import { NavItem } from "./nav-item.model";
   styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private ns: NavbarService) {}
-
+  ns = inject(NavbarService);
   navItems: NavItem[] = [];
 
   ngOnInit() {

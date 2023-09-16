@@ -1,10 +1,12 @@
-# Food App - Food List
+# Food Container / Presenter
 
-Implement a food list with a simple edit from. Do not invest too much time in formatting. We will use Angular Material later on. 
+In this lab we will implement a container / presenter pattern to manage food. 
 
 ![food-list](_images/food-list.png)
 
-Use the following nested components the you create using the [Angular CLI](https://angular.io/cli/generate#component-command):
+## Steps Outlined
+
+Use the following nested components that you will create using the [Angular CLI](https://angular.io/cli/generate#component-command):
 
 - food/food-container -> container
 - food/food-list -> nested in container
@@ -66,17 +68,18 @@ At the moment do not use Angular Material. Just put the `input`-tags into `div`-
 
 Implement `Select` and `Delete` in the list and `Save` in the edit component.
 
-Use the following code to implement updating the `FoodItem[]` in the container:
+Use the following code to implement `foodSaved()` in the container and hide the edit form after an item has been saved.
 
-```javascript
-const clone = Object.assign([], this.food) as Array<FoodItem>;
-let idx = clone.findIndex((c) => c.id == item.id);
-if (idx > -1) {
-  clone[idx] = item;
-} else {
-  clone.push(item);
+```typescript
+foodSaved(item: FoodItem) {
+  const clone = Object.assign([], this.food) as Array<FoodItem>;
+  let idx = clone.findIndex((c) => c.id == item.id);
+  if (idx > -1) {
+    clone[idx] = item;
+  } else {
+    clone.push(item);
+  }
+  this.food = clone;
+  this.selected = null;
 }
-this.food = clone;
 ```
-
-Hide the edit form after an item has been saved

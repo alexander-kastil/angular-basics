@@ -1,16 +1,8 @@
 # Create a base Angular App with Layout
 
-Make sure you have [Visual Studio Code](https://code.visualstudio.com/download), [Node 16.15.0](https://nodejs.org/download/release/v16.15.0/) and the lasted [Angular CLI](https://angular.io/cli) installed:
+In this lab we will create a base Angular App with a layout and a navbar service.
 
-```
-npm i -g @angular/cli
-```
-
->Note: If you have problems execution scripts in PowerShell run: `Set-ExecutionPolicy bypass`. To check existing installations use: `node --version` and `npm list -g --depth 0`
-
-Also install the [Angular Language Service - Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template).
-
-Create an Angular App with the following layout containing the following components:
+Create the Angular app with the following layout containing the following components:
 
 - home
 - shared/sidemenu
@@ -18,7 +10,7 @@ Create an Angular App with the following layout containing the following compone
 
 ![layout](_images/food-layout.png)
 
-Load the menu items in the navbar using a menu.service that thakes its values from `assets/menu-items.json`:
+It will load the menu items in the navbar using a navbar.service that takes its values from `assets/menu-items.json`:
 
 ```json
 [
@@ -37,9 +29,26 @@ Load the menu items in the navbar using a menu.service that thakes its values fr
 ]
 ```
 
-A solution is provided in the folder `food-app`.
+## Check the environment setup:
 
-## Step-by-Step Guide:
+Make sure you have [Visual Studio Code](https://code.visualstudio.com/download), and a [compatible](https://angular.io/guide/versions) node version like [Node 16.15.0](https://nodejs.org/download/release/v16.15.0/) or [Node 18.10.0](https://nodejs.org/download/release/v18.10.0/) and the lasted [Angular CLI](https://angular.io/cli) installed:
+
+```bash
+node --version
+ng version
+```
+
+Update to the current version of Angular CLI:
+
+```
+npm i -g @angular/cli
+```
+
+>Note: If you have problems execution scripts in PowerShell run: `Set-ExecutionPolicy bypass` in an elevated PowerShell Terminal. 
+
+Also install the [Angular Language Service - Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template).
+
+## Step-by-Step Guide
 
 Create Angular Project using the [Angular CLI](https://angular.io/cli/new):
 
@@ -141,10 +150,10 @@ ng g s shared/navbar/navbar
 
 In shared/navbar/ create a nav-item.model.ts and add the following content to it:
 
-```
+```typescript
 export class NavItem {
-  title: string = "";
-  url: string = "";
+  title = "";
+  url = "";
 }
 ```
 
@@ -180,11 +189,13 @@ import { HttpClientModule } from "@angular/common/http";
 Inject Angular HttpClient in the constructor of `navbar.service.ts` and load `assets/menu-items.json`:
 
 ```typescript
-constructor(private httpClient: HttpClient) {}
+export class NavbarService {
+  http = inject(HttpClient);
 
-getItems() {
-    return this.httpClient.get<NavItem[]>("assets/menu-items.json");
+  getItems() {
+    return this.http.get<NavItem[]>("assets/menu-items.json");
   }
+}
 ```
 
 >Note: A copy of `menu-items.json` is located in the folder of this lab
@@ -192,14 +203,15 @@ getItems() {
 Inject navbar.service in `navbar.component.ts` and get the menu items:
 
 ```typescript
-constructor(private ns: NavbarService) {}
+export class NavbarComponent implements OnInit {
+  ns = inject(NavbarService);
+  navItems: NavItem[] = [];
 
-navItems: NavItem[] = [];
-
-ngOnInit() {
-  this.ns.getItems().subscribe(data => {
-    this.navItems = data;
-  });
+  ngOnInit() {
+    this.ns.getItems().subscribe((data) => {
+      this.navItems = data;
+    });
+  }
 }
 ```
 

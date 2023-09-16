@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { FoodItem } from "../food.model";
 
 @Component({
@@ -6,17 +6,13 @@ import { FoodItem } from "../food.model";
   templateUrl: "./food-list.component.html",
   styleUrls: ["./food-list.component.scss"],
 })
-export class FoodListComponent implements OnInit {
-  constructor() {}
-
+export class FoodListComponent {
   @Input()
   food: FoodItem[] = [];
   @Output()
   foodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
   @Output()
   foodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-
-  ngOnInit() {}
 
   selectFood(item: FoodItem) {
     this.foodSelected.emit(item);

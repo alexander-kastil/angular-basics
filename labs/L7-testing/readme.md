@@ -1,8 +1,12 @@
-# Food App - Testing
+# Testing
+
+In this lab we will write some simple tests
+
+## Steps Outlined
+
+### Setup of testing environment - optional
 
 ![test-explorer](_images/test-explorer.jpg)
-
-Tools Setup:
 
 - Install [Test Explorer UI](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer)
 
@@ -26,9 +30,7 @@ Notice the Wallaby indicator on the right bottom of Visual Studio Code
 
 ![wallaby](_images/wallaby.png)
 
-Testing:
-
-> Note: Mock data is provided in `food.mocks.ts`
+### Implement Testing
 
 - Complete the pending tests in the following files:
 
@@ -37,5 +39,7 @@ Testing:
     - food-list.component.spec.ts
     - food-edit.component.spec.ts
     - food-container.component.spec.ts
+    
+    > Note: Mock data is provided in `food.mocks.ts`
 
 - Try to reach a [code coverage](https://angular.io/guide/testing-code-coverage) of more than 80%

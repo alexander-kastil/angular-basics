@@ -1,5 +1,8 @@
 # Food App - Routing
 
+In this lab we will add simple routing to the food app.
+## Steps Outlined
+
 - Implement Routing for the navbar elements.
 
     - Add an about component using the [Angular CLI](https://angular.io/cli/generate#component-command)
@@ -13,7 +16,7 @@
         { path: "food", component: FoodContainerComponent },
         { path: "about", component: AboutComponent },
         ```
-    - Add [RouterLink](https://angular.io/api/router/RouterLink) directives to `navbar.component.html` to enable navigation. Apply a style for the active link - use [this reference](https://github.com/arambazamba/ng-dev/blob/main/demos/04-routing/routing-modules/src/app/shared/navbar/navbar.component.html)
+    - Add [RouterLink](https://angular.io/api/router/RouterLink) directives to `navbar.component.html` to enable navigation. Apply a style for the active link - use [this reference](/demos/04-routing/routing-modules/src/app/shared/navbar/navbar.component.html)
 
     - Test the routing
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { PersonService } from '../persons/person.service';
 import { Person } from '../persons/person.model';
 
@@ -8,8 +8,7 @@ import { Person } from '../persons/person.model';
   styleUrls: ['./container.component.scss'],
 })
 export class ContainerComponent implements OnInit {
-  constructor(private ps: PersonService) {}
-
+  ps = inject(PersonService);
   persons: Person[] = [];
   current: Person | null = null;
 

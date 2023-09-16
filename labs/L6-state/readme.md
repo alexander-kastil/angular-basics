@@ -1,8 +1,12 @@
-# Food App - State
+# Reactive Programming and State Management
+
+In this lab we will implement a Side Menu and a global Loading Indicator using RxJS and Stateful Services.
 
 ![menu](_images/menu.jpg)
 
-## Implement a responsive Side Menu:
+## Steps Outlined
+
+### Implement a responsive Side Menu:
 
 - Implement a menu.service.ts as a Stateful Service using BehaviorSubjects with the two properties:
 
@@ -68,7 +72,7 @@
 
 - Take the [demo.container](.../../../../demos/07-rxjs-state/ng-reactive/src/app/demos/demo-container/) and the [sidenav.service.ts](.../../../../demos/07-rxjs-state/ng-reactive/src/app/shared/sidenav/sidenav.service.ts) as a reference.
 
-## Implement a global loading inicator (Advanced Optional):
+### Implement a global loading indicator (Advanced Optional):
 
 Note: If your time permits you can also a loading indicator using an interceptor. Take this reference from the [Demo App](.../../../../demos/07-rxjs-state/ng-reactive/src/app/shared/loading/).
 
