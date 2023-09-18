@@ -25,7 +25,6 @@ export class ServicesComponent {
   showDeclarative = this.skills$.pipe(map((data) => data.length > 0));
 
   usingFetch() {
-    //using fetch in angular is an antipattern
     fetch(`${environment.api}skills`)
       .then((resp: Response) => {
         console.log('Response received from fetch', resp);
