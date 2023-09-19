@@ -1,7 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { Person } from '../persons/person.model';
 import { PersonService } from '../persons/person.service';
-import { delay, of } from 'rxjs';
+import { delay, of, take } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-binding',
@@ -10,6 +11,7 @@ import { delay, of } from 'rxjs';
 })
 export class BindingComponent implements OnInit {
   ps = inject(PersonService);
+  destroy = inject(DestroyRef);
   hide = false;
   persons: Person[] = [];
   selectedPerson: Person = new Person();
@@ -17,17 +19,22 @@ export class BindingComponent implements OnInit {
   isActive: boolean = false;
 
   ngOnInit() {
-    this.ps.getPersons().subscribe((data) => {
-      if (data?.length > 0) {
-        this.persons = data;
-        this.selectedPerson = this.persons[0];
-      }
-    });
+    this.ps.getPersons()
+      .pipe(takeUntilDestroyed(this.destroy))
+      .subscribe((data) => {
+        if (data?.length > 0) {
+          this.persons = data;
+          this.selectedPerson = this.persons[0];
+        }
+      });
 
     //convert person to observable using of rxjs operator
     const p: Person = { id: 17, name: 'Heidi', age: 13, gender: 'female' };
     of(p)
-      .pipe(delay(4000))
+      .pipe(
+        takeUntilDestroyed(this.destroy),
+        delay(4000)
+      )
       .subscribe((data) => {
         this.latePerson = data;
       });

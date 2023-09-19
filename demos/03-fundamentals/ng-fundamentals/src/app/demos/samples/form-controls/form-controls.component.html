@@ -11,8 +11,10 @@
       <input
         matInput
         placeholder="Enter your Search Term - Watch console for output"
-        [formControl]="searchterm"
+        [formControl]="searchTerm"
       />
+      <label for="chkSave">Save:</label>
+      <input id="chkSave" type="checkbox" [formControl]="chkSave" />
     </mat-form-field>
   </mat-card-content>
 </mat-card>
