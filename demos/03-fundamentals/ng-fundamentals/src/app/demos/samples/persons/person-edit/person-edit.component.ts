@@ -14,14 +14,10 @@ import { Person } from '../person.model';
   templateUrl: './person-edit.component.html',
   styleUrls: ['./person-edit.component.scss'],
 })
-export class PersonEditComponent implements OnInit, OnChanges {
+export class PersonEditComponent implements OnChanges {
   @Input() person: Person = new Person();
   @Input() editMode: boolean = false;
   @Output() savePerson: EventEmitter<Person> = new EventEmitter<Person>();
-
-  ngOnInit() {
-    console.log(this.person);
-  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['person']) {

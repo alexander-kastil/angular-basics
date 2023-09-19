@@ -13,7 +13,7 @@ import { Person } from '../person.model';
   styleUrls: ['./persons-list.component.scss'],
 })
 export class PersonsListComponent {
-  @Input() persons: Person[] = [];
+  @Input() persons: Person[] | null = [];
   @Output() personSelected = new EventEmitter<Person>();
 
   ngOnChanges(changes: SimpleChanges): void {

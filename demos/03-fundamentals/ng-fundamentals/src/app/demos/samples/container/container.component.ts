@@ -25,7 +25,7 @@ export class ContainerComponent implements OnInit {
   }
 
   onPersonSaved(p: Person) {
-    console.log('saving to service:', p);
+    console.log('mock saving to service:', p);
     const existing: Person | undefined = this.persons.find((i) => i.id == p.id);
     if (existing) {
       Object.assign(existing, p);
