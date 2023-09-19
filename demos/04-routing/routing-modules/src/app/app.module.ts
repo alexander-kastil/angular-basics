@@ -17,8 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
 import * as customerEffects from './customers/state/customers.effects';
 import { metaReducers, reducers } from './state';
 import { CommonModule } from '@angular/common';
-import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
-import { CustomersComponent } from './customers/component/customer-list/customers.component';
+
 
 @NgModule({
   declarations: [
@@ -26,8 +25,6 @@ import { CustomersComponent } from './customers/component/customer-list/customer
     HomeComponent,
     PageNotFoundComponent,
     AdminComponent,
-    CustomerEditComponent,
-    CustomersComponent,
   ],
   imports: [
     CommonModule,

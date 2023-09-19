@@ -8,8 +8,6 @@ import { AdminBComponent } from './admin/admin-b/admin-b.component';
 import { SkillsListComponent } from './skills/skills-list/skills-list.component';
 import { SkillsEditComponent } from './skills/skills-edit/skills-edit.component';
 import { SkillResolverService } from './skills/skill-resolver.service';
-import { CustomersComponent } from './customers/component/customer-list/customers.component';
-import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
 import { authGuard } from './authGuard';
 
 const routes: Routes = [
@@ -33,11 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'customers',
-    component: CustomersComponent,
-  },
-  {
-    path: 'customers/:id',
-    component: CustomerEditComponent,
+    loadChildren: () =>
+      import('./customers/customers.module').then((m) => m.CustomersModule),
   },
   {
     path: 'admin',
