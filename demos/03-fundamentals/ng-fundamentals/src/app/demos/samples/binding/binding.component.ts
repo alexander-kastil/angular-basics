@@ -11,7 +11,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class BindingComponent implements OnInit {
   ps = inject(PersonService);
-  destroy = inject(DestroyRef);
   hide = false;
   persons: Person[] = [];
   selectedPerson: Person = new Person();
@@ -20,7 +19,6 @@ export class BindingComponent implements OnInit {
 
   ngOnInit() {
     this.ps.getPersons()
-      .pipe(takeUntilDestroyed(this.destroy))
       .subscribe((data) => {
         if (data?.length > 0) {
           this.persons = data;
@@ -32,7 +30,6 @@ export class BindingComponent implements OnInit {
     const p: Person = { id: 17, name: 'Heidi', age: 13, gender: 'female' };
     of(p)
       .pipe(
-        takeUntilDestroyed(this.destroy),
         delay(4000)
       )
       .subscribe((data) => {

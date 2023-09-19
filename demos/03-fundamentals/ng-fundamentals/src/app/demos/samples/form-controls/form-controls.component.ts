@@ -24,5 +24,11 @@ export class FormControlsComponent {
       .subscribe((val) => {
         console.log('Currently your searching debounced for:', val);
       });
+
+    this.searchTerm.statusChanges
+      .pipe(takeUntilDestroyed(this.destroy))
+      .subscribe((status) => {
+        console.log('status of search term:', status);
+      });
   }
 }
