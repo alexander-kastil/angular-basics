@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-skills-edit',
   templateUrl: './skills-edit.component.html',
-  styleUrls: ['./skills-edit.component.scss'],
+  styleUrls: ['./skills-edit.component.scss']
 })
 
 export class SkillsEditComponent implements OnInit {

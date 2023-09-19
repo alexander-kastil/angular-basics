@@ -10,7 +10,7 @@ import { SkillsEditComponent } from './skills/skills-edit/skills-edit.component'
 import { SkillResolverService } from './skills/skill-resolver.service';
 import { CustomersComponent } from './customers/component/customer-list/customers.component';
 import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
-import { authGuard } from './IsAuthRouteGuard';
+import { authGuard } from './authGuard';
 
 const routes: Routes = [
   {

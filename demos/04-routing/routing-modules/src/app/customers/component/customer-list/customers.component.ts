@@ -2,9 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Customer } from '../../customer.model';
 import { CustomersActions } from '../../state/customers.actions';
-import { CustomersState } from '../../state/customers.reducer';
-import { getCustomers } from '../../state/customers.selector';
-
+import { CustomersState, customersState } from '../../state/customers.state';
 
 @Component({
   selector: 'app-customers',
@@ -17,6 +15,6 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit(): void {
     this.state.dispatch(CustomersActions.loadCustomers());
-    this.state.select(getCustomers).subscribe((customer: Customer[]) => this.customers = customer);
+    this.state.select(customersState.selectCustomers).subscribe((customer: Customer[]) => this.customers = customer);
   }
 }

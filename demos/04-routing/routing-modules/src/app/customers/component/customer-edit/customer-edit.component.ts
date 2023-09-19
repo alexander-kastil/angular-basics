@@ -1,8 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { mergeMap } from 'rxjs';
-import { CustomersState } from '../../state/customers.reducer';
-import { getCustomers } from '../../state/customers.selector';
+import { CustomersState, customersState } from '../../state/customers.state';
 
 @Component({
   selector: 'app-customer-edit',
@@ -14,7 +13,7 @@ export class CustomerEditComponent {
   @Input() readonly?: boolean;
 
   store = inject(Store<CustomersState>) as Store<CustomersState>;
-  customer = this.store.select(getCustomers).pipe(
+  customer = this.store.select(customersState.selectCustomers).pipe(
     mergeMap(
       (customers) => customers.filter(c => c.id == this.id)
     ));

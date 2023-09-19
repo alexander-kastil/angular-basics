@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Customer } from './customer.model';
 
@@ -7,7 +7,7 @@ import { Customer } from './customer.model';
   providedIn: 'root',
 })
 export class CustomersService {
-  constructor(private http: HttpClient) { }
+  http = inject(HttpClient);
 
   getCustomers() {
     return this.http.get<Customer[]>(`${environment.api}customers`);

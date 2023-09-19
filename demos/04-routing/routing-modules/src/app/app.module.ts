@@ -14,7 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { SkillsModule } from './skills/skills.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { CustomerEffects } from './customers/state/customers.effects';
+import * as customerEffects from './customers/state/customers.effects';
 import { metaReducers, reducers } from './state';
 import { CommonModule } from '@angular/common';
 import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
@@ -41,7 +41,7 @@ import { CustomersComponent } from './customers/component/customer-list/customer
     FormsModule,
     AdminModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([CustomerEffects]),
+    EffectsModule.forRoot(customerEffects),
   ],
   providers: [],
   bootstrap: [AppComponent],
