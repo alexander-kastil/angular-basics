@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
-import { IsAuthRouteGuard } from './IsAuthRouteGuard';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { SharedModule } from './shared/shared.module';
 import { SkillsModule } from './skills/skills.module';
@@ -44,7 +43,7 @@ import { CustomersComponent } from './customers/component/customer-list/customer
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([CustomerEffects]),
   ],
-  providers: [IsAuthRouteGuard],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

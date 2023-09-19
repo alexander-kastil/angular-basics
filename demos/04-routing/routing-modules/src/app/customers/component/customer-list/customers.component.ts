@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Customer } from '../../customer.model';
 import { CustomersActions } from '../../state/customers.actions';
@@ -12,9 +12,9 @@ import { getCustomers } from '../../state/customers.selector';
   styleUrls: ['./customers.component.scss']
 })
 export class CustomersComponent implements OnInit {
+  state = inject(Store<CustomersState>);
   customers: Customer[] = [];
 
-  constructor(public state: Store<CustomersState>) { }
   ngOnInit(): void {
     this.state.dispatch(CustomersActions.loadCustomers());
     this.state.select(getCustomers).subscribe((customer: Customer[]) => this.customers = customer);

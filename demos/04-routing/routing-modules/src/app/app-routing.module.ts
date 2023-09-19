@@ -3,15 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { AdminComponent } from './admin/admin.component';
-import { IsAuthRouteGuard } from './IsAuthRouteGuard';
 import { AdminAComponent } from './admin/admin-a/admin-a.component';
 import { AdminBComponent } from './admin/admin-b/admin-b.component';
 import { SkillsListComponent } from './skills/skills-list/skills-list.component';
 import { SkillsEditComponent } from './skills/skills-edit/skills-edit.component';
 import { SkillResolverService } from './skills/skill-resolver.service';
-import { IsAdminGuard } from './IsAdminGuard';
 import { CustomersComponent } from './customers/component/customer-list/customers.component';
 import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
+import { authGuard } from './IsAuthRouteGuard';
 
 const routes: Routes = [
   {
@@ -53,7 +52,7 @@ const routes: Routes = [
         component: AdminBComponent,
       },
     ],
-    // canActivate: [IsAuthRouteGuard],
+    canActivate: [authGuard],
   },
   {
     path: 'skills-old',
