@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { VouchersService } from '../vouchers/voucher.service';
 import { Voucher } from '../vouchers/vouchers.model';
 
@@ -7,24 +7,14 @@ import { Voucher } from '../vouchers/vouchers.model';
   templateUrl: './struct-directives.component.html',
   styleUrls: ['./struct-directives.component.scss'],
 })
-export class StructDirectivesComponent implements OnInit {
-  constructor(private vs: VouchersService) {}
-
+export class StructDirectivesComponent {
+  vs = inject(VouchersService);
   persons = [{ name: 'Heinz' }, { name: 'Brunhilde' }, { name: 'Susi' }];
   selectedPerson: string = this.persons[0].name;
-
-  vouchers: Voucher[] = [];
-
+  vouchers$ = this.vs.getVouchers();
   showTextOne = true;
-
   currentDirection: DirectionEnum = DirectionEnum.East;
   direction = DirectionEnum;
-
-  ngOnInit() {
-    this.vs.getVouchers().subscribe((data: Voucher[]) => {
-      this.vouchers = data;
-    });
-  }
 
   showVoucher(v: Voucher) {
     console.log(

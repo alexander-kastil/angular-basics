@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Voucher } from './vouchers.model';
 
@@ -7,7 +7,7 @@ import { Voucher } from './vouchers.model';
   providedIn: 'root',
 })
 export class VouchersService {
-  constructor(private http: HttpClient) { }
+  http = inject(HttpClient);
 
   getVouchers() {
     return this.http.get<Voucher[]>(`${environment.api}vouchers`);

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-pipes',
   templateUrl: './pipes.component.html',
   styleUrls: ['./pipes.component.scss'],
 })
-export class PipesComponent implements OnInit {
+export class PipesComponent {
   person = {
     id: 1,
     name: 'Soi',
@@ -20,8 +20,4 @@ export class PipesComponent implements OnInit {
     { name: 'Brunhilde', gender: 'female' },
     { name: 'Susi', gender: 'female' },
   ];
-
-  constructor() {}
-
-  ngOnInit() {}
 }
