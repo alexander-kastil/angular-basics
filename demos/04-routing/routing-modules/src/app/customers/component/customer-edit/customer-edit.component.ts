@@ -12,6 +12,7 @@ import { getCustomers } from '../../state/customers.selector';
 export class CustomerEditComponent {
   @Input() id?: number;
   @Input() readonly?: boolean;
+
   store = inject(Store<CustomersState>) as Store<CustomersState>;
   customer = this.store.select(getCustomers).pipe(
     mergeMap(
