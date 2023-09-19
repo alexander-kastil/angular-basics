@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SkillsService } from '../../../skills/skills.service';
 import { SnackbarService } from '../../../shared/snackbar/snackbar.service';
 import { addBusinessDays } from 'date-fns';
@@ -10,7 +10,8 @@ import { Skill } from '../../../skills/skill.model';
   styleUrls: ['./services-basics.component.scss']
 })
 export class ServicesBasicsComponent {
-  constructor(private service: SkillsService, private sns: SnackbarService) { }
+  service = inject(SkillsService);
+  sns = inject(SnackbarService);
   result: any;
   loading = false;
 

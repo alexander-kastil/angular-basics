@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Person } from '../persons/person.model';
 import { PersonService } from '../persons/person.service';
-import { of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { delay, of } from 'rxjs';
 
 @Component({
   selector: 'app-binding',
@@ -10,8 +9,7 @@ import { delay } from 'rxjs/operators';
   styleUrls: ['./binding.component.scss'],
 })
 export class BindingComponent implements OnInit {
-  constructor(private ps: PersonService) { }
-
+  ps = inject(PersonService);
   hide = false;
   persons: Person[] = [];
   selectedPerson: Person = new Person();
@@ -20,9 +18,9 @@ export class BindingComponent implements OnInit {
 
   ngOnInit() {
     this.ps.getPersons().subscribe((data) => {
-      if (data) {
+      if (data?.length > 0) {
         this.persons = data;
-        if (this.persons.length > 0) { this.selectedPerson = this.persons[0]; }
+        this.selectedPerson = this.persons[0];
       }
     });
 
@@ -40,6 +38,6 @@ export class BindingComponent implements OnInit {
   }
 
   handleChange(p: Person) {
-    console.log('value received from eventbinding', p);
+    console.log('value received from event binding', p);
   }
 }

@@ -5,15 +5,15 @@
     <mat-card-title> Bindings - Change text and watch changes</mat-card-title>
   </mat-card-header>
   <mat-card-content column>
-      <label>Interpolation - One Way Binding:</label>
-      <div>{{selectedPerson.name}}</div>
-      <label>One Way Attribute Binding</label>
-      <input type="text" [value]="selectedPerson.name"/>
-      <label for="lblOneWayModel">One Way (Model) Binding</label>
-      <input type="text" [ngModel]="selectedPerson.name"/>
-      <label for="lblTwoWay">Two Way (Model) Binding</label>
-      <!-- banana in a box -->
-      <input type="text" [(ngModel)]="selectedPerson.name"/>
+    <label>Interpolation - One Way Binding:</label>
+    <div>{{ selectedPerson.name }}</div>
+    <label>One Way Attribute Binding</label>
+    <input type="text" [value]="selectedPerson.name" />
+    <label for="lblOneWayModel">One Way (Model) Binding</label>
+    <input type="text" [ngModel]="selectedPerson.name" />
+    <label for="lblTwoWay">Two Way (Model) Binding</label>
+    <!-- banana in a box -->
+    <input type="text" [(ngModel)]="selectedPerson.name" />
   </mat-card-content>
 </mat-card>
 
@@ -21,8 +21,7 @@
   <mat-card-header>
     <mat-card-title
       >Binding and Nullability - data with latency
-      </mat-card-title
-    >
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div *ngIf="latePerson">
@@ -43,7 +42,7 @@
     </div>
     <div>
       <select [(ngModel)]="selectedPerson" style="width: 150px">
-        <option *ngFor="let p of persons" [ngValue]="p">{{ p.name }}</option>
+        <option *ngFor="let p of persons" [value]="p">{{ p.name }}</option>
       </select>
     </div>
   </mat-card-content>
@@ -51,9 +50,7 @@
 
 <mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title>
-      Attribute Binding on a div
-    </mat-card-title>
+    <mat-card-title> Attribute Binding on a div </mat-card-title>
   </mat-card-header>
 
   <mat-card-content>
@@ -72,26 +69,24 @@
   <mat-card-header>
     <mat-card-title> Bindings Radio Button Groups </mat-card-title>
   </mat-card-header>
-  <mat-card-content >
-   <div class="row">
-    <input
-    type="radio"
-    name="gender"
-    [(ngModel)]="selectedPerson.gender"
-    value="male"
-  />
-  Male
-  <input
-    type="radio"
-    name="gender"
-    [(ngModel)]="selectedPerson.gender"
-    value="female"
-  />
-  Female
-   </div>
-    <div>
-      {{ selectedPerson.name }} is {{ selectedPerson.gender }}
+  <mat-card-content>
+    <div class="row">
+      <input
+        type="radio"
+        name="gender"
+        [(ngModel)]="selectedPerson.gender"
+        value="male"
+      />
+      Male
+      <input
+        type="radio"
+        name="gender"
+        [(ngModel)]="selectedPerson.gender"
+        value="female"
+      />
+      Female
     </div>
+    <div>{{ selectedPerson.name }} is {{ selectedPerson.gender }}</div>
   </mat-card-content>
 </mat-card>
 
@@ -101,10 +96,9 @@
   </mat-card-header>
   <mat-card-content>
     <div class="row">
-      <span>Is Active:</span> <input type="checkbox" [(ngModel)]="isActive" />
+      <span>Is Active:</span>
+      <input type="checkbox" [(ngModel)]="isActive" />
     </div>
-    <div>
-      Current State: {{ isActive }}
-    </div>
+    <div>Current State: {{ isActive }}</div>
   </mat-card-content>
 </mat-card>

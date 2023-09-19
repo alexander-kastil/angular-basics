@@ -32,7 +32,11 @@ export class DemoContainerComponent implements OnInit {
   sidenavMode = this.nav.getSideNavPosition();
   sidenavVisible = this.nav.getSideNavVisible();
   workbenchMargin = this.sidenavVisible.pipe(
-    map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })
+    map((visible: boolean) => {
+      return visible ?
+        { 'margin-left': '5px' } :
+        {}
+    })
   );
 
   currentCMD = this.eb.getCommands()

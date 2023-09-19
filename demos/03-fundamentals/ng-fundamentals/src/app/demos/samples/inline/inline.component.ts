@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
         <mat-card-title>{{ title }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        By using backticks I can use mulitline text
+        By using backticks I can use multiline text
       </mat-card-content>
     </mat-card>
   `,
