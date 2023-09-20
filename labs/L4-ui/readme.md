@@ -86,6 +86,8 @@ In this task we will add data access to food-app. We will use [json-server](http
     }
     ```
 
+- After this lab you should be able to add, edit and delete food items in the app.
+
 ### Implement a custom Material Theme
 
 Implement a custom material theme with a [custom color palette](https://material.io/resources/color/#!/?view.left=0&view.right=0) and replace the theme that you have chosen at the beginning of this lab:
