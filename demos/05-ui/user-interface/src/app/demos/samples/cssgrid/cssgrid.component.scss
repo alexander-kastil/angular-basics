@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: 3fr 1fr;
   // grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
+  // grid-template-columns: 180px auto;
+  grid-gap: 2rem;
   /* grid-auto-rows:100px; */
   grid-auto-rows: minmax(100px, auto);
 }

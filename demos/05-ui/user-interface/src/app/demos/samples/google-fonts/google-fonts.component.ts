@@ -5,10 +5,6 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./google-fonts.component.html",
   styleUrls: ["./google-fonts.component.scss"]
 })
-export class GoogleFontsComponent implements OnInit {
-  constructor() {}
-
+export class GoogleFontsComponent {
   title: string = "Hinz & Kunz Wartungsplaner";
-
-  ngOnInit() {}
 }

@@ -22,7 +22,7 @@ Implement the Base Layout using CSS Grid:
 
 - Change to base layout in app.component to use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/). Use the [Demo App](/demos/05-ui/user-interface/src/app/app.component.html) Layout as a reference.
     
-- Hide the sidebar on devices with a horizontal width less than medium. We will add a toggle button in another lab.
+- Hide the sidebar on devices with a horizontal width less than `960px`. We will add a toggle button in another lab.
 
 Implement a Material Design for Food App:
 

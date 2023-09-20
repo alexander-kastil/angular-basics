@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './material-theme.component.html',
   styleUrls: ['./material-theme.component.scss']
 })
-export class MaterialThemeComponent {
-
-}
+export class MaterialThemeComponent { }

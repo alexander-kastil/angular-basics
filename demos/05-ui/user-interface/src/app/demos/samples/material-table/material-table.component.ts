@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Voucher } from '../vouchers/vouchers.model';
+import { Voucher } from './vouchers.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-material-table',
@@ -9,13 +10,12 @@ import { Voucher } from '../vouchers/vouchers.model';
   styleUrls: ['./material-table.component.scss'],
 })
 export class MaterialTableComponent implements OnInit {
+  http = inject(HttpClient);
   dataSource: MatTableDataSource<Voucher> = new MatTableDataSource<Voucher>([]);
   displayedColumns = ['Text', 'Date', 'Amount', 'action'];
 
-  constructor(private http: HttpClient) {}
-
   ngOnInit() {
-    this.http.get<Voucher[]>('./assets/vouchers.json').subscribe((data) => {
+    this.http.get<Voucher[]>(`${environment.api}vouchers`).subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
     });
   }

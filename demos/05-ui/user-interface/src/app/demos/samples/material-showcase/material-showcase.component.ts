@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
 
 @Component({
@@ -6,14 +6,11 @@ import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
   templateUrl: './material-showcase.component.html',
   styleUrls: ['./material-showcase.component.scss'],
 })
-export class MaterialShowCaseComponent implements OnInit {
+export class MaterialShowCaseComponent {
+  sns = inject(SnackbarService);
   card = '/assets/images/CleoSoi.jpg';
   count = 3;
   public images = ['giraffe', 'monkey', 'elefant'];
-
-  constructor(private sns: SnackbarService) {}
-
-  ngOnInit() {}
 
   incrementCt() {
     this.count += 1;

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../movie/movie.service';
-import { Movie } from '../movie/movie.model';
+import { Movie } from './movie.model';
 
 @Component({
   selector: 'app-flexbox',
@@ -9,19 +8,25 @@ import { Movie } from '../movie/movie.model';
 })
 export class FlexboxComponent implements OnInit {
   movies: Movie[] = [];
-  currclass = 'flex-container';
-
-  constructor(private ms: MovieService) { }
+  currentClass = 'flex-container-col';
 
   ngOnInit() {
-    this.movies = this.ms.getMovies();
+    this.movies = this.getMovies();
+  }
+
+  getMovies(itemCount: number = 8): Movie[] {
+    this.movies = [];
+    for (let i = 0; i < itemCount; i++) {
+      this.movies.push({ title: `Movie ${i}` } as Movie);
+    }
+    return this.movies;
   }
 
   toggleLayout() {
-    this.currclass =
-      this.currclass == 'flex-container-row'
+    this.currentClass =
+      this.currentClass == 'flex-container-row'
         ? 'flex-container-col'
         : 'flex-container-row';
-    console.log(this.currclass);
+    console.log(this.currentClass);
   }
 }
