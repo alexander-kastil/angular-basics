@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
+  Observable,
+  Subscription,
   forkJoin,
   from,
   interval,
-  Observable,
   of,
-  Subscription,
   throwError,
 } from 'rxjs';
 import {
@@ -19,8 +19,8 @@ import {
   take,
   tap,
 } from 'rxjs/operators';
-import { Voucher } from '../vouchers/vouchers.model';
 import { VouchersService } from '../vouchers/voucher.service';
+import { Voucher } from '../vouchers/vouchers.model';
 import { DoublerService } from './doubler.service';
 
 @Component({
@@ -28,15 +28,12 @@ import { DoublerService } from './doubler.service';
   templateUrl: './operators.component.html',
   styleUrls: ['./operators.component.scss'],
 })
-export class OperatorsComponent implements OnInit {
-  constructor(private vs: VouchersService, private ds: DoublerService) {}
-
+export class OperatorsComponent {
+  vs = inject(VouchersService);
+  ds = inject(DoublerService);
   sub: Subscription | null = null;
   response: any;
   vouchers: Voucher[] = [];
-
-  ngOnInit() {}
-
   setLabel = (v: Voucher) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
 
   log = (msg: string, data: any) => {
@@ -145,7 +142,7 @@ export class OperatorsComponent implements OnInit {
     return forkJoin([response1, response2, response3]);
   }
 
-  useSwitchmap() {}
+  useSwitchmap() { }
 
   useCombineLatestWith() {
     this.vs

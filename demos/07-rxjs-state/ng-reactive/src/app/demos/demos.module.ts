@@ -27,7 +27,6 @@ import { SignalsBasicsComponent } from './samples/signals-basics/signals-basics.
 import { SignalsEventBusComponent } from './samples/signals-event-bus/signals-event-bus.component';
 import { BorderDirective, CenteredDirective } from '../shared/formatting/formatting-directives';
 import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
-import { UnsubscribeNgdestroyComponent } from './samples/unsubscribe-ngdestroy/unsubscribe-ngdestroy.component';
 
 const demoRoutes: Routes = [
   {
@@ -70,7 +69,6 @@ const demoRoutes: Routes = [
     TakeUntilDestroyedComponent,
     SignalsBasicsComponent,
     SignalsEventBusComponent,
-    UnsubscribeNgdestroyComponent,
   ],
   imports: [
     CommonModule,

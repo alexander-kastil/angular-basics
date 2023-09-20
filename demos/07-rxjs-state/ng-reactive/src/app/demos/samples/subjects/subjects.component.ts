@@ -7,8 +7,6 @@ import { BehaviorSubject, Subject } from 'rxjs';
   styleUrls: ['./subjects.component.scss'],
 })
 export class SubjectsComponent {
-  constructor() {}
-
   sub$: Subject<number> = new Subject<number>();
   bs$: BehaviorSubject<number> = new BehaviorSubject<number>(-1);
 

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TaskItem } from './task-item.model';
 import { Observable } from 'rxjs';
@@ -8,10 +8,10 @@ import { delay } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class TaskService {
-  constructor(private httpClient: HttpClient) {}
+  http = inject(HttpClient);
 
   getTasks(): Observable<TaskItem[]> {
-    return this.httpClient
+    return this.http
       .get<TaskItem[]>('http://localhost:3000/tasks')
       .pipe(delay(1000));
   }
