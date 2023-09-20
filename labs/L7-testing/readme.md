@@ -1,34 +1,26 @@
 # Testing
 
-In this lab we will write some simple tests
+In this lab we will complete some unit tests to ensure that our application is working as expected.
 
 ## Steps Outlined
 
 ### Setup of testing environment - optional
 
-![test-explorer](_images/test-explorer.jpg)
+- Install [Wallaby.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode) - (optional) 
 
-- Install [Test Explorer UI](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer)
+    >Note: Wallyby.js is also available for [JetBrains products](https://plugins.jetbrains.com/plugin/15742-wallaby)
 
-```bash
-code --install-extension hbenl/vscode-test-explorer
-code --install-extension raagh.angular-karma-test-explorer
-code --install-extension connorshea/vscode-test-explorer-status-bar
-```
+    ```bash
+    code --install-extension wallabyjs.wallaby-vscode
+    ```
 
-- Install [Wallaby.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode) and get your [trial licence](https://wallabyjs.com/download/) - (optional) 
-
-```bash
-code --install-extension wallabyjs.wallaby-vscode
-```
-
-- Get your [Wallaby-Trial-Key](https://wallabyjs.com/download/) and apply your Licence key press `F1 -> Wallaby.js: Manage Licence Key` and enter your key.
+- Get your [Wallaby-Trial-Key](https://wallabyjs.com/download/) and apply your License key press `F1 -> Wallaby.js: Manage License Key` and enter your key.
 
 - Activate Wallaby using `F1 -> Wallaby.js: Start`
 
-Notice the Wallaby indicator on the right bottom of Visual Studio Code
+- Notice the Wallaby indicator on the right bottom of Visual Studio Code
 
-![wallaby](_images/wallaby.png)
+    ![wallaby](_images/wallaby.png)
 
 ### Implement Testing
 

@@ -1,6 +1,6 @@
 # Reactive Programming and State Management
 
-In this lab we will implement a Side Menu and a global Loading Indicator using RxJS and Stateful Services.
+In this lab we will implement a Side Menu and a global Loading Indicator using RxJS and Stateful Services. In order to achieve this we will use the [Angular Material Sidenav](https://material.angular.io/components/sidenav/overview). The Sidenav will be controlled by the [BreakpointObserver](https://material.angular.io/cdk/layout/overview) from the Material CDK.
 
 ![menu](_images/menu.jpg)
 
@@ -70,11 +70,11 @@ In this lab we will implement a Side Menu and a global Loading Indicator using R
   }
   ```
 
-- Take the [demo.container](.../../../../demos/07-rxjs-state/ng-reactive/src/app/demos/demo-container/) and the [sidenav.service.ts](.../../../../demos/07-rxjs-state/ng-reactive/src/app/shared/sidenav/sidenav.service.ts) as a reference.
+- Take the [demo.container](/demos/07-rxjs-state/ng-reactive/src/app/demos/demo-container/) and the [sidenav.service.ts](/demos/07-rxjs-state/ng-reactive/src/app/shared/sidenav/sidenav.service.ts) as a reference.
 
 ### Implement a global loading indicator (Advanced Optional):
 
-Note: If your time permits you can also a loading indicator using an interceptor. Take this reference from the [Demo App](.../../../../demos/07-rxjs-state/ng-reactive/src/app/shared/loading/).
+Note: If your time permits you can also a loading indicator using an interceptor. Take this reference from the [Demo App](/demos/07-rxjs-state/ng-reactive/src/app/shared/loading/).
 
 - Implement a stateful loading service
 
