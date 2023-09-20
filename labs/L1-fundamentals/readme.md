@@ -4,19 +4,23 @@ In this lab we will implement a container / presenter pattern to manage food.
 
 ![food-list](_images/food-list.png)
 
+>Note: At the moment do not use Angular Material. Just put the `input`-tags into `div`-tags. 
+
 ## Steps Outlined
 
-Use the following nested components that you will create using the [Angular CLI](https://angular.io/cli/generate#component-command):
+  - Use the following nested components that you will create using the [Angular CLI](https://angular.io/cli/generate#component-command):
 
-- food/food-container -> container
-- food/food-list -> nested in container
-- food/food-edit -> nested in container
+  - food/food-container -> container
+  - food/food-list -> nested in container
+  - food/food-edit -> nested in container
 
-Example:
+  Example:
 
-```
-ng g component food/food-container
-```
+  ```
+  ng g component food/food-container
+  ```
+
+  >Note: Repeat the above command for `food-list` and `food-edit`
 
 Add the `food-container` component to `app.component.html`. Routing will be implemented later on. 
 
@@ -64,7 +68,7 @@ Implement a Container-Presenter Pattern in `food/food-container`, `food/food-lis
 
 - [Presenter](/demos/03-fundamentals/ng-fundamentals/src/app/demos/samples/persons)
 
-At the moment do not use Angular Material. Just put the `input`-tags into `div`-tags. You might also have to import [FormsModule](https://angular.io/guide/frequent-ngmodules) into `app.module.ts` in order to use the `ngModel` directive in `food-edit.component.html`
+You might also have to import [FormsModule](https://angular.io/guide/frequent-ngmodules) into `app.module.ts` in order to use the `ngModel` directive in `food-edit.component.html`
 
 Implement `Select` and `Delete` in the list and `Save` in the edit component.
 
