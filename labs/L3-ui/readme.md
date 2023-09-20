@@ -10,7 +10,7 @@ Add [Angular Material](https://material.angular.io) to your project:
 
 - Install Angular Material using the [Material Getting Started](https://material.angular.io/guide/getting-started) and choose a theme of your choice.
 
-- Implement a `material.module.ts` and copy its default content from the [Demo App](.../../../../demos/05-ui/user-interface/src/app/material.module.ts).
+- Implement a `material.module.ts` and copy its default content from the [Demo App](/demos/05-ui/user-interface/src/app/material.module.ts).
 
 - Test the installation of Angular Material by replacing the `div` in the `navbar.component.html` with a [Material Toolbar](https://material.angular.io/components/toolbar/overview)
 
