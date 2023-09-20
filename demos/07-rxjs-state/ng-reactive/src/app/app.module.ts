@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EntityDataModule } from '@ngrx/data';
+import { EntityDataModule, HttpUrlGenerator } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { reducers } from './store';
+import { CustomurlHttpGenerator } from './skills/custom-url-generator';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -28,7 +29,12 @@ import { reducers } from './store';
     EntityDataModule.forRoot({}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HttpUrlGenerator,
+      useClass: CustomurlHttpGenerator,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

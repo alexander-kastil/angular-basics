@@ -29,12 +29,13 @@ export class SkillsContainerComponent {
   }
 
   addItem(): void {
-    const newItem: Skill = {
-      id: 0,
-      name: 'Configuration Mgmt',
-      completed: false,
-    };
-    this.service.add(newItem);
+
+    // const newItem: Skill = {
+    //   id: 0,
+    //   name: 'Configuration Mgmt',
+    //   completed: false,
+    // };
+    // this.service.add(newItem);
   }
 
   deleteItem(item: Skill): void {
