@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
 import {
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem
 } from "@angular/cdk/drag-drop";
+import { Component } from "@angular/core";
 import { Todo } from "./todo";
 
 @Component({
@@ -11,29 +11,20 @@ import { Todo } from "./todo";
   templateUrl: "./drag-drop.component.html",
   styleUrls: ["./drag-drop.component.scss"]
 })
-export class DragDropComponent implements OnInit {
-  constructor() {}
-
-  public todo: Todo[] = [];
-
-  public done: Todo[] = [];
-
-  ngOnInit() {
-    this.todo = [
-      { title: "Get to work", dateAdded: new Date().toString() },
-      { title: "Pick up groceries", dateAdded: new Date().toString() },
-      { title: "Go home", dateAdded: new Date().toString() },
-      { title: "Fall asleep", dateAdded: new Date().toString() }
-    ];
-
-    this.done = [
-      { title: "Get up", dateAdded: new Date().toString() },
-      { title: "Brush teeth", dateAdded: new Date().toString() },
-      { title: "Take a shower", dateAdded: new Date().toString() },
-      { title: "Check e-mail", dateAdded: new Date().toString() },
-      { title: "Walk dog", dateAdded: new Date().toString() }
-    ];
-  }
+export class DragDropComponent {
+  public todo: Todo[] = [
+    { title: "Get to work", dateAdded: new Date().toString() },
+    { title: "Pick up groceries", dateAdded: new Date().toString() },
+    { title: "Go home", dateAdded: new Date().toString() },
+    { title: "Fall asleep", dateAdded: new Date().toString() }
+  ];
+  public done: Todo[] = [
+    { title: "Get up", dateAdded: new Date().toString() },
+    { title: "Brush teeth", dateAdded: new Date().toString() },
+    { title: "Take a shower", dateAdded: new Date().toString() },
+    { title: "Check e-mail", dateAdded: new Date().toString() },
+    { title: "Walk dog", dateAdded: new Date().toString() }
+  ];
 
   drop(event: CdkDragDrop<Todo[]>) {
     // first check if it was moved within the same list or moved to a different list

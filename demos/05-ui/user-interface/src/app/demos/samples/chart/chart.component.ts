@@ -1,13 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
 })
-export class ChartComponent implements OnInit {
-  constructor() {}
-
+export class ChartComponent {
   saleData = [
     { name: 'Mobiles', value: 105000 },
     { name: 'Laptop', value: 55000 },
@@ -15,6 +13,4 @@ export class ChartComponent implements OnInit {
     { name: 'Headset', value: 150000 },
     { name: 'Fridge', value: 20000 },
   ];
-
-  ngOnInit(): void {}
 }

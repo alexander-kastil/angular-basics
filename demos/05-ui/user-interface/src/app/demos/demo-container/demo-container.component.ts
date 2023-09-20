@@ -1,4 +1,4 @@
-import { Component, OnInit, effect, inject } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, effect, inject } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
@@ -12,7 +12,7 @@ import { SideNavService } from '../../shared/sidenav/sidenav.service';
 @Component({
   selector: 'app-demo-container',
   templateUrl: './demo-container.component.html',
-  styleUrls: ['./demo-container.component.scss'],
+  styleUrls: ['./demo-container.component.scss']
 })
 export class DemoContainerComponent implements OnInit {
   router = inject(Router);

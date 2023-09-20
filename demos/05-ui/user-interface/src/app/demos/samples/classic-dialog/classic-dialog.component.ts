@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 
@@ -7,12 +7,9 @@ import { DialogComponent } from './dialog/dialog.component';
   templateUrl: './classic-dialog.component.html',
   styleUrls: ['./classic-dialog.component.scss'],
 })
-export class ClassicDialogComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
-
+export class ClassicDialogComponent {
+  dialog = inject(MatDialog);
   paramName = 'Giro';
-
-  ngOnInit() {}
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent, {
