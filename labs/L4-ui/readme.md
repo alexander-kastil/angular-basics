@@ -10,7 +10,7 @@ We will also complete the implementation of the Food App by adding data access t
 
 ### Using Angular Material
 
-Add [Angular Material](https://material.angular.io) to your project:
+Add Angular Material to your project:
 
 - Install Angular Material using the [Material Getting Started](https://material.angular.io/guide/getting-started) and choose a theme of your choice.
 
