@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
-  AsyncValidator,
   AbstractControl,
+  AsyncValidator,
   ValidationErrors,
 } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { PersonService } from '../person.service';
 
 @Injectable({ providedIn: 'root' })
 export class asyncMailExistsValidator implements AsyncValidator {
-  constructor(private ps: PersonService) {}
+  ps = inject(PersonService);
 
   validate(
     ctrl: AbstractControl

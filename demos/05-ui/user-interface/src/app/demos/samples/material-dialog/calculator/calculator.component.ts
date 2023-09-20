@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CurrencyService } from './currency.service';
 import { CalcParam } from './calculatorParam.model';
+import { CurrencyService } from './currency.service';
 
 @Component({
   selector: 'app-calculator',
@@ -15,14 +15,14 @@ export class CalculatorComponent {
   selectedCurrency = 'THB';
   rate: number | undefined;
   converted: number = 0;
-  fcAmount = new UntypedFormControl(this.data.amount);
+  fcAmount = new FormControl(this.data.amount);
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: CalcParam,
     private cs: CurrencyService
-  ) {}
+  ) { }
 
-  onNoClick(): void {}
+  onNoClick(): void { }
 
   ngOnInit() {
     this.cs.getRates().subscribe((data) => {

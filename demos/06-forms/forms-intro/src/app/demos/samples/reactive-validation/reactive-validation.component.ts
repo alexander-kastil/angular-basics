@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
+  FormControl,
   UntypedFormControl,
   UntypedFormGroup,
   Validators
@@ -63,7 +64,7 @@ export class ReactiveValidationComponent implements OnInit {
   }
 
   //Sample for custom sync validator
-  validateName(control: UntypedFormControl): { [s: string]: boolean } | null {
+  validateName(control: FormControl): { [s: string]: boolean } | null {
     if (control.value === 'Hugo') {
       return { nameError: true };
     }

@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { UntypedFormControl, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ClassicDialogComponent } from '../classic-dialog.component';
 
 @Component({
@@ -12,9 +12,9 @@ export class DialogComponent {
   constructor(
     public dialogRef: MatDialogRef<ClassicDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { name: string }
-  ) {}
+  ) { }
 
-  fcName = new UntypedFormControl(this.data.name, [Validators.required]);
+  fcName = new FormControl(this.data.name, [Validators.required]);
 
   getErrorMessage() {
     return 'Name is required';

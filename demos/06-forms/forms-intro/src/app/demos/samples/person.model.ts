@@ -1,5 +1,5 @@
 export class Person {
-  age: number = 0;
+  age = 0;
   name = '';
   email = '';
   wealth = '';
