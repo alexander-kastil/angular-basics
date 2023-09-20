@@ -25,7 +25,7 @@ export class ReactiveFormsComponent implements OnInit {
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {
       // Could be setValue if model is implemented with all props in form
-      // Oherwise use patchValue
+      // Otherwise use patchValue
       this.personForm.patchValue(p);
     });
   }

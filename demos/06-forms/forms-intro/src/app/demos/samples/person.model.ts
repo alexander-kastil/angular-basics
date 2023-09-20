@@ -1,20 +1,20 @@
 export class Person {
   age: number = 0;
-  name: string = '';
-  email: string = '';
-  wealth: string = '';
-  state?: 'HappySheep' | 'Unsatisfied' | 'ReadyForRevolution';
+  name = '';
+  email = '';
+  wealth = '';
+  state?: 'Satisfied' | 'Unsatisfied' | 'ReadyForRevolution';
   lastname?: string;
-  gender: string = 'male';
+  gender = 'male';
   married?: boolean;
   imgUrl?: string;
   address?: Address;
 }
 
 export class Address {
-  street: string = '';
-  city: string = '';
-  postalCode: string = '';
+  street = '';
+  city = '';
+  postalCode = '';
 }
 
 export const wealthOptsValues = ['poor', 'rich', 'middle_class'];

@@ -8,8 +8,6 @@ import { NgForm } from '@angular/forms';
   providedIn: 'root',
 })
 export class PersonService {
-  constructor() {}
-
   getPerson(): Observable<Person> {
     return of({
       name: 'Heinz',
