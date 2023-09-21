@@ -2,7 +2,7 @@
 
 context('Home', () => {
   beforeEach(() => {
-    cy.visit('https://localhost:4200/');
+    cy.visit('http://localhost:4200/');
   });
 
   describe('My Bogus Test', () => {
@@ -13,7 +13,7 @@ context('Home', () => {
 
   describe('Intro', () => {
     it('Has the correct Title', () => {
-      cy.get('.mat-card-title').should(
+      cy.get('.mat-mdc-card-title').should(
         'contain.text',
         'Angular - Single Page Application Development'
       );

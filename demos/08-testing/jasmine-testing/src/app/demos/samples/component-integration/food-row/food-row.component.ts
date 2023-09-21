@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FoodItem } from '../food.model';
 
 @Component({
@@ -6,14 +6,10 @@ import { FoodItem } from '../food.model';
   templateUrl: './food-row.component.html',
   styleUrls: ['./food-row.component.scss'],
 })
-export class FoodRowComponent implements OnInit {
+export class FoodRowComponent {
   @Input() food: FoodItem | null = null;
   @Output() delete: EventEmitter<FoodItem> = new EventEmitter();
   @Output() edit: EventEmitter<FoodItem> = new EventEmitter();
-
-  constructor() { }
-
-  ngOnInit() { }
 
   deleteFood() {
     if (this.food != null) this.delete.emit(this.food);

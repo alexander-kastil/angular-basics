@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FoodItem } from '../food.model';
 import { FoodServiceBS } from '../food.service-bs';
 
@@ -9,9 +9,8 @@ import { FoodServiceBS } from '../food.service-bs';
   styleUrls: ['./food-list.component.scss'],
 })
 export class FoodListComponent implements OnInit {
+  fs = inject(FoodServiceBS)
   food: FoodItem[] = [];
-
-  constructor(private fs: FoodServiceBS) { }
 
   ngOnInit() {
     this.fs.getFood().subscribe((data) => {

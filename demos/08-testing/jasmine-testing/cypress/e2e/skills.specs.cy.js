@@ -3,7 +3,7 @@
 context('Skills', () => {
   beforeEach(() => {
     cy.intercept("GET",'http://localhost:3000/skills',{fixture: "skills.json"});
-    cy.visit('https://localhost:4200/skills/');
+    cy.visit('http://localhost:4200/skills/');
   });
 
   describe('Skill Items', () => {

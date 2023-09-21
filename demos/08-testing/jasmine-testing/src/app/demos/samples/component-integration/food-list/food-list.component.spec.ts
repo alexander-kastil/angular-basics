@@ -33,7 +33,6 @@ describe('Component - Integration Test', () => {
     const module = {
       declarations: [FoodListComponent, FoodRowComponent, RatingPipe],
       providers: [{ provide: FoodServiceBS, useValue: fs }],
-      schemas: [NO_ERRORS_SCHEMA],
     };
 
     TestBed.configureTestingModule(module);
