@@ -1,13 +1,13 @@
-import { Component, OnInit, effect, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, effect, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { filter, map, takeUntil } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
+import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
+import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from '../../shared/loading/loading.service';
-import { DemoService } from '../demo-base/demo.service';
-import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
-import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SideNavService } from '../../shared/sidenav/sidenav.service';
+import { DemoService } from '../demo-base/demo.service';
 
 @Component({
   selector: 'app-demo-container',
@@ -15,6 +15,7 @@ import { SideNavService } from '../../shared/sidenav/sidenav.service';
   styleUrls: ['./demo-container.component.scss'],
 })
 export class DemoContainerComponent implements OnInit {
+  destroy = inject(DestroyRef);
   router = inject(Router);
   route = inject(ActivatedRoute);
   ds = inject(DemoService);
@@ -22,7 +23,6 @@ export class DemoContainerComponent implements OnInit {
   ls = inject(LoadingService);
   eb = inject(SidePanelService);
 
-  destroy$ = new Subject();
   title: string = environment.title;
   header = 'Please select a demo';
   demos = this.ds.getItems();
@@ -45,7 +45,7 @@ export class DemoContainerComponent implements OnInit {
       this.showMdEditor = this.currentCMD() === SidebarActions.HIDE_MARKDOWN ? false : true;
     });
 
-    this.ls.getLoading().pipe(takeUntil(this.destroy$)).subscribe((value) => {
+    this.ls.getLoading().pipe(takeUntilDestroyed(this.destroy)).subscribe((value) => {
       Promise.resolve(null).then(() => (this.isLoading = value));
     });
   }
@@ -53,11 +53,6 @@ export class DemoContainerComponent implements OnInit {
 
   ngOnInit() {
     this.setComponentMetadata();
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete();
   }
 
   rootRoute(route: ActivatedRoute): ActivatedRoute {
@@ -70,7 +65,7 @@ export class DemoContainerComponent implements OnInit {
   setComponentMetadata() {
     this.router.events
       .pipe(
-        takeUntil(this.destroy$),
+        takeUntilDestroyed(this.destroy),
         filter((event) => event instanceof NavigationEnd),
         map(() => this.rootRoute(this.route)),
         filter((route: ActivatedRoute) => route.outlet === 'primary')
@@ -78,9 +73,7 @@ export class DemoContainerComponent implements OnInit {
       .subscribe((route: ActivatedRoute) => {
         this.header =
           route.component != null
-            ? `Component: ${route.component
-              .toString()
-              .substring(6, route.component.toString().indexOf('{') - 1)}`
+            ? `Component: ${route.component.name.substring(1)}`
             : '';
       });
   }

@@ -30,10 +30,7 @@ import { CustomurlHttpGenerator } from './skills/custom-url-generator';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [
-    {
-      provide: HttpUrlGenerator,
-      useClass: CustomurlHttpGenerator,
-    },
+
   ],
   bootstrap: [AppComponent],
 })

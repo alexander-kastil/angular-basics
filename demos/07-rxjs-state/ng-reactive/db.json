@@ -1,20 +1,8 @@
 {
   "demos": [
     {
-      "url": "creating",
-      "title": "Observable Basics"
-    },
-    {
-      "url": "async-pipe",
-      "title": "Template / Async Pipe"
-    },
-    {
       "url": "formcontrols",
       "title": "Form Controls"
-    },
-    {
-      "url": "unsubscribe",
-      "title": "Unsubscribing"
     },
     {
       "url": "responsive-screen",
@@ -23,6 +11,18 @@
     {
       "url": "mouse-events",
       "title": "Mouse Events"
+    },
+    {
+      "url": "async-pipe",
+      "title": "Template / Async Pipe"
+    },
+    {
+      "url": "creating",
+      "title": "Observable Basics"
+    },
+    {
+      "url": "unsubscribe",
+      "title": "Unsubscribing"
     },
     {
       "url": "operators",
