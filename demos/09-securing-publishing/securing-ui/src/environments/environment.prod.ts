@@ -6,11 +6,11 @@ declare global {
 
 export const environment = {
   production: true,
-  authEnabled: true,
+  authEnabled: window['env'].AUTH_ENABLED || false,
   title: 'Security & Publishing',
   markdownPath: '/assets/markdown/',
   api: window['env'].API_URL || 'http://localhost:3000/',
-  netapi: 'https://localhost:5001/',
+  netapi: window['env'].NETAPI_URL || 'https://localhost:5001/',
   firebaseConfig: {
     apiKey: "AIzaSyAPKtx6dF6yxNdhH7bgcP-8HkoBBBslxDw",
     authDomain: "ngrx-auth-afd25.firebaseapp.com",
