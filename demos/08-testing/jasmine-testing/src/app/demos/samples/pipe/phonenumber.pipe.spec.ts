@@ -10,7 +10,6 @@ describe('Pipe - Phonenumber', () => {
     const phoneNumber = '3333333333';
     const pipe = new PhonenumberPipe();
     const result = pipe.transform(phoneNumber);
-
     expect(result).toBe('(333) 333 3333');
   });
 

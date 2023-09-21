@@ -8,7 +8,6 @@ describe('Class - Hello world Test', () => {
   });
 
   it('contains 12 charactes', () => {
-    debugger;
     expect(myclass.sayHelloWorld().length).toEqual(12)
   });
 

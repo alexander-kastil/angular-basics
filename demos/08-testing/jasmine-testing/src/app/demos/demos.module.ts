@@ -37,6 +37,7 @@ import { ComponentTestComponent } from './samples/component-test/component-test.
 import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.component';
 import { MockHostComponent } from './samples/component-mocking/mock-host/mock-host.component';
 import { IntegrationTestComponent } from './samples/component-integration/integration-test.component';
+import { CapitalizeDirective } from './samples/directive/capitalize.directive';
 
 @NgModule({
   declarations: [
@@ -64,9 +65,8 @@ import { IntegrationTestComponent } from './samples/component-integration/integr
     ComponentTestComponent,
     SpyHostComponent,
     MockHostComponent,
-    IntegrationTestComponent
-
-
+    IntegrationTestComponent,
+    CapitalizeDirective
   ],
   imports: [
     CommonModule,
