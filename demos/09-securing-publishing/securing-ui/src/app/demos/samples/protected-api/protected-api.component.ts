@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FirebaseAuthService } from '../../../fbauth/firebase-auth.service';
 import { environment } from '../../../../environments/environment';
 import { map, catchError } from 'rxjs';
@@ -10,10 +10,10 @@ import { map, catchError } from 'rxjs';
   styleUrls: ['./protected-api.component.scss'],
 })
 export class ProtectedApiComponent implements OnInit {
+  http = inject(HttpClient);
+  as = inject(FirebaseAuthService);
   currentUser: firebase.default.User | null = null;
   resp: any;
-
-  constructor(private httpClient: HttpClient, public as: FirebaseAuthService) { }
 
   ngOnInit() {
     this.as.getUser().subscribe((user: any) => {
@@ -22,7 +22,7 @@ export class ProtectedApiComponent implements OnInit {
   }
 
   callCoreApi() {
-    this.httpClient
+    this.http
       .get(`${environment.netapi}demo`)
       .pipe(
         map((data) => {

@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace ngDemoApp
 {
     [Route("[controller]")]
-    [Authorize]
     [ApiController]
     public class DemoController : ControllerBase
     {

@@ -12,12 +12,12 @@ export const environment = {
   api: window['env'].API_URL || 'http://localhost:3000/',
   netapi: 'https://localhost:5001/',
   firebaseConfig: {
-    apiKey: "AIzaSyDb3ho6XRO5N_BxFG9saj9H3oJKpWmZ830",
-    authDomain: "ng-dev-mai-2023.firebaseapp.com",
-    projectId: "ng-dev-mai-2023",
-    storageBucket: "ng-dev-mai-2023.appspot.com",
-    messagingSenderId: "70101520389",
-    appId: "1:70101520389:web:af35fc7ef6513b71cb0c6c",
-    measurementId: "G-9BYDMNRGRE"
+    apiKey: "AIzaSyAPKtx6dF6yxNdhH7bgcP-8HkoBBBslxDw",
+    authDomain: "ngrx-auth-afd25.firebaseapp.com",
+    projectId: "ngrx-auth-afd25",
+    storageBucket: "ngrx-auth-afd25.appspot.com",
+    messagingSenderId: "132162921706",
+    appId: "1:132162921706:web:0d9044c6fa18a47a75e393",
+    measurementId: "G-5B22G9REW2"
   },
 };
