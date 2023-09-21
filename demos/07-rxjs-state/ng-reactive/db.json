@@ -192,14 +192,11 @@
       "dueDate": "2020-07-06T15:18:22.9848654"
     },
     {
-      "name": "tessdf",
       "id": 3,
-      "completed": false
-    },
-    {
-      "name": "asdfadf",
-      "id": 4,
-      "completed": false
+      "name": "NgRx",
+      "hours": 8,
+      "completed": true,
+      "dueDate": "2020-07-06T15:18:22.9848654"
     }
   ],
   "persons": [

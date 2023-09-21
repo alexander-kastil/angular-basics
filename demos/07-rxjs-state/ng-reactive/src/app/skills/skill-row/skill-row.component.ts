@@ -3,9 +3,11 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output
+  Output,
+  SimpleChanges
 } from '@angular/core';
 import { Skill } from '../skill.model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-skill-row',
@@ -17,9 +19,16 @@ export class SkillRowComponent {
   @Input() skill: Skill = new Skill();
   @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter();
   @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter();
+  fcCompleted = new FormControl(false)
 
-  deleteItem(item: Skill): void {
-    this.itemDeleted.emit(item);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['skill']) {
+      this.fcCompleted.patchValue(this.skill.completed);
+    }
+  }
+
+  deleteItem(): void {
+    this.itemDeleted.emit(this.skill);
   }
 
   toggleItemCompleted(item: Skill): void {

@@ -1,8 +1,8 @@
-import { Component, Input, OnInit, SimpleChanges, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Skill } from '../skill.model';
+import { Component, Input, SimpleChanges, inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SnackbarService } from '../../shared/snackbar/snackbar.service';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Skill } from '../skill.model';
 import { SkillsEntityService } from '../skills-entity.service';
 
 @Component({
@@ -49,10 +49,10 @@ export class SkillsEditComponent {
     else {
       this.es.update(skill);
     }
-    this.router.navigate(['/skills']);
+    this.router.navigate(['skills']);
   }
 
   doCancel() {
-    this.router.navigate(['/skills']);
+    this.router.navigate(['skills']);
   }
 }
