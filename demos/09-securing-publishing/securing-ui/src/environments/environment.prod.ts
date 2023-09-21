@@ -1,9 +1,15 @@
+declare global {
+  interface Window {
+    env: any;
+  }
+}
+
 export const environment = {
   production: true,
   authEnabled: true,
   title: 'Security & Publishing',
   markdownPath: '/assets/markdown/',
-  api: 'http://localhost:3000/',
+  api: window['env'].API_URL || 'http://localhost:3000/',
   netapi: 'https://localhost:5001/',
   firebaseConfig: {
     apiKey: "AIzaSyDb3ho6XRO5N_BxFG9saj9H3oJKpWmZ830",
