@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { combineLatestWith, map, startWith, tap } from 'rxjs';
@@ -11,11 +11,10 @@ import { Voucher } from '../vouchers.model';
   styleUrls: ['./stateful-vouchers.component.scss'],
 })
 export class StatefulVouchersComponent implements OnInit {
+  vs = inject(StatefulVoucherService);
   filter$ = new FormControl<string>('', { nonNullable: true });
   dataSource: MatTableDataSource<Voucher> = new MatTableDataSource<Voucher>([]);
   displayedColumns = ['ID', 'Text', 'Date', 'Amount', 'deleteItem'];
-
-  constructor(private vs: StatefulVoucherService) {}
 
   ngOnInit() {
     this.vs
@@ -26,7 +25,7 @@ export class StatefulVouchersComponent implements OnInit {
         map(([vouchers, filter]) => {
           return filter == ''
             ? vouchers
-            : vouchers.filter((v) => v.Text.includes(filter));
+            : vouchers.filter((v) => v.Text.toLocaleLowerCase().includes(filter.toLocaleLowerCase()));
         })
       )
       .subscribe(

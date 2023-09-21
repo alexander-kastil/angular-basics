@@ -14,7 +14,7 @@ export const lateVoucher = {
       Account: null,
       Text: 'Diesel',
       Amount: 45,
-      Comment: null,
+      Comment: '',
     },
     {
       ID: 6,
@@ -23,7 +23,7 @@ export const lateVoucher = {
       Account: null,
       Text: 'Reifenwechsel',
       Amount: 20,
-      Comment: null,
+      Comment: '',
     },
   ],
 };

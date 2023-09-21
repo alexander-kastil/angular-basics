@@ -34,7 +34,7 @@ export class CreatingObservableComponent {
   useOperator() {
     from([2, 5, 9, 12, 22]) // 5 marbles
       .pipe(
-        filter((n) => n > 6),
+        filter((n) => n > 6), // 3 marbles
         map((n) => n * 2)
       )
       .subscribe((data: number) => console.log('useOperator: ', data));
@@ -89,7 +89,7 @@ export class CreatingObservableComponent {
       //original function
       navigator.geolocation.getCurrentPosition(
         (pos: any) => {
-          //emite an element in the callback of the callback based function
+          //emit an element in the callback of the callback based function
           observer.next(pos);
           observer.complete();
         },

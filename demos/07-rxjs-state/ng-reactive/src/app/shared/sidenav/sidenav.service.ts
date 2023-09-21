@@ -30,7 +30,7 @@ export class SideNavService {
   }
 
   watchScreen = this.breakpointObserver
-    .observe([Breakpoints.XSmall, Breakpoints.Small]) //kleiner
+    .observe([Breakpoints.XSmall, Breakpoints.Small])
     .pipe(
       tap((matchesBreakpoint) => {
         console.log("matches breakpoint", matchesBreakpoint);

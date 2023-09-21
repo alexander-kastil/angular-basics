@@ -12,6 +12,7 @@ import { SkillsEntityService } from '../skills-entity.service';
 export class SkillsContainerComponent {
   service = inject(SkillsEntityService);
   fcToggle = new FormControl(true);
+
   skills = this.service.entities$.pipe(
     combineLatestWith(this.fcToggle.valueChanges.pipe(startWith(true))),
     map(([skills, showAll]) => {

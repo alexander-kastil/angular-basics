@@ -78,7 +78,8 @@ export class OperatorsComponent {
       .pipe(
         tap((data) => console.log('logged by tap(): ', data)),
         map((va) => va.map(this.setLabel)),
-        catchError((err) => {
+        catchError((err: Error) => {
+          console.log('err happened', err);
           return throwError('Err happened while processing vouchers');
         }),
         finalize(() => console.log('finalizing ...'))
@@ -93,7 +94,7 @@ export class OperatorsComponent {
       .pipe(map((arr) => arr.find((v: Voucher) => v.ID == 3)))
       .subscribe((data) => this.log('getByID - using find()', data));
 
-    // RxJS find operator because array is converted of steam emmitting each item as a marble using from
+    // RxJS find operator because array is converted of steam emitting each item as a marble using from
     let arr = from([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
     arr.pipe(find((x) => x.id == 3)).subscribe((x) => console.log(x));
   }
@@ -105,7 +106,7 @@ export class OperatorsComponent {
       .pipe(map((arr) => arr.filter((v: Voucher) => v.Paid)))
       .subscribe((data) => this.log('useFilter', data));
 
-    // RxJS filter operator because array is converted of steam emmitting each item as a marble using from
+    // RxJS filter operator because array is converted of steam emitting each item as a marble using from
     let arr = from([
       { id: 1, disabled: true },
       { id: 2, disabled: false },

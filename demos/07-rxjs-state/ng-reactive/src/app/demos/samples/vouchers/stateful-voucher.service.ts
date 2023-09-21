@@ -19,9 +19,10 @@ export class StatefulVoucherService {
     this.http.get<Voucher[]>(`${environment.api}vouchers`).subscribe((data) => {
       this.vouchers.next(data);
     });
+
     setTimeout(() => {
       var arr = this.vouchers.getValue();
-      arr.push(lateVoucher as unknown as Voucher);
+      arr.push(lateVoucher as Voucher);
       this.vouchers.next(arr);
     }, 6000);
   }
