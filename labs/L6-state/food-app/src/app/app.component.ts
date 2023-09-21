@@ -11,6 +11,7 @@ import { LoadingService } from './shared/loading/loading.service';
 export class AppComponent {
   title = 'Food App';
   mode: MatDrawerMode = 'side';
+  visible = true;
   ms = inject(MenuService);
   ls = inject(LoadingService);
   changeDetector = inject(ChangeDetectorRef);
@@ -18,6 +19,7 @@ export class AppComponent {
 
   constructor() {
     this.ms.sideNavPosition.subscribe((currentMode) => { this.mode = currentMode });
+    this.ms.sideNavVisible.subscribe((visible) => { this.visible = visible });
   }
 
   ngAfterContentChecked(): void {

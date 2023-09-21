@@ -25,11 +25,11 @@ In this lab we will implement a Side Menu and a global Loading Indicator using R
     <div class="gd-mainrow">
       <mat-sidenav-container>
         <mat-sidenav #sidenav class="sidenav"
-        [opened]="ms.sideNavVisible | async"
-        [mode]="mode">
+            [opened]="sidenavVisible | async"
+            [mode]="(sidenavMode | async) ?? 'side'">
           <app-sidemenu></app-sidemenu>
         </mat-sidenav>
-        <mat-sidenav-content [ngStyle]="getWorbenchStyle()">
+        <mat-sidenav-content [ngStyle]="workbenchMargin | async">
           <router-outlet></router-outlet>
         </mat-sidenav-content>
       </mat-sidenav-container>
@@ -71,20 +71,3 @@ In this lab we will implement a Side Menu and a global Loading Indicator using R
   ```
 
 - Take the [demo.container](/demos/07-rxjs-state/ng-reactive/src/app/demos/demo-container/) and the [sidenav.service.ts](/demos/07-rxjs-state/ng-reactive/src/app/shared/sidenav/sidenav.service.ts) as a reference.
-
-### Implement a global loading indicator (Advanced Optional):
-
-Note: If your time permits you can also a loading indicator using an interceptor. Take this reference from the [Demo App](/demos/07-rxjs-state/ng-reactive/src/app/shared/loading/).
-
-- Implement a stateful loading service
-
-- Implement an [HttpInterceptor](https://angular.io/guide/http#intercepting-requests-and-responses) to toggle a loading service that is used to show a loading indicator. Keep in mind that there could be multiple request at the same time.
-
-- Register the interceptor in the app.module.ts
-
-  ```typescript
-  providers: [
-    LoadingService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-  ],
-  ```
