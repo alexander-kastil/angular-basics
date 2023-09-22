@@ -4,8 +4,8 @@
 @include mat.core();
 
 // Available color palettes: https://material.io/design/color/
-$app-primary: mat.define-palette(mat.$blue-palette);
-$app-accent: mat.define-palette(mat.$grey-palette, A200, A100, A400);
+$app-primary: mat.define-palette(mat.$blue-palette, 600);
+$app-accent: mat.define-palette(mat.$blue-grey-palette, 200);
 $app-warn: mat.define-palette(mat.$red-palette);
 $app-theme: mat.define-light-theme((
   color: (
@@ -18,20 +18,17 @@ $app-theme: mat.define-light-theme((
 
 //Export global vars from design system for easy use
 :root {
-  // --color-primary: #{mat-color($app-primary)};
-  // --color-accent: #{mat-color($app-accent)};
-  // --color-warn: #{mat-color($app-warn)};
-  // --color-fg: #{mat-color($fg)};
-  // --color-bg: #{mat-color($bg)};
+  --color-primary: #1E88E5;
+  --color-accent: #B0BEC5;
+  --color-warn: #{mat-color(warn)};
   --color-font: white;
-
   --gap-small: 0.5rem;
   --gap-medium: 0.8rem;
   --gap-big: 1.1rem;
   --toolbar-xl: 85px;
   --toolbar-big: 70px;
   --toolbar-medium: 40px;
-  --toolbar-small: 35px;
+  --toolbar-small: 30px;
   --font-small: 0.9rem;
   --font-medium: 1.2rem;
   --font-big: 1.4rem;

@@ -50,9 +50,9 @@
 mat-toolbar {
   height: var(--toolbar-medium);
   margin-bottom: var(--gap-small);
+  background-color: var(--color-accent);
 }
 
-//sidenav
 .mat-sidenav-container {
   height: 100%;
 }
@@ -61,19 +61,11 @@ mat-toolbar {
   font-size: 1rem;
 }
 
-
-// list
-.mat-nav-list .mat-mdc-list-item:hover,
-.mat-nav-list .mat-list-item:focus {
-  background: var(--color-bg);
-}
-
 .mat-mdc-list-base .mat-mdc-list-item,
 .mat-list-base .mat-list-option {
   height: 36px;
 }
 
 mat-list-item {
-  border-bottom: 1px solid var(--color-bg);
-  border-top: 1px solid var(--color-bg);
+  border-bottom: 1px solid  var(--color-accent);
 }

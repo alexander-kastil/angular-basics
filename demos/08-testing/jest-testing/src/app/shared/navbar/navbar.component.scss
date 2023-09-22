@@ -1,7 +1,7 @@
 @import "mixins.scss";
 
 .navLink {
-  @include link(var(--color-fg), var(--font-big));
+  @include link(var(--color-font), var(--font-big));
   margin-top: -0.5rem;
 }
 

@@ -17,7 +17,7 @@ mat-card-header {
   height: var(--toolbar-xl);
   padding-top: 0.5rem;
   background-color: var(--color-primary);
-  color: var(--color-fg);
+  color: var(--color-accent);
 }
 
 mat-card-title {
@@ -29,7 +29,7 @@ mat-card-subtitle {
 }
 
 .mat-mdc-card-subtitle {
-  color: var(--color-fg);
+  color: var(--color-accent);
   font-size: 1.2rem;
   text-align: center;
 }
