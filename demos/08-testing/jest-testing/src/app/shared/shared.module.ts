@@ -12,7 +12,6 @@ import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.compo
 
 const mods = [
   MarkdownEditorComponent,
-  LoadingComponent,
 ];
 
 @NgModule({

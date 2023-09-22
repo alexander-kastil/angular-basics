@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCard, MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -8,6 +9,7 @@ import { MatCard, MatCardModule } from '@angular/material/card';
   standalone: true,
   imports: [
     MatCardModule,
+    MatButtonModule
   ],
 })
 export class IntroComponent {
