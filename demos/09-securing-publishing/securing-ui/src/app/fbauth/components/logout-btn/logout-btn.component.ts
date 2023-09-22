@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FirebaseAuthService } from '../../firebase-auth.service';
 
 @Component({
@@ -6,11 +6,9 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
   templateUrl: './logout-btn.component.html',
   styleUrls: ['./logout-btn.component.scss'],
 })
-export class LogoutBtnComponent implements OnInit {
+export class LogoutBtnComponent {
+  as = inject(FirebaseAuthService);
   currentUser = this.as.getUser();
-  constructor(private as: FirebaseAuthService) {}
-
-  ngOnInit(): void {}
 
   logOut() {
     this.as.logOut();

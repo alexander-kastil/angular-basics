@@ -1,9 +1,9 @@
 <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)">
   <mat-card appearance="outlined">
-    <mat-card-header fxLayoutAlign="center center">
+    <mat-card-header>
       <mat-card-title>Registrierung</mat-card-title>
     </mat-card-header>
-    <mat-card-content fxLayout="column">
+    <mat-card-content>
       <mat-form-field>
         <input
           type="text"
@@ -17,7 +17,7 @@
         </mat-error>
       </mat-form-field>
 
-      <div formGroupName="passwords" fxLayout="column">
+      <div formGroupName="passwords">
         <mat-form-field>
           <input
             type="password"

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginCredentials } from '../../credential.model';
 import { FirebaseAuthService } from '../../firebase-auth.service';
@@ -9,7 +9,7 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private as: FirebaseAuthService) { }
+  as = inject(FirebaseAuthService);
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

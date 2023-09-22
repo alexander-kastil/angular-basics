@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FirebaseAuthService } from '../../firebase-auth.service';
 import {
   AbstractControl,
@@ -13,7 +13,7 @@ import {
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  constructor(private as: FirebaseAuthService) { }
+  as = inject(FirebaseAuthService);
 
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -25,7 +25,7 @@ export class RegisterComponent {
         ]),
         passwordRepeat: new FormControl('', [Validators.required]),
       },
-      { validators: this.passwordConfirming }
+      { validators: this.passwordsMatch }
     ),
   });
 
@@ -33,7 +33,7 @@ export class RegisterComponent {
     this.as.createUser(form.value.email, form.value.passwords.password);
   }
 
-  passwordConfirming(c: AbstractControl): { invalid: boolean } | null {
+  passwordsMatch(c: AbstractControl): { invalid: boolean } | null {
     if (c.get('password')?.value !== c.get('passwordRepeat')?.value) {
       return { invalid: true };
     }

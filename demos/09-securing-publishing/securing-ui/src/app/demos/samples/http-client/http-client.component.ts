@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { Skill } from 'src/app/skills/skill.model';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-http-client',
@@ -9,14 +8,14 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./http-client.component.scss'],
 })
 export class HttpClientComponent {
-  client = inject(HttpClient);
+  http = inject(HttpClient);
   result: any;
   fname = '';
   token = 'mock-token';
   key = 'mock-key';
 
   observeResponse() {
-    this.client.get(`${environment.api}skills`, {
+    this.http.get(`${environment.api}skills`, {
       observe: 'response',
     })
       .subscribe((response: HttpResponse<any>) => {
@@ -33,7 +32,7 @@ export class HttpClientComponent {
       'subscription-key': this.key
     });
 
-    this.client
+    this.http
       .get(`${environment.api}skills`, { headers: header })
       .subscribe((data) => {
         console.log('Response using headers variable: ', data);
