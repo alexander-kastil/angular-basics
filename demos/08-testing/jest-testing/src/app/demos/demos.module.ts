@@ -40,6 +40,7 @@ import { MarkdownRendererComponent } from '../shared/markdown-renderer/markdown-
 import { SidePanelComponent } from '../shared/side-panel/side-panel.component';
 import { MarkdownEditorComponent } from '../shared/markdown-editor/markdown-editor.component';
 import { LoadingComponent } from '../shared/loading/loading.component';
+import { FormattingModule } from '../shared/formatting/formatting.module';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { LoadingComponent } from '../shared/loading/loading.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FormattingModule,
     MarkdownEditorComponent,
     MarkdownRendererComponent,
     SidePanelComponent,

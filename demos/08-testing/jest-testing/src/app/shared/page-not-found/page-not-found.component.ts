@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { FormattingModule } from '../formatting/formatting.module';
 
 @Component({
   selector: 'app-page-not-found',
@@ -7,7 +9,9 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./page-not-found.component.scss'],
   standalone: true,
   imports: [
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    FormattingModule
   ],
 })
 export class PageNotFoundComponent { }
