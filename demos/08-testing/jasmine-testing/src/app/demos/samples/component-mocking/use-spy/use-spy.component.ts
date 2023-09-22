@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -7,8 +7,6 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./use-spy.component.scss'],
 })
 export class UseSpyComponent {
-  constructor(private as: AuthService) {
-    this.loggedIn = this.as.isAuthenticated();
-  }
-  loggedIn: boolean;
+  as = inject(AuthService);
+  loggedIn = this.as.isAuthenticated();
 }

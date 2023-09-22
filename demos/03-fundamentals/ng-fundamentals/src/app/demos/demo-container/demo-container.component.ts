@@ -80,9 +80,8 @@ export class DemoContainerComponent implements OnInit {
       .subscribe((route: ActivatedRoute) => {
         this.header =
           route.component != null
-            ? `Component: ${route.component
-              .toString()
-              .substring(6, route.component.toString().indexOf('{') - 1)}`
+            ? `Component: ${route.component.name
+              .substring(0, route.component.name.length - 1)}`
             : '';
       });
   }

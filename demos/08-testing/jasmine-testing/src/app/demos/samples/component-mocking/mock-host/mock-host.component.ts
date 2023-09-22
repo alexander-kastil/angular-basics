@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './mock-host.component.html',
   styleUrls: ['./mock-host.component.scss']
 })
-export class MockHostComponent {
-
-}
+export class MockHostComponent { }
