@@ -7,5 +7,5 @@ import { FoodItem } from './food.model';
   styleUrls: ['./integration-test.component.scss'],
 })
 export class IntegrationTestComponent {
-  f: FoodItem = { id: 99, name: 'Cordon Bleu', rating: 4 };
+  f: FoodItem = { id: 99, name: 'Cordon Blue', rating: 4 };
 }
