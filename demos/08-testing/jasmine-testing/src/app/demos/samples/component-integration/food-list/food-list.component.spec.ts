@@ -1,11 +1,13 @@
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed, fakeAsync, flush, tick, flushMicrotasks } from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { RatingPipe } from '../../pipe/rating.pipe';
 import { FoodRowComponent } from '../food-row/food-row.component';
-import { FoodListComponent } from './food-list.component';
 import { FoodServiceBS } from '../food.service-bs';
+import { FoodListComponent } from './food-list.component';
 
 describe('Component - Integration Test', () => {
   let fs: any;
@@ -13,7 +15,7 @@ describe('Component - Integration Test', () => {
     { name: 'Pad Thai', rating: 5 },
     { name: 'Butter Chicken', rating: 5 },
     { name: 'Cannelloni', rating: 4 },
-    { name: 'Cordon Bleu', rating: 2 },
+    { name: 'Cordon Blue', rating: 2 },
   ];
   const serviceResult = [
     { name: 'Pad Thai', rating: 5 },
@@ -21,7 +23,7 @@ describe('Component - Integration Test', () => {
     { name: 'Cannelloni', rating: 4 },
   ];
 
-  const deleteItem = { id: 4, name: 'Cordon Bleu', rating: 2 };
+  const deleteItem = { id: 4, name: 'Cordon Blue', rating: 2 };
 
   let fixture: ComponentFixture<FoodListComponent>;
   let comp: FoodListComponent;
@@ -32,6 +34,10 @@ describe('Component - Integration Test', () => {
 
     const module = {
       declarations: [FoodListComponent, FoodRowComponent, RatingPipe],
+      imports: [
+        MatCardModule,
+        MatIconModule
+      ],
       providers: [{ provide: FoodServiceBS, useValue: fs }],
     };
 

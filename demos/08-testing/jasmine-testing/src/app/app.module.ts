@@ -6,8 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
-import { SharedModule } from './shared/shared.module';
 import { MarkdownModule } from 'ngx-markdown';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { IntroComponent } from './shared/intro/intro.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -17,12 +18,13 @@ import { MarkdownModule } from 'ngx-markdown';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    SharedModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
     }),
+    NavbarComponent,
+    IntroComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

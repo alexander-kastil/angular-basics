@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -12,6 +13,9 @@ describe('Component - Events - EventsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ComponentEventsComponent],
       imports: [MatCardModule, MatButtonModule],
+      schemas: [
+        NO_ERRORS_SCHEMA
+      ],
     }).compileComponents();
     fixture = TestBed.createComponent(ComponentEventsComponent);
     component = fixture.componentInstance;

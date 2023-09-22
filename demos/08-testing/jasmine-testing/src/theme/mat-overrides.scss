@@ -1,15 +1,15 @@
 //mat-card
 .mat-mdc-card {
-  background-color: var(--color-fg);
+  background-color: var(--color-accent);
   margin-bottom: var(--gap-big);
   padding: 0 !important;
 }
 
 .mat-mdc-card-header {
-  background-color: var(--color-primary);
-  color: var(--color-fg);
-  height: var(--toolbar-medium);
+  color: var(--color-accent);
+  height: var(--toolbar-small);
   padding-top: 0px;
+  background-color: var(--color-primary);
 }
 
 .mat-mdc-card-title{
@@ -61,7 +61,6 @@ mat-dialog-container {
 
 //mat-expansion-panel
 mat-expansion-panel {
-  margin-bottom: 0.5rem;
   border-radius: 0px !important;
 }
 
@@ -70,12 +69,12 @@ mat-expansion-panel-header:hover{
 }
 
 mat-expansion-panel-header {
-  height: var(--toolbar-medium);
+  height: var(--toolbar-small);
   background-color: var(--color-primary) !important;
 }
 
 .mat-expansion-panel-header.mat-expanded {
-  height: var(--toolbar-medium);
+  height: var(--toolbar-small);
   margin-bottom: 0.5rem;
 }
 
@@ -97,7 +96,7 @@ mat-header-row {
 //mat-sidenav
 .mat-sidenav {
   width: 250px;
-  background-color: var(--color-fg);
+  background-color: var(--color-accent);
 }
 
 .mat-drawer-container {

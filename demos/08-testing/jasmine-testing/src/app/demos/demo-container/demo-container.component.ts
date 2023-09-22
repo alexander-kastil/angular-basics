@@ -2,12 +2,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { LoadingService } from '../../shared/loading/loading.service';
 import { DemoService } from '../demo-base/demo.service';
-import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
-import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SideNavService } from '../../shared/sidenav/sidenav.service';
+import { environment } from '../../../environments/environment.development';
+import { SidePanelService } from '../../shared/side-panel/sidepanel.service';
+import { SidebarActions } from '../../shared/side-panel/sidebar.actions';
 
 @Component({
   selector: 'app-demo-container',

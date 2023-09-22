@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatSliderModule } from '@angular/material/slider';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialComponent } from './material.component';
 import { MatInputModule } from '@angular/material/input';
 // Notice manual import of ...Harness
@@ -12,9 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonHarness } from '@angular/material/button/testing';
 import { MatSliderHarness } from '@angular/material/slider/testing';
 import { MatInputHarness } from '@angular/material/input/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('MaterialComponent', () => {
-  let component: MaterialComponent;
   let fixture: ComponentFixture<MaterialComponent>;
   let loader: HarnessLoader;
   let sliderHarness: MatSliderHarness;
@@ -23,7 +23,16 @@ describe('MaterialComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [MaterialComponent],
-      imports: [MatCardModule, ReactiveFormsModule, MatInputModule, MatSliderModule, MatButtonModule, BrowserAnimationsModule],
+      imports: [
+        MatCardModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatSliderModule,
+        MatButtonModule,
+        NoopAnimationsModule],
+      schemas: [
+        NO_ERRORS_SCHEMA
+      ],
     }).compileComponents();
     fixture = TestBed.createComponent(MaterialComponent);
     fixture.detectChanges();

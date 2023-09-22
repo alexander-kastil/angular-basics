@@ -1,5 +1,6 @@
 import { ElementRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
 import { FoodRowComponent } from './food-row.component';
 
@@ -14,6 +15,9 @@ describe('Component -Integration Test - Food Row', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [FoodRowComponent],
+      imports: [
+        MatIconModule
+      ],
     });
     fixture = TestBed.createComponent(FoodRowComponent);
     component = fixture.componentInstance;
