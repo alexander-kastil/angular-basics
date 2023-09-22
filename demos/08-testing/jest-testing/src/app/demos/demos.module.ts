@@ -29,7 +29,6 @@ import { SimpleServiceComponent } from './samples/simple-service/simple-service.
 import { PhonenumberPipe } from './samples/pipe/phonenumber.pipe';
 import { CypressComponent } from './samples/cypress/cypress.component';
 import { DirectiveComponent } from './samples/directive/directive.component';
-import { MdRendererModule } from '../shared/markdown-renderer/md-renderer.module';
 import { DirectiveHostComponent } from './samples/directive/directive-host/directive-host.component';
 import { MaterialAsyncComponent } from './samples/component-material-async/material-async.component';
 import { SimpleFoodComponent } from './samples/component-test/simple-food/simple-food.component';
@@ -38,6 +37,8 @@ import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.
 import { MockHostComponent } from './samples/component-mocking/mock-host/mock-host.component';
 import { IntegrationTestComponent } from './samples/component-integration/integration-test.component';
 import { CapitalizeDirective } from './samples/directive/capitalize.directive';
+import { MarkdownRendererComponent } from '../shared/markdown-renderer/markdown-renderer.component';
+import { SidePanelComponent } from '../shared/side-panel/side-panel.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { CapitalizeDirective } from './samples/directive/capitalize.directive';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    MdRendererModule
+    MarkdownRendererComponent,
+    SidePanelComponent
   ],
   providers: [
     DemoService,

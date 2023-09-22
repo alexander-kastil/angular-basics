@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { SnackbarService } from '../snackbar/snackbar.service';
-import { ThemeService } from '../theme/theme.service';
 import { SidebarActions } from './sidebar.actions';
 import { SidePanelService } from './sidepanel.service';
 
@@ -8,16 +9,16 @@ import { SidePanelService } from './sidepanel.service';
   selector: 'app-side-panel',
   templateUrl: './side-panel.component.html',
   styleUrls: ['./side-panel.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatIconModule
+  ],
 })
 export class SidePanelComponent {
   sns: SnackbarService = inject(SnackbarService);
   eb: SidePanelService = inject(SidePanelService);
-  ts: ThemeService = inject(ThemeService);
   editorDisplayed: boolean = false;
-
-  toggleTheme() {
-    this.ts.toggleTheme();
-  }
 
   toggleEditor() {
     this.editorDisplayed = !this.editorDisplayed;
