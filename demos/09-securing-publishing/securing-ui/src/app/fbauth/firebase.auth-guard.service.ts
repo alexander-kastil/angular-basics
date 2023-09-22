@@ -1,15 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { FirebaseAuthService } from './firebase-auth.service';
+import { SnackbarService } from '../shared/snackbar/snackbar.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FirebaseAuthGuard  {
-  constructor(private router: Router, private as: FirebaseAuthService) {}
-
+export class FirebaseAuthGuard {
+  as = inject(FirebaseAuthService);
+  sns = inject(SnackbarService);
+  router = inject(Router);
   user = this.as.getUser();
 
   canActivate(
@@ -21,6 +23,7 @@ export class FirebaseAuthGuard  {
         if (environment.authEnabled == false || user != null) {
           return true;
         } else {
+          this.sns.displayAlert('Error', 'You must be logged in to view this page.');
           this.router.navigate(['/']);
           return false;
         }
@@ -41,6 +44,7 @@ export class FirebaseAuthGuard  {
         if (environment.authEnabled == false || user != null) {
           return true;
         } else {
+          this.sns.displayAlert('Error', 'You must be logged in to view this page.');
           this.router.navigate(['/']);
           return false;
         }
