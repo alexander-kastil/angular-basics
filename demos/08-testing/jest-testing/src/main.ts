@@ -1,7 +1,25 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { MarkdownModule } from 'ngx-markdown';
+import { AppRoutingModule } from './app/app-routing.module';
+import { AppComponent } from './app/app.component';
 
-import { AppModule } from './app/app.module';
 
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+    providers: [
+        importProvidersFrom(
+            BrowserModule,
+            AppRoutingModule,
+            MatSnackBarModule,
+            MarkdownModule.forRoot({
+                loader: HttpClient,
+            })
+        ),
+        provideAnimations(),
+        provideHttpClient(withInterceptorsFromDi()),
+    ]
+})
+    .catch(err => console.error(err));
