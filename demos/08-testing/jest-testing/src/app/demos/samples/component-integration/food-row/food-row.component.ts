@@ -1,10 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FoodItem } from '../food.model';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-food-row',
-  templateUrl: './food-row.component.html',
-  styleUrls: ['./food-row.component.scss'],
+    selector: 'app-food-row',
+    templateUrl: './food-row.component.html',
+    styleUrls: ['./food-row.component.scss'],
+    standalone: true,
+    imports: [MatIconModule],
 })
 export class FoodRowComponent {
   @Input() food: FoodItem | null = null;

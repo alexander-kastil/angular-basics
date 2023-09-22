@@ -7,7 +7,7 @@ import {
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '../material.module';
+
 import { LoadingInterceptor } from '../shared/loading/loading-interceptor';
 import { LoadingService } from '../shared/loading/loading.service';
 import { DemoService } from './demo-base/demo.service';
@@ -40,10 +40,20 @@ import { MarkdownRendererComponent } from '../shared/markdown-renderer/markdown-
 import { SidePanelComponent } from '../shared/side-panel/side-panel.component';
 import { MarkdownEditorComponent } from '../shared/markdown-editor/markdown-editor.component';
 import { LoadingComponent } from '../shared/loading/loading.component';
-import { FormattingModule } from '../shared/formatting/formatting.module';
+
 
 @NgModule({
-  declarations: [
+    imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild(demoRoutes),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MarkdownEditorComponent,
+    MarkdownRendererComponent,
+    SidePanelComponent,
+    LoadingComponent,
     DemoContainerComponent,
     UnitTestingComponent,
     ComponentEventsComponent,
@@ -70,25 +80,11 @@ import { FormattingModule } from '../shared/formatting/formatting.module';
     MockHostComponent,
     IntegrationTestComponent,
     CapitalizeDirective
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(demoRoutes),
-    MaterialModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FormattingModule,
-    MarkdownEditorComponent,
-    MarkdownRendererComponent,
-    SidePanelComponent,
-    LoadingComponent
-  ],
-  providers: [
-    DemoService,
-    LoadingService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-  ],
+],
+    providers: [
+        DemoService,
+        LoadingService,
+        { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    ],
 })
 export class DemosModule { }

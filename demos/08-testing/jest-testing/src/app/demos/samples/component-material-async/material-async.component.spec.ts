@@ -13,15 +13,16 @@ describe('MaterialAsyncComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [MaterialAsyncComponent],
-        imports: [
-          MaterialModule,
-          BrowserAnimationsModule,
-          MarkdownRendererComponent,
-          MarkdownModule.forRoot({
+    imports: [
+        MaterialModule,
+        BrowserAnimationsModule,
+        MarkdownRendererComponent,
+        MarkdownModule.forRoot({
             loader: HttpClient,
-          })],
-      }).compileComponents();
+        }),
+        MaterialAsyncComponent
+    ],
+}).compileComponents();
     })
   );
 

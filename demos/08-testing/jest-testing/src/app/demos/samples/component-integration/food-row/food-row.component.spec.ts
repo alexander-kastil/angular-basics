@@ -14,11 +14,11 @@ describe('Component -Integration Test - Food Row', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FoodRowComponent],
-      imports: [
-        MatIconModule
-      ],
-    });
+    imports: [
+        MatIconModule,
+        FoodRowComponent
+    ],
+});
     fixture = TestBed.createComponent(FoodRowComponent);
     component = fixture.componentInstance;
     deleteFld = fixture.debugElement.query(By.css('#deleteFld'));

@@ -22,18 +22,19 @@ describe('MaterialComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MaterialComponent],
-      imports: [
+    imports: [
         MatCardModule,
         ReactiveFormsModule,
         MatInputModule,
         MatSliderModule,
         MatButtonModule,
-        NoopAnimationsModule],
-      schemas: [
+        NoopAnimationsModule,
+        MaterialComponent
+    ],
+    schemas: [
         NO_ERRORS_SCHEMA
-      ],
-    }).compileComponents();
+    ],
+}).compileComponents();
     fixture = TestBed.createComponent(MaterialComponent);
     fixture.detectChanges();
     loader = TestbedHarnessEnvironment.loader(fixture);
