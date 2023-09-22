@@ -10,7 +10,6 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { LoadingInterceptor } from '../shared/loading/loading-interceptor';
 import { LoadingService } from '../shared/loading/loading.service';
-import { SharedModule } from '../shared/shared.module';
 import { DemoService } from './demo-base/demo.service';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { demoRoutes } from './demo.routing.module';
@@ -39,6 +38,8 @@ import { IntegrationTestComponent } from './samples/component-integration/integr
 import { CapitalizeDirective } from './samples/directive/capitalize.directive';
 import { MarkdownRendererComponent } from '../shared/markdown-renderer/markdown-renderer.component';
 import { SidePanelComponent } from '../shared/side-panel/side-panel.component';
+import { MarkdownEditorComponent } from '../shared/markdown-editor/markdown-editor.component';
+import { LoadingComponent } from '../shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -77,9 +78,10 @@ import { SidePanelComponent } from '../shared/side-panel/side-panel.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
+    MarkdownEditorComponent,
     MarkdownRendererComponent,
-    SidePanelComponent
+    SidePanelComponent,
+    LoadingComponent
   ],
   providers: [
     DemoService,
