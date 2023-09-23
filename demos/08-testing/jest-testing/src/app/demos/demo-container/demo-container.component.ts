@@ -1,21 +1,20 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
-import { Subject } from 'rxjs';
-import { filter, map, takeUntil } from 'rxjs/operators';
-import { LoadingService } from '../../shared/loading/loading.service';
-import { DemoService } from '../demo-base/demo.service';
-import { SideNavService } from '../../shared/sidenav/sidenav.service';
-import { environment } from '../../../environments/environment.development';
-import { SidePanelService } from '../../shared/side-panel/sidepanel.service';
-import { SidebarActions } from '../../shared/side-panel/sidebar.actions';
-import { SidePanelComponent } from '../../shared/side-panel/side-panel.component';
-import { MarkdownEditorComponent } from '../../shared/markdown-editor/markdown-editor.component';
-import { LoadingComponent } from '../../shared/loading/loading.component';
-import { NgFor, NgStyle, NgIf, AsyncPipe } from '@angular/common';
-import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { AsyncPipe, NgFor, NgIf, NgStyle } from '@angular/common';
+import { Component, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { filter, map, tap } from 'rxjs/operators';
+import { environment } from '../../../environments/environment.development';
+import { LoadingComponent } from '../../shared/loading/loading.component';
+import { MarkdownEditorComponent } from '../../shared/markdown-editor/markdown-editor.component';
+import { SidePanelComponent } from '../../shared/side-panel/side-panel.component';
+import { SidebarActions } from '../../shared/side-panel/sidebar.actions';
+import { SidePanelService } from '../../shared/side-panel/sidepanel.service';
+import { SideNavService } from '../../shared/sidenav/sidenav.service';
+import { DemoService } from '../demo-base/demo.service';
 
 @Component({
   selector: 'app-demo-container',
@@ -38,18 +37,28 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
 })
-export class DemoContainerComponent implements OnInit {
+export class DemoContainerComponent {
+  destroy = inject(DestroyRef)
   router = inject(Router);
   route = inject(ActivatedRoute);
   ds = inject(DemoService);
   nav = inject(SideNavService);
-  ls = inject(LoadingService);
   eb = inject(SidePanelService);
 
-  destroy$ = new Subject();
   title: string = environment.title;
-  header = 'Please select a demo';
   demos = this.ds.getItems();
+
+  header = this.router.events
+    .pipe(
+      takeUntilDestroyed(this.destroy),
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.rootRoute(this.route)),
+      filter((route: ActivatedRoute) => route.outlet === 'primary'),
+      map((route: ActivatedRoute) => route.component != null
+        ? `Component: ${route.component.name.substring(1)}`
+        : 'Please select a demo'),
+      tap((header) => console.log(header)
+      ));
 
   isLoading = false;
 
@@ -65,43 +74,10 @@ export class DemoContainerComponent implements OnInit {
       map((action: SidebarActions) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
     );
 
-  constructor() {
-    this.ls.getLoading().pipe(takeUntil(this.destroy$)).subscribe((value) => {
-      Promise.resolve(null).then(() => (this.isLoading = value));
-    });
-  }
-
-
-  ngOnInit() {
-    this.setComponentMetadata();
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete();
-  }
-
   rootRoute(route: ActivatedRoute): ActivatedRoute {
     while (route.firstChild) {
       route = route.firstChild;
     }
     return route;
-  }
-
-  setComponentMetadata() {
-    this.router.events
-      .pipe(
-        takeUntil(this.destroy$),
-        filter((event) => event instanceof NavigationEnd),
-        map(() => this.rootRoute(this.route)),
-        filter((route: ActivatedRoute) => route.outlet === 'primary')
-      )
-      .subscribe((route: ActivatedRoute) => {
-        this.header =
-          route.component != null
-            ? `Component: ${route.component.name
-              .substring(1)}`
-            : '';
-      });
   }
 }

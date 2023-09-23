@@ -1,25 +1,6 @@
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { importProvidersFrom } from '@angular/core';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { MarkdownModule } from 'ngx-markdown';
-import { AppRoutingModule } from './app/app-routing.module';
+import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
+import { appConfig } from './app/app.config';
 
-
-bootstrapApplication(AppComponent, {
-    providers: [
-        importProvidersFrom(
-            BrowserModule,
-            AppRoutingModule,
-            MatSnackBarModule,
-            MarkdownModule.forRoot({
-                loader: HttpClient,
-            })
-        ),
-        provideAnimations(),
-        provideHttpClient(withInterceptorsFromDi()),
-    ]
-})
+bootstrapApplication(AppComponent, appConfig)
     .catch(err => console.error(err));

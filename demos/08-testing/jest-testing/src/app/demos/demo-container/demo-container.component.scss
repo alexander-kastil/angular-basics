@@ -8,7 +8,6 @@
   grid-template-columns: auto 80px;
   grid-template-areas:
     "toolbar toolbar"
-    "loading loading"
     "workbench sidebar"
     "mdeditor sidebar";
 
@@ -32,10 +31,6 @@
   @media only screen and (max-width: 960px) {
     display: none;
   }
-}
-
-.gdLoading {
-  grid-area: loading;
 }
 
 .gdWorkbench {

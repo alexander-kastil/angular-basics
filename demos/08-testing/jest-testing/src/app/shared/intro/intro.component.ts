@@ -1,7 +1,8 @@
+import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCard, MatCardModule } from '@angular/material/card';
-import { RouteConfigLoadEnd, RouterLink } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
@@ -11,7 +12,8 @@ import { RouteConfigLoadEnd, RouterLink } from '@angular/router';
   imports: [
     MatCardModule,
     MatButtonModule,
-    RouterLink
+    RouterLink,
+    NgIf
   ],
 })
 export class IntroComponent {
