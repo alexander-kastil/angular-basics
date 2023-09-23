@@ -5,11 +5,11 @@ import { FirebaseAuthModule } from '../firebase-auth/firebase-auth.module';
 import { FirebaseAuthInterceptor } from '../firebase-auth/firebase-auth.interceptor';
 import { LoadingInterceptor } from '../shared/loading/loading-interceptor';
 import { LoadingService } from '../shared/loading/loading.service';
-import { demoRoutes } from './demo.routes';
+import { DEMO_ROUTES } from './demo.routes';
 
 @NgModule({
     imports: [
-        RouterModule.forChild(demoRoutes),
+        RouterModule.forChild(DEMO_ROUTES),
         FirebaseAuthModule,
     ],
     providers: [

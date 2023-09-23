@@ -8,7 +8,7 @@ import { InterceptorComponent } from './samples/interceptor/interceptor.componen
 import { ProtectedApiComponent } from './samples/protected-api/protected-api.component';
 import { PublishComponent } from './samples/publish/publish.component';
 
-export const demoRoutes: Routes = [
+export const DEMO_ROUTES: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
