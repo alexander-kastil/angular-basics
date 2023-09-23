@@ -60,6 +60,11 @@ mat-dialog-container {
 }
 
 //mat-expansion-panel
+.mat-expansion-panel-header-description, 
+.mat-expansion-indicator::after{
+  color: white !important;
+}
+
 mat-expansion-panel {
   border-radius: 0px !important;
 }

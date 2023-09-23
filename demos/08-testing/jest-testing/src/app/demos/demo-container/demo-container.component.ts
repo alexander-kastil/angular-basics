@@ -15,26 +15,28 @@ import { NgFor, NgStyle, NgIf, AsyncPipe } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-    selector: 'app-demo-container',
-    templateUrl: './demo-container.component.html',
-    styleUrls: ['./demo-container.component.scss'],
-    standalone: true,
-    imports: [
-        MatSidenavModule,
-        MatToolbarModule,
-        MatListModule,
-        NgFor,
-        RouterLink,
-        NgStyle,
-        NgIf,
-        LoadingComponent,
-        RouterOutlet,
-        MarkdownEditorComponent,
-        SidePanelComponent,
-        AsyncPipe,
-    ],
+  selector: 'app-demo-container',
+  templateUrl: './demo-container.component.html',
+  styleUrls: ['./demo-container.component.scss'],
+  standalone: true,
+  imports: [
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    NgFor,
+    RouterLink,
+    NgStyle,
+    NgIf,
+    LoadingComponent,
+    RouterOutlet,
+    MarkdownEditorComponent,
+    SidePanelComponent,
+    AsyncPipe,
+    MatIconModule
+  ],
 })
 export class DemoContainerComponent implements OnInit {
   router = inject(Router);
