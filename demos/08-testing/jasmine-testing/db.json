@@ -64,15 +64,15 @@
   "top-links": [
     {
       "label": "Home",
-      "url": ""
+      "url": "main"
     },
     {
       "label": "Demos",
-      "url": "demos"
+      "url": "main/demos"
     },
     {
       "label": "Skills",
-      "url": "skills"
+      "url": "main/skills"
     }
   ],
   "food": [

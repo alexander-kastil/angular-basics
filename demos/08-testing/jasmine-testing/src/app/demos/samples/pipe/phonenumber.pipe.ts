@@ -2,8 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'phonenumber',
+  standalone: true,
 })
-export class PhonenumberPipe implements PipeTransform {
+export class PhoneNumberPipe implements PipeTransform {
   transform(value: any, args?: any): any {
     if (undefined !== value && value.length === 10) {
       return (

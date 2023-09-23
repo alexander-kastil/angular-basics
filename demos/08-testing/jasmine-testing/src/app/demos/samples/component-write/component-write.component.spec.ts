@@ -14,15 +14,15 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 describe('ComponentWriteComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
+    imports: [
         FormsModule,
         MatCardModule,
         MatInputModule,
         NoopAnimationsModule,
-      ],
-      schemas: [NO_ERRORS_SCHEMA],
-      declarations: [ComponentWriteComponent],
-    });
+        ComponentWriteComponent,
+    ],
+    schemas: [NO_ERRORS_SCHEMA],
+});
   });
 
   it('should be display the written Value', fakeAsync(() => {

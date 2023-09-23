@@ -11,12 +11,11 @@ describe('Component - Events - EventsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ComponentEventsComponent],
-      imports: [MatCardModule, MatButtonModule],
-      schemas: [
+    imports: [MatCardModule, MatButtonModule, ComponentEventsComponent],
+    schemas: [
         NO_ERRORS_SCHEMA
-      ],
-    }).compileComponents();
+    ],
+}).compileComponents();
     fixture = TestBed.createComponent(ComponentEventsComponent);
     component = fixture.componentInstance;
   });

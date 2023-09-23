@@ -13,10 +13,9 @@ describe('UseMockComponent with MockAuth Service', () => {
     spy.isAuthenticated.and.returnValue(true);
 
     TestBed.configureTestingModule({
-      imports: [MatCardModule],
-      declarations: [UseSpyComponent],
-      providers: [{ provide: AuthService, useValue: spy }],
-    }).compileComponents();
+    imports: [MatCardModule, UseSpyComponent],
+    providers: [{ provide: AuthService, useValue: spy }],
+}).compileComponents();
 
     fixture = TestBed.createComponent(UseSpyComponent);
     comp = fixture.componentInstance;

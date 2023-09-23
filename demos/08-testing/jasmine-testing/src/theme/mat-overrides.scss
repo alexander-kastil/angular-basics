@@ -60,6 +60,11 @@ mat-dialog-container {
 }
 
 //mat-expansion-panel
+.mat-expansion-panel-header-description, 
+.mat-expansion-indicator::after{
+  color: white !important;
+}
+
 mat-expansion-panel {
   border-radius: 0px !important;
 }
@@ -68,8 +73,11 @@ mat-expansion-panel-header:hover{
   background-color: var(--color-primary);
 }
 
-mat-expansion-panel-header {
+.mat-expansion-panel-header.mat-expanded {
   height: var(--toolbar-small);
+}
+
+mat-expansion-panel-header {
   background-color: var(--color-primary) !important;
 }
 

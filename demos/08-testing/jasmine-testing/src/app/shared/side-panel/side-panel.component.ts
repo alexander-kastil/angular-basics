@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SnackbarService } from '../snackbar/snackbar.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { SideNavService } from '../sidenav/sidenav.service';
 import { SidebarActions } from './sidebar.actions';
 import { SidePanelService } from './sidepanel.service';
-
 @Component({
   selector: 'app-side-panel',
   templateUrl: './side-panel.component.html',
@@ -12,25 +13,28 @@ import { SidePanelService } from './sidepanel.service';
   standalone: true,
   imports: [
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule
   ],
 })
 export class SidePanelComponent {
-  sns: SnackbarService = inject(SnackbarService);
-  eb: SidePanelService = inject(SidePanelService);
-  editorDisplayed: boolean = false;
+  eb = inject(SidePanelService);
+  nav = inject(SideNavService);
+  editorDisplayed = false;
+  icon = "create";
 
   toggleEditor() {
+    if (this.editorDisplayed) {
+      this.eb.triggerCmd(SidebarActions.HIDE_MARKDOWN);
+    } else {
+      this.eb.triggerCmd(SidebarActions.SHOW_MARKDOWN);
+    }
     this.editorDisplayed = !this.editorDisplayed;
-    this.eb.triggerCmd(
-      this.editorDisplayed
-        ? SidebarActions.SHOW_MARKDOWN
-        : SidebarActions.HIDE_MARKDOWN
-    );
-    this.editorDisplayed = !this.editorDisplayed;
+    this.icon = this.editorDisplayed ? "close" : "create";
   }
 
-  showUpload() {
-    this.sns.displayAlert('Info', 'Not implemented - just a Demo');
+  toogleSideNav() {
+    this.nav.toggleMenuVisibility();
   }
 }

@@ -1,6 +1,8 @@
+import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCard, MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
@@ -9,7 +11,9 @@ import { MatCard, MatCardModule } from '@angular/material/card';
   standalone: true,
   imports: [
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterLink,
+    NgIf
   ],
 })
 export class IntroComponent {
