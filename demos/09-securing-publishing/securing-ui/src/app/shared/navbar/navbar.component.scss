@@ -1,12 +1,12 @@
 @import "mixins.scss";
 
 .navLink {
-  @include link(var(--color-fg), var(--font-big));
-  margin-top: -0.5rem;
+  @include link(var(--color-font), var(--font-big));
 }
 
 .navLinkActive{
   text-decoration: underline;
+  text-underline-offset: 8px;
 }
 
 mat-toolbar-row {
