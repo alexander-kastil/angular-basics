@@ -1,5 +1,5 @@
 import { AsyncPipe, NgFor, NgIf, NgStyle } from '@angular/common';
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, effect, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -57,10 +57,12 @@ export class DemoContainerComponent {
       map((route: ActivatedRoute) => route.component != null
         ? `Component: ${route.component.name.substring(1)}`
         : 'Please select a demo'),
-      tap((header) => console.log(header)
-      ));
+    );
 
   isLoading = false;
+
+  currentCMD = this.eb.getCommands();
+  showMdEditor = false;
 
   sidenavMode = this.nav.getSideNavPosition();
   sidenavVisible = this.nav.getSideNavVisible();
@@ -68,11 +70,11 @@ export class DemoContainerComponent {
     map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })
   );
 
-  showMdEditor = this.eb
-    .getCommands()
-    .pipe(
-      map((action: SidebarActions) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
-    );
+  constructor() {
+    effect(() => {
+      this.showMdEditor = this.currentCMD() === SidebarActions.HIDE_MARKDOWN ? false : true;
+    });
+  }
 
   rootRoute(route: ActivatedRoute): ActivatedRoute {
     while (route.firstChild) {
