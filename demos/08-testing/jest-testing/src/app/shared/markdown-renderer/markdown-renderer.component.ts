@@ -19,7 +19,7 @@ import { environment } from '../../../environments/environment.development';
   ],
 })
 export class MarkdownRendererComponent {
-  @Input() md: string = '';
+  @Input({ required: true }) md = '';
   panelOpenState = true;
 
   getMarkdown(): string {

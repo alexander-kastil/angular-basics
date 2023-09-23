@@ -34,7 +34,7 @@ import { CypressComponent } from './samples/cypress/cypress.component';
 import { CapitalizeDirective } from './samples/directive/capitalize.directive';
 import { DirectiveHostComponent } from './samples/directive/directive-host/directive-host.component';
 import { DirectiveComponent } from './samples/directive/directive.component';
-import { PhonenumberPipe } from './samples/pipe/phonenumber.pipe';
+import { PhoneNumberPipe } from './samples/pipe/phonenumber.pipe';
 import { RatingPipe } from './samples/pipe/rating.pipe';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
@@ -48,22 +48,9 @@ import { SimpleServiceComponent } from './samples/simple-service/simple-service.
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        MarkdownEditorComponent,
-        MarkdownRendererComponent,
-        SidePanelComponent,
-        LoadingComponent,
-        DemoContainerComponent,
-        UnitTestingComponent,
-        ComponentEventsComponent,
-        ComponentClassComponent,
-        ComponentWriteComponent,
-        TestPipeComponent,
-        DirectiveComponent,
-        DirectiveHostComponent,
-        SimpleServiceComponent,
-        TestPipeComponent,
         RatingPipe,
-        PhonenumberPipe,
+        PhoneNumberPipe,
+        CapitalizeDirective,
         FoodRowComponent,
         FoodListComponent,
         MaterialComponent,
@@ -77,7 +64,20 @@ import { SimpleServiceComponent } from './samples/simple-service/simple-service.
         SpyHostComponent,
         MockHostComponent,
         IntegrationTestComponent,
-        CapitalizeDirective
+        MarkdownEditorComponent,
+        MarkdownRendererComponent,
+        SidePanelComponent,
+        LoadingComponent,
+        DemoContainerComponent,
+        UnitTestingComponent,
+        ComponentEventsComponent,
+        ComponentClassComponent,
+        ComponentWriteComponent,
+        TestPipeComponent,
+        DirectiveComponent,
+        DirectiveHostComponent,
+        SimpleServiceComponent,
+        TestPipeComponent
     ],
     providers: [
         DemoService,

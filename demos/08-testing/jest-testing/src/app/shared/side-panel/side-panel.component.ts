@@ -4,6 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SnackbarService } from '../snackbar/snackbar.service';
 import { SidebarActions } from './sidebar.actions';
 import { SidePanelService } from './sidepanel.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-side-panel',
@@ -12,7 +13,8 @@ import { SidePanelService } from './sidepanel.service';
   standalone: true,
   imports: [
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
 })
 export class SidePanelComponent {
