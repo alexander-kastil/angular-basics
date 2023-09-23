@@ -59,3 +59,13 @@ mat-toolbar {
 mat-list-item {
   border-bottom: 1px solid  var(--color-accent);
 }
+
+.bottom-sheet{
+  min-width: 900px !important;
+  max-width: calc(100vw - 100px);
+}
+
+.mat-bottom-sheet-container-large {
+  min-width: 800px;
+  /* max-width: calc(100vw - 256px); */
+}

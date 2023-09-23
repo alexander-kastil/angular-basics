@@ -15,6 +15,12 @@ import { SidebarActions } from '../../shared/side-panel/sidebar.actions';
 import { SidePanelService } from '../../shared/side-panel/sidepanel.service';
 import { SideNavService } from '../../shared/sidenav/sidenav.service';
 import { DemoService } from '../demo-base/demo.service';
+import {
+  MatBottomSheet,
+  MatBottomSheetConfig,
+  MatBottomSheetModule,
+  MatBottomSheetRef,
+} from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-demo-container',
@@ -25,16 +31,17 @@ import { DemoService } from '../demo-base/demo.service';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    NgFor,
+    MatIconModule,
+    MatBottomSheetModule,
+    RouterOutlet,
     RouterLink,
+    AsyncPipe,
+    NgFor,
     NgStyle,
     NgIf,
     LoadingComponent,
-    RouterOutlet,
     MarkdownEditorComponent,
     SidePanelComponent,
-    AsyncPipe,
-    MatIconModule
   ],
 })
 export class DemoContainerComponent {
@@ -44,6 +51,8 @@ export class DemoContainerComponent {
   ds = inject(DemoService);
   nav = inject(SideNavService);
   eb = inject(SidePanelService);
+  bottomSheet = inject(MatBottomSheet);
+  sheetRef: MatBottomSheetRef | null = null;
 
   title: string = environment.title;
   demos = this.ds.getItems();
@@ -59,27 +68,44 @@ export class DemoContainerComponent {
         : 'Please select a demo'),
     );
 
-  isLoading = false;
-
-  currentCMD = this.eb.getCommands();
-  showMdEditor = false;
-
-  sidenavMode = this.nav.getSideNavPosition();
-  sidenavVisible = this.nav.getSideNavVisible();
-  workbenchMargin = this.sidenavVisible.pipe(
-    map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })
-  );
-
-  constructor() {
-    effect(() => {
-      this.showMdEditor = this.currentCMD() === SidebarActions.HIDE_MARKDOWN ? false : true;
-    });
-  }
-
   rootRoute(route: ActivatedRoute): ActivatedRoute {
     while (route.firstChild) {
       route = route.firstChild;
     }
     return route;
   }
+
+  isLoading = false;
+  currentCMD = this.eb.getCommands();
+  showMdEditor = false;
+
+  constructor() {
+    effect(() => {
+      this.currentCMD() === SidebarActions.HIDE_MARKDOWN ? this.closeBottomSheet() : this.openBottomSheet();
+    });
+  }
+
+  ngOnInit() {
+    this.sheetRef?.afterDismissed().subscribe(() => {
+      console.log('Sheet dismissed');
+      this.eb.triggerCmd(SidebarActions.HIDE_MARKDOWN);
+    });
+  }
+
+  openBottomSheet(): void {
+    const config: MatBottomSheetConfig = {
+      panelClass: 'bottom-sheet'
+    };
+    this.sheetRef = this.bottomSheet.open(MarkdownEditorComponent, config);
+  }
+
+  closeBottomSheet(): void {
+    this.bottomSheet.dismiss();
+  }
+
+  sidenavMode = this.nav.getSideNavPosition();
+  sidenavVisible = this.nav.getSideNavVisible();
+  workbenchMargin = this.sidenavVisible.pipe(
+    map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })
+  );
 }
