@@ -68,8 +68,11 @@ mat-expansion-panel-header:hover{
   background-color: var(--color-primary);
 }
 
-mat-expansion-panel-header {
+.mat-expansion-panel-header.mat-expanded {
   height: var(--toolbar-small);
+}
+
+mat-expansion-panel-header {
   background-color: var(--color-primary) !important;
 }
 

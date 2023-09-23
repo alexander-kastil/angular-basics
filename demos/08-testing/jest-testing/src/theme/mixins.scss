@@ -6,6 +6,8 @@
   font-weight: bolder;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: underline;  
+    text-underline-offset: 8px; 
+    color: var(--color-warn); 
   }
 }

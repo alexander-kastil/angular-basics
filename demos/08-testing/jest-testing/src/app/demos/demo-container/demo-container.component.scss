@@ -48,17 +48,12 @@
 }
 
 mat-toolbar {
-  height: var(--toolbar-medium);
   margin-bottom: var(--gap-small);
   background-color: var(--color-accent);
 }
 
 .mat-sidenav-container {
   height: 100%;
-}
-
-.sidenav-menu {
-  font-size: 1rem;
 }
 
 .mat-mdc-list-base .mat-mdc-list-item,

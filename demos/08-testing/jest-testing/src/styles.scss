@@ -20,7 +20,7 @@ $app-theme: mat.define-light-theme((
 :root {
   --color-primary: #1E88E5;
   --color-accent: #B0BEC5;
-  --color-warn: #{mat-color(warn)};
+  --color-warn: red;
   --color-font: white;
   --gap-small: 0.5rem;
   --gap-medium: 0.8rem;
