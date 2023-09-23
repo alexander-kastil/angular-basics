@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { catchError, map } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { FirebaseAuthService } from '../../../fbauth/firebase-auth.service';
+import { FirebaseAuthService } from '../../../firebase-auth/firebase-auth.service';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({

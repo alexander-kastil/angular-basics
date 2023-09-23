@@ -5,7 +5,7 @@ declare global {
 }
 
 export const environment = {
-    authEnabled: window['env'].AUTH_ENABLED || false,
+    authEnabled: window['env'].AUTH_ENABLED || true,
     title: 'Security & Publishing',
     markdownPath: '/assets/markdown/',
     api: window['env'].API_URL || 'http://localhost:3000/',

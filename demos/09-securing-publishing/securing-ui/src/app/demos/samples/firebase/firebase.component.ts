@@ -1,8 +1,8 @@
 import { Component, OnInit, TemplateRef, ViewChild, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { FirebaseAuthService } from '../../../fbauth/firebase-auth.service';
-import { LoginComponent } from '../../../fbauth/components/login/login.component';
-import { RegisterComponent } from '../../../fbauth/components/register/register.component';
+import { FirebaseAuthService } from '../../../firebase-auth/firebase-auth.service';
+import { LoginComponent } from '../../../firebase-auth/components/login/login.component';
+import { RegisterComponent } from '../../../firebase-auth/components/register/register.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';

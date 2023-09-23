@@ -1,5 +1,5 @@
 - Create an account at [Firebase](https://firebase.google.com/)
-- Firebase Authentication is implemented in the `src/app/fbauth` folder. To be able to use Firebase Auth you must:
+- Firebase Authentication is implemented in the `src/app/firebase-auth` folder. To be able to use Firebase Auth you must:
 - Update your Firebase Config in `environment.ts`
 
   ```typescript
