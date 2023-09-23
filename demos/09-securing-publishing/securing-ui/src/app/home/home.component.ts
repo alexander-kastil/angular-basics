@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { IntroComponent } from '../shared/intro/intro.component';
 
 @Component({
@@ -8,5 +8,4 @@ import { IntroComponent } from '../shared/intro/intro.component';
     standalone: true,
     imports: [IntroComponent],
 })
-export class HomeComponent {
-}
+export class HomeComponent { }
