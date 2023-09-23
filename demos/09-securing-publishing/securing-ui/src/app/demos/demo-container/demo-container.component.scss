@@ -1,10 +1,10 @@
 .gdSidenavContent {
-  min-width: 400px;
+  min-width: 450px;
   height: 100%;
   overflow: hidden;
   display: grid;
   gap: var(--gap-small);
-  grid-template-rows: 65px var(--gap-small) auto;
+  grid-template-rows: 60px var(--gap-small) auto;
   grid-template-columns: auto 5rem;
   grid-template-areas:
     "toolbar toolbar"
