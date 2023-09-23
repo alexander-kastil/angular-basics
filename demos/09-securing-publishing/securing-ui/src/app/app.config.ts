@@ -8,6 +8,7 @@ import { provideRouter } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
+import { MatDialogModule } from '@angular/material/dialog';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -17,6 +18,7 @@ export const appConfig: ApplicationConfig = {
         importProvidersFrom([
             MarkdownModule.forRoot(),
             MatSnackBarModule,
+            MatDialogModule,
             provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
             provideAuth(() => getAuth()),
         ]),
