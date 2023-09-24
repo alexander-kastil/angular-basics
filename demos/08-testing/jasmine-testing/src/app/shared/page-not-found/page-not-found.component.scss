@@ -13,15 +13,15 @@ mat-card-content{
 }
 
 mat-card-title{
-    font-size: 1.2rem;
+    font-size: var(--font-big);
 }
 
 .mat-mdc-card-title{
-    margin-bottom: 0.8rem;
+    margin-bottom: var(--gap-medium);
 }
 
 img{
-    margin-top: 1.5rem;
+    margin-top: var(--gap-medium);
 }
 
 span{

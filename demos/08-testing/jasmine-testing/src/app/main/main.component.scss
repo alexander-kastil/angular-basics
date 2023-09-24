@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-rows: 80px 5px auto;
+  grid-template-rows: 5rem var(--gap-small) auto;
   grid-template-columns: auto;
   grid-template-areas:
     "navbar"

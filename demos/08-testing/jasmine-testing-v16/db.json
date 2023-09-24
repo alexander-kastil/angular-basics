@@ -1,0 +1,122 @@
+{
+  "demos": [
+    {
+      "url": "basic-tests",
+      "title": "Testing Intro"
+    },
+    {
+      "url": "testpipe",
+      "title": "Test Pipe"
+    },
+    {
+      "url": "directive",
+      "title": "Test Directive"
+    },
+    {
+      "url": "simpleservice",
+      "title": "Simple Service"
+    },
+    {
+      "url": "component-class",
+      "title": "Comp Test Class"
+    },
+    {
+      "url": "mock",
+      "title": "Comp Inject Mock"
+    },
+    {
+      "url": "spy",
+      "title": "Comp Inject Spy"
+    },
+    {
+      "url": "component-test",
+      "title": "Comp Spy returnValue"
+    },
+    {
+      "url": "component-write",
+      "title": "Comp Write / Read"
+    },
+    {
+      "url": "component-events",
+      "title": "Comp Events"
+    },
+    {
+      "url": "material",
+      "title": "Comp Material Harness"
+    },
+    {
+      "url": "material-async",
+      "title": "Comp Material Async"
+    },
+    {
+      "url": "integrationtests",
+      "title": "Comp Integration Tests"
+    },
+    {
+      "url": "cypress",
+      "title": "Cypress E2E Tests"
+    },
+    {
+      "url": "cypress",
+      "title": "Cypress Component Tests"
+    }
+  ],
+  "top-links": [
+    {
+      "label": "Home",
+      "url": ""
+    },
+    {
+      "label": "Demos",
+      "url": "demos"
+    },
+    {
+      "label": "Skills",
+      "url": "skills"
+    }
+  ],
+  "food": [
+    {
+      "id": 1,
+      "name": "Pad Thai",
+      "rating": 1
+    },
+    {
+      "id": 2,
+      "name": "Butter Chicken",
+      "rating": 2
+    },
+    {
+      "id": 3,
+      "name": "Cannelloni",
+      "rating": 2
+    },
+    {
+      "id": 4,
+      "name": "Cordon Bleu",
+      "rating": 4
+    }
+  ],
+  "skills": [
+    {
+      "id": "123",
+      "name": "RxJs",
+      "completed": false
+    },
+    {
+      "id": "456",
+      "name": "NgRx",
+      "completed": false
+    },
+    {
+      "id": "223",
+      "name": "Angular",
+      "completed": true
+    },
+    {
+      "id": "436",
+      "name": "TypeScript",
+      "completed": true
+    }
+  ]
+}

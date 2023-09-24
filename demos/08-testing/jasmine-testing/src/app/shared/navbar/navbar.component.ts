@@ -5,6 +5,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SideNavService } from '../sidenav/sidenav.service';
 import { SnackbarService } from '../snackbar/snackbar.service';
+import { LogoutBtnComponent } from 'src/app/firebase-auth/components/logout-btn/logout-btn.component';
+import { CurrentUserComponent } from 'src/app/firebase-auth/components/current-user/current-user.component';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +19,9 @@ import { SnackbarService } from '../snackbar/snackbar.service';
     RouterLink,
     RouterLinkActive,
     AsyncPipe,
-    NgFor
+    NgFor,
+    LogoutBtnComponent,
+    CurrentUserComponent
   ],
 })
 export class NavbarComponent {

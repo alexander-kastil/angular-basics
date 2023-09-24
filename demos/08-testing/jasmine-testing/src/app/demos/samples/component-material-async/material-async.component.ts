@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
 import { User } from './user-model';
-import { usersdata } from './users-data';
+import { userData } from './users-data';
 import { NgFor, DatePipe } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-material-async',
-    templateUrl: './material-async.component.html',
-    styleUrls: ['./material-async.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCardModule,
-        MatTabsModule,
-        NgFor,
-        DatePipe,
-    ],
+  selector: 'app-material-async',
+  templateUrl: './material-async.component.html',
+  styleUrls: ['./material-async.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCardModule,
+    MatTabsModule,
+    NgFor,
+    DatePipe,
+  ],
 })
 export class MaterialAsyncComponent {
   displayedColumns = ['email', 'created', 'roles'];
-  users: User[] = usersdata;
+  users: User[] = userData;
 }
