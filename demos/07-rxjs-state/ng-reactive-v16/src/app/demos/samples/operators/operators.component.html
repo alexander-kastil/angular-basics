@@ -1,0 +1,46 @@
+<app-markdown-renderer [md]="'operators'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      Simple Operator Examples
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="cmdItems">
+    <button mat-raised-button color="accent" (click)="useMap()">map()</button>
+    <button mat-raised-button color="accent" (click)="useMapAndTap()"
+      >pipe(), map() & tap()</button>
+    <button mat-raised-button color="accent" (click)="errHandling()"
+      >error handling</button>
+    <button mat-raised-button color="accent" (click)="useFind()"
+      >find() to return first item</button>
+    <button mat-raised-button color="accent" (click)="useFilter()"
+      >filter() to return an Array</button>
+    <button mat-raised-button color="accent" (click)="useTake()"
+      >take() to return an Array</button>
+    <button mat-raised-button color="accent" (click)="useInterval()"
+      >interval() to set an Inverval</button>
+    <button mat-raised-button color="accent" (click)="useDelay()"
+      >delay() to wait for a periode</button>
+      <button mat-raised-button color="accent" (click)="useCombineLatestWith()"
+      >combineLatestWith() to combine 2 streams</button>
+    <button mat-raised-button color="accent" (click)="useForkJoin()"
+      >forkJoin() to join Observables</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined" fxLayout="column" fxLayoutGap="10px">
+  <mat-card-header>
+    <mat-card-title>
+      Result
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="result">
+    <div *ngFor="let v of vouchers">
+      {{  v.Text }}
+    </div>
+  </mat-card-content>
+</mat-card>
+
+

@@ -1,14 +1,32 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatTableDataSource } from '@angular/material/table';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { combineLatestWith, map, startWith, tap } from 'rxjs';
 import { StatefulVoucherService } from '../stateful-voucher.service';
 import { Voucher } from '../vouchers.model';
+import { CurrencyPipe, DatePipe } from '@angular/common';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-stateful-vouchers',
-  templateUrl: './stateful-vouchers.component.html',
-  styleUrls: ['./stateful-vouchers.component.scss'],
+    selector: 'app-stateful-vouchers',
+    templateUrl: './stateful-vouchers.component.html',
+    styleUrls: ['./stateful-vouchers.component.scss'],
+    standalone: true,
+    imports: [
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatTableModule,
+        MatIconModule,
+        MatTooltipModule,
+        CurrencyPipe,
+        DatePipe,
+    ],
 })
 export class StatefulVouchersComponent implements OnInit {
   vs = inject(StatefulVoucherService);

@@ -1,28 +1,21 @@
 import { Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { environment } from 'src/environments/environment';
-import { ThemeService } from './shared/theme/theme.service';
+import { RouterOutlet } from '@angular/router';
+import { environment } from '../environments/environment.development';
+import { IntroComponent } from './shared/intro/intro.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [IntroComponent, RouterOutlet],
 })
 export class AppComponent {
   titleService: Title = inject(Title);
-  themeService: ThemeService = inject(ThemeService);
   title: string = environment.title;
-  selectedTheme: string = 'default';
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
-    this.themeService.getTheme().subscribe((t) => {
-      this.selectedTheme = t;
-    });
-  }
-
-  toggleTheme() {
-    this.selectedTheme = this.selectedTheme == 'default' ? 'dark' : 'default';
-    console.log(this.selectedTheme);
   }
 }

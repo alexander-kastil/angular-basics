@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-subjects',
-  templateUrl: './subjects.component.html',
-  styleUrls: ['./subjects.component.scss'],
+    selector: 'app-subjects',
+    templateUrl: './subjects.component.html',
+    styleUrls: ['./subjects.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        MatCardModule,
+        MatButtonModule,
+    ],
 })
 export class SubjectsComponent {
   sub$: Subject<number> = new Subject<number>();

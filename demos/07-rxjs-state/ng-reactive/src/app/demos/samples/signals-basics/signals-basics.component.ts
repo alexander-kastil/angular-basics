@@ -1,10 +1,16 @@
 import { Component, Signal, computed, effect, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { of, startWith } from 'rxjs';
+import { BorderDirective } from '../../../shared/formatting/formatting-directives';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 @Component({
-  selector: 'app-signals-basics',
-  templateUrl: './signals-basics.component.html',
-  styleUrls: ['./signals-basics.component.scss']
+    selector: 'app-signals-basics',
+    templateUrl: './signals-basics.component.html',
+    styleUrls: ['./signals-basics.component.scss'],
+    standalone: true,
+    imports: [MarkdownRendererComponent, MatCardModule, MatButtonModule, BorderDirective]
 })
 export class SignalsBasicsComponent {
   totalAmount = signal<number>(0);

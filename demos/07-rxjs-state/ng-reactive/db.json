@@ -1,7 +1,7 @@
 {
   "demos": [
     {
-      "url": "formcontrols",
+      "url": "form-controls",
       "title": "Form Controls"
     },
     {
@@ -56,15 +56,15 @@
   "top-links": [
     {
       "label": "Home",
-      "url": ""
+      "url": "main"
     },
     {
       "label": "Demos",
-      "url": "demos"
+      "url": "main/demos"
     },
     {
       "label": "Skills",
-      "url": "skills"
+      "url": "main/skills"
     }
   ],
   "vouchers": [

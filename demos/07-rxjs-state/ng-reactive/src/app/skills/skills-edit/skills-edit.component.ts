@@ -1,17 +1,31 @@
 import { Component, Input, SimpleChanges, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Router } from '@angular/router';
 import { SnackbarService } from '../../shared/snackbar/snackbar.service';
 import { Skill } from '../skill.model';
-import { SkillsEntityService } from '../skills-entity.service';
+import { SkillsEntityService } from '../state/skills-entity.service';
 
 @Component({
   selector: 'app-skills-edit',
   templateUrl: './skills-edit.component.html',
   styleUrls: ['./skills-edit.component.scss'],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+  ],
 })
 export class SkillsEditComponent {
-  @Input() id: number = 0;
+  @Input({ required: true }) id = 0;
   router = inject(Router);
   sns = inject(SnackbarService);
   es = inject(SkillsEntityService);

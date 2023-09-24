@@ -1,11 +1,20 @@
 import { Component, DestroyRef, ElementRef, ViewChild, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Subscription, fromEvent, map, tap } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { BorderDirective } from '../../../shared/formatting/formatting-directives';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-sign-pad',
-  templateUrl: './sign-pad.component.html',
-  styleUrls: ['./sign-pad.component.scss'],
+    selector: 'app-sign-pad',
+    templateUrl: './sign-pad.component.html',
+    styleUrls: ['./sign-pad.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        BorderDirective,
+        MatButtonModule,
+    ],
 })
 export class SignPadComponent {
   @ViewChild('signPad', { static: true }) canvas: ElementRef | null = null;

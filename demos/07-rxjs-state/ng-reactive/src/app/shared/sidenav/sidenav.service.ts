@@ -4,7 +4,7 @@ import { Injectable, inject } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { NavItem } from '../navbar/navitem.model';
+import { NavItem } from '../navbar/navItem.model';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -13,7 +13,6 @@ import { environment } from '../../../environments/environment';
 export class SideNavService {
   http = inject(HttpClient);
   breakpointObserver = inject(BreakpointObserver);
-
   visible$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   position$: BehaviorSubject<MatDrawerMode> = new BehaviorSubject<MatDrawerMode>('side');
 
@@ -33,7 +32,7 @@ export class SideNavService {
     .observe([Breakpoints.XSmall, Breakpoints.Small])
     .pipe(
       tap((matchesBreakpoint) => {
-        console.log("matches breakpoint", matchesBreakpoint);
+        console.log(matchesBreakpoint);
         this.visible$.next(matchesBreakpoint.matches ? false : true);
         this.position$.next(matchesBreakpoint.matches ? 'over' : 'side');
       })

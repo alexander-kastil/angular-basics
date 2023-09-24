@@ -22,11 +22,22 @@ import {
 import { VouchersService } from '../vouchers/voucher.service';
 import { Voucher } from '../vouchers/vouchers.model';
 import { DoublerService } from './doubler.service';
+import { NgFor } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-operators',
-  templateUrl: './operators.component.html',
-  styleUrls: ['./operators.component.scss'],
+    selector: 'app-operators',
+    templateUrl: './operators.component.html',
+    styleUrls: ['./operators.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        MatCardModule,
+        MatButtonModule,
+        NgFor,
+    ],
 })
 export class OperatorsComponent {
   vs = inject(VouchersService);

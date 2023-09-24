@@ -2,11 +2,20 @@ import { Component } from '@angular/core';
 import axios from 'axios';
 import { Observable, from, of } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-simple-observable',
-  templateUrl: './creating-observable.component.html',
-  styleUrls: ['./creating-observable.component.scss'],
+    selector: 'app-simple-observable',
+    templateUrl: './creating-observable.component.html',
+    styleUrls: ['./creating-observable.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        MatCardModule,
+        MatButtonModule,
+    ],
 })
 export class CreatingObservableComponent {
   onErr = (err: any) => console.log(err);

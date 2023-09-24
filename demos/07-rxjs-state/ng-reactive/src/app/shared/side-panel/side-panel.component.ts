@@ -1,26 +1,28 @@
 import { Component, inject } from '@angular/core';
-import { SnackbarService } from '../snackbar/snackbar.service';
-import { ThemeService } from '../theme/theme.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { SideNavService } from '../sidenav/sidenav.service';
 import { SidebarActions } from './sidebar.actions';
 import { SidePanelService } from './sidepanel.service';
-import { SideNavService } from '../sidenav/sidenav.service';
-
 @Component({
   selector: 'app-side-panel',
   templateUrl: './side-panel.component.html',
   styleUrls: ['./side-panel.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule
+  ],
 })
 export class SidePanelComponent {
-  sns = inject(SnackbarService);
   eb = inject(SidePanelService);
-  ts = inject(ThemeService);
+  nav = inject(SideNavService);
   editorDisplayed = false;
-  sidenav = inject(SideNavService);
   icon = "create";
-
-  toggleTheme() {
-    this.ts.toggleTheme();
-  }
 
   toggleEditor() {
     if (this.editorDisplayed) {
@@ -33,10 +35,6 @@ export class SidePanelComponent {
   }
 
   toogleSideNav() {
-    this.sidenav.toggleMenuVisibility();
-  }
-
-  showUpload() {
-    this.sns.displayAlert('Info', 'Not implemented - just a Demo');
+    this.nav.toggleMenuVisibility();
   }
 }

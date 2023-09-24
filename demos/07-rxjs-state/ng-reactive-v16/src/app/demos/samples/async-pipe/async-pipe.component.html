@@ -1,0 +1,46 @@
+<app-markdown-renderer [md]="'async-pipe'"></app-markdown-renderer>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Imperative programming using subscribe()</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngFor="let t of tasks">{{ t.id }} - {{ t.title }}</div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Declarative Reactive Approach using async pipe </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngFor="let t of tasks$ | async">{{ t.id }} - {{ t.title }}</div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Completed task using Observable operators </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <pre>{{ completed$ | async | json }}</pre>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined" *ngIf="tasks$ | async as arTasks; else loading">
+  <mat-card-header>
+    <mat-card-title> Aliasing </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngFor="let t of arTasks">
+      <span>{{ t.title }}</span><span> - complete: {{ t.completed }}</span>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #loading>
+  <mat-card appearance="outlined">
+    <mat-card-content>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
