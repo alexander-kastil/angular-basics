@@ -28,6 +28,7 @@
     "@angular/router": "^17.0.0-next.5",
     "@ngrx/data": "^16.2.0",
     "@ngrx/effects": "^16.2.0",
+    "@ngrx/entity": "^16.2.0",
     "@ngrx/store": "^16.2.0",
     "firebase": "^9.23.0",
     "marked": "^4.3.0",

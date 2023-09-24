@@ -6,7 +6,7 @@
 
 .navLinkActive{
   text-decoration: underline;
-  text-underline-offset: 8px;
+  text-underline-offset: var(--gap-small);
 }
 
 mat-toolbar-row {
@@ -27,8 +27,15 @@ mat-toolbar-row {
 .menuContainer{
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 1rem;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
+}
+
+.login{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
 }

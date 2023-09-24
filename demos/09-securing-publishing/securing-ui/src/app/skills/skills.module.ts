@@ -11,10 +11,12 @@ import { SKILL_ROUTES } from './skills.routes';
   imports: [
     RouterModule.forChild(SKILL_ROUTES)
   ],
-  providers: [SkillsEntityService, SkillsDataService, {
-    provide: HttpUrlGenerator,
-    useClass: CustomUrlHttpGenerator,
-  },],
+  providers: [
+    // SkillsEntityService, SkillsDataService, {
+    //   provide: HttpUrlGenerator,
+    //   useClass: CustomUrlHttpGenerator,
+    // },
+  ],
 })
 export class SkillsModule {
   // constructor(

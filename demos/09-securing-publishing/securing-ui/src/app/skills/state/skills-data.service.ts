@@ -9,6 +9,7 @@ import { Skill } from '../skill.model';
 
 @Injectable()
 export class SkillsDataService extends DefaultDataService<Skill> {
+
   constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator) {
     super('Skill', http, httpUrlGenerator);
   }

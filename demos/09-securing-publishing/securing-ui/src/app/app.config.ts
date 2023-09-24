@@ -12,10 +12,11 @@ import { MarkdownModule } from 'ngx-markdown';
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 import { appState } from './state/app.state';
-import { provideEntityData, withEffects } from '@ngrx/data';
+import { DefaultDataServiceConfig, provideEntityData, withEffects } from '@ngrx/data';
 import { entityConfig } from './skills/state/skills.metadata';
 import { SkillsEntityService } from './skills/state/skills-entity.service';
 import { SkillsDataService } from './skills/state/skills-data.service';
+import { skillDataServiceConfig } from './skills/state/skill-data.service.config';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -31,16 +32,17 @@ export const appConfig: ApplicationConfig = {
         ]),
         provideStore(),
         provideState(appState),
+        { provide: DefaultDataServiceConfig, useValue: skillDataServiceConfig },
         provideEntityData(entityConfig, withEffects()),
-        {
-            provide: ENVIRONMENT_INITIALIZER,
-            useValue() {
-                const entityDataService = inject(SkillsEntityService);
-                // const skillDataService = inject(SkillsDataService);
-                // entityDataService.registerService('Skill', skillDataService);
-            },
-            multi: true,
-        },
+        // {
+        //     provide: ENVIRONMENT_INITIALIZER,
+        //     useValue() {
+        //         const entityDataService = inject(SkillsEntityService);
+        //         const skillDataService = inject(SkillsDataService);
+        //         entityDataService.registerService('Skill', skillDataService);
+        //     },
+        //     multi: true,
+        // },
         provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
     ],
 };

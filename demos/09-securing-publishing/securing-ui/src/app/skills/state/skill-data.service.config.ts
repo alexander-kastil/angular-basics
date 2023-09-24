@@ -6,8 +6,8 @@ export const skillDataServiceConfig: DefaultDataServiceConfig = {
     timeout: 3000,
     entityHttpResourceUrls: {
         Food: {
-            entityResourceUrl: `${environment.api}/food/`,
-            collectionResourceUrl: `${environment.api}/food`
+            entityResourceUrl: `${environment.api}/skills/`,
+            collectionResourceUrl: `${environment.api}/skills`
         },
     }
 }
