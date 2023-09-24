@@ -34,8 +34,6 @@ export class IntroComponent {
   router = inject(Router);
 
   logIn() {
-    console.log('logIn - authEnabled: ', this.isAuthenticated);
-
     this.dialog.open(this.loginTemplate, { width: '350px' })
       .afterClosed()
       .pipe(
@@ -46,17 +44,6 @@ export class IntroComponent {
             this.router.navigate(['/']);
           }
         }));
-
-    // this.dialog
-    //   .open(this.loginTemplate, { width: '350px' })
-    //   .afterClosed()
-    //   .pipe(
-    //     combineLatestWith(this.as.isAuthenticated()),
-    //     map(([close, isAuthenticated]) => {
-
-    //     })
-    //   )
-    //   .subscribe();
   }
 
   registerUser() {
@@ -70,19 +57,5 @@ export class IntroComponent {
             this.router.navigate(['/']);
           }
         }));
-    // this.dialog
-    //   .open(this.registerTemplate, { width: '350px' })
-    //   .afterClosed()
-    //   .pipe(
-    //     combineLatestWith(this.as.isAuthenticated()),
-    //     map(([close, isAuthenticated]) => {
-    //       if (isAuthenticated) {
-    //         this.router.navigate(['demos']);
-    //       } else {
-    //         this.router.navigate(['/']);
-    //       }
-    //     })
-    //   )
-    //   .subscribe();
   }
 }
