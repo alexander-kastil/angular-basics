@@ -18,9 +18,9 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    NgIf,
     MatButtonModule,
     MatDialogModule,
+    NgIf,
   ],
 })
 export class RegisterComponent {
