@@ -80,95 +80,15 @@
   "top-links": [
     {
       "label": "Home",
-      "url": ""
+      "url": "main"
     },
     {
       "label": "Demos",
-      "url": "demos"
+      "url": "main/demos"
     },
     {
       "label": "Skills",
-      "url": "skills"
-    }
-  ],
-  "skills": [
-    {
-      "id": "123",
-      "name": "RxJs",
-      "hours": 8,
-      "completed": false
-    },
-    {
-      "id": "456",
-      "name": "NgRx",
-      "hours": 10,
-      "completed": false
-    },
-    {
-      "id": "223",
-      "name": "Angular",
-      "hours": 7,
-      "completed": true
-    },
-    {
-      "id": "436",
-      "name": "TypeScript",
-      "hours": 2,
-      "completed": true
-    },
-    {
-      "id": "44",
-      "name": "Webpack",
-      "hours": 2,
-      "completed": true
-    }
-  ],
-  "persons": [
-    {
-      "id": 1,
-      "name": "Cleo",
-      "age": 15,
-      "gender": "female",
-      "married": true,
-      "imgUrl": "/assets/images/cleo.png"
-    },
-    {
-      "id": 2,
-      "name": "Soi",
-      "age": 9,
-      "gender": "female",
-      "married": false,
-      "imgUrl": "/assets/images/soi.png"
-    },
-    {
-      "id": 3,
-      "name": "Giro",
-      "age": 11,
-      "gender": "male",
-      "married": false,
-      "imgUrl": "/assets/images/giro.png"
-    },
-    {
-      "id": 4,
-      "name": "Flora",
-      "age": 14,
-      "gender": "female",
-      "married": false,
-      "imgUrl": "/assets/images/flora.png"
-    }
-  ],
-  "authors": [
-    {
-      "id": 1,
-      "mail": "alexander.pajer@integrations.at"
-    },
-    {
-      "id": 2,
-      "mail": "andreas.lengauer@integrations.at"
-    },
-    {
-      "id": 3,
-      "mail": "giro.thegalgo@integrations.at"
+      "url": "main/skills"
     }
   ],
   "vouchers": [
@@ -290,41 +210,25 @@
       ]
     }
   ],
-  "accounts": [
+  "skills": [
     {
-      "ID": 1,
-      "Name": "Unclassified",
-      "Expense": true
+      "id": 1,
+      "name": "Custom Angular Theme",
+      "hours": 4,
+      "completed": true
     },
     {
-      "ID": 2,
-      "Name": "Car Maintenance",
-      "Expense": true
+      "id": 2,
+      "name": "Theme Mixins",
+      "hours": 3,
+      "completed": false,
+      "dueDate": "2020-07-06T15:18:22.9848654"
     },
     {
-      "ID": 3,
-      "Name": "Development",
-      "Expense": false
-    },
-    {
-      "ID": 4,
-      "Name": "Consulting",
-      "Expense": false
-    },
-    {
-      "ID": 5,
-      "Name": "Training",
-      "Expense": false
-    },
-    {
-      "ID": 6,
-      "Name": "Software",
-      "Expense": true
-    },
-    {
-      "ID": 7,
-      "Name": "Hosting & Internet",
-      "Expense": true
+      "name": "Cooking Pad Krapao",
+      "hours": 1,
+      "completed": false,
+      "id": 3
     }
   ]
 }

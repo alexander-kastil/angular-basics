@@ -1,23 +1,28 @@
 import { Component, inject } from '@angular/core';
-import { SnackbarService } from '../snackbar/snackbar.service';
-import { ThemeService } from '../theme/theme.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { SideNavService } from '../sidenav/sidenav.service';
 import { SidebarActions } from './sidebar.actions';
 import { SidePanelService } from './sidepanel.service';
-
 @Component({
   selector: 'app-side-panel',
   templateUrl: './side-panel.component.html',
   styleUrls: ['./side-panel.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule
+  ],
 })
 export class SidePanelComponent {
-  sns: SnackbarService = inject(SnackbarService);
-  eb: SidePanelService = inject(SidePanelService);
-  ts: ThemeService = inject(ThemeService);
-  editorDisplayed: boolean = false;
-
-  toggleTheme() {
-    this.ts.toggleTheme();
-  }
+  eb = inject(SidePanelService);
+  nav = inject(SideNavService);
+  editorDisplayed = false;
+  icon = "create";
 
   toggleEditor() {
     if (this.editorDisplayed) {
@@ -26,9 +31,10 @@ export class SidePanelComponent {
       this.eb.triggerCmd(SidebarActions.SHOW_MARKDOWN);
     }
     this.editorDisplayed = !this.editorDisplayed;
+    this.icon = this.editorDisplayed ? "close" : "create";
   }
 
-  showUpload() {
-    this.sns.displayAlert('Info', 'Not implemented - just a Demo');
+  toogleSideNav() {
+    this.nav.toggleMenuVisibility();
   }
 }

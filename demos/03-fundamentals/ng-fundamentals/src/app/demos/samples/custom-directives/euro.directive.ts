@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[toEuro]',
+    selector: '[toEuro]',
+    standalone: true,
 })
 export class EuroDirective {
   private el: HTMLInputElement;

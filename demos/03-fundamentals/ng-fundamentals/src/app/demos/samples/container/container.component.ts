@@ -1,11 +1,22 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { PersonService } from '../persons/person.service';
 import { Person } from '../persons/person.model';
+import { PersonEditComponent } from '../persons/person-edit/person-edit.component';
+import { NgIf } from '@angular/common';
+import { PersonsListComponent } from '../persons/persons-list/persons-list.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-container',
-  templateUrl: './container.component.html',
-  styleUrls: ['./container.component.scss'],
+    selector: 'app-container',
+    templateUrl: './container.component.html',
+    styleUrls: ['./container.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        PersonsListComponent,
+        NgIf,
+        PersonEditComponent,
+    ],
 })
 export class ContainerComponent implements OnInit {
   ps = inject(PersonService);

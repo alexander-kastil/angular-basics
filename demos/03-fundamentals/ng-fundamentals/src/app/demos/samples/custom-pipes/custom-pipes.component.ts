@@ -1,11 +1,22 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Voucher } from '../vouchers/vouchers.model';
 import { VouchersService } from '../vouchers/voucher.service';
+import { CheckPipe } from './check.pipe';
+import { EuroPipe } from './euro.pipe';
+import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-custom-pipes',
-  templateUrl: './custom-pipes.component.html',
-  styleUrls: ['./custom-pipes.component.scss'],
+    selector: 'app-custom-pipes',
+    templateUrl: './custom-pipes.component.html',
+    styleUrls: ['./custom-pipes.component.scss'],
+    standalone: true,
+    imports: [
+        MatCardModule,
+        FormsModule,
+        EuroPipe,
+        CheckPipe,
+    ],
 })
 export class CustomPipesComponent implements OnInit {
   vs = inject(VouchersService);

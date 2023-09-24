@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'toChecked',
+    name: 'toChecked',
+    standalone: true,
 })
 export class CheckPipe implements PipeTransform {
   transform(checked: boolean): any {

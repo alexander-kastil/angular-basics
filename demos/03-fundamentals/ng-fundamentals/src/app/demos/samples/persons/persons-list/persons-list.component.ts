@@ -6,11 +6,15 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { Person } from '../person.model';
+import { NgFor } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-persons-list',
-  templateUrl: './persons-list.component.html',
-  styleUrls: ['./persons-list.component.scss'],
+    selector: 'app-persons-list',
+    templateUrl: './persons-list.component.html',
+    styleUrls: ['./persons-list.component.scss'],
+    standalone: true,
+    imports: [MatCardModule, NgFor],
 })
 export class PersonsListComponent {
   @Input() persons: Person[] | null = [];

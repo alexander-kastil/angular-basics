@@ -1,0 +1,24 @@
+.gdContainer {
+  display: grid;
+  grid-template-rows: 60px auto;
+  grid-template-columns: auto 240px;
+  grid-template-areas:
+    "titlebar titlebar"
+    "main actions";
+  min-height: 300px;
+  height: 100%;
+}
+
+.gdTitlebar{
+  grid-area: titlebar;
+}
+
+.gdMainContent{
+  grid-area: main;
+  padding: var(--gap-medium);
+}
+
+.gdActions{
+  grid-area: actions;
+  padding: var(--gap-medium);
+}

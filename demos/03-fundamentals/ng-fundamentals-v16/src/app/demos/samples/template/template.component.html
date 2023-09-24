@@ -1,0 +1,15 @@
+<app-markdown-renderer [md]="'seperated'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{ title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    I am using Interpolation to transfer a value from the *.ts file to the template:
+    {{theValue}} * 2 = {{doDouble()}}
+  </mat-card-content>
+</mat-card>
+
+<div class="divGreen">
+  Class divGreen is defined in the corresponding *.scss.
+</div>

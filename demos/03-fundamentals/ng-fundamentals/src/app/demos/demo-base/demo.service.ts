@@ -18,8 +18,7 @@ export class DemoService {
 
   updateItem(item: DemoItem): Observable<DemoItem> {
     return this.httpClient.put<DemoItem>(
-      `${environment.api}demos/${item.id}`,
-      item
+      `${environment.api}demos/${item.id}`, item
     );
   }
 

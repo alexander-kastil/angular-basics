@@ -1,0 +1,15 @@
+<div class="gdContainer">
+  <div class="gdTitlebar">
+    <mat-toolbar mat-dialog-title color="primary">
+      <mat-toolbar-row>
+        <ng-content select=".title"></ng-content>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <div class="gdMainContent">
+    <ng-content select=".content"></ng-content>
+  </div>
+  <div class="gdActions">
+    <ng-content select=".actions"></ng-content>
+  </div>
+</div>

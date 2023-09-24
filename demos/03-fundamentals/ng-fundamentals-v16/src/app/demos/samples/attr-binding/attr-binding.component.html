@@ -1,0 +1,23 @@
+<app-markdown-renderer [md]="'attr-binding'"></app-markdown-renderer>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Attribute Binding</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="cmdItems">
+    <button mat-raised-button (click)="toggleDisabled()" color="accent">
+      Click to {{ isDisabled ? 'enable' : 'disable' }} the input
+    </button>
+    <button mat-raised-button (click)="toggleHidden()" color="accent">
+      Click to {{ isHidden ? 'show' : 'hide' }} the input
+    </button>
+    
+    <div class="inputContainer">
+      <input
+        type="text"
+        placeholder="Enter name"
+        [disabled]="isDisabled"
+        [hidden]="isHidden"
+      />
+    </div>
+  </mat-card-content>
+</mat-card>

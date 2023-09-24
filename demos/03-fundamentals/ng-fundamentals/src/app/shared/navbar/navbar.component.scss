@@ -1,25 +1,25 @@
 @import "mixins.scss";
 
 .navLink {
-  @include link(var(--color-fg), var(--font-big));
-  margin-top: -0.5rem;
+  @include link(var(--color-font), var(--font-big));
 }
 
 .navLinkActive{
   text-decoration: underline;
+  text-underline-offset: var(--gap-small);
 }
 
 mat-toolbar-row {
   min-height: var(--toolbar-big);
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: var(--gap-medium);
 }
 
 .hamburgerMenu{
   cursor: pointer;
   display: none;
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: var(--breakpoint-mobile)) {
     display: block;
   }
 }
@@ -27,8 +27,15 @@ mat-toolbar-row {
 .menuContainer{
   display: flex;
   flex-direction: row;
-  gap: 25px;
+  gap: 1rem;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
+}
+
+.login{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
 }

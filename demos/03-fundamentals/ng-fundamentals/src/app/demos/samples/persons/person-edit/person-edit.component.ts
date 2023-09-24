@@ -8,11 +8,26 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Person } from '../person.model';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-person-edit',
-  templateUrl: './person-edit.component.html',
-  styleUrls: ['./person-edit.component.scss'],
+    selector: 'app-person-edit',
+    templateUrl: './person-edit.component.html',
+    styleUrls: ['./person-edit.component.scss'],
+    standalone: true,
+    imports: [
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatRadioModule,
+        MatButtonModule,
+    ],
 })
 export class PersonEditComponent implements OnChanges {
   @Input() person: Person = new Person();

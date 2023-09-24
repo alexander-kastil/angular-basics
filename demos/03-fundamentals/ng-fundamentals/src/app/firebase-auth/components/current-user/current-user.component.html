@@ -1,0 +1,7 @@
+<div class="user" *ngIf="currentUser | async as user; else unauthenticated">
+  {{ user?.email }}
+</div>
+
+<ng-template #unauthenticated>
+  Not authenticated
+</ng-template>

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-inline',
-  template: `
+    selector: 'app-inline',
+    template: `
     <app-markdown-renderer [md]="'inline'"></app-markdown-renderer>
     <mat-card appearance="outlined">
       <mat-card-header>
@@ -13,7 +15,9 @@ import { Component } from '@angular/core';
       </mat-card-content>
     </mat-card>
   `,
-  styleUrls: ['./inline.component.scss'],
+    styleUrls: ['./inline.component.scss'],
+    standalone: true,
+    imports: [MarkdownRendererComponent, MatCardModule],
 })
 export class InlineComponent {
   title = 'Inline Templates';

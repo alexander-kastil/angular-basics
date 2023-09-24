@@ -3,11 +3,18 @@ import { SkillsService } from '../../../skills/skills.service';
 import { SnackbarService } from '../../../shared/snackbar/snackbar.service';
 import { addBusinessDays } from 'date-fns';
 import { Skill } from '../../../skills/skill.model';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { NgIf, JsonPipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-services-basics',
-  templateUrl: './services-basics.component.html',
-  styleUrls: ['./services-basics.component.scss']
+    selector: 'app-services-basics',
+    templateUrl: './services-basics.component.html',
+    styleUrls: ['./services-basics.component.scss'],
+    standalone: true,
+    imports: [MarkdownRendererComponent, MatCardModule, MatButtonModule, NgIf, MatProgressBarModule, JsonPipe]
 })
 export class ServicesBasicsComponent {
   service = inject(SkillsService);

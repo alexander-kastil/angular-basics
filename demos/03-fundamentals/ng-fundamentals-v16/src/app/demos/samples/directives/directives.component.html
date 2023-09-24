@@ -1,0 +1,43 @@
+<app-markdown-renderer [md]="'buildin-directives'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>NgModel</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    NgModel is a directive used for data binding which is implemented in the FormsModule library.
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>ngStyle</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button (click)="changeColor()" color="accent"
+    >Change Color using ngStyle and prop (bgcolor)</button
+  >
+  <div
+    [ngStyle]="{
+      'margin-top': '1rem',
+      'padding': '1rem',
+      'color': 'white',
+      'background-color': bgcolor
+    }"
+  >
+    {{ msg }}
+  </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>ngClass</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button (click)="changeClass()" color="accent"
+    >Change CSS Class using ngClass and method</button
+  >
+  <div [ngClass]="getClass()"></div>
+  </mat-card-content>
+</mat-card>

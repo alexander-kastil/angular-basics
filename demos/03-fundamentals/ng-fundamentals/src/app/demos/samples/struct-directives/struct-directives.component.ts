@@ -1,11 +1,25 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { VouchersService } from '../vouchers/voucher.service';
 import { Voucher } from '../vouchers/vouchers.model';
+import { FormsModule } from '@angular/forms';
+import { NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault, AsyncPipe } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-struct-directives',
-  templateUrl: './struct-directives.component.html',
-  styleUrls: ['./struct-directives.component.scss'],
+    selector: 'app-struct-directives',
+    templateUrl: './struct-directives.component.html',
+    styleUrls: ['./struct-directives.component.scss'],
+    standalone: true,
+    imports: [
+        MatCardModule,
+        NgFor,
+        FormsModule,
+        NgIf,
+        NgSwitch,
+        NgSwitchCase,
+        NgSwitchDefault,
+        AsyncPipe,
+    ],
 })
 export class StructDirectivesComponent {
   vs = inject(VouchersService);

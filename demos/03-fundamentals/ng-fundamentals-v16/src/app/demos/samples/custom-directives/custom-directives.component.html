@@ -1,0 +1,19 @@
+<app-markdown-renderer [md]="'custom-directives'"></app-markdown-renderer>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Euro Directive</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <label>Enter a number:</label>
+    <div class="inputContainer">
+      <input type="text" [(ngModel)]="price" toEuro />
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<div isEditable>
+  The editable div - you can write inside of this div - try it
+</div>
+
+<div border centered>This div is using the border and centered directive</div>

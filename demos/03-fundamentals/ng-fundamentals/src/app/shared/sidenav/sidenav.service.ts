@@ -4,7 +4,7 @@ import { Injectable, inject } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { NavItem } from '../navbar/navitem.model';
+import { NavItem } from '../navbar/navItem.model';
 import { environment } from '../../../environments/environment';
 
 @Injectable({

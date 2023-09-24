@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'euro',
+    name: 'euro',
+    standalone: true,
 })
 export class EuroPipe implements PipeTransform {
   transform(value: number, args?: any): any {

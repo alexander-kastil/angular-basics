@@ -1,0 +1,1 @@
+Pipes modify / format a value / stream that is consumed in Interpolation. Angular provides some build-in pipes. Read more in the [build-in pipes documentation](https://angular.io/api/common#pipes)
