@@ -1,0 +1,43 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Async Operations & Observables </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="cmdItems">
+    <button mat-raised-button (click)="usingFetch()" color="primary">
+      Using Fetch and Promise
+    </button>
+    <button mat-raised-button (click)="usingFetchAwait()" color="primary">
+      Using Fetch Await
+    </button>
+    <button mat-raised-button (click)="postFetch()" color="primary">
+      Post using Fetch
+    </button>
+    <button mat-raised-button (click)="usingAxios()" color="primary">
+      Using Axios and Promises
+    </button>
+    <button mat-raised-button (click)="useClientInComponent()" color="primary">
+      Use HttpClient in Component
+    </button>
+    <button mat-raised-button (click)="consumeService()" color="primary">
+      Consuming Servics
+    </button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined" *ngIf="skills">
+  <mat-card-content>
+    <div fxLayout="column" fxLayoutGap="10px">
+      <h1>The Skills Subscribe</h1>
+      <div *ngFor="let sk of skills" class="row">{{ sk.name }}</div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined" *ngIf="showDeclarative | async">
+  <mat-card-content>
+    <div fxLayout="column" fxLayoutGap="10px">
+      <h1>The Skills declarative binding</h1>
+      <div *ngFor="let sk of skills$ | async" class="row">{{ sk.name }}</div>
+    </div>
+  </mat-card-content>
+</mat-card>

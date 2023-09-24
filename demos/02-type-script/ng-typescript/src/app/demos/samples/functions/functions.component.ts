@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-functions',
   templateUrl: './functions.component.html',
   styleUrls: ['./functions.component.scss'],
+  standalone: true,
+  imports: [MatCardModule, MatButtonModule],
 })
 export class FunctionsComponent {
 
@@ -71,8 +75,8 @@ export class FunctionsComponent {
     console.log(result);
 
     // not using types
-    const doubleArrow = (height) => 2 * height;
-    const doDouble = (nbr) => nbr * 2;
+    const doubleArrow = (height: number) => 2 * height;
+    const doDouble = (nbr: number) => nbr * 2;
   }
 
   functionOverloads() {

@@ -1,23 +1,19 @@
 import { Component } from '@angular/core';
-import * as _ from 'lodash'; // Alias import
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-classes',
   templateUrl: './classes.component.html',
   styleUrls: ['./classes.component.scss'],
+  standalone: true,
+  imports: [MatCardModule, MatButtonModule],
 })
 export class ClassesComponent {
 
   basicClasses() {
-    class Voucher {
-      ID: number;
-      Text: string;
-      Amount: number;
-      Date: Date;
-      Total?: number;
-    }
 
-    class VoucherPropInit {
+    class Voucher {
       ID: number = 0;
       Text: string = '';
       Amount: number = 0;
@@ -25,20 +21,8 @@ export class ClassesComponent {
       Total?: number;
     }
 
-    const v: Voucher = new Voucher(); // v: {}
-
-    if (v.ID != null) {
-      console.log(v.ID); // -> undefined err
-    }
-    v.ID = 0;
-    v.Text = 'Demo Voucher';
-
-    //Reason for strict prop init in tsconfig.json
-    //Props are there - no {}
-    const vi = new VoucherPropInit();
-
+    const vi = new Voucher();
     const vouchers = new Array<Voucher>();
-
     const voucherA: Voucher = {
       ID: 1,
       Text: 'Media Markt',
@@ -123,36 +107,6 @@ export class ClassesComponent {
     // smurf.name = "Dan"; // Error! 'name' is read-only.
   }
 
-  deepClone() {
-    class Dog {
-      constructor(public name: string, public breed: string) { }
-    }
-
-    class Person {
-      constructor(public name: string, public dogs: Dog[]) { }
-    }
-
-    const alex = new Person('Alex', [
-      { name: 'Soi', breed: 'Whippet' },
-      { name: 'Giro', breed: 'Galgo Espanol' },
-    ]);
-
-    console.log(alex);
-
-    const alexander = _.deepClone(alex);
-
-    function passArgs(pers: Person) {
-      pers.name = 'Gustav';
-      pers.dogs[0].name = 'Soitscherl';
-    }
-
-    passArgs(alex);
-    passArgs(alexander);
-
-    console.log('alex:', alex);
-    console.log('deep clone', alexander);
-  }
-
   inheritance() {
     class Dog {
       constructor(public name: string) { } // public or private creates implicit prop
@@ -167,10 +121,10 @@ export class ClassesComponent {
       constructor(name: string) {
         super(name);
       } // super -> C# .base
-      public speed = 'with up to 110 km/h';
+      override speed = 'with up to 110 km/h';
 
       // method  override
-      move(meters = 500): void {
+      override move(meters = 500): void {
         console.log('Running ...' + meters + 'm. ' + this.speed);
         // If you want to call implementation of base class use:
         super.move(meters);
@@ -237,9 +191,9 @@ export class ClassesComponent {
 
   casting() {
     class Voucher {
-      ID: number;
-      Text: string;
-      Amount: number;
+      ID: number = 0;
+      Text: string = '';
+      Amount: number = 0;
       Date?: Date;
     }
 

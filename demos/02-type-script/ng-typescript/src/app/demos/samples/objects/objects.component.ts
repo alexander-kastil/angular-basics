@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { format } from 'date-fns';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-object-literals',
   templateUrl: './objects.component.html',
   styleUrls: ['./objects.component.scss'],
+  standalone: true,
+  imports: [MatCardModule, MatButtonModule],
 })
 export class ObjectsComponent {
 
@@ -34,20 +38,18 @@ export class ObjectsComponent {
   }
 
   propertyShorthand() {
-    function getCarES5(make, model, value) {
+    function getCarES5(brand: string, model: string) {
       return {
-        make: make,
+        brand: brand,
         model: model,
-        value: value,
       };
     }
 
     // Property shorthand
-    function getCar(make, model, value) {
+    function getCar(brand: string, model: string) {
       return {
-        make,
+        brand,
         model,
-        value,
       };
     }
   }

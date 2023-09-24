@@ -15,7 +15,6 @@
       "url": "interfaces",
       "title": "Interfaces"
     },
-    { "url": "gernerics", "title": "Generics" },
     {
       "url": "services",
       "title": "Async Operations"
@@ -28,7 +27,7 @@
     },
     {
       "label": "Demos",
-      "url": "demos"
+      "url": "main/demos"
     }
   ],
   "skills": [
@@ -57,10 +56,6 @@
     {
       "id": 1,
       "mail": "alexander.pajer@integrations.at"
-    },
-    {
-      "id": 2,
-      "mail": "andreas.lengauer@integrations.at"
     },
     {
       "id": 3,

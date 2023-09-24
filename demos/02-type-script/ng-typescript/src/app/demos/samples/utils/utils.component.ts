@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-utils',
   templateUrl: './utils.component.html',
   styleUrls: ['./utils.component.scss'],
+  standalone: true,
+  imports: [MatCardModule, MatButtonModule],
 })
 export class UtilsComponent {
   constructor() { }
@@ -28,11 +32,11 @@ export class UtilsComponent {
     console.log(str.endsWith('question.')); // true
 
     // include -> C# string.contains
-    function countString(ts) {
+    function countString(searchString: string) {
       const characters = ['a', 'b', 'c'];
 
       let ct = 0;
-      for (const char of ts) {
+      for (const char of searchString) {
         if (characters.includes(char)) {
           ct++;
         }
@@ -76,10 +80,10 @@ export class UtilsComponent {
 
   arrayHelpers() {
     class Fruit {
-      name: string;
-      quantity: number;
-      price: number;
-      region: string;
+      name: string = '';
+      quantity: number = 0;
+      price: number = 0;
+      region: string = '';
     }
 
     const fruits: Fruit[] = [
@@ -138,8 +142,8 @@ export class UtilsComponent {
     // reduce:  You want to find a cumulative or concatenated value based on elements across the array
     // array.reduce(callback[, initialValue]);
     class RocketLaunch {
-      country: string;
-      launches: number;
+      country: string = '';
+      launches: number = 0;
     }
 
     const rockets: RocketLaunch[] = [
@@ -246,7 +250,8 @@ export class UtilsComponent {
     const myString = 'a string';
     const myMap = new Map<string, any>();
     const voucher = { Id: 33, Text: 'Diesel', Amount: 56 };
-    const logFunction = function (param) {
+
+    const logFunction = function (param: string) {
       console.log(`logFuntion is logging: ${param}`);
     };
 

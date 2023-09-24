@@ -1,11 +1,14 @@
 import { Component } from '@angular/core'; // ES 6 module import
-import * as moment from 'moment'; // Non ES6 Moduel import
-import { Voucher } from '../model';
+import { Voucher } from '../voucher.model';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-types',
   templateUrl: './types.component.html',
   styleUrls: ['./types.component.scss'],
+  standalone: true,
+  imports: [MatCardModule, MatButtonModule],
 })
 export class TypesComponent {
 
@@ -116,7 +119,9 @@ export class TypesComponent {
       ID: 1,
       Text: 'Media Markt',
       Amount: 22,
-      Date: new Date(),
+      Paid: false,
+      Date: new Date().toDateString(),
+      Expense: true,
     } as Voucher;
 
     handleVoucher(v, VoucherStatus.draft);
@@ -132,11 +137,5 @@ export class TypesComponent {
     }
 
     processChoice('ok');
-  }
-
-  useTypings() {
-    // typing from moment.js - import * as moment from 'moment';
-    const dt = new Date(1990, 3, 2);
-    console.log('Using time format: ', moment(dt).format('LTS'));
   }
 }

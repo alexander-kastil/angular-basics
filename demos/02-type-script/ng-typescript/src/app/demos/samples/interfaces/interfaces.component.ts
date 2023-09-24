@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-interfaces',
   templateUrl: './interfaces.component.html',
   styleUrls: ['./interfaces.component.scss'],
+  standalone: true,
+  imports: [MatCardModule, MatButtonModule],
 })
 export class InterfacesComponent {
 
@@ -14,8 +18,8 @@ export class InterfacesComponent {
     }
 
     class Knight implements IHumanBeeing {
-      name: string;
-      birthDate: Date;
+      name: string = '';
+      birthDate: Date = new Date();
       weapon = 'Battle Axe';
     }
 
@@ -51,7 +55,7 @@ export class InterfacesComponent {
     }
 
     class DeliveryManager implements IManager {
-      name: string;
+      name: string = '';
     }
   }
 

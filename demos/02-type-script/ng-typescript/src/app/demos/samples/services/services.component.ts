@@ -5,17 +5,27 @@ import { environment } from '../../../../environments/environment';
 import { Skill } from '../skills/skill.model';
 import { SkillsService } from '../skills/skills.service';
 import { map, tap } from 'rxjs';
-import { ta } from 'date-fns/locale';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    NgIf,
+    NgFor,
+    AsyncPipe,
+  ],
 })
 export class ServicesComponent {
   service = inject(SkillsService);
   http = inject(HttpClient);
-  skills: Skill[];
+  skills: Skill[] = [];
   skills$ = this.service.getSkills().pipe(
     tap((data) => {
       // using tap to log data to console
@@ -87,7 +97,7 @@ export class ServicesComponent {
     //untyped
     this.http
       .get(`${environment.api}skills`)
-      .subscribe((data: Skill[]) => console.log(data));
+      .subscribe((data) => console.log(data));
 
     //typed - preferred pattern to use get<T>
     this.http
