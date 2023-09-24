@@ -1,66 +1,88 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  TemplateRef,
-  ViewChild,
-  inject,
-} from '@angular/core';
+import { AsyncPipe, NgIf } from '@angular/common';
+import { Component, Input, TemplateRef, ViewChild, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { combineLatestWith, map } from 'rxjs/operators';
-import { FirebaseAuthService } from '../../fbauth/firebase-auth.service';
+import { Router, RouterLink } from '@angular/router';
+import { combineLatestWith, map, tap } from 'rxjs';
+import { LoginComponent } from 'src/app/firebase-auth/components/login/login.component';
+import { RegisterComponent } from 'src/app/firebase-auth/components/register/register.component';
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    RouterLink,
+    NgIf,
+    AsyncPipe,
+    RegisterComponent,
+    LoginComponent
+  ],
 })
 export class IntroComponent {
-  as = inject(FirebaseAuthService);
   @ViewChild('register') registerTemplate!: TemplateRef<any>;
   @ViewChild('login') loginTemplate!: TemplateRef<any>;
-  @Input() title: string = '';
-  @Input() subtitle: string = '';
-  @Input() img: string = '';
-  authEnabled = this.as.isAuthenticated();
-
-  constructor(
-    private dialog: MatDialog,
-    private router: Router
-  ) { }
+  @Input() isAuthenticated: boolean | null = false;
+  @Input({ required: true }) title = '';
+  @Input({ required: true }) subtitle = '';
+  @Input({ required: true }) img = '';
+  dialog = inject(MatDialog);
+  router = inject(Router);
 
   logIn() {
-    this.dialog
-      .open(this.loginTemplate, { width: '350px' })
+    console.log('logIn - authEnabled: ', this.isAuthenticated);
+
+    this.dialog.open(this.loginTemplate, { width: '350px' })
       .afterClosed()
       .pipe(
-        combineLatestWith(this.as.isAuthenticated()),
-        map(([close, isAuthenticated]) => {
-          if (isAuthenticated) {
-            this.router.navigate(['demos']);
+        tap(() => {
+          if (this.isAuthenticated) {
+            this.router.navigate(['main/demos']);
           } else {
             this.router.navigate(['/']);
           }
-        })
-      )
-      .subscribe();
+        }));
+
+    // this.dialog
+    //   .open(this.loginTemplate, { width: '350px' })
+    //   .afterClosed()
+    //   .pipe(
+    //     combineLatestWith(this.as.isAuthenticated()),
+    //     map(([close, isAuthenticated]) => {
+
+    //     })
+    //   )
+    //   .subscribe();
   }
 
   registerUser() {
-    this.dialog
-      .open(this.registerTemplate, { width: '350px' })
+    this.dialog.open(this.registerTemplate, { width: '350px' })
       .afterClosed()
       .pipe(
-        combineLatestWith(this.as.isAuthenticated()),
-        map(([close, isAuthenticated]) => {
-          if (isAuthenticated) {
-            this.router.navigate(['demos']);
+        tap(() => {
+          if (this.isAuthenticated) {
+            this.router.navigate(['main/demos']);
           } else {
             this.router.navigate(['/']);
           }
-        })
-      )
-      .subscribe();
+        }));
+    // this.dialog
+    //   .open(this.registerTemplate, { width: '350px' })
+    //   .afterClosed()
+    //   .pipe(
+    //     combineLatestWith(this.as.isAuthenticated()),
+    //     map(([close, isAuthenticated]) => {
+    //       if (isAuthenticated) {
+    //         this.router.navigate(['demos']);
+    //       } else {
+    //         this.router.navigate(['/']);
+    //       }
+    //     })
+    //   )
+    //   .subscribe();
   }
 }

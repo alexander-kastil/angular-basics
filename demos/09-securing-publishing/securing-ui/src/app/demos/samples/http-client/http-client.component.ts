@@ -1,11 +1,22 @@
+import { JsonPipe } from '@angular/common';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { environment } from '../../../../environments/environment';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-http-client',
   templateUrl: './http-client.component.html',
   styleUrls: ['./http-client.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCardModule,
+    MatButtonModule,
+    JsonPipe,
+  ],
 })
 export class HttpClientComponent {
   http = inject(HttpClient);

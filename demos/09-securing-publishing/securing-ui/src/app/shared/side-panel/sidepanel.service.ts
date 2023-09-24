@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, computed, signal } from '@angular/core';
 import { SidebarActions } from './sidebar.actions';
 
 @Injectable({ providedIn: 'root' })
 export class SidePanelService {
-  private commands: BehaviorSubject<SidebarActions> = new BehaviorSubject<SidebarActions>(SidebarActions.HIDE_MARKDOWN);
+  private commands = signal<SidebarActions>(SidebarActions.HIDE_MARKDOWN);
 
   getCommands() {
-    return this.commands;
+    return computed(() => this.commands());
   }
 
   triggerCmd(action: SidebarActions) {
-    this.commands.next(action);
+    this.commands.set(action);
   }
 }

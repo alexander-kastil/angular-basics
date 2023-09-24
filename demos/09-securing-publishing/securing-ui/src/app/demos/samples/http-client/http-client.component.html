@@ -4,14 +4,14 @@
   <mat-card-header>
     <mat-card-title> Make sure json-server is running run </mat-card-title>
   </mat-card-header>
-  <mat-card-content class="cmdItems">
-    <button mat-raised-button (click)="observeResponse()" color="accent">
+  <mat-card-actions align="start"  class="cmdItems">
+    <button mat-raised-button (click)="observeResponse()" color="primary">
       Observe Response HttpClient
     </button>
-    <button mat-raised-button (click)="usingHeadersHttpClient()" color="accent">
+    <button mat-raised-button (click)="usingHeadersHttpClient()" color="primary">
       Using Headers in HttpClient
     </button>
-  </mat-card-content>
+  </mat-card-actions>
 </mat-card>
 
 <mat-card appearance="outlined">
