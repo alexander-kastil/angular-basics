@@ -1,30 +1,28 @@
+import { AsyncPipe, NgFor } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { SnackbarService } from '../snackbar/snackbar.service';
-import { SideNavService } from '../sidenav/sidenav.service';
-import { LogoutBtnComponent } from '../../fbauth/components/logout-btn/logout-btn.component';
-import { CurrentUserComponent } from '../../fbauth/components/current-user/current-user.component';
-import { RowDirective } from '../formatting-directives';
-import { RouterLinkActive, RouterLink } from '@angular/router';
-import { NgFor, AsyncPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SideNavService } from '../sidenav/sidenav.service';
+import { SnackbarService } from '../snackbar/snackbar.service';
+import { LogoutBtnComponent } from 'src/app/firebase-auth/components/logout-btn/logout-btn.component';
+import { CurrentUserComponent } from 'src/app/firebase-auth/components/current-user/current-user.component';
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss'],
-    standalone: true,
-    imports: [
-        MatToolbarModule,
-        MatIconModule,
-        NgFor,
-        RouterLinkActive,
-        RouterLink,
-        RowDirective,
-        CurrentUserComponent,
-        LogoutBtnComponent,
-        AsyncPipe,
-    ],
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatIconModule,
+    RouterLink,
+    RouterLinkActive,
+    AsyncPipe,
+    NgFor,
+    LogoutBtnComponent,
+    CurrentUserComponent
+  ],
 })
 export class NavbarComponent {
   ms = inject(SideNavService);

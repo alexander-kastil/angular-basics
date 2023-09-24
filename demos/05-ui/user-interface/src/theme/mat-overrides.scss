@@ -1,15 +1,15 @@
 //mat-card
 .mat-mdc-card {
-  background-color: var(--color-fg);
+  background-color: var(--color-accent);
   margin-bottom: var(--gap-big);
   padding: 0 !important;
 }
 
 .mat-mdc-card-header {
-  background-color: var(--color-primary);
-  color: var(--color-fg);
-  height: var(--toolbar-medium);
+  color: var(--color-accent);
+  height: var(--toolbar-small);
   padding-top: 0px;
+  background-color: var(--color-primary);
 }
 
 .mat-mdc-card-title{
@@ -52,16 +52,20 @@ button.mat-mdc-raised-button{
 //mat-dialog
 mat-dialog-container {
   .form-container {
-    padding: 0 10px;
+    padding: 0 var(--gap-medium);
     .mat-form-field-flex:first-child {
-      padding-top: 10px;
+      padding-top: var(--gap-medium);
     }
   }
 }
 
 //mat-expansion-panel
+.mat-expansion-panel-header-description, 
+.mat-expansion-indicator::after{
+  color: white !important;
+}
+
 mat-expansion-panel {
-  margin-bottom: 0.5rem;
   border-radius: 0px !important;
 }
 
@@ -69,19 +73,22 @@ mat-expansion-panel-header:hover{
   background-color: var(--color-primary);
 }
 
+.mat-expansion-panel-header.mat-expanded {
+  height: var(--toolbar-small);
+}
+
 mat-expansion-panel-header {
-  height: var(--toolbar-medium);
   background-color: var(--color-primary) !important;
 }
 
 .mat-expansion-panel-header.mat-expanded {
-  height: var(--toolbar-medium);
-  margin-bottom: 0.5rem;
+  height: var(--toolbar-small);
+  margin-bottom: var(--gap-small);
 }
 
 .mat-expansion-panel-header-title{
   color: var(--color-font);
-  font-size: 20px;
+  font-size: var(--font-medium);
 }
 
 .mat-expansion-panel-header-description, .mat-expansion-indicator::after {
@@ -96,8 +103,8 @@ mat-header-row {
 
 //mat-sidenav
 .mat-sidenav {
-  width: 250px;
-  background-color: var(--color-fg);
+  width: 15rem;
+  background-color: var(--color-accent);
 }
 
 .mat-drawer-container {

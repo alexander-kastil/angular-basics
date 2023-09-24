@@ -1,17 +1,23 @@
+declare global {
+    interface Window {
+        env: any;
+    }
+}
+
 export const environment = {
-  production: false,
-  authEnabled: true,
-  title: 'Security & Publishing',
-  markdownPath: '/assets/markdown/',
-  api: 'http://localhost:3000/',
-  netapi: 'https://localhost:5001/',
-  firebaseConfig: {
-    apiKey: "AIzaSyBaPVCIxwLnrkdvcIRnaRlA8rRx0H-yQMo",
-    authDomain: "ng-dev-auth.firebaseapp.com",
-    projectId: "ng-dev-auth",
-    storageBucket: "ng-dev-auth.appspot.com",
-    messagingSenderId: "602131408852",
-    appId: "1:602131408852:web:4b1fc82818590267aed841",
-    measurementId: "G-MDN0SW12SX"
-  },
+    authEnabled: window['env'].AUTH_ENABLED || true,
+    title: 'Security & Publishing',
+    markdownPath: '/assets/markdown/',
+    api: window['env'].API_URL || 'http://localhost:3000/',
+    netapi: window['env'].NETAPI_URL || 'https://localhost:5001/',
+    fixerApi: '',
+    firebaseConfig: {
+        apiKey: "AIzaSyAxdC7L8YvDZrOMyuzSBKU6GvvG74BsJoI",
+        authDomain: "ng-app-a70fb.firebaseapp.com",
+        projectId: "ng-app-a70fb",
+        storageBucket: "ng-app-a70fb.appspot.com",
+        messagingSenderId: "593665171121",
+        appId: "1:593665171121:web:40448d83feefe76e368c90",
+        measurementId: "G-96J0PX8E9J"
+    }
 };

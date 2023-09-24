@@ -1,0 +1,3 @@
+- Flexbox is a one-dimensional CSS3 layout model that provides an easy and clean way to arrange items with a container by prolviding powerful alignment capabilities.
+- Resize Window & notice changes. Press 'Toggle'-button to change from row to col
+- Use the reference of [CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) to get familiar to Flexbox
