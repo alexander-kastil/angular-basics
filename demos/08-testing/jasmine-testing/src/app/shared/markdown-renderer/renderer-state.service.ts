@@ -4,7 +4,7 @@ import { Injectable, computed, signal } from '@angular/core';
   providedIn: 'root'
 })
 export class RendererStateService {
-  private editorVisible = signal<boolean>(false);
+  private editorVisible = signal<boolean>(true);
 
   getVisible() {
     return computed(() => this.editorVisible());

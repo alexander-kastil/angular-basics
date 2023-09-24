@@ -1,6 +1,4 @@
-import { getLocaleEraNames } from '@angular/common';
-
-export const usersdata = [
+export const userData = [
   {
     name: 'Soi', email: 'soi@mail.com', created: '02-12-2012',
     description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et'

@@ -1,34 +1,31 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { By } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MarkdownModule } from 'ngx-markdown';
 import { ComponentEventsComponent } from './component-events.component';
 
-describe('Component - Events - EventsComponent', () => {
-  let component: ComponentEventsComponent;
+describe('ComponentEventsComponent', () => {
   let fixture: ComponentFixture<ComponentEventsComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-    imports: [MatCardModule, MatButtonModule, ComponentEventsComponent],
-    schemas: [
-        NO_ERRORS_SCHEMA
-    ],
-}).compileComponents();
-    fixture = TestBed.createComponent(ComponentEventsComponent);
-    component = fixture.componentInstance;
+    fixture = TestBed.configureTestingModule({
+      imports: [
+        ComponentEventsComponent,
+        NoopAnimationsModule,
+        MarkdownModule.forRoot()
+      ]
+    }).createComponent(ComponentEventsComponent);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
   it('should increment the count - triggerEventHandler', () => {
     const divClick = fixture.debugElement.query(By.css('button'));
     divClick.triggerEventHandler('click', {});
 
-    expect(component.count).toBe(1);
+    expect(fixture.componentInstance.count).toBe(1);
     fixture.detectChanges();
 
     const divResult = fixture.debugElement.query(By.css('#result'));
@@ -40,7 +37,7 @@ describe('Component - Events - EventsComponent', () => {
     divClick.nativeElement.click();
     divClick.nativeElement.click();
 
-    expect(component.count).toBe(2);
+    expect(fixture.componentInstance.count).toBe(2);
     fixture.detectChanges();
 
     const divResult = fixture.debugElement.query(By.css('#result'));

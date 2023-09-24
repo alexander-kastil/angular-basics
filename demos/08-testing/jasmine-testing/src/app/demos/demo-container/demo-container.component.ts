@@ -59,6 +59,13 @@ export class DemoContainerComponent {
         : 'Please select a demo'),
     );
 
+  rootRoute(route: ActivatedRoute): ActivatedRoute {
+    while (route.firstChild) {
+      route = route.firstChild;
+    }
+    return route;
+  }
+
   isLoading = false;
 
   currentCMD = this.eb.getCommands();
@@ -67,19 +74,12 @@ export class DemoContainerComponent {
   sidenavMode = this.nav.getSideNavPosition();
   sidenavVisible = this.nav.getSideNavVisible();
   workbenchMargin = this.sidenavVisible.pipe(
-    map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })
+    map((visible: boolean) => { return visible ? { 'margin-left': '0.5rem' } : {} })
   );
 
   constructor() {
     effect(() => {
       this.showMdEditor = this.currentCMD() === SidebarActions.HIDE_MARKDOWN ? false : true;
     });
-  }
-
-  rootRoute(route: ActivatedRoute): ActivatedRoute {
-    while (route.firstChild) {
-      route = route.firstChild;
-    }
-    return route;
   }
 }

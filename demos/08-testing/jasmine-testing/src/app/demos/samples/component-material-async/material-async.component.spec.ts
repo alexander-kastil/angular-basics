@@ -1,10 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '../../../material.module';
-import { MaterialAsyncComponent } from './material-async.component';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
-import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
+import { MaterialAsyncComponent } from './material-async.component';
 
 describe('MaterialAsyncComponent', () => {
   let fixture: ComponentFixture<MaterialAsyncComponent>;
@@ -13,16 +10,12 @@ describe('MaterialAsyncComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-    imports: [
-        MaterialModule,
-        BrowserAnimationsModule,
-        MarkdownRendererComponent,
-        MarkdownModule.forRoot({
-            loader: HttpClient,
-        }),
-        MaterialAsyncComponent
-    ],
-}).compileComponents();
+        imports: [
+          MaterialAsyncComponent,
+          BrowserAnimationsModule,
+          MarkdownModule.forRoot(),
+        ],
+      }).compileComponents();
     })
   );
 
@@ -52,7 +45,7 @@ describe('MaterialAsyncComponent', () => {
       fixture.detectChanges();
       let tabBody = fixture.nativeElement.querySelector('.mat-mdc-tab-body-content');
       done();
-      // expect(tabBody.innerHTML).toContain('Giro');
+      expect(tabBody.innerHTML).toContain('Giro');
     });
   });
 })

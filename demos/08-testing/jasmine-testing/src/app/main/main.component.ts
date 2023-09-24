@@ -1,7 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { LoadingComponent } from '../shared/loading/loading.component';
 import { LoadingService } from '../shared/loading/loading.service';
@@ -15,13 +15,16 @@ import { NavbarComponent } from '../shared/navbar/navbar.component';
     NgIf,
     NavbarComponent,
     HomeComponent,
-    LoadingComponent],
+    LoadingComponent
+  ],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
   destroy = inject(DestroyRef)
   ls = inject(LoadingService);
+  router = inject(Router)
+  route = inject(ActivatedRoute);
   isLoading = false;
 
   constructor() {

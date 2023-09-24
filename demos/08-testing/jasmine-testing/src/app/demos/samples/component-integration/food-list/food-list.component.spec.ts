@@ -1,54 +1,56 @@
 import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
+import { ComponentFixture, TestBed, fakeAsync, flush } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MarkdownModule } from 'ngx-markdown';
 import { of } from 'rxjs';
-import { RatingPipe } from '../../pipe/rating.pipe';
 import { FoodRowComponent } from '../food-row/food-row.component';
 import { FoodServiceBS } from '../food.service-bs';
 import { FoodListComponent } from './food-list.component';
+import { HttpClient } from '@angular/common/http';
+
+const foodData = [
+  { name: 'Pad Thai', rating: 5 },
+  { name: 'Butter Chicken', rating: 5 },
+  { name: 'Cannelloni', rating: 4 },
+  { name: 'Cordon Blue', rating: 2 },
+];
+const serviceResult = [
+  { name: 'Pad Thai', rating: 5 },
+  { name: 'Butter Chicken', rating: 5 },
+  { name: 'Cannelloni', rating: 4 },
+];
+
+const deleteItem = { id: 4, name: 'Cordon Blue', rating: 2 };
 
 describe('Component - Integration Test', () => {
-  let fs: any;
-  const foodData = [
-    { name: 'Pad Thai', rating: 5 },
-    { name: 'Butter Chicken', rating: 5 },
-    { name: 'Cannelloni', rating: 4 },
-    { name: 'Cordon Blue', rating: 2 },
-  ];
-  const serviceResult = [
-    { name: 'Pad Thai', rating: 5 },
-    { name: 'Butter Chicken', rating: 5 },
-    { name: 'Cannelloni', rating: 4 },
-  ];
-
-  const deleteItem = { id: 4, name: 'Cordon Blue', rating: 2 };
-
   let fixture: ComponentFixture<FoodListComponent>;
   let comp: FoodListComponent;
   let de: DebugElement;
+  let fs: any;
 
   beforeEach(() => {
-    fs = jasmine.createSpyObj(['getFood', 'deleteFood']);
+    fs = jasmine.createSpyObj('HttpClient', ['getFood', 'deleteFood']);
+    fs.getFood.and.returnValue(of(foodData));
+    fs.deleteFood.and.returnValue(of(serviceResult));
 
-    const module = {
-      declarations: [FoodListComponent, FoodRowComponent, RatingPipe],
+    TestBed.configureTestingModule({
       imports: [
-        MatCardModule,
-        MatIconModule
+        FoodListComponent,
+        NoopAnimationsModule,
+        MarkdownModule.forRoot()
       ],
       providers: [{ provide: FoodServiceBS, useValue: fs }],
-    };
-
-    TestBed.configureTestingModule(module);
+    }).compileComponents();
     fixture = TestBed.createComponent(FoodListComponent);
-    comp = fixture.componentInstance;
-    de = fixture.debugElement;
+  });
+
+  it('should create', () => {
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
   it('should render each FoodItem as FoodItemRow', () => {
-    fs.getFood.and.returnValue(of(foodData));
+    fixture.componentInstance.ngOnInit();
     fixture.detectChanges();
 
     const rows = fixture.debugElement.queryAll(By.directive(FoodRowComponent));
@@ -57,15 +59,17 @@ describe('Component - Integration Test', () => {
   });
 
   it('should have three rows when an item is deleted', fakeAsync(() => {
-    fs.getFood.and.returnValue(of(foodData));
-    fixture.autoDetectChanges();
+    fixture.componentInstance.ngOnInit();
+    fixture.detectChanges();
 
-    spyOn(comp, 'deleteFood');
-    const deRow = de.query(By.directive(FoodRowComponent));
+    const deRow = fixture.debugElement.query(By.directive(FoodRowComponent));
     const row = deRow.componentInstance;
     row.delete.emit(deleteItem);
+    flush();
+    fixture.detectChanges();
 
-    fs.deleteFood.and.returnValue(of(serviceResult));
-    expect(comp.deleteFood).toHaveBeenCalledWith(deleteItem);
+    const rows = fixture.debugElement.queryAll(By.directive(FoodRowComponent));
+    expect(rows.length).toEqual(3);
+    // expect(fixture.componentInstance.deleteFood).toHaveBeenCalledWith(deleteItem);
   }));
 });

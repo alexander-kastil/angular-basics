@@ -7,6 +7,9 @@ import { MatCardModule } from '@angular/material/card';
     templateUrl: './directive.component.html',
     styleUrls: ['./directive.component.scss'],
     standalone: true,
-    imports: [MatCardModule, CapitalizeDirective]
+    imports: [
+        MatCardModule,
+        CapitalizeDirective
+    ]
 })
 export class DirectiveComponent { }

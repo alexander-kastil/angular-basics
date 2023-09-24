@@ -1,6 +1,5 @@
 import { ElementRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
 import { FoodRowComponent } from './food-row.component';
 
@@ -13,13 +12,10 @@ describe('Component -Integration Test - Food Row', () => {
   const food = { id: 1, name: 'Pad Thai', rating: 5 };
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-    imports: [
-        MatIconModule,
-        FoodRowComponent
-    ],
-});
-    fixture = TestBed.createComponent(FoodRowComponent);
+    fixture = TestBed.configureTestingModule({
+      imports: [FoodRowComponent],
+    }).createComponent(FoodRowComponent);
+
     component = fixture.componentInstance;
     deleteFld = fixture.debugElement.query(By.css('#deleteFld'));
     editFld = fixture.debugElement.query(By.css('#editFld'));
