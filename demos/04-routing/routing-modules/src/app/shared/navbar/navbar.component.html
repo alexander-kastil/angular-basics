@@ -4,18 +4,19 @@
       <mat-icon color="accent">menu</mat-icon>
     </div>
     <div><img width="50px" src="/assets/images/angular.svg" /></div>
-    <div class="menuContainer">
+    <div class="menuContainer" role="menubar">
       <div
         *ngFor="let mi of menuItems | async"
         routerLink="{{ '/' + mi.url }}"
         routerLinkActive="navLinkActive"
         [routerLinkActiveOptions]="{ exact: true }"
         class="navLink"
+        role="menuitem"        
       >
         {{ mi.label }}
       </div>
     </div>
-    <div row>
+    <div row class="login">
       <app-current-user></app-current-user>
       <app-logout-btn></app-logout-btn>
     </div>

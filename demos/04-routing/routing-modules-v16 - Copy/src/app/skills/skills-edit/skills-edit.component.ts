@@ -4,11 +4,19 @@ import { Skill } from '../skill.model';
 import { SkillsService } from '../skills.service';
 import { SnackbarService } from '../../shared/snackbar/snackbar.service';
 import { Observable } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-skills-edit',
-  templateUrl: './skills-edit.component.html',
-  styleUrls: ['./skills-edit.component.scss']
+    selector: 'app-skills-edit',
+    templateUrl: './skills-edit.component.html',
+    styleUrls: ['./skills-edit.component.scss'],
+    standalone: true,
+    imports: [MatCardModule, MatFormFieldModule, MatInputModule, FormsModule, MatSlideToggleModule, MatButtonModule]
 })
 
 export class SkillsEditComponent implements OnInit {

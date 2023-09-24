@@ -20,27 +20,25 @@ import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    PageNotFoundComponent,
-    AdminComponent,
-  ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MaterialModule,
-    SharedModule,
-    SkillsModule,
-    FormsModule,
-    AdminModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot(customerEffects),
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MaterialModule,
+        SharedModule,
+        SkillsModule,
+        FormsModule,
+        AdminModule,
+        StoreModule.forRoot(reducers, { metaReducers }),
+        EffectsModule.forRoot(customerEffects),
+        HomeComponent,
+        PageNotFoundComponent,
+        AdminComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule { }

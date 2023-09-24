@@ -20,14 +20,14 @@ const mods = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    HttpClientModule,
-    MaterialModule,
-  ],
-  declarations: mods,
-  exports: mods,
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule,
+        HttpClientModule,
+        MaterialModule,
+        ...mods,
+    ],
+    exports: mods,
 })
 export class SharedModule { }

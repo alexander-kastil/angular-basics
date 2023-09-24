@@ -12,18 +12,16 @@ import { customersState } from './state/customers.state';
 import { CustomerEditComponent } from './component/customer-edit/customer-edit.component';
 
 @NgModule({
-  declarations: [
-    CustomersComponent,
-    CustomerEditComponent
-  ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    MatToolbarModule,
-    ReactiveFormsModule,
-    CustomersRoutingModule,
-    StoreModule.forFeature(customersState),
-    EffectsModule.forFeature([customerEffects]),
-  ]
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        MatToolbarModule,
+        ReactiveFormsModule,
+        CustomersRoutingModule,
+        StoreModule.forFeature(customersState),
+        EffectsModule.forFeature([customerEffects]),
+        CustomersComponent,
+        CustomerEditComponent,
+    ]
 })
 export class CustomersModule { }

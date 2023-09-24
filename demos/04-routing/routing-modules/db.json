@@ -1,49 +1,55 @@
 {
-  "demos":[
+  "demos": [
     {
-      "url": "http-client",
-      "title": "Http Client",
-      "component": "HttpClientComponent"
+      "url": "childroutes",
+      "title": "Routing Configuration"
     },
     {
-      "url": "interceptor",
-      "title": "Auth Interceptor",
-      "component": "InterceptorComponent"
+      "url": "routingbasics",
+      "title": "Routing Basics"
     },
     {
-      "url": "firebase",
-      "title": "Firebase Authentication",
-      "component": "FirebaseComponent"
+      "url": "parammap",
+      "title": "paramMap"
     },
     {
-      "url": "app-auth",
-      "title": "App Authentication",
-      "component": "AppAuthComponent"
+      "url": "router-binding",
+      "title": "Router Binding"
     },
     {
-      "url": "secured-api",
-      "title": "Secured Api",
-      "component": "ProtectedApiComponent"
+      "url": "lazy-loading",
+      "title": "Lazy Loading"
     },
     {
-      "url": "auth-guard",
-      "title": "Auth Guard",
-      "component": "AuthGuardComponent"
+      "url": "standalone-comp",
+      "title": "Standalone Component"
     },
     {
-      "url": "publish",
-      "title": "Publishing",
-      "component": "PublishComponent"
+      "url": "component-less",
+      "title": "Component Less"
+    },
+
+    {
+      "url": "routeguards",
+      "title": "Route Guards"
+    },
+    {
+      "url": "preload",
+      "title": "Preload Data"
     }
   ],
   "top-links": [
     {
       "label": "Home",
-      "url": ""
+      "url": "main"
     },
     {
       "label": "Demos",
-      "url": "demos"
+      "url": "main/demos"
+    },
+    {
+      "label": "Skills",
+      "url": "main/skills"
     }
   ],
   "vouchers": [

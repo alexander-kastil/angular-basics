@@ -22,31 +22,29 @@ import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-ren
 import { RouterBindingComponent } from './samples/router-binding/router-binding.component';
 
 @NgModule({
-  declarations: [
-    DemoContainerComponent,
-    RoutingBasicsComponent,
-    ChildRoutesComponent,
-    RouteGuardsComponent,
-    PreloadComponent,
-    ParamMapComponent,
-    PmChildComponent,
-    ComponentLessComponent,
-    LazyLoadingComponent,
-    RouterBindingComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(demoRoutes),
-    MaterialModule,
-    SharedModule,
-    HttpClientModule,
-    MarkdownRendererModule
-  ],
-  providers: [
-    DemoService,
-    LoadingService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule.forChild(demoRoutes),
+        MaterialModule,
+        SharedModule,
+        HttpClientModule,
+        MarkdownRendererModule,
+        DemoContainerComponent,
+        RoutingBasicsComponent,
+        ChildRoutesComponent,
+        RouteGuardsComponent,
+        PreloadComponent,
+        ParamMapComponent,
+        PmChildComponent,
+        ComponentLessComponent,
+        LazyLoadingComponent,
+        RouterBindingComponent
+    ],
+    providers: [
+        DemoService,
+        LoadingService,
+        { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    ],
 })
 export class DemosModule { }

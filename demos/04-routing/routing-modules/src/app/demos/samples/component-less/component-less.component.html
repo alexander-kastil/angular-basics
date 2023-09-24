@@ -1,0 +1,12 @@
+<app-markdown-renderer [md]="'component-less'"></app-markdown-renderer>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Component Less Routing</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="cmdItems">
+    <button mat-raised-button [routerLink]="['/statistics/2020/cost']"  color="accent">2020 Cost</button>
+    <button mat-raised-button [routerLink]="['/statistics/2020/revenue']" color="accent"
+      >2020 Revenue</button
+    >
+  </mat-card-content>
+</mat-card>

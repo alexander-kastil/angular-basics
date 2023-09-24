@@ -10,18 +10,16 @@ import { SkillResolverService } from './skill-resolver.service';
 import { CheckPipe } from './skill-row/check.pipe';
 
 @NgModule({
-  declarations: [
-    SkillsListComponent,
-    SkillsEditComponent,
-    SkillRowComponent,
-    CheckPipe
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    MaterialModule
-  ],
-  providers: [SkillResolverService],
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule,
+        MaterialModule,
+        SkillsListComponent,
+        SkillsEditComponent,
+        SkillRowComponent,
+        CheckPipe
+    ],
+    providers: [SkillResolverService],
 })
 export class SkillsModule { }
