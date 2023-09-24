@@ -15,23 +15,21 @@ import { CustomUrlHttpGenerator } from './custom-url-generator';
 import { MaterialModule } from './material.module';
 
 @NgModule({
-  declarations: [
-    SkillsContainerComponent,
-    SkillsEditComponent,
-    SkillsKpiComponent,
-    SkillRowComponent,
-  ],
-  imports: [
-    CommonModule,
-    SkillsRoutingModule,
-    MaterialModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
-  providers: [SkillsEntityService, SkillsDataService, {
-    provide: HttpUrlGenerator,
-    useClass: CustomUrlHttpGenerator,
-  },],
+    imports: [
+        CommonModule,
+        SkillsRoutingModule,
+        MaterialModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        SkillsContainerComponent,
+        SkillsEditComponent,
+        SkillsKpiComponent,
+        SkillRowComponent,
+    ],
+    providers: [SkillsEntityService, SkillsDataService, {
+            provide: HttpUrlGenerator,
+            useClass: CustomUrlHttpGenerator,
+        },],
 })
 export class SkillsModule {
   constructor(
