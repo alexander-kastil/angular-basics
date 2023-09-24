@@ -1,6 +1,7 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 import { FirebaseAuthService } from '../../firebase-auth.service';
 
 @Component({
@@ -9,8 +10,9 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
   styleUrls: ['./logout-btn.component.scss'],
   standalone: true,
   imports: [
-    NgIf,
     MatButtonModule,
+    RouterLink,
+    NgIf,
     AsyncPipe,
   ],
 })

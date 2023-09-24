@@ -13,6 +13,10 @@ export const routes: Routes = [
         loadChildren: () => import('./main/main.module').then(m => m.MainModule)
     },
     {
+        path: 'login',
+        component: HomeComponent,
+    },
+    {
         path: '**',
         component: PageNotFoundComponent,
     }
