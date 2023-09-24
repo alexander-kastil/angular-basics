@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { map } from 'rxjs/operators';
 import { Skill } from '../skill.model';
-import { SkillsEntityService } from '../skills-entity.service';
+import { SkillsEntityService } from '../state/skills-entity.service';
 @Component({
   selector: 'app-skills-kpi',
   templateUrl: './skills-kpi.component.html',

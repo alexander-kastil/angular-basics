@@ -8,7 +8,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Router } from '@angular/router';
 import { SnackbarService } from '../../shared/snackbar/snackbar.service';
 import { Skill } from '../skill.model';
-import { SkillsEntityService } from '../skills-entity.service';
+import { SkillsEntityService } from '../state/skills-entity.service';
 
 @Component({
   selector: 'app-skills-edit',
@@ -25,7 +25,7 @@ import { SkillsEntityService } from '../skills-entity.service';
   ],
 })
 export class SkillsEditComponent {
-  @Input() id: number = 0;
+  @Input({ required: true }) id = 0;
   router = inject(Router);
   sns = inject(SnackbarService);
   es = inject(SkillsEntityService);

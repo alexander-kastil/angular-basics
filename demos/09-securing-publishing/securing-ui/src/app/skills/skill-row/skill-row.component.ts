@@ -26,7 +26,7 @@ import { Skill } from '../skill.model';
   ],
 })
 export class SkillRowComponent {
-  @Input() skill: Skill = new Skill();
+  @Input({ required: true }) skill: Skill = new Skill();
   @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter();
   @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter();
   fcCompleted = new FormControl(false)

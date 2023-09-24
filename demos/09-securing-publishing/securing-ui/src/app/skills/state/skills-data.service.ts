@@ -4,8 +4,8 @@ import { DefaultDataService, HttpUrlGenerator } from '@ngrx/data';
 import { Update } from '@ngrx/entity';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
-import { Skill } from './skill.model';
+import { environment } from '../../../environments/environment';
+import { Skill } from '../skill.model';
 
 @Injectable()
 export class SkillsDataService extends DefaultDataService<Skill> {

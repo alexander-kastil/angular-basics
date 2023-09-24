@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
 import { combineLatestWith, map, startWith } from 'rxjs/operators';
 import { SkillRowComponent } from '../skill-row/skill-row.component';
 import { Skill } from '../skill.model';
-import { SkillsEntityService } from '../skills-entity.service';
+import { SkillsEntityService } from '../state/skills-entity.service';
 import { SkillsKpiComponent } from '../skills-kpi/skills-kpi.component';
 
 @Component({
