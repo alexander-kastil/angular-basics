@@ -1,0 +1,23 @@
+[
+    {
+       "name":"Giro",
+       "age":12,
+       "gender":"male",
+       "email":"giro-the-galgo@sighthounds.at",
+       "married":true,
+       "imgUrl":"/assets/images/alex.jpg"
+    },
+    {
+       "name":"Chloe",
+       "age":19,
+       "gender":"female",
+       "married":false
+    },
+    {
+       "name":"Susi",
+       "age":28,
+       "gender":"female",
+       "married":false
+    }
+ ]
+ 

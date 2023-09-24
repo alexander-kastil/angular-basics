@@ -1,0 +1,29 @@
+<app-markdown-renderer [md]="'param-map'"></app-markdown-renderer>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Menu
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="cmdItems">
+      <button
+        mat-raised-button
+        *ngFor="let lnk of links"
+        [routerLink]="['./' + lnk.id]"
+        [queryParams]="{ readonly: lnk.readonly }"
+        color="accent"
+      >
+        {{ lnk.label }}
+      </button>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Subroute
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <router-outlet></router-outlet>
+    </mat-card-content>
+  </mat-card>

@@ -1,46 +1,34 @@
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdminComponent } from './admin/admin.component';
-import { AdminModule } from './admin/admin.module';
+import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AuthModule, getAuth, provideAuth } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { SharedModule } from './shared/shared.module';
-import { SkillsModule } from './skills/skills.module';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import * as customerEffects from './customers/state/customers.effects';
-import { metaReducers, reducers } from './state';
-import { CommonModule } from '@angular/common';
-
+import { HomeComponent } from './home/home.component';
+import { environment } from 'src/environments/environment';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { FirebaseAuthModule } from './fbauth/fbauth.module';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    PageNotFoundComponent,
-    AdminComponent,
-  ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MaterialModule,
-    SharedModule,
-    SkillsModule,
-    FormsModule,
-    AdminModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot(customerEffects),
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        HttpClientModule,
+        SharedModule,
+        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+        provideAuth(() => getAuth()),
+        AuthModule,
+        FirebaseAuthModule,
+        HomeComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule { }

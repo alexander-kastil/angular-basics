@@ -1,0 +1,40 @@
+<app-markdown-renderer [md]="'css-binding'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Class Binding </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button [class.extraClass]="addClass">
+      Bind class using attribute binding
+    </button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Binding Multiple Classes </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div mat-raised-button [ngClass]="setClasses()">
+      Bind class using method
+    </div>
+    <button mat-raised-button (click)="toggleBinding()" color="accent">Toggle</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Attribute Binding with If : then : else </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button
+      mat-raised-button
+      [style.border]="addStyle ? '5px solid yellow' : 'none'"
+      color="accent"
+    >
+      Set styles using JSON
+    </button>
+    <button mat-raised-button (click)="toggleStyle()" color="accent">Toggle</button>
+  </mat-card-content>
+</mat-card>

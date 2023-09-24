@@ -1,12 +1,13 @@
 <mat-toolbar color="accent">
-  <mat-toolbar-row>
+  <mat-toolbar-row fxLayoutAlign="space-between center">
     <div>Your current SPA Skills:</div>
-    <div>
+    <div fxLayoutGap="10px">
       <button
         mat-raised-button
         [routerLink]="['/skills', 0]"
         [state]="{ data: getNextId() }"
-        color="primary">
+        color="primary"
+      >
         Add
       </button>
     </div>
@@ -14,7 +15,7 @@
 </mat-toolbar>
 
 <mat-card appearance="outlined">
-  <mat-card-content>
+  <mat-card-content fxLayout="column">
     <div *ngFor="let sk of skills" class="item">
       <app-skill-row [skill]="sk"></app-skill-row>
     </div>

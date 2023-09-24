@@ -1,0 +1,9 @@
+@mixin link($col, $fontsize) {
+  font-size: $fontsize;
+  color: $col;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

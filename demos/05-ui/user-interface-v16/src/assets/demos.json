@@ -1,0 +1,71 @@
+[
+  {
+    "url": "inline-css",
+    "title": "Inline CSS"
+  },
+  {
+    "url": "cssbasics",
+    "title": "CSS Basics"
+  },
+  { "url": "flexbox", "title": "Flexbox" },
+  {
+    "url": "flexmediaq",
+    "title": "Flexbox Media Query"
+  },
+  {
+    "url": "cssgrid",
+    "title": "CSS Grid"
+  },
+  {
+    "url": "flexlayout",
+    "title": "Angular Flex Layout"
+  },
+  {
+    "url": "cssgrid-flex",
+    "title": "CSS Grid Flex Layout"
+  },
+  {
+    "url": "material",
+    "title": "Material Showcase"
+  },
+  {
+    "url": "mat-form-field",
+    "title": "MatFormFields"
+  },
+  {
+    "url": "material-table",
+    "title": "Material Table"
+  },
+  {
+    "url": "classic-dialog",
+    "title": "Material Dialog Classic"
+  },
+  {
+    "url": "material-dialog",
+    "title": "Dialog with @Input()"
+  },
+  {
+    "url": "stepper",
+    "title": "Material Stepper"
+  },
+  {
+    "url": "fonts",
+    "title": "Using Webfonts"
+  },
+  {
+    "url": "dragdrop",
+    "title": "Drag & Drop"
+  },
+  {
+    "url": "virtualscroll",
+    "title": "VirtualScroll"
+  },
+  {
+    "url": "chart",
+    "title": "Chart"
+  },
+  {
+    "url": "markdown",
+    "title": "Markdown Renderer"
+  }
+]

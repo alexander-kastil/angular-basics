@@ -1,0 +1,74 @@
+{
+  "demos": [
+    {
+      "url": "templatedriven",
+      "title": "Template driven Forms"
+    },
+    {
+      "url": "ngmodelgrp",
+      "title": "Template NgModelGroup"
+    },
+    {
+      "url": "templatevalidation",
+      "title": "Template Validation"
+    },
+    {
+      "url": "formcontrol",
+      "title": "Standalone Form Control"
+    },
+    {
+      "url": "reactiveforms",
+      "title": "Reactive Forms"
+    },
+    {
+      "url": "formsbuilder",
+      "title": "Reactive FormsBuilder"
+    },
+    {
+      "url": "reactivevalidation",
+      "title": "Reactive Validation"
+    },
+    {
+      "url": "formarray",
+      "title": "Reactive Form Array"
+    }
+  ]
+  ,
+  "top-links": [
+    {
+      "label": "Home",
+      "url": ""
+    },
+    {
+      "label": "Demos",
+      "url": "demos"
+    },
+    {
+      "label": "Skills",
+      "url": "skills"
+    }
+  ],
+  "skills": [
+    { "id": 1, "name": "Node.js", "hours": 3, "completed": false },
+    { "id": 2, "name": "TypeScript", "hours": 4, "completed": false },
+    { "id": 3, "name": "JavaScript", "hours": 10, "completed": false },
+    { "id": 4, "name": "Angular", "hours": 20, "completed": false }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

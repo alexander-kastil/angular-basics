@@ -1,0 +1,30 @@
+.myButton {
+  font-size: var(--font-medium);
+}
+
+.extraClass {
+  background: black;
+  color: white;
+}
+
+.anotherClass {
+  font-weight: bold;
+  color: white;
+}
+
+.thirdClass {
+  background: rgb(183, 43, 43);
+  padding: var(--gap-medium);
+}
+
+
+button {
+  margin-left: var(--gap-medium);
+}
+
+mat-card-content{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+}

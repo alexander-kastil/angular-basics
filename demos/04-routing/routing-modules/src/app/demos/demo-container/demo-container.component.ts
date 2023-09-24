@@ -1,5 +1,5 @@
-import { Component, OnInit, effect, inject } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -8,11 +8,33 @@ import { DemoService } from '../demo-base/demo.service';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SideNavService } from '../../shared/sidenav/sidenav.service';
+import { SidePanelComponent } from '../../shared/side-panel/side-panel.component';
+import { MarkdownEditorComponent } from '../../shared/markdown-editor/markdown-editor.component';
+import { LoadingComponent } from '../../shared/loading/loading.component';
+import { NgFor, NgStyle, NgIf, AsyncPipe } from '@angular/common';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-demo-container',
-  templateUrl: './demo-container.component.html',
-  styleUrls: ['./demo-container.component.scss'],
+    selector: 'app-demo-container',
+    templateUrl: './demo-container.component.html',
+    styleUrls: ['./demo-container.component.scss'],
+    standalone: true,
+    imports: [
+        MatSidenavModule,
+        MatToolbarModule,
+        MatListModule,
+        NgFor,
+        RouterLink,
+        NgStyle,
+        NgIf,
+        LoadingComponent,
+        RouterOutlet,
+        MarkdownEditorComponent,
+        SidePanelComponent,
+        AsyncPipe,
+    ],
 })
 export class DemoContainerComponent implements OnInit {
   router = inject(Router);
@@ -35,14 +57,13 @@ export class DemoContainerComponent implements OnInit {
     map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })
   );
 
-  currentCMD = this.eb.getCommands()
-  showMdEditor: boolean = false;
+  showMdEditor = this.eb
+    .getCommands()
+    .pipe(
+      map((action: SidebarActions) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
+    );
 
   constructor() {
-    effect(() => {
-      this.showMdEditor = this.currentCMD() === SidebarActions.HIDE_MARKDOWN ? false : true;
-    });
-
     this.ls.getLoading().pipe(takeUntil(this.destroy$)).subscribe((value) => {
       Promise.resolve(null).then(() => (this.isLoading = value));
     });

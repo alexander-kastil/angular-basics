@@ -15,13 +15,15 @@ mat-card-header {
   flex-direction: row;
   justify-content: center;
   height: var(--toolbar-xl);
-  padding-top: 0.5rem;
+  padding-top: var(--gap-big);
   background-color: var(--color-primary);
-  color: var(--color-fg);
+  color: var(--color-accent);
 }
 
 mat-card-title {
+  margin: var(--gap-small) 0;
   color: var(--color-font);
+  font-size: var(--font-big);
 }
 
 mat-card-subtitle {
@@ -29,8 +31,8 @@ mat-card-subtitle {
 }
 
 .mat-mdc-card-subtitle {
-  color: var(--color-fg);
-  font-size: 1.2rem;
+  color: var(--color-accent);
+  font-size: var(--font-medium);
   text-align: center;
 }
 
@@ -41,13 +43,16 @@ mat-card-actions {
 }
 
 .instructions {
-  margin-top: 1rem;
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
 }
 
 .showcase {
   min-height: 300px;
+}
+
+.mat-mdc-raised-button{
+  min-width: 10rem;
 }

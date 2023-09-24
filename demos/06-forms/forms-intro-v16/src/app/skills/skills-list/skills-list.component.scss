@@ -1,0 +1,13 @@
+.row{
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+
+  div{
+    flex: 1;
+  }
+
+  div:last-child{
+    text-align: end;
+  }
+}

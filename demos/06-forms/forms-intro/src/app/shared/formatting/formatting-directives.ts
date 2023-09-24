@@ -50,3 +50,11 @@ export class GapDirective {
 })
 export class CenteredDirective {
 }
+
+@Directive({
+  selector: '[border]',
+  host: { 'style': 'border:1px solid var(--color-accent); padding: var(--gap-medium)' },
+  standalone: true
+})
+export class BorderDirective {
+}

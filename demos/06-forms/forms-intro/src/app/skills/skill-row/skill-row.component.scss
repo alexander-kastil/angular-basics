@@ -1,8 +1,10 @@
 .skillrow {
   display: flex;
   flex-direction: row;
-  padding: 0.5rem 0;
+  align-items: center;
+  padding: 0.2rem 0;
   border-bottom: 1px solid #8d6e63;
+
 }
 
 .name {
@@ -16,5 +18,13 @@
 
 .cmd {
   flex: 1;
-  text-align: end;
+  text-align: end;;
+}
+
+button {
+  margin-right: var(--gap-small);
+}	
+
+.mat-mdc-raised-button{
+  height: 32px;
 }

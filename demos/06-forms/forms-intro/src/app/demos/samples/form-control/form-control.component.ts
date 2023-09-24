@@ -1,10 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-form-control',
-  templateUrl: './form-control.component.html',
-  styleUrls: ['./form-control.component.scss'],
+    selector: 'app-form-control',
+    templateUrl: './form-control.component.html',
+    styleUrls: ['./form-control.component.scss'],
+    standalone: true,
+    imports: [
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgIf,
+        MatButtonModule,
+    ],
 })
 export class FormControlComponent implements OnInit {
   dog = { name: 'Giro', postal: '3544', city: 'Idolsberg' }

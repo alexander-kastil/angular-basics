@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FirebaseAuthGuard } from './fbauth/firebase.auth-guard.service';
 import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -12,22 +12,12 @@ const routes: Routes = [
     path: 'demos',
     loadChildren: () =>
       import('./demos/demos.module').then((m) => m.DemosModule),
-  },
-  {
-    path: 'skills',
-    loadChildren: () =>
-      import('./skills/skills.module').then((m) => m.SkillsModule),
-  },
-  {
-    path: 'statistics',
-    loadChildren: () =>
-      import('./statistics/statistics.module').then((m) => m.StatisticsModule),
-  },
-  { path: '**', component: PageNotFoundComponent },
+    canLoad: [FirebaseAuthGuard],
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {})],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

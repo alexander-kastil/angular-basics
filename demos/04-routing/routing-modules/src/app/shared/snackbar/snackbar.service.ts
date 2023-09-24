@@ -9,7 +9,7 @@ export class SnackbarService {
 
   displayAlert(title: string, msg: string) {
     this.snackBar.open(title, msg, {
-      duration: 3000,
+      duration: 5000,
     });
   }
 }

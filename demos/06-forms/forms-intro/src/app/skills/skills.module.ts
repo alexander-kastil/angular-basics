@@ -1,26 +1,30 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SkillRowComponent } from './skill-row/skill-row.component';
-import { SkillsEditComponent } from './skills-edit/skills-edit.component';
-import { SkillsListComponent } from './skills-list/skills-list.component';
-import { MaterialModule } from '../material.module';
+import { EntityDataService, EntityDefinitionService, HttpUrlGenerator } from '@ngrx/data';
+import { SkillsDataService } from './state/skills-data.service';
+import { SkillsEntityService } from './state/skills-entity.service';
+import { entityMetadata } from './state/skills.metadata';
+import { CustomUrlHttpGenerator } from './state/custom-url-generator';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { SkillResolverService } from './skill-resolver.service';
-import { SkillsRoutingModule } from './skills-routing.module';
+import { SKILL_ROUTES } from './skills.routes';
 
 @NgModule({
-  declarations: [
-    SkillsListComponent,
-    SkillsEditComponent,
-    SkillRowComponent],
   imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    MaterialModule,
-    SkillsRoutingModule
+    RouterModule.forChild(SKILL_ROUTES)
   ],
-  providers: [SkillResolverService],
+  providers: [
+    // SkillsEntityService, SkillsDataService, {
+    //   provide: HttpUrlGenerator,
+    //   useClass: CustomUrlHttpGenerator,
+    // },
+  ],
 })
-export class SkillsModule { }
+export class SkillsModule {
+  // constructor(
+  //   entityDefinitionService: EntityDefinitionService,
+  //   entityDataService: EntityDataService,
+  //   skillsDataService: SkillsDataService
+  // ) {
+  //   entityDefinitionService.registerMetadataMap(entityMetadata);
+  //   entityDataService.registerService('Skill', skillsDataService);
+  // }
+}

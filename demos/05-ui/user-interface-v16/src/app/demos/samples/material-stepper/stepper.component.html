@@ -1,0 +1,45 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      Currency Conversion using MatStepper und MatDialog</mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <mat-horizontal-stepper #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Get name</ng-template>
+        <mat-form-field>
+          <input
+            type="text"
+            matInput
+            [(ngModel)]="name"
+            placeholder="What is your name"
+          />
+        </mat-form-field>
+        <div align="end"><button mat-raised-button matStepperNext color="accent">Next</button></div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Get salery</ng-template>
+        <mat-form-field>
+          <input
+            type="number"
+            matInput
+            [(ngModel)]="amount"
+            placeholder="What is your salery"
+          />
+        </mat-form-field>
+        <div align="end"><button mat-raised-button matStepperNext color="accent">Next</button></div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <div>
+          <div>Well. Your are {{name}} and you earn {{amount}}</div>
+          <div align="end">
+            <button mat-raised-button matStepperPrevious color="accent">Back</button>
+            <button mat-raised-button (click)="stepper.reset()" color="accent">Reset</button>
+          </div>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-card-content>
+</mat-card>

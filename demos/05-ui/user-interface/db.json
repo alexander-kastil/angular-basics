@@ -1,77 +1,39 @@
 {
-  "demos": [
+  "demos":[
     {
-      "url": "style-inheritence",
-      "title": "Global / Component Styles"
+      "url": "http-client",
+      "title": "Http Client",
+      "component": "HttpClientComponent"
     },
     {
-      "url": "css-binding",
-      "title": "CSS Binding"
+      "url": "interceptor",
+      "title": "Auth Interceptor",
+      "component": "InterceptorComponent"
     },
     {
-      "url": "inline-css",
-      "title": "Inline CSS"
-    },
-    { "url": "flexbox", "title": "Flexbox" },
-    {
-      "url": "flexmediaq",
-      "title": "Flexbox Media Queries"
+      "url": "firebase",
+      "title": "Firebase Authentication",
+      "component": "FirebaseComponent"
     },
     {
-      "url": "cssgrid",
-      "title": "CSS Grid"
+      "url": "app-auth",
+      "title": "App Authentication",
+      "component": "AppAuthComponent"
     },
     {
-      "url": "material",
-      "title": "Angular Material"
+      "url": "secured-api",
+      "title": "Secured Api",
+      "component": "ProtectedApiComponent"
     },
     {
-      "url": "mat-form-field",
-      "title": "MatFormFields"
+      "url": "auth-guard",
+      "title": "Auth Guard",
+      "component": "AuthGuardComponent"
     },
     {
-      "url": "material-table",
-      "title": "Material Table"
-    },
-    {
-      "url": "classic-dialog",
-      "title": "Material Dialog Classic"
-    },
-    {
-      "url": "material-dialog",
-      "title": "Dialog with @Input()"
-    },
-    {
-      "url": "stepper",
-      "title": "Material Stepper"
-    },
-    {
-      "url": "material-theme",
-      "title": "Material Theme"
-    },
-    {
-      "url": "fonts",
-      "title": "Using Webfonts"
-    },
-    {
-      "url": "dragdrop",
-      "title": "Drag & Drop"
-    },
-    {
-      "url": "virtualscroll",
-      "title": "VirtualScroll"
-    },
-    {
-      "url": "chart",
-      "title": "Chart"
-    },
-    {
-      "url": "markdown",
-      "title": "Markdown Renderer"
-    },
-    {
-      "url": "bootstrap",
-      "title": "Bootstrap"
+      "url": "publish",
+      "title": "Publishing",
+      "component": "PublishComponent"
     }
   ],
   "top-links": [
@@ -82,36 +44,9 @@
     {
       "label": "Demos",
       "url": "demos"
-    },
-    {
-      "label": "Skills",
-      "url": "skills"
     }
   ],
-  "skills": [
-    { "id": 1, "name": "Node.js", "hours": 3, "completed": true },
-    { "id": 2, "name": "TypeScript", "hours": 4, "completed": false },
-    { "id": 3, "name": "JavaScript", "hours": 10, "completed": true },
-    { "id": 4, "name": "Angular", "hours": 20, "completed": false }
-  ],
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
-  "vouchers":[
+  "vouchers": [
     {
       "ID": 2,
       "Text": "BP Tankstelle",
@@ -180,6 +115,16 @@
       ]
     },
     {
+      "ID": 5,
+      "Text": "Inserted by WebApi",
+      "Date": "2016-11-08T11:28:42.9",
+      "Amount": 0,
+      "Paid": false,
+      "Expense": false,
+      "Remark": false,
+      "Details": []
+    },
+    {
       "ID": 1,
       "Text": "Demo AG",
       "Date": "2016-11-06T10:50:04.1195889",
@@ -219,6 +164,26 @@
         }
       ]
     }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "Custom Angular Theme",
+      "hours": 4,
+      "completed": true
+    },
+    {
+      "id": 2,
+      "name": "Theme Mixins",
+      "hours": 3,
+      "completed": false,
+      "dueDate": "2020-07-06T15:18:22.9848654"
+    },
+    {
+      "name": "Cooking Pad Krapao",
+      "hours": 1,
+      "completed": false,
+      "id": 3
+    }
   ]
-
 }

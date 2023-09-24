@@ -3,11 +3,14 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "routing-modules": {
+    "ng-dev-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
-            "outputPath": "dist/routing-modules",
+            "outputPath": "dist/ng-dev-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -49,13 +52,12 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb"
                 }
               ],
               "fileReplacements": [
@@ -81,10 +83,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "routing-modules:build:production"
+              "browserTarget": "ng-dev-app:build:production"
             },
             "development": {
-              "browserTarget": "routing-modules:build:development"
+              "browserTarget": "ng-dev-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "routing-modules:build"
+            "browserTarget": "ng-dev-app:build"
           }
         },
         "test": {
@@ -129,6 +131,9 @@
     }
   },
   "cli": {
-    "analytics": false
+    "cache": {
+      "enabled": false
+    },
+    "analytics": "c7bdbe62-4763-4bdd-af42-69e1764bfa17"
   }
 }

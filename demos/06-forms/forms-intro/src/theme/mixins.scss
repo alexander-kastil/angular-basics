@@ -3,8 +3,11 @@
   font-size: $font;
   color: $col;
   cursor: pointer;
+  font-weight: bolder;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: underline;  
+    text-underline-offset: 8px; 
+    color: rgb(222, 206, 176); 
   }
 }

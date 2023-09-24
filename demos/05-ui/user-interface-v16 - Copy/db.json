@@ -1,0 +1,224 @@
+{
+  "demos": [
+    {
+      "url": "style-inheritence",
+      "title": "Global / Component Styles"
+    },
+    {
+      "url": "css-binding",
+      "title": "CSS Binding"
+    },
+    {
+      "url": "inline-css",
+      "title": "Inline CSS"
+    },
+    { "url": "flexbox", "title": "Flexbox" },
+    {
+      "url": "flexmediaq",
+      "title": "Flexbox Media Queries"
+    },
+    {
+      "url": "cssgrid",
+      "title": "CSS Grid"
+    },
+    {
+      "url": "material",
+      "title": "Angular Material"
+    },
+    {
+      "url": "mat-form-field",
+      "title": "MatFormFields"
+    },
+    {
+      "url": "material-table",
+      "title": "Material Table"
+    },
+    {
+      "url": "classic-dialog",
+      "title": "Material Dialog Classic"
+    },
+    {
+      "url": "material-dialog",
+      "title": "Dialog with @Input()"
+    },
+    {
+      "url": "stepper",
+      "title": "Material Stepper"
+    },
+    {
+      "url": "material-theme",
+      "title": "Material Theme"
+    },
+    {
+      "url": "fonts",
+      "title": "Using Webfonts"
+    },
+    {
+      "url": "dragdrop",
+      "title": "Drag & Drop"
+    },
+    {
+      "url": "virtualscroll",
+      "title": "VirtualScroll"
+    },
+    {
+      "url": "chart",
+      "title": "Chart"
+    },
+    {
+      "url": "markdown",
+      "title": "Markdown Renderer"
+    },
+    {
+      "url": "bootstrap",
+      "title": "Bootstrap"
+    }
+  ],
+  "top-links": [
+    {
+      "label": "Home",
+      "url": ""
+    },
+    {
+      "label": "Demos",
+      "url": "demos"
+    },
+    {
+      "label": "Skills",
+      "url": "skills"
+    }
+  ],
+  "skills": [
+    { "id": 1, "name": "Node.js", "hours": 3, "completed": true },
+    { "id": 2, "name": "TypeScript", "hours": 4, "completed": false },
+    { "id": 3, "name": "JavaScript", "hours": 10, "completed": true },
+    { "id": 4, "name": "Angular", "hours": 20, "completed": false }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "vouchers":[
+    {
+      "ID": 2,
+      "Text": "BP Tankstelle",
+      "Date": "2016-11-15T00:00:00",
+      "Amount": 650,
+      "Paid": false,
+      "Expense": false,
+      "Remark": true,
+      "Details": [
+        {
+          "ID": 4,
+          "VoucherID": 2,
+          "AccountID": 2,
+          "Account": null,
+          "Text": "Diesel",
+          "Amount": 45,
+          "Comment": null
+        },
+        {
+          "ID": 6,
+          "VoucherID": 2,
+          "AccountID": 2,
+          "Account": null,
+          "Text": "Reifenwechsel",
+          "Amount": 20,
+          "Comment": null
+        }
+      ]
+    },
+    {
+      "ID": 3,
+      "Text": "Amazon",
+      "Date": "2016-11-15T00:00:00",
+      "Amount": 0,
+      "Paid": false,
+      "Expense": false,
+      "Remark": false,
+      "Details": [
+        {
+          "ID": 7,
+          "VoucherID": 3,
+          "AccountID": 6,
+          "Account": null,
+          "Text": "Game of Thrones, Season 6",
+          "Amount": 29,
+          "Comment": null
+        },
+        {
+          "ID": 2,
+          "VoucherID": 3,
+          "AccountID": 1,
+          "Account": null,
+          "Text": "USB Stick",
+          "Amount": 11,
+          "Comment": null
+        },
+        {
+          "ID": 3,
+          "VoucherID": 3,
+          "AccountID": 1,
+          "Account": null,
+          "Text": "DVI Kabel",
+          "Amount": 45,
+          "Comment": null
+        }
+      ]
+    },
+    {
+      "ID": 1,
+      "Text": "Demo AG",
+      "Date": "2016-11-06T10:50:04.1195889",
+      "Amount": 800,
+      "Paid": false,
+      "Expense": false,
+      "Remark": true,
+      "Details": [
+        {
+          "ID": 5,
+          "VoucherID": 1,
+          "AccountID": 4,
+          "Account": null,
+          "Text": "Remote Support",
+          "Amount": 800,
+          "Comment": null
+        }
+      ]
+    },
+    {
+      "ID": 4,
+      "Text": "Media Markt",
+      "Date": "2016-11-05T10:50:04.1215883",
+      "Amount": 100,
+      "Paid": true,
+      "Expense": true,
+      "Remark": false,
+      "Details": [
+        {
+          "ID": 1,
+          "VoucherID": 4,
+          "AccountID": 1,
+          "Account": null,
+          "Text": "Ladekabel",
+          "Amount": 100,
+          "Comment": null
+        }
+      ]
+    }
+  ]
+
+}

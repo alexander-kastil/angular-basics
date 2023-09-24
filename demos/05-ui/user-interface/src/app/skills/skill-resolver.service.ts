@@ -8,7 +8,7 @@ import { SkillsService } from './skills.service';
   providedIn: 'root',
 })
 export class SkillResolverService {
-  constructor(private service: SkillsService) { }
+  constructor(private service: SkillsService) {}
 
   resolve(
     route: ActivatedRouteSnapshot

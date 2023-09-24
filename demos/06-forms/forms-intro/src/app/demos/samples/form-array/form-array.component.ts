@@ -1,10 +1,26 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, UntypedFormArray } from '@angular/forms';
+import { FormBuilder, UntypedFormArray, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf, NgFor } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-form-array',
-  templateUrl: './form-array.component.html',
-  styleUrls: ['./form-array.component.scss'],
+    selector: 'app-form-array',
+    templateUrl: './form-array.component.html',
+    styleUrls: ['./form-array.component.scss'],
+    standalone: true,
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NgIf,
+        NgFor,
+        MatButtonModule,
+    ],
 })
 export class FormArrayComponent {
   fb: FormBuilder = inject(FormBuilder);

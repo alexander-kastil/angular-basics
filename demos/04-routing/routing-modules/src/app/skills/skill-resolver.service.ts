@@ -12,7 +12,7 @@ export class SkillResolverService {
 
   resolve(
     route: ActivatedRouteSnapshot
-  ): Skill | undefined | Observable<Skill | undefined> | Promise<Skill> {
+  ): Skill | Observable<Skill> | Promise<Skill> {
     const id = +route.params['id'];
     return this.service.getSkill(id);
   }

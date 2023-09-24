@@ -40,7 +40,7 @@
           [(ngModel)]="person.email"
         />
         <em *ngIf="personForm.controls['email']?.invalid">
-          Must be a vaild mail
+          Must be a valid mail
         </em>
       </mat-form-field>
 
@@ -57,7 +57,7 @@
       <div class="cmdItems">
         <button
         mat-raised-button
-        color="accent"
+        color="primary"
         (click)="patchValue()">
         Patch Value
       </button>
@@ -65,7 +65,7 @@
         mat-raised-button
         type="submit"
         [disabled]="personForm.invalid"
-        color="accent">
+        color="primary">
         Submit
       </button>
       </div>

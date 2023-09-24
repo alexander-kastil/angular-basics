@@ -1,0 +1,42 @@
+<div [formGroup]="skillForm" (ngSubmit)="saveForm()">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Skills Sheet</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="name"
+          placeholder="Enter Name:"
+        />
+      </mat-form-field>
+      <div *ngIf="skillForm.get('name')?.value">
+        <h6>Add your skills:</h6>
+        <div
+          formArrayName="skillsGrp"
+          *ngFor="let skill of skillForm.controls.skillsGrp.controls; let i = index"
+        >
+          <div [formGroupName]="i" class="row">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Skill Name"
+                formControlName="skillname"
+              />
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Years" formControlName="years" />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="cmdItems">
+      <button mat-raised-button (click)="addSkill()" color="accent">Add Skill</button>
+      <button mat-raised-button (click)="saveForm()" color="accent">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

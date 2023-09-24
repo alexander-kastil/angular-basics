@@ -1,0 +1,94 @@
+{
+  "demos": [
+    {
+      "url": "childroutes",
+      "title": "Routing Configuration"
+    },
+    {
+      "url": "routingbasics",
+      "title": "Routing Basics"
+    },
+    {
+      "url": "parammap",
+      "title": "paramMap"
+    },
+    {
+      "url": "router-binding",
+      "title": "Router Binding"
+    },
+    {
+      "url": "lazy-loading",
+      "title": "Lazy Loading"
+    },
+    {
+      "url": "standalone-comp",
+      "title": "Standalone Component"
+    },
+    {
+      "url": "component-less",
+      "title": "Component Less"
+    },
+
+    {
+      "url": "routeguards",
+      "title": "Route Guards"
+    },
+    {
+      "url": "preload",
+      "title": "Preload Data"
+    }
+  ],
+  "top-links": [
+    {
+      "label": "Home",
+      "url": ""
+    },
+    {
+      "label": "Demos",
+      "url": "demos"
+    },
+    {
+      "label": "Skills",
+      "url": "skills"
+    },
+    {
+      "label": "Customers",
+      "url": "customers"
+    },
+    {
+      "label": "Admin",
+      "url": "admin"
+    }
+  ],
+  "skills": [
+    { "id": 1, "name": "Node.js", "hours": 3, "completed": true },
+    { "id": 2, "name": "TypeScript", "hours": 4, "completed": false },
+    { "id": 3, "name": "JavaScript", "hours": 10, "completed": true },
+    { "id": 4, "name": "Angular", "hours": 20, "completed": false }
+  ],
+  "customers": [
+    {
+      "id": 1, "name": "Fritzi"
+    },
+    {
+      "id": 2, "name": "Mimi"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

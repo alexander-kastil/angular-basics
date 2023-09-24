@@ -15,8 +15,9 @@
         {{ mi.label }}
       </div>
     </div>
-    <div (click)="toggleApps()" class="hamburgerMenu">
-      <mat-icon color="accent">apps</mat-icon>
+    <div row>
+      <app-current-user></app-current-user>
+      <app-logout-btn></app-logout-btn>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

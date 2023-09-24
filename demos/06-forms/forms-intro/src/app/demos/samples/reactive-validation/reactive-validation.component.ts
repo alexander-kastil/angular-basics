@@ -1,19 +1,37 @@
 import { Component, OnInit, inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators
-} from '@angular/forms';
+import { FormBuilder, FormControl, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
 import { asyncMailExistsValidator } from './asyncMailExistsValidator';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { NgIf, NgFor } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ColumnDirective } from '../../../shared/formatting/formatting-directives';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-reactive-validation',
-  templateUrl: './reactive-validation.component.html',
-  styleUrls: ['./reactive-validation.component.scss'],
+    selector: 'app-reactive-validation',
+    templateUrl: './reactive-validation.component.html',
+    styleUrls: ['./reactive-validation.component.scss'],
+    standalone: true,
+    imports: [
+        MatCardModule,
+        FormsModule,
+        ColumnDirective,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NgIf,
+        MatSelectModule,
+        MatOptionModule,
+        MatRadioModule,
+        NgFor,
+        MatButtonModule,
+    ],
 })
 export class ReactiveValidationComponent implements OnInit {
   ps = inject(PersonService);
