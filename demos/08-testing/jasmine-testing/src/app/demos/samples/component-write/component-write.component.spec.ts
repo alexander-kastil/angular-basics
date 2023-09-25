@@ -25,7 +25,7 @@ describe('ComponentWriteComponent', () => {
     const soi = 'Soi the Whippet';
     fixture.detectChanges();
 
-    const input = fixture.debugElement.query(By.css('input'));
+    const input = fixture.debugElement.query(By.css('[data-testid=username]'));
     const el = input.nativeElement as HTMLInputElement;
     el.value = soi;
     el.dispatchEvent(new Event('input'));

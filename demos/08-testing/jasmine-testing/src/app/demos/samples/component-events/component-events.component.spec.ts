@@ -22,25 +22,25 @@ describe('ComponentEventsComponent', () => {
   });
 
   it('should increment the count - triggerEventHandler', () => {
-    const divClick = fixture.debugElement.query(By.css('button'));
+    const divClick = fixture.debugElement.query(By.css('[data-testid=btnIncrement]'));
     divClick.triggerEventHandler('click', {});
 
     expect(fixture.componentInstance.count).toBe(1);
     fixture.detectChanges();
 
-    const divResult = fixture.debugElement.query(By.css('#result'));
+    const divResult = fixture.debugElement.query(By.css('[data-testid=result]'));
     expect(divResult.nativeElement.innerText).toContain('1');
   });
 
   it('should increment the count - Native Api', () => {
-    const divClick = fixture.debugElement.query(By.css('button'));
+    const divClick = fixture.debugElement.query(By.css('[data-testid=btnIncrement]'));
     divClick.nativeElement.click();
     divClick.nativeElement.click();
 
     expect(fixture.componentInstance.count).toBe(2);
     fixture.detectChanges();
 
-    const divResult = fixture.debugElement.query(By.css('#result'));
+    const divResult = fixture.debugElement.query(By.css('[data-testid=result]'));
     expect(divResult.nativeElement.innerText).toContain('2');
   });
 });
