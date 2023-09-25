@@ -1,6 +1,7 @@
 export const environment = {
     authEnabled: true,
-    title: 'Security & Publishing',
+    app: 'Angular - Single Page Application Development',
+    title: 'Authentication & Publishing',
     markdownPath: '/assets/markdown/',
     api: 'http://localhost:3000/',
     netapi: 'https://localhost:5001/',
