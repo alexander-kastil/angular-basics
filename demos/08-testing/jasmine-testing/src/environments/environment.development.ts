@@ -1,5 +1,5 @@
 export const environment = {
-    authEnabled: true,
+    authEnabled: false,
     title: 'Security & Publishing',
     markdownPath: '/assets/markdown/',
     api: 'http://localhost:3000/',

@@ -84,10 +84,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-securing:build:production"
+              "buildTarget": "ng-securing:build:production"
             },
             "development": {
-              "browserTarget": "ng-securing:build:development"
+              "buildTarget": "ng-securing:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -95,7 +95,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-securing:build"
+            "buildTarget": "ng-securing:build"
           }
         },
         "test": {

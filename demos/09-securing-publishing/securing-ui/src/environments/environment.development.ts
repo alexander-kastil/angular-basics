@@ -1,5 +1,5 @@
 export const environment = {
-    authEnabled: true,
+    authEnabled: false,
     app: 'Angular - Single Page Application Development',
     title: 'Authentication & Publishing',
     markdownPath: '/assets/markdown/',
