@@ -30,6 +30,7 @@
     "@ngrx/effects": "^17.1.0",
     "@ngrx/entity": "^17.1.0",
     "@ngrx/store": "^17.1.0",
+    "axios": "^1.6.5",
     "firebase": "^10.7.2",
     "marked": "^9.1.6",
     "ngx-markdown": "^17.1.1",
