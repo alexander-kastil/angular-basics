@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "food-app:build"
+            "buildTarget": "food-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "food-app:build:production"
+              "buildTarget": "food-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "food-app:build"
+            "buildTarget": "food-app:build"
           }
         },
         "test": {
@@ -118,6 +118,9 @@
     }
   },
   "cli": {
-    "analytics": "b93089cb-dc75-49cd-830f-66f32f6c124c"
+    "analytics": "b93089cb-dc75-49cd-830f-66f32f6c124c",
+    "cache": {
+      "enabled": false
+    }
   }
 }

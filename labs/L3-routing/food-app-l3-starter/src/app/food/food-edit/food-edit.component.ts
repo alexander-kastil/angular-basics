@@ -2,9 +2,8 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
-  SimpleChanges,
+  SimpleChanges
 } from "@angular/core";
 import { FoodItem } from "../food.model";
 
@@ -13,19 +12,15 @@ import { FoodItem } from "../food.model";
   templateUrl: "./food-edit.component.html",
   styleUrls: ["./food-edit.component.scss"],
 })
-export class FoodEditComponent implements OnInit {
-  constructor() {}
-
+export class FoodEditComponent {
   @Input() food: FoodItem = new FoodItem();
-  @Output() saveFood: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-
-  ngOnInit() {}
+  @Output() onFoodSave: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log("receiving data on input:", changes["food"]);
   }
 
-  doSave() {
-    if (this.food) this.saveFood.emit(this.food);
+  saveFood() {
+    if (this.food) this.onFoodSave.emit(this.food);
   }
 }

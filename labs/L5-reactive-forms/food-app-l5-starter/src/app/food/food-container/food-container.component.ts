@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { FoodItem } from "../food.model";
+import { Component, OnInit, inject } from "@angular/core";
 import { FoodService } from "../food.service";
+import { FoodItem } from "../food.model";
 
 @Component({
   selector: "app-food-container",
@@ -8,10 +8,9 @@ import { FoodService } from "../food.service";
   styleUrls: ["./food-container.component.scss"],
 })
 export class FoodContainerComponent implements OnInit {
+  fs = inject(FoodService)
   food: FoodItem[] = [];
   selected: FoodItem | null = null;
-
-  constructor(private fs: FoodService) {}
 
   ngOnInit() {
     this.fs.getFood().subscribe((data) => (this.food = data));
