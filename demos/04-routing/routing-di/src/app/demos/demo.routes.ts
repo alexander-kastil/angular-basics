@@ -10,12 +10,18 @@ import { RouteGuardsComponent } from './samples/route-guards/route-guards.compon
 import { RouterBindingComponent } from './samples/router-binding/router-binding.component';
 import { RoutingBasicsComponent } from './samples/routing-basics/routing-basics.component';
 import { StandaloneComponent } from './samples/standalone/standalone.component';
+import { ProvidersComponent } from './samples/providers/providers.component';
+import { DependencyInjectionComponent } from './samples/dependency-injection/dependency-injection.component';
+import { NgModulesComponent } from './samples/ng-modules/ng-modules.component';
 
 export const DEMO_ROUTES: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
     children: [
+      { path: 'providers', component: ProvidersComponent },
+      { path: 'modules', component: NgModulesComponent },
+      { path: 'dependency-injection', component: DependencyInjectionComponent },
       { path: 'routing-basics', component: RoutingBasicsComponent },
       {
         path: 'param-map',
@@ -23,7 +29,7 @@ export const DEMO_ROUTES: Routes = [
         children: [{ path: ':id', component: PmChildComponent }],
       },
       { path: 'router-binding', component: RouterBindingComponent },
-      { path: 'child-routes', component: ChildRoutesComponent },
+      { path: 'routing-config', component: ChildRoutesComponent },
       { path: 'route-guards', component: RouteGuardsComponent },
       { path: 'preload', component: PreloadComponent },
       { path: 'lazy-loading', component: LazyLoadingComponent },

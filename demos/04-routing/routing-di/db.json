@@ -1,7 +1,27 @@
 {
   "demos": [
     {
-      "url": "child-routes",
+      "url": "standalone-comp",
+      "title": "Standalone Components"
+    },
+    {
+      "url": "dependency-injection",
+      "title": "Dependency Injection"
+    },
+    {
+      "url": "providers",
+      "title": "Providers"
+    },
+    {
+      "url": "modules",
+      "title": "Angular Modules"
+    },
+    {
+      "url": "lazy-loading",
+      "title": "Lazy Loading"
+    },
+    {
+      "url": "routing-config",
       "title": "Routing Configuration"
     },
     {
@@ -17,31 +37,22 @@
       "title": "Router Binding"
     },
     {
-      "url": "lazy-loading",
-      "title": "Lazy Loading"
-    },
-    {
-      "url": "standalone-comp",
-      "title": "Standalone Component"
-    },
-    {
-      "url": "component-less",
-      "title": "Component Less"
-    },
-
-    {
       "url": "route-guards",
       "title": "Route Guards"
     },
     {
       "url": "preload",
-      "title": "Preload Data"
+      "title": "Data preloading"
+    },
+    {
+      "url": "component-less",
+      "title": "Component less routing"
     }
   ],
   "top-links": [
     {
       "label": "Home",
-      "url": "main"
+      "url": ""
     },
     {
       "label": "Demos",

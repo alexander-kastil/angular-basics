@@ -15,6 +15,13 @@ export const MAIN_ROUTES: Routes = [
                     import('../demos/demo.routes').then((m) => m.DEMO_ROUTES),
             },
             {
+                path: 'statistics',
+                loadChildren: () =>
+                    import('../statistics/statistics.module').then(
+                        (m) => m.StatisticsModule
+                    ),
+            },
+            {
                 path: 'admin',
                 component: AdminComponent,
                 canActivate: [adminGuard],

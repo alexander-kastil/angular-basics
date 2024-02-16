@@ -1,4 +1,4 @@
-- Explain standalone.component.ts
+- Starting from Angular 17 onwards Standalone Components is the default for all new projects:
 
     ```typescript
     @Component({

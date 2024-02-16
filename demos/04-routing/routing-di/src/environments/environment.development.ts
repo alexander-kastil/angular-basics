@@ -1,7 +1,7 @@
 export const environment = {
     authEnabled: false,
     adminAuthEnabled: true,
-    title: 'Fundamentals',
+    title: 'Routing & DI',
     markdownPath: '/assets/markdown/',
     api: 'http://localhost:3000/',
     netapi: 'https://localhost:5001/',

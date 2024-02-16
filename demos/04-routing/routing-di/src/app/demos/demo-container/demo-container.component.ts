@@ -44,7 +44,7 @@ export class DemoContainerComponent {
   eb = inject(SidePanelService);
 
   title: string = environment.title;
-  demos = this.ds.getItems();
+  demos = this.ds.getDemos();
 
   header = this.router.events
     .pipe(

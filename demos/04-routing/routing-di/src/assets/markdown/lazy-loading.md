@@ -1,8 +1,11 @@
-Examine `demos`-route in `app.routing.module.ts` and `demos.module.ts`. DemosModule represents a lazy loaded module.
+Examine `main.routes.ts` an how it lazy loads `StatisticsModule`:
 
 ```typescript
 {
-  path: 'demos',
-  loadChildren: () => import('./demos/demos.module').then((m) => m.DemosModule),
+  path: 'statistics',
+  loadChildren: () =>
+      import('../statistics/statistics.module').then(
+        (m) => m.StatisticsModule
+      ),
 },
 ```

@@ -82,7 +82,7 @@ export class HeightDirective {
   hostDirectives: [HeightDirective],
   standalone: true,
 })
-export class WidthDirective {
+export class FullWidthDirective {
 }
 
 @Directive({

@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RevenueComponent } from './revenue/revenue.component';
 import { CostComponent } from './cost/cost.component';
 
-const routes: Routes = [
+const STATISTICS_ROUTES: Routes = [
   {
     path: ':year',
     children: [
@@ -21,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(STATISTICS_ROUTES)],
   exports: [RouterModule],
 })
-export class StatisticsRoutingModule {}
+export class StatisticsRoutingModule { }
