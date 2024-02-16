@@ -24,23 +24,32 @@ export const DEMO_ROUTES: Routes = [
       { path: 'modules', component: NgModulesComponent },
       { path: 'dependency-injection', component: DependencyInjectionComponent },
       { path: 'routing-basics', component: RoutingBasicsComponent },
-      {
-        path: 'param-map',
-        component: ParamMapComponent,
-        children: [{ path: ':id', component: PmChildComponent }],
-      },
       { path: 'router-binding', component: RouterBindingComponent },
       { path: 'routing-config', component: ChildRoutesComponent },
       { path: 'route-guards', component: RouteGuardsComponent },
-      { path: 'preload', component: PreloadComponent, resolve: demosResolver },
-      { path: 'lazy-loading', component: LazyLoadingComponent },
-      {
-        path: 'component-less',
-        component: ComponentLessComponent,
-      },
       {
         path: 'standalone-comp',
         component: StandaloneComponent,
+      },
+      {
+        path: 'lazy-loading',
+        component: LazyLoadingComponent
+      },
+      {
+        path: 'param-map',
+        component: ParamMapComponent,
+        children: [
+          { path: ':id', component: PmChildComponent }
+        ],
+      },
+      {
+        path: 'preload',
+        component: PreloadComponent,
+        resolve: { demos: demosResolver }
+      },
+      {
+        path: 'component-less',
+        component: ComponentLessComponent,
       },
     ],
   },
