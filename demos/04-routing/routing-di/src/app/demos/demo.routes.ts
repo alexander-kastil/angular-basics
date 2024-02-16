@@ -13,6 +13,7 @@ import { StandaloneComponent } from './samples/standalone/standalone.component';
 import { ProvidersComponent } from './samples/providers/providers.component';
 import { DependencyInjectionComponent } from './samples/dependency-injection/dependency-injection.component';
 import { NgModulesComponent } from './samples/ng-modules/ng-modules.component';
+import { demosResolver } from './samples/preload/demos.resolver';
 
 export const DEMO_ROUTES: Routes = [
   {
@@ -31,7 +32,7 @@ export const DEMO_ROUTES: Routes = [
       { path: 'router-binding', component: RouterBindingComponent },
       { path: 'routing-config', component: ChildRoutesComponent },
       { path: 'route-guards', component: RouteGuardsComponent },
-      { path: 'preload', component: PreloadComponent },
+      { path: 'preload', component: PreloadComponent, resolve: demosResolver },
       { path: 'lazy-loading', component: LazyLoadingComponent },
       {
         path: 'component-less',
