@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,11 +22,10 @@ import { SkillsKpiComponent } from '../skills-kpi/skills-kpi.component';
     ReactiveFormsModule,
     MatButtonModule,
     RouterLink,
-    NgFor,
     SkillRowComponent,
     SkillsKpiComponent,
-    AsyncPipe,
-  ],
+    AsyncPipe
+],
 })
 export class SkillsContainerComponent {
   service = inject(SkillsEntityService);

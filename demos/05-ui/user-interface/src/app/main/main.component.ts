@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
@@ -12,11 +12,10 @@ import { NavbarComponent } from '../shared/navbar/navbar.component';
   standalone: true,
   imports: [
     RouterOutlet,
-    NgIf,
     NavbarComponent,
     HomeComponent,
     LoadingComponent
-  ],
+],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })

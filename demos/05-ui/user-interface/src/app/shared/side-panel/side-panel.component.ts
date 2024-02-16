@@ -4,8 +4,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SideNavService } from '../sidenav/sidenav.service';
-import { SidebarActions } from './sidebar.actions';
-import { SidePanelService } from './sidepanel.service';
+import { SidePanelActions } from './side-panel.actions';
+import { SidePanelService } from './side-panel.service';
 @Component({
   selector: 'app-side-panel',
   templateUrl: './side-panel.component.html',
@@ -26,9 +26,9 @@ export class SidePanelComponent {
 
   toggleEditor() {
     if (this.editorDisplayed) {
-      this.eb.triggerCmd(SidebarActions.HIDE_MARKDOWN);
+      this.eb.triggerCmd(SidePanelActions.HIDE_MARKDOWN);
     } else {
-      this.eb.triggerCmd(SidebarActions.SHOW_MARKDOWN);
+      this.eb.triggerCmd(SidePanelActions.SHOW_MARKDOWN);
     }
     this.editorDisplayed = !this.editorDisplayed;
     this.icon = this.editorDisplayed ? "close" : "create";

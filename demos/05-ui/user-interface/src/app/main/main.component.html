@@ -3,9 +3,11 @@
     <app-navbar></app-navbar>
   </div>
   <div class="gdLoading">
-    <app-loading *ngIf="isLoading"></app-loading>
+    @if (isLoading) {
+    <app-loading></app-loading>
+    }
   </div>
-  <div class="gdMainrow">
+  <div class="gdMainRow">
     <router-outlet></router-outlet>
   </div>
 </div>

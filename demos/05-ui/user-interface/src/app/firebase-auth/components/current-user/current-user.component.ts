@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FirebaseAuthService } from '../../firebase-auth.service';
 
@@ -7,7 +7,7 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
   templateUrl: './current-user.component.html',
   styleUrls: ['./current-user.component.scss'],
   standalone: true,
-  imports: [NgIf, AsyncPipe],
+  imports: [AsyncPipe],
 })
 export class CurrentUserComponent {
   as = inject(FirebaseAuthService);

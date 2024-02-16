@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
@@ -12,9 +12,8 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
   imports: [
     MatButtonModule,
     RouterLink,
-    NgIf,
-    AsyncPipe,
-  ],
+    AsyncPipe
+],
 })
 export class LogoutBtnComponent {
   as = inject(FirebaseAuthService);

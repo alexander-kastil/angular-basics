@@ -12,10 +12,12 @@
         placeholder="Choose Currency"
         [(value)]="selectedCurrency"
         (selectionChange)="calculate()"
-      >
-        <mat-option *ngFor="let curr of currencies" [value]="curr">
-          {{ curr }}
-        </mat-option>
+        >
+        @for (curr of currencies; track curr) {
+          <mat-option [value]="curr">
+            {{ curr }}
+          </mat-option>
+        }
       </mat-select>
     </mat-form-field>
     <div>
@@ -23,11 +25,11 @@
       {{ selectedCurrency }} will give you {{ converted | currency : "€ " }}
     </div>
   </mat-card-content>
-  
-    <mat-card-actions align="end">
-      <button mat-raised-button [mat-dialog-close]="converted" color="primary">
-        Convert
-      </button>
-    </mat-card-actions>
-  
+
+  <mat-card-actions align="end">
+    <button mat-raised-button [mat-dialog-close]="converted" color="primary">
+      Convert
+    </button>
+  </mat-card-actions>
+
 </mat-card>

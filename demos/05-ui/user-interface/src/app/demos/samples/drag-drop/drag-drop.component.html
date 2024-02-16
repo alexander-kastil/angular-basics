@@ -13,13 +13,15 @@
         [cdkDropListData]="todo"
         (cdkDropListDropped)="drop($event)"
         [cdkDropListConnectedTo]="[doneList]"
-      >
-        <div *ngFor="let item of todo" cdkDrag class="item">
-          <p>{{ item.title | titlecase }}</p>
-          <small class="text-muted">
-            {{ item.dateAdded | date: "short" }}
-          </small>
-        </div>
+        >
+        @for (item of todo; track item) {
+          <div cdkDrag class="item">
+            <p>{{ item.title | titlecase }}</p>
+            <small class="text-muted">
+              {{ item.dateAdded | date: "short" }}
+            </small>
+          </div>
+        }
       </div>
     </mat-card-content>
   </mat-card>
@@ -38,13 +40,15 @@
         [cdkDropListData]="done"
         (cdkDropListDropped)="drop($event)"
         [cdkDropListConnectedTo]="[todoList]"
-      >
-        <div *ngFor="let item of done" cdkDrag class="drop-item">
-          <p>{{ item.title | titlecase }}</p>
-          <small class="text-muted">
-            {{ item.dateAdded | date: "short" }}
-          </small>
-        </div>
+        >
+        @for (item of done; track item) {
+          <div cdkDrag class="drop-item">
+            <p>{{ item.title | titlecase }}</p>
+            <small class="text-muted">
+              {{ item.dateAdded | date: "short" }}
+            </small>
+          </div>
+        }
       </div>
     </mat-card-content>
   </mat-card>

@@ -8,6 +8,7 @@
 
 mat-card {
   min-width: 500px;
+  border: 1px solid var(--color-primary);
 }
 
 mat-card-header {
@@ -38,8 +39,22 @@ mat-card-subtitle {
 
 mat-card-actions {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+
+  div{
+    margin-bottom: 0.5rem;
+
+    a{
+      text-decoration: none;
+      color: black;     
+    }
+
+    a:hover{
+      text-decoration: underline;
+      text-underline-offset: 0.3 rem;
+    }
+  }
 }
 
 .instructions {
@@ -47,10 +62,15 @@ mat-card-actions {
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  margin-top: 1rem;
 }
 
 .showcase {
   min-height: 300px;
+}
+
+.logo {
+  margin: 0 var(--gap-medium);
 }
 
 .mat-mdc-raised-button{

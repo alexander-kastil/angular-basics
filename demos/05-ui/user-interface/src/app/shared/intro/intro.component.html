@@ -1,49 +1,62 @@
 <mat-card appearance="outlined">
-    <mat-card-header >
-      <mat-card-title>{{ title }}</mat-card-title>
-      <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="showcase" column centered>
-        <img src="assets/images/{{img}}" alt="">
-      </div>
-      <div class="instructions">
-        <ng-content select=".instructions"></ng-content>
-      </div>
-    </mat-card-content>
+  <mat-card-header>
+   <div class="logo">
+    <img width="50px" src="/assets/images/angular.svg" />
+   </div>
+   <div>
+    <mat-card-title>{{ title }}</mat-card-title>
+    <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
+   </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="showcase" column centered>
+      <img src="assets/images/{{img}}" alt="">
+    </div>
+    <div class="instructions">
+      <ng-content select=".instructions"></ng-content>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
     <mat-card-actions>
-      <mat-card-actions>
-        <div *ngIf="isAuthenticated==true" class="actions" centered>
-          <button mat-raised-button routerLink="/main" color="primary">
-            Proceed
-          </button>
-        </div>
-        <div *ngIf="isAuthenticated==false" class="actions cmdItems">
-          <button
-            mat-raised-button
-            (click)="logIn()"
-            color="primary"
-          >
-            Log In
-          </button>
-          <button
-            mat-raised-button
-            (click)="registerUser()"
-            color="primary"
-          >
-            Register
-          </button>
-        </div>
-      </mat-card-actions>
+      <div>
+        @if (isAuthenticated==true) {
+          <div class="actions" centered>
+            <button mat-raised-button routerLink="/main/demos" color="primary">
+              Proceed
+            </button>
+          </div>
+        }
+        @if (isAuthenticated==false) {
+          <div class="actions cmdItems">
+            <button
+              mat-raised-button
+              (click)="logIn()"
+              color="primary"
+              >
+              Log In
+            </button>
+            <button
+              mat-raised-button
+              (click)="registerUser()"
+              color="primary"
+              >
+              Register
+            </button>
+          </div>
+        }
+      </div>
+      <div>
+        <a href="https://www.integrations.at" target="_blank" alt="Development, DevOps & Training for Angular, Azure and Microsoft 365">© Alexander Pajer - www.integrations.at</a>
+      </div>
     </mat-card-actions>
-  </mat-card>
-  
-  <!-- Auth Templates -->
-  <ng-template #register>
-    <app-register></app-register>
-  </ng-template>
-  
-  <ng-template #login>
-    <app-login></app-login>
-  </ng-template>
-  
+  </mat-card-actions>
+</mat-card>
+
+<!-- Auth Templates -->
+<ng-template #register>
+  <app-register></app-register>
+</ng-template>
+
+<ng-template #login>
+  <app-login></app-login>
+</ng-template>

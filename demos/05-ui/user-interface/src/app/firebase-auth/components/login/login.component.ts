@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,9 +20,8 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule,
-    NgIf,
-  ],
+    MatDialogModule
+],
 })
 export class LoginComponent {
   as = inject(FirebaseAuthService);

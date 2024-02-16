@@ -5,7 +5,7 @@ import { CalcParam } from './calculatorParam.model';
 import { CurrencyService } from './currency.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatOptionModule } from '@angular/material/core';
-import { NgFor, CurrencyPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,17 +17,16 @@ import { MatCardModule } from '@angular/material/card';
     styleUrls: ['./calculator.component.scss'],
     standalone: true,
     imports: [
-        MatCardModule,
-        MatFormFieldModule,
-        FormsModule,
-        MatInputModule,
-        MatSelectModule,
-        NgFor,
-        MatOptionModule,
-        MatButtonModule,
-        MatDialogModule,
-        CurrencyPipe,
-    ],
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatButtonModule,
+    MatDialogModule,
+    CurrencyPipe
+],
 })
 export class CalculatorComponent {
   rates: Map<string, number> = new Map<string, number>();

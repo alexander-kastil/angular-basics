@@ -53,7 +53,7 @@
       matBadgePosition="before"
       matBadgeColor="accent"
       (click)="incrementCt()"
-    >
+      >
       Click me
     </button>
   </mat-card-content>
@@ -70,16 +70,17 @@
       aria-label="Font Style"
       multiple="true"
       style="overflow: visible"
-    >
-      <mat-button-toggle
-        #imageButton
-        *ngFor="let image of images"
-        matBadge="&#x2714;"
-        matBadgeOverlap
-        matBadgePosition="before"
-        [matBadgeHidden]="!imageButton.checked"
-        >{{ image }}</mat-button-toggle
       >
-    </mat-button-toggle-group>
-  </mat-card-content>
-</mat-card>
+      @for (image of images; track image) {
+        <mat-button-toggle
+          #imageButton
+          matBadge="&#x2714;"
+          matBadgeOverlap
+          matBadgePosition="before"
+          [matBadgeHidden]="!imageButton.checked"
+          >{{ image }}</mat-button-toggle
+          >
+        }
+      </mat-button-toggle-group>
+    </mat-card-content>
+  </mat-card>

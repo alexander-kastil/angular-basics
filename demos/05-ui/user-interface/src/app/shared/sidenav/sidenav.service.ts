@@ -1,11 +1,11 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { NavItem } from '../navbar/navItem.model';
 import { environment } from '../../../environments/environment';
+import { NavItem } from '../navbar/nav-item.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,19 +13,19 @@ import { environment } from '../../../environments/environment';
 export class SideNavService {
   http = inject(HttpClient);
   breakpointObserver = inject(BreakpointObserver);
-  visible$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-  position$: BehaviorSubject<MatDrawerMode> = new BehaviorSubject<MatDrawerMode>('side');
+  visible = signal(true);
+  position = signal<MatDrawerMode>('side');
 
   constructor() {
     this.watchScreen.subscribe();
   }
 
   getSideNavVisible() {
-    return this.visible$.asObservable();
+    return computed(() => this.visible());
   }
 
   getSideNavPosition() {
-    return this.position$.asObservable();
+    return computed(() => this.position());
   }
 
   watchScreen = this.breakpointObserver
@@ -33,13 +33,13 @@ export class SideNavService {
     .pipe(
       tap((matchesBreakpoint) => {
         console.log(matchesBreakpoint);
-        this.visible$.next(matchesBreakpoint.matches ? false : true);
-        this.position$.next(matchesBreakpoint.matches ? 'over' : 'side');
+        this.visible.set(matchesBreakpoint.matches ? false : true);
+        this.position.set(matchesBreakpoint.matches ? 'over' : 'side');
       })
     );
 
   setSideNavEnabled(val: boolean) {
-    this.visible$.next(val);
+    this.visible.set(val);
   }
 
   adjustSidenavToScreen(mq: string): boolean {
@@ -47,8 +47,7 @@ export class SideNavService {
   }
 
   toggleMenuVisibility() {
-    let status = !this.visible$.getValue();
-    this.visible$.next(status);
+    this.visible.update((val) => !val);
   }
 
   getTopItems(): Observable<NavItem[]> {

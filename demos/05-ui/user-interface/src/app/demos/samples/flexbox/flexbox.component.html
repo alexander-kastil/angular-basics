@@ -7,10 +7,12 @@
 </mat-card>
 
 <div [class]="currentClass">
-  <mat-card appearance="outlined" class="flex-item"  *ngFor="let m of movies">
-    <mat-card-title>{{ m.title }}</mat-card-title>
-    <mat-card-content>
-      Lorem ipsum dolor sit amet consectetur.
-    </mat-card-content>
-  </mat-card>
+  @for (m of movies; track m) {
+    <mat-card appearance="outlined" class="flex-item" >
+      <mat-card-title>{{ m.title }}</mat-card-title>
+      <mat-card-content>
+        Lorem ipsum dolor sit amet consectetur.
+      </mat-card-content>
+    </mat-card>
+  }
 </div>

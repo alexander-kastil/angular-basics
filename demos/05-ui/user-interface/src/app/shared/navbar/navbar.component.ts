@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -19,10 +19,9 @@ import { CurrentUserComponent } from 'src/app/firebase-auth/components/current-u
     RouterLink,
     RouterLinkActive,
     AsyncPipe,
-    NgFor,
     LogoutBtnComponent,
     CurrentUserComponent
-  ],
+],
 })
 export class NavbarComponent {
   ms = inject(SideNavService);

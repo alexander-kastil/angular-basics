@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
-import { NgFor } from '@angular/common';
+
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/card';
@@ -11,25 +11,24 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-material-showcase',
-    templateUrl: './material-showcase.component.html',
-    styleUrls: ['./material-showcase.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatToolbarModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatIconModule,
-        MatCardModule,
-        MatBadgeModule,
-        MatButtonToggleModule,
-        NgFor,
-    ],
+  selector: 'app-material-showcase',
+  templateUrl: './material-showcase.component.html',
+  styleUrls: ['./material-showcase.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatToolbarModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatCardModule,
+    MatBadgeModule,
+    MatButtonToggleModule
+  ],
 })
 export class MaterialShowCaseComponent {
   sns = inject(SnackbarService);
-  card = '/assets/images/CleoSoi.jpg';
+  card = '/assets/images/cleo-soi.jpg';
   count = 3;
   public images = ['giraffe', 'monkey', 'elefant'];
 

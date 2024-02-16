@@ -1,10 +1,10 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, Input, TemplateRef, ViewChild, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, RouterLink } from '@angular/router';
-import { combineLatestWith, map, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { LoginComponent } from 'src/app/firebase-auth/components/login/login.component';
 import { RegisterComponent } from 'src/app/firebase-auth/components/register/register.component';
 
@@ -17,10 +17,10 @@ import { RegisterComponent } from 'src/app/firebase-auth/components/register/reg
     MatCardModule,
     MatButtonModule,
     RouterLink,
-    NgIf,
     AsyncPipe,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+
   ],
 })
 export class IntroComponent {
@@ -46,17 +46,6 @@ export class IntroComponent {
             this.router.navigate(['/']);
           }
         }));
-
-    // this.dialog
-    //   .open(this.loginTemplate, { width: '350px' })
-    //   .afterClosed()
-    //   .pipe(
-    //     combineLatestWith(this.as.isAuthenticated()),
-    //     map(([close, isAuthenticated]) => {
-
-    //     })
-    //   )
-    //   .subscribe();
   }
 
   registerUser() {
@@ -70,19 +59,5 @@ export class IntroComponent {
             this.router.navigate(['/']);
           }
         }));
-    // this.dialog
-    //   .open(this.registerTemplate, { width: '350px' })
-    //   .afterClosed()
-    //   .pipe(
-    //     combineLatestWith(this.as.isAuthenticated()),
-    //     map(([close, isAuthenticated]) => {
-    //       if (isAuthenticated) {
-    //         this.router.navigate(['demos']);
-    //       } else {
-    //         this.router.navigate(['/']);
-    //       }
-    //     })
-    //   )
-    //   .subscribe();
   }
 }

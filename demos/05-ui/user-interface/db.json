@@ -1,8 +1,8 @@
 {
   "demos": [
     {
-      "url": "style-inheritence",
-      "title": "Global / Component Styles"
+      "url": "style-inheritance",
+      "title": "Styles in Angular"
     },
     {
       "url": "css-binding",
@@ -14,11 +14,11 @@
     },
     { "url": "flexbox", "title": "Flexbox" },
     {
-      "url": "flexmediaq",
+      "url": "flexbox-media-query",
       "title": "Flexbox Media Queries"
     },
     {
-      "url": "cssgrid",
+      "url": "css-grid",
       "title": "CSS Grid"
     },
     {
@@ -54,11 +54,11 @@
       "title": "Using Webfonts"
     },
     {
-      "url": "dragdrop",
+      "url": "drag-drop",
       "title": "Drag & Drop"
     },
     {
-      "url": "virtualscroll",
+      "url": "virtual-scroll",
       "title": "VirtualScroll"
     },
     {

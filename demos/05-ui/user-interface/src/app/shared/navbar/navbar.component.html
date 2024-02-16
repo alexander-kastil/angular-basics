@@ -5,16 +5,17 @@
     </div>
     <div><img width="50px" src="/assets/images/angular.svg" /></div>
     <div class="menuContainer" role="menubar">
-      <div
-        *ngFor="let mi of menuItems | async"
-        routerLink="{{ '/' + mi.url }}"
-        routerLinkActive="navLinkActive"
-        [routerLinkActiveOptions]="{ exact: true }"
-        class="navLink"
-        role="menuitem"        
-      >
-        {{ mi.label }}
-      </div>
+      @for (mi of menuItems | async; track mi) {
+        <div
+          routerLink="{{ '/' + mi.url }}"
+          routerLinkActive="navLinkActive"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="navLink"
+          role="menuitem"
+          >
+          {{ mi.label }}
+        </div>
+      }
     </div>
     <div row class="login">
       <app-current-user></app-current-user>

@@ -8,11 +8,13 @@
       placeholder="Please pass a name"
       [formControl]="fcName"
       required
-    />
-    <mat-error *ngIf="fcName.invalid">{{ getErrorMessage() }}</mat-error>
-  </mat-form-field>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-raised-button color="primary">Cancle</button>
-  <button mat-raised-button [mat-dialog-close]="data.name" color="primary">Save & Close</button>
-</mat-dialog-actions>
+      />
+      @if (fcName.invalid) {
+        <mat-error>{{ getErrorMessage() }}</mat-error>
+      }
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button color="primary">Cancle</button>
+    <button mat-raised-button [mat-dialog-close]="data.name" color="primary">Save & Close</button>
+  </mat-dialog-actions>

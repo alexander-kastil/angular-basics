@@ -4,7 +4,7 @@
 @include mat.core();
 
 // Available color palettes: https://material.io/design/color/
-$app-primary: mat.define-palette(mat.$blue-palette, 700);
+$app-primary: mat.define-palette(mat.$blue-palette, 400);
 $app-accent: mat.define-palette(mat.$blue-grey-palette, 100);
 $app-warn: mat.define-palette(mat.$red-palette);
 $app-theme: mat.define-light-theme((
@@ -18,7 +18,7 @@ $app-theme: mat.define-light-theme((
 
 //Export global vars from design system for easy use
 :root {
-  --color-primary: #1E88E5;
+  --color-primary:#42A5F5;
   --color-accent: #B0BEC5;
   --color-warn: red;
   --color-font: white;
@@ -42,10 +42,3 @@ $app-theme: mat.define-light-theme((
 @import "tables.scss";
 @import "forms.scss";
 @import "markdown.scss";
-
-
-.divclass {
-  padding: 1rem;
-  margin: 1rem;
-  border: 2px solid red;
-}

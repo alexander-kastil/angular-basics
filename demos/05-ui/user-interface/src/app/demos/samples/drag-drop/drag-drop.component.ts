@@ -1,7 +1,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList, CdkDrag } from "@angular/cdk/drag-drop";
 import { Component } from "@angular/core";
 import { Todo } from "./todo";
-import { NgFor, TitleCasePipe, DatePipe } from "@angular/common";
+import { TitleCasePipe, DatePipe } from "@angular/common";
 import { MatCardModule } from "@angular/material/card";
 
 @Component({
@@ -9,7 +9,7 @@ import { MatCardModule } from "@angular/material/card";
     templateUrl: "./drag-drop.component.html",
     styleUrls: ["./drag-drop.component.scss"],
     standalone: true,
-    imports: [MatCardModule, CdkDropList, NgFor, CdkDrag, TitleCasePipe, DatePipe]
+    imports: [MatCardModule, CdkDropList, CdkDrag, TitleCasePipe, DatePipe]
 })
 export class DragDropComponent {
   public todo: Todo[] = [

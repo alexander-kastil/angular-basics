@@ -1,21 +1,24 @@
-- Notice `.divclass` in `styles.scss`
-- Notice the components in style-inheritance and their nesting. app-first-child again has a nested component
+- Examine style-inheritance.component.html and its use of `.divclass` defined in `styles.scss`
 
-```html
-<div class="divclass">
-    <app-first-child></app-first-child>
-    <app-second-child></app-second-child>
-</div>
-```
+- Notice the components and their nesting and how they override `divclass`
+
+- `app-first-child` again has a nested component
+
+  ```html
+  <div class="divclass">
+      <app-first-child></app-first-child>
+      <app-second-child></app-second-child>
+  </div>
+  ```
 - Use this structure and `ViewEncapsulation.None` to explain style inheritance 
 
-```typescript
-@Component({
-  selector: 'app-first-child',
-  template: `
-    ...
-  `,
-  styles: [...],
-  encapsulation: ViewEncapsulation.None
-})
-```
+  ```typescript
+  @Component({
+    selector: 'app-first-child',
+    template: `
+      ...
+    `,
+    styles: [...],
+    encapsulation: ViewEncapsulation.None
+  })
+  ```

@@ -1,8 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
 import { NgModule } from '@angular/core';
+import { AdminComponent } from '../admin/admin.component';
+import { adminGuard } from '../shared/auth/adminGuard';
 
-const MAIN_ROUTES: Routes = [
+export const MAIN_ROUTES: Routes = [
     {
         path: '',
         component: MainComponent,
@@ -10,13 +12,20 @@ const MAIN_ROUTES: Routes = [
             {
                 path: 'demos',
                 loadChildren: () =>
-                    import('../demos/demos.module').then((m) => m.DemosModule),
+                    import('../demos/demo.routes').then((m) => m.DEMO_ROUTES),
             },
             {
-                path: 'skills',
+                path: 'statistics',
                 loadChildren: () =>
-                    import('../skills/skills.module').then((m) => m.SkillsModule),
-            }
+                    import('../statistics/statistics.module').then(
+                        (m) => m.StatisticsModule
+                    ),
+            },
+            {
+                path: 'admin',
+                component: AdminComponent,
+                canActivate: [adminGuard],
+            },
         ]
     }
 ];
