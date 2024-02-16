@@ -4,27 +4,25 @@ import { Movie } from './movie.model';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { FormattingModule } from 'src/app/shared/formatting/formatting.module';
 
 @Component({
-    selector: 'app-flexbox',
-    templateUrl: './flexbox.component.html',
-    styleUrls: ['./flexbox.component.scss'],
-    standalone: true,
-    imports: [
+  selector: 'app-flexbox',
+  templateUrl: './flexbox.component.html',
+  styleUrls: ['./flexbox.component.scss'],
+  standalone: true,
+  imports: [
     MarkdownRendererComponent,
     MatCardModule,
-    MatButtonModule
-],
+    MatButtonModule,
+    FormattingModule,
+  ],
 })
-export class FlexboxComponent implements OnInit {
-  movies: Movie[] = [];
+export class FlexboxComponent {
   currentClass = 'flex-container-col';
+  movies = this.generateMovies();
 
-  ngOnInit() {
-    this.movies = this.getMovies();
-  }
-
-  getMovies(itemCount: number = 8): Movie[] {
+  generateMovies(itemCount: number = 8): Movie[] {
     this.movies = [];
     for (let i = 0; i < itemCount; i++) {
       this.movies.push({ title: `Movie ${i}` } as Movie);

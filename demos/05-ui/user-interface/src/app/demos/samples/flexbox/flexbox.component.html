@@ -8,11 +8,9 @@
 
 <div [class]="currentClass">
   @for (m of movies; track m) {
-    <mat-card appearance="outlined" class="flex-item" >
-      <mat-card-title>{{ m.title }}</mat-card-title>
-      <mat-card-content>
-        Lorem ipsum dolor sit amet consectetur.
-      </mat-card-content>
-    </mat-card>
+    <div class="flex-item" >
+      <div class="title">{{ m.title }}</div>
+      <div> Lorem ipsum dolor sit amet consectetur.</div>
+    </div>
   }
 </div>

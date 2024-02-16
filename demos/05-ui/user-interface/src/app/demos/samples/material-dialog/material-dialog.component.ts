@@ -6,19 +6,21 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-material-dialog',
-    templateUrl: './material-dialog.component.html',
-    styleUrls: ['./material-dialog.component.scss'],
-    standalone: true,
-    imports: [
-        MatCardModule,
-        MatFormFieldModule,
-        FormsModule,
-        MatInputModule,
-        MatButtonModule,
-    ],
+  selector: 'app-material-dialog',
+  templateUrl: './material-dialog.component.html',
+  styleUrls: ['./material-dialog.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MarkdownRendererComponent
+  ],
 })
 export class MaterialDialogComponent {
   dialog = inject(MatDialog);

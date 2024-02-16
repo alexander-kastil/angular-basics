@@ -16,11 +16,11 @@
 
 .flex-item {
   flex-grow: 1;
-  min-width: 200px;
+  min-width: 40vw;
   height: 100px;
   margin: var(--gap-medium);
-  background: var(--color-primary);
-  color: white;
+  background: var(--color-accent);
+  color: black;
   font-weight: bold;
   font-size:1rem;
   text-align: center;
@@ -32,4 +32,8 @@
 
 button{
   width: 100%;
+}
+
+.title{
+  margin: 1rem 0;
 }
