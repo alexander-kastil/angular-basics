@@ -38,7 +38,7 @@
 - Services & Data Request
 - Expressions, Templates & Directives
 - String Interpolation, Attribute- & Event-Binding, Two-Way Binding
-- Control Flow Syntax
+- Built-in Control Flow & Deferrable Views
 - Data binding Observables & Signals
 - Custom Pipes & Directives
 
@@ -53,11 +53,11 @@
 ### Routing & Dependency Injection
 
 - Register Providers & Dependency Injection
-- Routing Basics
-- Modules & Module Types (Root, Feature, Shared, ...)
-- Lazy Loading of Components and Modules
+- Routing & Navigation Basics
 - Working with Parameterized Routes
 - Component Input Bindings
+- Modules & Module Types (Root, Feature, Shared, ...)
+- Lazy Loading of Components and Modules
 - Route Guards & Data Preloading
 
 ### Designing a responsive User Interface
