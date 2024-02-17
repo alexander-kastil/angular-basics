@@ -1,0 +1,19 @@
+mat-form-field {
+  width: 100%;
+}
+
+.mat-mdc-row:hover {
+  background-color: var(--color-fg);
+  cursor: pointer;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
+mat-card{
+  background-color: var(--color-primary);  
+}
+
+.mat-mdc-card-content{
+  color: var(--color-fg);
+}

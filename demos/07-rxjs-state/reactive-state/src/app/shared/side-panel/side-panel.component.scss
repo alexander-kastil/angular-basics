@@ -1,0 +1,11 @@
+mat-toolbar{
+  height: 100%;
+  padding-top: var(--gap-big) !important;
+  border-left: 1px solid var(--color-accent);
+}
+
+mat-toolbar-row{
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-big);
+}

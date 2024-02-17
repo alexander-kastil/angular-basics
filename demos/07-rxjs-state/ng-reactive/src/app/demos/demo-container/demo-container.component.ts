@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor, NgIf, NgStyle } from '@angular/common';
+import { AsyncPipe, NgStyle } from '@angular/common';
 import { Component, DestroyRef, effect, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,17 +25,15 @@ import { DemoService } from '../demo-base/demo.service';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    NgFor,
     RouterLink,
     NgStyle,
-    NgIf,
     LoadingComponent,
     RouterOutlet,
     MarkdownEditorComponent,
     SidePanelComponent,
     AsyncPipe,
     MatIconModule
-  ],
+],
 })
 export class DemoContainerComponent {
   destroy = inject(DestroyRef)

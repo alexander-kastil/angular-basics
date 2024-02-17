@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, Input, TemplateRef, ViewChild, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -17,11 +17,10 @@ import { RegisterComponent } from 'src/app/firebase-auth/components/register/reg
     MatCardModule,
     MatButtonModule,
     RouterLink,
-    NgIf,
     AsyncPipe,
     RegisterComponent,
     LoginComponent
-  ],
+],
 })
 export class IntroComponent {
   @ViewChild('register') registerTemplate!: TemplateRef<any>;

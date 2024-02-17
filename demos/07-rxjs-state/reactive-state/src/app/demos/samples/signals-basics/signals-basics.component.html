@@ -1,0 +1,25 @@
+<app-markdown-renderer [md]="'signals-basics'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Signals Basics </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content
+    fxLayout="row wrap"
+    fxLayoutAlign="center start"
+    class="cmdItems"
+  >
+    <button mat-raised-button color="primary" (click)="signalBasics()">
+      Signals Basics
+    </button>
+    <button mat-raised-button color="primary" (click)="signalTyped()">
+      Signals Typed
+    </button>
+  </mat-card-content>
+</mat-card>
+
+<div border>
+  <div>Total Amount {{ totalAmount()}} </div>
+  <div>Running Amount {{ runningAmount()}} </div>
+</div>

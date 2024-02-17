@@ -1,0 +1,25 @@
+<app-markdown-renderer [md]="'subjects'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      Subject
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button (click)="runSubjectInit()" color="primary">Emit next(5), Subscribe A, B & Emit next(10)</button>
+    <button mat-raised-button (click)="emitNext()" color="primary">Subscribe Late & Emit next(20)</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      Behaviour Subject
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button (click)="runBSubjectInit()" color="primary">Emit next(5), Subscribe BS A, B & Emit next(10)</button>
+    <button mat-raised-button (click)="emitNextBS()" color="primary">Subscribe BS Late & Emit next(20)</button>
+  </mat-card-content>
+</mat-card>
