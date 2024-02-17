@@ -56,8 +56,8 @@
 - Routing & Navigation Basics
 - Working with Parameterized Routes
 - Component Input Bindings
-- Modules & Module Types (Root, Feature, Shared, ...)
-- Lazy Loading of Components and Modules
+- Modules vs Standalone Components
+- Modules Use Cases & Lazy Loading
 - Route Guards & Data Preloading
 
 ### Designing a responsive User Interface
