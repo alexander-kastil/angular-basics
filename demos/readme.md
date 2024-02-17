@@ -39,11 +39,10 @@
 - Components & Dependency Injection 
 - Services & Data Request
 - Expressions, Templates & Directives
+- String Interpolation, Attribute- & Event-Binding, Two-Way Binding
 - Control Flow Syntax
-- String Interpolation, Property- & Event-Binding, Two-Way Binding
 - Data binding Observables & Signals
 - Custom Pipes & Directives
-- Imperative vs Reactive Programming Styles
 
 ### Nesting Components
 
@@ -67,13 +66,11 @@
 
 - Implementing a CSS Reset
 - Global & Component Styles
-- Using Sass (Synthetically Awesome Stylesheets)
 - Responsive Web Design using Media Queries
 - Layout using Flexbox, CSS Grid and Areas
 - Angular Material Overview
-- Material Theming Colors
 - Using Material Tables, Dialogs & Form Controls
-- Using Angular CDK & 3rd Party Components (Markdown, Virtual Lists, Drag & Drop, ...)
+- Angular CDK & 3rd Party Components (Virtual Lists, Drag & Drop, Markdown, ...)
 
 ### Forms Design & Validation
 
@@ -84,25 +81,24 @@
 - FormControl, FormGroups & FormArrays
 - Form Validation Basics (Synchronous / Asynchronous)
 - Custom- & Code-Based Validators
-- Using Signals in Forms
+- Signals & FormControls
 
 ### Reactive Programming using Signals & RxJS
 
 - What is Reactive Programming / Benefits
-- Observable, Observer & Async pipe
+- Imperative vs Reactive Programming Styles
+- Observable, Observer, Async pipe & Unsubscribing
+- Common RxJS Operators
 - Creating Observables & Casting to Observables
 - Capturing Mouse & DOM Events as Observables
-- Subscribing to Routes & Params as Observables
-- Using Common RxJS Operators
 - Observable & Signal Interoperability
 
 ### Managing State & Sharing Events
 
 - What is State Management
 - State Management Options: Signals vs Observables
-- Stateless & Stateful Services
-- Using Signals for State Management
-- Sharing Data & Events between Components
+- Stateful Services using Signals
+- Sharing Events between Components
 
 ### Testing Angular Applications
 
@@ -121,6 +117,6 @@
 - Token based Auth: Understanding Jwt, OAuth 2.0 & OpenID Connect
 - Observe Response and Setting Custom Http Headers
 - Using Interceptors to Automate Authentication Tokens
-- Securing Angular Routes using Route Guards
-- Hosting Option Overview (Docker, Firebase, Azure Static Web App, …)
+- Angular Routes & functional Route Guards
+- Hosting Options Overview (Docker, Firebase, Azure Static Web App, …)
 - Publishing Angular Apps
