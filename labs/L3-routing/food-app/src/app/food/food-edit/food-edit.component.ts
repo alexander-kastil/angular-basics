@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './food-edit.component.scss'
 })
 export class FoodEditComponent {
-  @Input() food: FoodItem = new FoodItem();
+  @Input({ required: true }) food: FoodItem = new FoodItem();
   @Output() onFoodSave: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
   ngOnChanges(changes: SimpleChanges): void {

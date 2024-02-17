@@ -2,65 +2,80 @@
   "demos": [
     {
       "url": "standalone-comp",
-      "title": "Standalone Components"
+      "title": "Standalone Components",
+      "id": "fd7c"
     },
     {
       "url": "dependency-injection",
-      "title": "Dependency Injection"
+      "title": "Dependency Injection",
+      "id": "0a0a"
     },
     {
       "url": "providers",
-      "title": "Providers"
+      "title": "Providers",
+      "id": "e164"
     },
     {
       "url": "modules",
-      "title": "Angular Modules"
+      "title": "Angular Modules",
+      "id": "d175"
     },
     {
       "url": "lazy-loading",
-      "title": "Lazy Loading"
+      "title": "Lazy Loading",
+      "id": "6f8d"
     },
     {
       "url": "routing-config",
-      "title": "Routing Configuration"
+      "title": "Routing Configuration",
+      "id": "25df"
     },
     {
       "url": "routing-basics",
-      "title": "Routing Basics"
+      "title": "Routing Basics",
+      "id": "b674"
     },
     {
       "url": "param-map",
-      "title": "paramMap"
+      "title": "paramMap",
+      "id": "b414"
     },
     {
       "url": "router-binding",
-      "title": "Router Binding"
+      "title": "Router Binding",
+      "id": "6836"
     },
     {
       "url": "route-guards",
-      "title": "Route Guards"
+      "title": "Route Guards",
+      "id": "24e7"
     },
     {
       "url": "preload",
-      "title": "Data preloading"
+      "title": "Data preloading",
+      "id": "19c3"
     },
     {
       "url": "component-less",
-      "title": "Component less routing"
+      "title": "Component less routing",
+      "id": "3146"
     }
   ],
   "top-links": [
     {
       "label": "Home",
-      "url": ""
+      "url": "",
+      "id": "7965"
     },
     {
       "label": "Demos",
-      "url": "main/demos"
+      "url": "main/demos",
+      "id": "2aae"
     },
     {
       "label": "Skills",
-      "url": "main/skills"
+      "url": "main/skills",
+      "id": "f38f"
     }
   ],
   "vouchers": [
@@ -91,7 +106,8 @@
           "Amount": 20,
           "Comment": null
         }
-      ]
+      ],
+      "id": "792d"
     },
     {
       "ID": 3,
@@ -129,7 +145,8 @@
           "Amount": 45,
           "Comment": null
         }
-      ]
+      ],
+      "id": "c432"
     },
     {
       "ID": 5,
@@ -139,7 +156,8 @@
       "Paid": false,
       "Expense": false,
       "Remark": false,
-      "Details": []
+      "Details": [],
+      "id": "af18"
     },
     {
       "ID": 1,
@@ -159,7 +177,8 @@
           "Amount": 800,
           "Comment": null
         }
-      ]
+      ],
+      "id": "32da"
     },
     {
       "ID": 4,
@@ -179,28 +198,22 @@
           "Amount": 100,
           "Comment": null
         }
-      ]
+      ],
+      "id": "deeb"
     }
   ],
   "skills": [
     {
-      "id": 1,
-      "name": "Custom Angular Theme",
+      "id": "1",
+      "name": "Cooking Germknödel",
       "hours": 4,
       "completed": true
-    },
-    {
-      "id": 2,
-      "name": "Theme Mixins",
-      "hours": 3,
-      "completed": false,
-      "dueDate": "2020-07-06T15:18:22.9848654"
     },
     {
       "name": "Cooking Pad Kra pao",
       "hours": 1,
       "completed": false,
-      "id": 3
+      "id": "3"
     }
   ]
 }

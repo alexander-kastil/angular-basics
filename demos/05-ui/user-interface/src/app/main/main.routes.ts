@@ -15,6 +15,13 @@ export const MAIN_ROUTES: Routes = [
                     import('../demos/demo.routes').then((m) => m.DEMO_ROUTES),
             },
             {
+                path: 'skills',
+                loadChildren: () =>
+                    import('../skills/skills.routes').then(
+                        (m) => m.SKILL_ROUTES
+                    ),
+            },
+            {
                 path: 'statistics',
                 loadChildren: () =>
                     import('../statistics/statistics.module').then(

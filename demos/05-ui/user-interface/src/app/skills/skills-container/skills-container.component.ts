@@ -2,14 +2,15 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { combineLatestWith, map, startWith } from 'rxjs/operators';
 import { SkillRowComponent } from '../skill-row/skill-row.component';
 import { Skill } from '../skill.model';
-import { SkillsEntityService } from '../state/skills-entity.service';
-import { SkillsKpiComponent } from '../skills-kpi/skills-kpi.component';
+import { SkillsService } from '../skills.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-skills-container',
@@ -21,36 +22,41 @@ import { SkillsKpiComponent } from '../skills-kpi/skills-kpi.component';
     MatSlideToggleModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatProgressBarModule,
     RouterLink,
     SkillRowComponent,
-    SkillsKpiComponent,
     AsyncPipe
-],
+  ],
 })
 export class SkillsContainerComponent {
-  service = inject(SkillsEntityService);
+  service = inject(SkillsService);
   fcToggle = new FormControl(true);
+  loading = false;
 
-  skills = this.service.entities$.pipe(
-    combineLatestWith(this.fcToggle.valueChanges.pipe(startWith(true))),
-    map(([skills, showAll]) => {
-      return showAll ? skills : skills.filter((sk: Skill) => sk.completed === showAll);
-    })
-  );
+  skills: Observable<Skill[]> | null = null;
 
-  ngOnInit(): void {
-    this.service.loaded$.subscribe((loaded) => {
-      if (!loaded) {
-        this.service.getAll();
-      }
+  constructor() {
+    this.loadSkills();
+  }
+
+  loadSkills(): void {
+    this.skills = this.service.getSkills().pipe(
+      combineLatestWith(this.fcToggle.valueChanges.pipe(startWith(true))),
+      map(([skills, showAll]) => {
+        return showAll ? skills : skills.filter((sk: Skill) => sk.completed === showAll);
+      })
+    );
+  }
+
+  deleteSkills(skill: Skill): void {
+    this.service.deleteSkill(skill.id).subscribe(() => {
+      this.loadSkills();
     });
   }
 
-  deleteItem(item: Skill): void {
-    this.service.delete(item);
-  }
-
-  toggleItemComplete(item: Skill): void {
-    this.service.update({ ...item, completed: !item.completed });
+  toggleSkillComplete(item: Skill): void {
+    this.service.updateSkill({ ...item, completed: !item.completed }).subscribe(() => {
+      this.loadSkills();
+    });
   }
 }

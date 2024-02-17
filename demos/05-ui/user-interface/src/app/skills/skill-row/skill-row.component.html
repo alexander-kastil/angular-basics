@@ -1,19 +1,16 @@
 <div class="skillrow">
   <div class="name">{{ skill.name }}</div>
-  <div class="completed"><input type="checkbox" [formControl]="fcCompleted"></div>
+  <div class="completed">
+    <mat-slide-toggle [formControl]="fcCompleted"></mat-slide-toggle>
+  </div>
   <div class="cmd">
-     <button
-      mat-raised-button
-      color="primary"
-     (click)="deleteItem()"
-    >
+    <button mat-raised-button color="primary" (click)="deleteItem()">
       <mat-icon>delete</mat-icon>
     </button>
     <button
       mat-raised-button
       color="primary"
-      [routerLink]="['/skills/edit', skill.id]"
-    >
+      [routerLink]="['/main/skills/edit', skill.id]">
       <mat-icon>edit</mat-icon>
     </button>
   </div>

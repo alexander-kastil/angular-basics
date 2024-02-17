@@ -167,7 +167,7 @@
     styleUrl: './food-list.component.scss'
   })
   export class FoodListComponent {
-    @Input() food: FoodItem[] = [];
+    @Input({ required: true }) food: FoodItem[] = [];
     @Output() foodSelected = new EventEmitter<FoodItem>();
     @Output() foodDeleted = new EventEmitter<FoodItem>();
 
@@ -212,7 +212,8 @@
 - Add an `@Input` to receive the selected item and an `@Output` to emit the save event in `food-edit.component.ts`. The `ngOnChanges` method is used to access the item when a new value is passed to the input.
 
   ```typescript
-  @Input() food: FoodItem = new FoodItem();
+  {
+    @Input({ required: true }) food: FoodItem = new FoodItem();
     @Output() onFoodSave: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -277,6 +278,14 @@
   }
   ```
 
+- Add the following to `food-container.component.html` to pass the selected item to the edit component and listen to the `onFoodSave` event. 
+
+  ```html
+  @if(selected){
+    <app-food-edit [food]="selected"></app-food-edit>
+  }
+  ```
+
 - Use the following code to implement `foodSaved()` in the container and hide the edit form after an item has been saved.
 
   ```typescript
@@ -291,4 +300,10 @@
     this.food = clone;
     this.selected = null;
   }
+  ```
+
+- Handle the `onFoodSave` event in `food-container.component.html` and pass the selected item to the `foodSaved` method. Note the `$event` allows you to access the emitted value.
+
+  ```html
+  <app-food-edit [food]="selected" (onFoodSave)="foodSaved($event)"></app-food-edit>
   ```

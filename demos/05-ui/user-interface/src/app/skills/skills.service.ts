@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { delay, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Skill } from './skill.model';
-import { delay, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,8 @@ export class SkillsService {
     return this.http.get<Skill[]>(`${environment.api}skills`)
       .pipe(
         tap((data) => console.log("console.log from tap:", data)),
-        delay(2000)
+        //mock delay in order to see the the progress bar
+        delay(1000)
       );
   }
 

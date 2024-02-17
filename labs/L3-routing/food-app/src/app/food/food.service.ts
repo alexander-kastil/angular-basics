@@ -12,4 +12,5 @@ export class FoodService {
   getFood(): Observable<FoodItem[]> {
     return this.http.get<FoodItem[]>("/assets/food.json");
   }
+
 }

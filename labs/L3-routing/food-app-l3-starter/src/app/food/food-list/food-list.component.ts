@@ -9,7 +9,7 @@ import { FoodItem } from '../food.model';
   styleUrl: './food-list.component.scss'
 })
 export class FoodListComponent {
-  @Input() food: FoodItem[] = [];
+  @Input({ required: true }) food: FoodItem[] = [];
   @Output()
   foodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
   @Output()

@@ -2,86 +2,115 @@
   "demos": [
     {
       "url": "style-inheritance",
-      "title": "Styles in Angular"
+      "title": "Styles in Angular",
+      "id": "5eee"
     },
     {
       "url": "css-binding",
-      "title": "CSS Binding"
+      "title": "CSS Binding",
+      "id": "578b"
     },
     {
       "url": "inline-css",
-      "title": "Inline CSS"
+      "title": "Inline CSS",
+      "id": "65ab"
     },
-    { "url": "flexbox", "title": "Flexbox" },
+    {
+      "url": "flexbox",
+      "title": "Flexbox",
+      "id": "893c"
+    },
     {
       "url": "flexbox-media-query",
-      "title": "Flexbox Media Queries"
+      "title": "Flexbox Media Queries",
+      "id": "0333"
     },
     {
       "url": "css-grid",
-      "title": "CSS Grid"
+      "title": "CSS Grid",
+      "id": "3f8a"
     },
     {
       "url": "material",
-      "title": "Angular Material"
+      "title": "Angular Material",
+      "id": "d714"
     },
     {
       "url": "mat-form-field",
-      "title": "MatFormFields"
+      "title": "MatFormFields",
+      "id": "1504"
     },
     {
       "url": "material-table",
-      "title": "Material Table"
+      "title": "Material Table",
+      "id": "809e"
     },
     {
       "url": "classic-dialog",
-      "title": "Material Dialog Classic"
+      "title": "Material Dialog Classic",
+      "id": "8568"
     },
     {
       "url": "material-dialog",
-      "title": "Dialog with @Input()"
+      "title": "Dialog with @Input()",
+      "id": "bfbd"
     },
     {
       "url": "stepper",
-      "title": "Material Stepper"
+      "title": "Material Stepper",
+      "id": "34aa"
     },
     {
       "url": "material-theme",
-      "title": "Material Theme"
+      "title": "Material Theme",
+      "id": "91fe"
     },
     {
       "url": "fonts",
-      "title": "Using Webfonts"
+      "title": "Using Webfonts",
+      "id": "0cef"
     },
     {
       "url": "drag-drop",
-      "title": "Drag & Drop"
+      "title": "Drag & Drop",
+      "id": "6c58"
     },
     {
       "url": "virtual-scroll",
-      "title": "VirtualScroll"
+      "title": "VirtualScroll",
+      "id": "ebaf"
     },
     {
       "url": "chart",
-      "title": "Chart"
+      "title": "Chart",
+      "id": "6e5d"
     },
     {
       "url": "markdown",
-      "title": "Markdown Renderer"
+      "title": "Markdown Renderer",
+      "id": "361e"
     },
     {
       "url": "bootstrap",
-      "title": "Bootstrap"
+      "title": "Bootstrap",
+      "id": "fa73"
     }
   ],
   "top-links": [
     {
       "label": "Home",
-      "url": ""
+      "url": "",
+      "id": "6f68"
     },
     {
       "label": "Demos",
-      "url": "main/demos"
+      "url": "main/demos",
+      "id": "fe81"
+    },
+    {
+      "label": "Skills",
+      "url": "main/skills",
+      "id": "d479"
     }
   ],
   "vouchers": [
@@ -112,7 +141,8 @@
           "Amount": 20,
           "Comment": null
         }
-      ]
+      ],
+      "id": "5364"
     },
     {
       "ID": 3,
@@ -150,7 +180,8 @@
           "Amount": 45,
           "Comment": null
         }
-      ]
+      ],
+      "id": "e9f7"
     },
     {
       "ID": 5,
@@ -160,7 +191,8 @@
       "Paid": false,
       "Expense": false,
       "Remark": false,
-      "Details": []
+      "Details": [],
+      "id": "4dbc"
     },
     {
       "ID": 1,
@@ -180,7 +212,8 @@
           "Amount": 800,
           "Comment": null
         }
-      ]
+      ],
+      "id": "e98a"
     },
     {
       "ID": 4,
@@ -200,18 +233,19 @@
           "Amount": 100,
           "Comment": null
         }
-      ]
+      ],
+      "id": "d069"
     }
   ],
   "skills": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Custom Angular Theme",
       "hours": 4,
       "completed": true
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Theme Mixins",
       "hours": 3,
       "completed": false,
@@ -221,7 +255,7 @@
       "name": "Cooking Pad Krapao",
       "hours": 1,
       "completed": false,
-      "id": 3
+      "id": "3"
     }
   ]
 }
