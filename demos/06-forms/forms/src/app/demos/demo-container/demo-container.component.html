@@ -1,0 +1,34 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [opened]="navVisible()" [mode]="navPosition()">
+    <mat-toolbar color="accent">
+      {{ title }}
+    </mat-toolbar>
+    <mat-nav-list>
+      @for (item of demos | async; track item) {
+      <mat-list-item role="listitem" [routerLink]="['./' + item.url]">{{
+        item.title
+      }}</mat-list-item>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="gdSidenavContent" [ngStyle]="workbenchMargin">
+      <div class="gdToolbar">
+        <mat-toolbar color="accent">
+          <h4>{{ header | async }}</h4>
+        </mat-toolbar>
+      </div>
+      <div class="gdWorkbench">
+        <router-outlet></router-outlet>
+      </div>
+      @if (showMdEditor) {
+      <div class="gdEditor">
+        <app-markdown-editor></app-markdown-editor>
+      </div>
+      }
+      <div class="gdSidebar">
+        <app-side-panel></app-side-panel>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
