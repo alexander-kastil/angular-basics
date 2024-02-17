@@ -3,6 +3,7 @@ import { SidePanelActions } from './side-panel.actions';
 
 @Injectable({ providedIn: 'root' })
 export class SidePanelService {
+
   private commands = signal<SidePanelActions>(SidePanelActions.HIDE_MARKDOWN);
 
   getCommands() {

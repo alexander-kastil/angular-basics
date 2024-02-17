@@ -1,3 +1,5 @@
+<app-markdown-renderer [md]="'web-fonts'"></app-markdown-renderer>
+
 <mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title>{{ title }}</mat-card-title>
@@ -6,17 +8,17 @@
     <mat-card-content centered>
       <img
       mat-card-image
-      src="../../assets/images/title-pic.png"
-      alt="Wartungs Planer"
+      src="../../assets/images/burger.png"
+      alt="Food App"
     />
-      <div class="showText">
+      <div class="showText" boxed>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
         odio perspiciatis corporis non numquam ullam, eveniet pariatur dolorem,
         commodi nemo sapiente id adipisci quaerat animi, molestias amet mollitia
         vitae. Dolore.
       </div>
     </mat-card-content>
-  <mat-card-actions align="end">
+  <mat-card-actions class="cmdItems">
     <button mat-raised-button color="primary">Register</button>
     <button mat-raised-button color="primary">Login</button>
   </mat-card-actions>

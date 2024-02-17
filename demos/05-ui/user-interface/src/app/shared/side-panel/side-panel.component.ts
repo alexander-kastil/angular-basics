@@ -37,4 +37,8 @@ export class SidePanelComponent {
   toogleSideNav() {
     this.nav.toggleMenuVisibility();
   }
+
+  toogleHelp() {
+
+  }
 }

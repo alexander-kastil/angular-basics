@@ -19,6 +19,9 @@ cdk-virtual-scroll-viewport {
   }
 
   div.row {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
     margin: 0.5rem;
     padding: 1rem;
     background-color: gray;

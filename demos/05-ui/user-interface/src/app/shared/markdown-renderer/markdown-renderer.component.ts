@@ -13,10 +13,9 @@ import { RendererStateService } from './renderer-state.service';
   standalone: true,
 
   imports: [
-    HttpClientModule,
     MarkdownModule,
     MatExpansionModule
-],
+  ],
 })
 export class MarkdownRendererComponent {
   @Input({ required: true }) md = '';

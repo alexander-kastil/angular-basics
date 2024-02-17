@@ -2,10 +2,6 @@
   padding: 0 1.5em 1.5em 1.5em;
 }
 
-.btnLbls {
-  margin-right: 1.5rem;
-}
-
 .mat-mdc-card img {
   max-height: 450px;
 }
@@ -17,4 +13,13 @@
 
 button{
   margin-right: var(--gap-medium);
+}
+
+span{
+ color: var(--color-font);
+ font-weight: bold;
+}
+
+.mat-mdc-card-content{
+  line-height: 1.8rem;
 }

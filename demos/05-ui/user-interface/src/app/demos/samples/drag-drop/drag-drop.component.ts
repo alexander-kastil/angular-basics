@@ -3,13 +3,14 @@ import { Component } from "@angular/core";
 import { Todo } from "./todo";
 import { TitleCasePipe, DatePipe } from "@angular/common";
 import { MatCardModule } from "@angular/material/card";
+import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: "app-drag-drop",
-    templateUrl: "./drag-drop.component.html",
-    styleUrls: ["./drag-drop.component.scss"],
-    standalone: true,
-    imports: [MatCardModule, CdkDropList, CdkDrag, TitleCasePipe, DatePipe]
+  selector: "app-drag-drop",
+  templateUrl: "./drag-drop.component.html",
+  styleUrls: ["./drag-drop.component.scss"],
+  standalone: true,
+  imports: [MatCardModule, CdkDropList, CdkDrag, TitleCasePipe, DatePipe, MarkdownRendererComponent]
 })
 export class DragDropComponent {
   public todo: Todo[] = [
