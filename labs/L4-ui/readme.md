@@ -1,10 +1,8 @@
-# Food App User Interface
+# Implement a responsive User Interface using Angular Material and CSS Grid
 
 In this lab we will use Angular Material to implement a user interface for the Food App. We will use the [Material Getting Started](https://material.angular.io/guide/getting-started) to install Angular Material and use the [Material Components](https://material.angular.io/components/categories) to implement the user interface. We will use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) to implement the base layout of the app.
 
 We will also complete the implementation of the Food App by adding data access to the app.
-
-![material](_images/material.jpg)
 
 ## Steps Outlined
 
@@ -14,19 +12,19 @@ We will also complete the implementation of the Food App by adding data access t
 
 ### Install Angular Material and create a base responsive layout
 
-Add Angular Material to your project:
-
-- Install Angular Material using the [Material Getting Started](https://material.angular.io/guide/getting-started) and choose a theme of your choice.
+- Add Angular Material to your project by using [Material Getting Started](https://material.angular.io/guide/getting-started) and choose a theme of your choice.
 
 - Test the installation of Angular Material by replacing the `div` in the `navbar.component.html` with a [Material Toolbar](https://material.angular.io/components/toolbar/overview). In order to get this working you will need to import the `MatToolbarModule` from `@angular/material/toolbar` in the `navbar.component.ts`.
 
-Implement the Base Layout using CSS Grid:
-
-- Change to base layout in app.component to use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/). Use the [main.component.html](/demos/05-ui/user-interface/src/app/main/main.component.html) layout and [main.component.scss](/demos/05-ui/user-interface/src/app/main/main.component.scss ) as a reference. You could also use an online tool like [CSS Grid Generator](https://grid.layoutit.com/) to generate the grid layout.
+- Implement the Base Layout using CSS Grid. Change to base layout in app.component to use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/). Use the [main.component.html](/demos/05-ui/user-interface/src/app/main/main.component.html) layout and [main.component.scss](/demos/05-ui/user-interface/src/app/main/main.component.scss ) as a reference. You could also use an online tool like [CSS Grid Generator](https://grid.layoutit.com/) to generate the grid layout.
     
 - Hide the sidebar on devices with a horizontal width less than `960px`. We will add a toggle button in another lab. You could use [demo-container.component.scss](/demos/05-ui/user-interface/src/app/demos/demo-container/demo-container.component.scss) as a reference as it contains a media query.
 
 ### Implement a Material Design for Food App
+
+- A possible design for the Food App is shown below. You can use this as a reference when implementing the user interface.
+   
+    ![material](_images/material.jpg)
 
 - Use [mat-card](https://material.angular.io/components/card/overview) elements in `food-list.component.html` and `food-edit.component.html` to surround the content. You will have to import the following modules in the respective components:    
     - MatToolbarModule
