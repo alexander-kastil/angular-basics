@@ -35,7 +35,6 @@ export class SkillRowComponent {
 
   ngOnInit(): void {
     this.fcCompleted.valueChanges.subscribe(() => {
-      this.skill.completed = !this.skill.completed;
       this.itemCompleted.emit(this.skill);
     });
   }

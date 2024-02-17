@@ -254,7 +254,7 @@
     {
       "name": "Cooking Pad Krapao",
       "hours": 1,
-      "completed": false,
+      "completed": true,
       "id": "3"
     }
   ]

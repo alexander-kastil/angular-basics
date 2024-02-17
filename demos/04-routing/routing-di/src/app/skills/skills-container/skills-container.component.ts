@@ -10,6 +10,7 @@ import { combineLatestWith, map, startWith } from 'rxjs/operators';
 import { SkillRowComponent } from '../skill-row/skill-row.component';
 import { Skill } from '../skill.model';
 import { SkillsService } from '../skills.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-skills-container',
@@ -32,28 +33,30 @@ export class SkillsContainerComponent {
   fcToggle = new FormControl(true);
   loading = false;
 
-  skills = this.service.getSkills().pipe(
-    combineLatestWith(this.fcToggle.valueChanges.pipe(startWith(true))),
-    map(([skills, showAll]) => {
-      return showAll ? skills : skills.filter((sk: Skill) => sk.completed === showAll);
-    })
-  );
+  skills: Observable<Skill[]> | null = null;
 
-  deleteItem(skill: Skill): void {
+  constructor() {
+    this.loadSkills();
+  }
+
+  loadSkills(): void {
+    this.skills = this.service.getSkills().pipe(
+      combineLatestWith(this.fcToggle.valueChanges.pipe(startWith(true))),
+      map(([skills, showAll]) => {
+        return showAll ? skills : skills.filter((sk: Skill) => sk.completed === showAll);
+      })
+    );
+  }
+
+  deleteSkills(skill: Skill): void {
     this.service.deleteSkill(skill.id).subscribe(() => {
-      // this is a workaround just to get the delete working
-      // because of the declarative nature of the template
-      // when using a stateful service implementation this issue will be resolved
-      this.skills = this.service.getSkills().pipe(
-        combineLatestWith(this.fcToggle.valueChanges.pipe(startWith(true))),
-        map(([skills, showAll]) => {
-          return showAll ? skills : skills.filter((sk: Skill) => sk.completed === showAll);
-        })
-      );
+      this.loadSkills();
     });
   }
 
-  toggleItemComplete(item: Skill): void {
-    this.service.updateSkill({ ...item, completed: !item.completed });
+  toggleSkillComplete(item: Skill): void {
+    this.service.updateSkill({ ...item, completed: !item.completed }).subscribe(() => {
+      this.loadSkills();
+    });
   }
 }
