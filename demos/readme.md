@@ -3,7 +3,7 @@
 - Angular Introduction & Setup
 - Mastering TypeScript in the Angular Eco-System
 - Databinding & Completing Basic Tasks
-- Nesting Components
+- Implementing Nested Components
 - Routing & Dependency Injection
 - Designing a responsive User Interface
 - Forms Design & Validation
@@ -42,12 +42,12 @@
 - Data binding Observables & Signals
 - Custom Pipes & Directives
 
-### Nesting Components
+### Implementing Nested Components
 
-- Splitting the UI to Nested Components
+- Benefits of Nested Components
 - Container vs Presentational Components
-- Data binding & Events with Nested Components using @Input & @Output
-- Nested Components using Signal inputs
+- Data binding & Events using @Input & @Output
+- Nesting using Signal inputs & model outputs
 - View Child, View Children & Signal Queries
 
 ### Routing & Dependency Injection
