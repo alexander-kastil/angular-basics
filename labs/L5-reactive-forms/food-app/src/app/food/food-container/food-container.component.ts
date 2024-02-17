@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FoodListComponent } from '../food-list/food-list.component';
 import { FoodItem } from '../food.model';
 import { FoodService } from '../food.service';
@@ -13,11 +13,13 @@ import { FoodEditComponent } from '../food-edit/food-edit.component';
 })
 export class FoodContainerComponent {
   fs = inject(FoodService);
-  food: FoodItem[] = [];
+  food = signal<FoodItem[]>([]);
   selected: FoodItem | null = null;
 
   ngOnInit() {
-    this.fs.getFood().subscribe((data) => (this.food = data));
+    this.fs.getFood().subscribe((data) => {
+      this.food.set(data);
+    });
   }
 
   selectFood(food: FoodItem) {
@@ -30,14 +32,14 @@ export class FoodContainerComponent {
   }
 
   foodSaved(item: FoodItem) {
-    const clone = Object.assign([], this.food) as Array<FoodItem>;
-    let idx = clone.findIndex((c) => c.id == item.id);
+    const clone = [...this.food()];
+    const idx = clone.findIndex((f) => f.id == item.id);
     if (idx > -1) {
       clone[idx] = item;
     } else {
       clone.push(item);
     }
-    this.food = clone;
+    this.food.set(clone);
     this.selected = null;
   }
 

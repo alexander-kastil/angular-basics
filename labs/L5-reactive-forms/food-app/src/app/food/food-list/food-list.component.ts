@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges, input } from '@angular/core';
 import { FoodItem } from '../food.model';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './food-list.component.scss'
 })
 export class FoodListComponent {
-  @Input() food: FoodItem[] = [];
+  food = input<FoodItem[]>([]);
   @Output() foodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
   @Output()
   foodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();

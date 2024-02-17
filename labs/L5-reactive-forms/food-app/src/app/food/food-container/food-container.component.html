@@ -1,5 +1,5 @@
 <app-food-list
-  [food]="food"
+  [food]="food()"
   (foodSelected)="selectFood($event)"
   (foodDeleted)="deleteFood($event)"
   (foodAdding)="addFood()"

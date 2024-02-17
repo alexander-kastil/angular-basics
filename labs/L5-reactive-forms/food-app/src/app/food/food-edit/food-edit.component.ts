@@ -1,11 +1,10 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { FoodItem } from '../food.model';
+import { Component, EventEmitter, Output, effect, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormField } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-
+import { FoodItem } from '../food.model';
 
 @Component({
   selector: 'app-food-edit',
@@ -15,14 +14,16 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './food-edit.component.scss'
 })
 export class FoodEditComponent {
-  @Input({ required: true }) food: FoodItem = new FoodItem();
+  food = input.required<FoodItem>();
   @Output() onFoodSave: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("receiving data on input:", changes["food"]);
+  constructor() {
+    effect(() => {
+      console.log('Receiving data on input:', this.food());
+    });
   }
 
   saveFood() {
-    if (this.food) this.onFoodSave.emit(this.food);
+    if (this.food) this.onFoodSave.emit(this.food());
   }
 }
