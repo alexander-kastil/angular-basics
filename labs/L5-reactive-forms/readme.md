@@ -6,14 +6,14 @@ We will also refactor the food-feature to use Signals.
 
 ## Steps Outlined
 
-- Using Signals
+- Using Signals 
 - Implementing Reactive Forms
 
+## Using Signals 
+
+
+
 ## Implementing Reactive Forms
-
-
-
-## Using Signals
 
 - Refactor `food-edit.component` to be implemented as a Reactive Form using FormBuilder. Use the [FormsBuilder Demo](/demos/06-forms/forms-intro/src/app/demos/samples/forms-builder/) as a reference.
 
