@@ -25,11 +25,9 @@
 ### Mastering TypeScript in the Angular Eco-System
 
 - TypeScript Overview, ECMA Script Standards
-- Configuration, Debugging, ES Lint
 - Types, Variables, Literal Types, Functions
 - Objects, Classes, Interfaces
-- ECMA Script 6+ Essentials Util Functions
-- 3rd Party Libraries & Type Definitions
+- Immutability, Cloning & Object Composition
 - Async Operations, Promises 
 - Observables vs Signals
 - Calculated Signals & Effects
@@ -105,8 +103,8 @@
 - Angular Testing Options
 - Test Setup & Mocking Data
 - Testing Classes, Directives and Pipes
-- Using Mocks & Spies
-- Intro to Component DOM Testing: Testbed and Testing Module
+- Injections, Mocks & Spies
+- Intro to Component DOM Testing
 - Testing Component Interaction (Read, Write, Emit, Inputs)
 - Material Testing using Component Harnesses
 - In Short: End to End Testing using Cypress
