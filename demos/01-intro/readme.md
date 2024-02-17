@@ -18,8 +18,6 @@
 
 [Node Version Manager for Windows - nvm](https://github.com/coreybutler/nvm-windows)
 
-[WebPack](https://webpack.js.org/)
-
 ## Using Angular CLI
 
 [Angular CLI Reference](https://angular.io/cli)
@@ -79,3 +77,20 @@ Edit `launch.json` in folder `.vscode` & make sure you execute `ng serve` bevor 
 ```typescript
 ng update @angular/cli [--allow-dirty] [@angular/material ...]
 ```
+
+## Introduction to the Demo App
+
+Two types of Demos available:
+
+- Isolated Demos located in `/app/demos/samples/<DEMOFOLDER>` of the corresponding module
+- Demos build-in to the `demo-app`
+
+The `demo-app` consists of `app.component.html` that defines the base structure and `primary router-outlet`. Subsequent routes are loaded into the outlet.
+
+![app.component](_images/app.component.html.png)
+
+`/app/demos/demo-container/demo-container.html` defines a `left-menu` and a `nested router-outlet` where the individual isolated demos will be displayed.
+
+![demo-container.component](_images/demo-container.png)
+
+> Note: If you find any errors or have any suggestions, please create an issue on this repo

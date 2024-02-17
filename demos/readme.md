@@ -1,22 +1,5 @@
 # Demos
 
-Two types of Demos available:
-
-- Isolated Demos located in `/app/demos/samples/<DEMOFOLDER>` of the corresponding module
-- Demos build-in to the `demo-app`
-
-The `demo-app` consists of `app.component.html` that defines the base structure and `primary router-outlet`. Subsequent routes are loaded into the outlet.
-
-![app.component](_images/app.component.html.png)
-
-`/app/demos/demo-container/demo-container.html` defines a `left-menu` and a `nested router-outlet` where the individual isolated demos will be displayed.
-
-![demo-container.component](_images/demo-container.png)
-
-> Note: If you find any errors or have any suggestions, please create an issue on this repo
-
-## Topics covered in the class
-
 - Angular Introduction & Setup
 - Mastering TypeScript in the Angular Eco-System
 - Databinding & Completing Basic Tasks
@@ -90,7 +73,7 @@ The `demo-app` consists of `app.component.html` that defines the base structure 
 - Angular Material Overview
 - Material Theming Colors
 - Using Material Tables, Dialogs & Form Controls
-- Using Angular CDK & 3rd Party Components (Charting, File Upload, Drag & Drop)
+- Using Angular CDK & 3rd Party Components (Markdown, Virtual Lists, Drag & Drop, ...)
 
 ### Forms Design & Validation
 
