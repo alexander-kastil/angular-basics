@@ -32,7 +32,7 @@
 - 3rd Party Libraries & Type Definitions
 - Async Operations, Promises 
 - Observables vs Signals
-- - Signals, Calculated Signals & Effects
+- Calculated Signals & Effects
 
 ### Databinding & Completing Basic Tasks
 
