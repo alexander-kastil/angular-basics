@@ -17,19 +17,29 @@ The `demo-app` consists of `app.component.html` that defines the base structure 
 
 ## Topics covered in the class
 
+- Angular Introduction & Setup
+- Mastering TypeScript in the Angular Eco-System
+- Databinding & Completing Basic Tasks
+- Nesting Components
+- Routing & Dependency Injection
+- Designing a responsive User Interface
+- Forms Design & Validation
+- Reactive Programming using Signals & RxJS
+- Managing State & Sharing Events
+- Testing Angular Applications
+- Securing & Publishing Angular
+
 ### Angular Introduction & Setup
 
 - What is a Single Page Application? – SPA
-- Tooling: Node.js, npm and Workspace requirements
-- Angular Introduction
+- Angular Introduction & Technology Stack
 - Angular Technology Stack
-- Angular Essentials & CLI
+- Angular CLI Essentials
 - Debugging Angular
-- Introduction to the Demo App
+- Bootstrapping & Configuration
 - Maintaining & Updating projects
-- Introduction to the Demo App
 
-### TypeScript Fundamentals
+### Mastering TypeScript in the Angular Eco-System
 
 - TypeScript Overview, ECMA Script Standards
 - Configuration, Debugging, ES Lint
@@ -38,50 +48,46 @@ The `demo-app` consists of `app.component.html` that defines the base structure 
 - ECMA Script 6+ Essentials Util Functions
 - 3rd Party Libraries & Type Definitions
 - Async Operations, Promises 
-- Observables & Signals
+- Observables vs Signals
+- - Signals, Calculated Signals & Effects
 
-### Fundamentals & Completing Basic Tasks
+### Databinding & Completing Basic Tasks
 
-- Modules vs Standalone Components
-- Components & Dependency Injection
-- Bootstrapping process and Configuration 
+- Components & Dependency Injection 
 - Services & Data Request
-- Imperative vs Reactive Programming Styles
 - Expressions, Templates & Directives
+- Control Flow Syntax
 - String Interpolation, Property- & Event-Binding, Two-Way Binding
 - Data binding Observables & Signals
-- Control Flow Syntax
-- Custom Pipes & Localization
-- Custom Directives & Pipes
+- Custom Pipes & Directives
+- Imperative vs Reactive Programming Styles
 
 ### Nesting Components
 
 - Splitting the UI to Nested Components
 - Container vs Presentational Components
 - Data binding & Events with Nested Components using @Input & @Output
-- Using Input Signals
-- Reusable Components using Local References & Content Projection
-- View Child, View Children & Signal Based Queries
+- Nested Components using Signal inputs
+- View Child, View Children & Signal Queries
 
-### Routing & Modularity
+### Routing & Dependency Injection
 
+- Register Providers & Dependency Injection
 - Routing Basics
+- Modules & Module Types (Root, Feature, Shared, ...)
+- Lazy Loading of Components and Modules
 - Working with Parameterized Routes
 - Component Input Bindings
-- Organizing Angular Applications using Modules
-- Module Types (Root, Feature, Shared, ...)
-- Lazy Loading of Components and Modules
 - Route Guards & Data Preloading
 
-### Designing the User Interface
+### Designing a responsive User Interface
 
 - Implementing a CSS Reset
 - Global & Component Styles
 - Using Sass (Synthetically Awesome Stylesheets)
-- Layout using Flexbox, CSS Grid and Areas
 - Responsive Web Design using Media Queries
+- Layout using Flexbox, CSS Grid and Areas
 - Angular Material Overview
-- Using Material Component schematics
 - Material Theming Colors
 - Using Material Tables, Dialogs & Form Controls
 - Using Angular CDK & 3rd Party Components (Charting, File Upload, Drag & Drop)
@@ -95,31 +101,29 @@ The `demo-app` consists of `app.component.html` that defines the base structure 
 - FormControl, FormGroups & FormArrays
 - Form Validation Basics (Synchronous / Asynchronous)
 - Custom- & Code-Based Validators
+- Using Signals in Forms
 
-### Introduction to Reactive Programming using Signals & RxJS
+### Reactive Programming using Signals & RxJS
 
 - What is Reactive Programming / Benefits
-- Observable, Observer & Subject
+- Observable, Observer & Async pipe
 - Creating Observables & Casting to Observables
-- Using the async pipe
 - Capturing Mouse & DOM Events as Observables
 - Subscribing to Routes & Params as Observables
 - Using Common RxJS Operators
-- Signals, Calculated Signals & Effects
+- Observable & Signal Interoperability
 
 ### Managing State & Sharing Events
 
 - What is State Management
 - State Management Options: Signals vs Observables
 - Stateless & Stateful Services
-- Sharing Data between deeply Nested Components
-- Service Bus & Sharing Events between deeply Nested Components
+- Using Signals for State Management
+- Sharing Data & Events between Components
 
+### Testing Angular Applications
 
-### Testing Basics
-
-- Unit Tests vs Integration Tests
-- Karma & Jasmine Basics
+- Angular Testing Options
 - Test Setup & Mocking Data
 - Testing Classes, Directives and Pipes
 - Using Mocks & Spies
