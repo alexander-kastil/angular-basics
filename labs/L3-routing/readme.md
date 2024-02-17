@@ -1,6 +1,6 @@
 # Food App - Routing
 
-In this lab we will add simple routing to the food app.
+In this lab we will add simple routing to the food app und load data from a REST API.
 
 ## Steps Outlined
 
@@ -50,21 +50,20 @@ In this task we will add data access to food-app. We will use [json-server](http
     }
     ```
 
+- Also add the entries from `menu-items.json` and update the `apiUrl` in the environment files to point to the json-server api.
+
+    ```typescript
+    export const environment = {
+        apiUrl: 'http://localhost:3000/',
+    };
+    ```
+
 - Start json-server in watch mode:
 
     ```bash
     json-server db.json --watch
     ```
 
-- Extend `food.service.ts` to implement Get, Create, Read, Update and Delete against the json-server api and use it in your app. Use the following [reference](/demos/04-routing/routing-di/src/app/skills/skills.service.ts)
+- Extend `food.service.ts` to implement `Get`, `Create`, `Read`, `Update` and `Delete` against the json-server api and use it in your app. Use [skills.service.ts](/demos/04-routing/routing-di/src/app/skills/skills.service.ts) as a reference.
 
-- If you want to generate and id for a new food item to be added, you could use this code fragment:
-
-    ```typescript
-    getNewId() {
-        const nextId = this.food.reduce((acc, f) => (acc = acc > f.id ? acc : f.id), 0) + 1;
-        return nextId;
-    }
-    ```
-
-- After this lab you should be able to add, edit and delete food items in the app.
+- After this lab you should be able to add, edit and delete food items in the app. In the next module we will enhance the user interface to provide a better user experience.

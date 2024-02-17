@@ -8,25 +8,34 @@ We will also complete the implementation of the Food App by adding data access t
 
 ## Steps Outlined
 
-### Using Angular Material
+- Install Angular Material and create a base responsive layout
+- Implement a Material Design 
+- Implement a custom Material Theme - optional
+
+### Install Angular Material and create a base responsive layout
 
 Add Angular Material to your project:
 
 - Install Angular Material using the [Material Getting Started](https://material.angular.io/guide/getting-started) and choose a theme of your choice.
 
-- Implement a `material.module.ts` and copy its default content from the [Demo App](/demos/05-ui/user-interface/src/app/material.module.ts).
-
-- Test the installation of Angular Material by replacing the `div` in the `navbar.component.html` with a [Material Toolbar](https://material.angular.io/components/toolbar/overview)
+- Test the installation of Angular Material by replacing the `div` in the `navbar.component.html` with a [Material Toolbar](https://material.angular.io/components/toolbar/overview). In order to get this working you will need to import the `MatToolbarModule` from `@angular/material/toolbar` in the `navbar.component.ts`.
 
 Implement the Base Layout using CSS Grid:
 
-- Change to base layout in app.component to use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/). Use the [Demo App](/demos/05-ui/user-interface/src/app/app.component.html) Layout as a reference.
+- Change to base layout in app.component to use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/). Use the [main.component.html](/demos/05-ui/user-interface/src/app/main/main.component.html) layout and [main.component.scss](/demos/05-ui/user-interface/src/app/main/main.component.scss ) as a reference. You could also use an online tool like [CSS Grid Generator](https://grid.layoutit.com/) to generate the grid layout.
     
-- Hide the sidebar on devices with a horizontal width less than `960px`. We will add a toggle button in another lab.
+- Hide the sidebar on devices with a horizontal width less than `960px`. We will add a toggle button in another lab. You could use [demo-container.component.scss](/demos/05-ui/user-interface/src/app/demos/demo-container/demo-container.component.scss) as a reference as it contains a media query.
 
-Implement a Material Design for Food App:
+### Implement a Material Design for Food App
 
-- Use [mat-card](https://material.angular.io/components/card/overview) elements in `food-list.component.html` and `food-edit.component.html` to surround the content
+- Use [mat-card](https://material.angular.io/components/card/overview) elements in `food-list.component.html` and `food-edit.component.html` to surround the content. You will have to import the following modules in the respective components:    
+    - MatToolbarModule
+    - MatCardModule
+    - MatTableModule
+    - MatIconModule
+    - MatButtonModule
+    - MatInputModule
+    
 
 - Use [mat-table](https://material.angular.io/components/table/overview) for the `food-list.component.html`
 
@@ -42,16 +51,25 @@ Implement a Material Design for Food App:
         this.dataSource = new MatTableDataSource(changes["food"].currentValue);
     }
     ```
-- Use [mat-input](https://material.angular.io/components/form-field/overview) for `food-edit.component.html`
 
-- Use the [mat-button-directive](https://material.angular.io/components/button/examples) for the `Save`-button in `food-edit.component.html`
+- Implement `foodSelected`, `foodDeleted`, and `foodAdding` in `food-list.component.ts`. Adding is triggered by the `Add Food` button and handled by the parent component `food-container.component.ts`. I implemented it here to be able to place the button in the toolbar.
 
-### Implement a custom Material Theme
+- Wrap the `food-edit.component.html` in a `mat-card` and use the [mat-form-field](https://material.angular.io/components/form-field/overview) and [mat-input](https://material.angular.io/components/form-field/overview) for the input fields.
 
-Implement a custom material theme with a [custom color palette](https://material.io/resources/color/#!/?view.left=0&view.right=0) and replace the theme that you have chosen at the beginning of this lab:
+    ```html
+    <mat-form-field>
+        <input matInput type="text" placeholder="Name" [(ngModel)]="food.name" />
+    </mat-form-field>
+    ```
 
-- Use the [Demo App Theme](/demos/05-ui/user-interface/src/theme/mat-theme.scss) as a reference.
+- Use the [mat-button-directive](https://material.angular.io/components/button/examples) for the `Save`-button in `food-edit.component.html` and the `Add Food`-button in `food-list.component.html`. You might notice that the button have different widths. We will fix this in the next step when implementing a custom Material Theme.
 
-Add the `burger.png` file as a centered image to the `home.component.html` and use a custom [web font](https://fonts.google.com/) in the welcome text by registering it in `index.html`.
+- Add the `burger.png` file as a centered image to the `home.component.html` and use a custom [web font](https://fonts.google.com/) in the welcome text by registering it in `index.html`.
 
-![home](_images/home.jpg)
+    ![home](_images/home.jpg)
+
+### Implement a custom Material Theme - optional
+
+- Implement a custom material theme with a [custom color palette](https://material.io/resources/color/#!/?view.left=0&view.right=0) and replace the theme that you have chosen at the beginning of this lab:
+
+- Use the [Demo App Theme](/demos/05-ui/user-interface/src/styles.scss) as a reference.

@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
-import { environment } from "src/environments/environment";
+import { environment } from "../../environments/environment";
 import { FoodItem } from "./food.model";
 
 @Injectable({
@@ -8,7 +8,7 @@ import { FoodItem } from "./food.model";
 })
 export class FoodService {
   http = inject(HttpClient);
-  private url = `${environment.api}food`;
+  private url = `${environment.apiUrl}food`;
 
   getFood() {
     return this.http.get<FoodItem[]>(this.url);

@@ -1,15 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { NavbarService } from "./navbar.service";
-import { NavItem } from "./nav-item.model";
+import { Component, inject } from '@angular/core';
+import { NavItem } from './nav-item.model';
+import { NavbarService } from './navbar.service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  selector: "app-navbar",
-  templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.scss"],
+  selector: 'app-navbar',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive],
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent implements OnInit {
-  constructor(private ns: NavbarService) {}
-
+export class NavbarComponent {
+  ns = inject(NavbarService);
   navItems: NavItem[] = [];
 
   ngOnInit() {

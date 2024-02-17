@@ -19,6 +19,7 @@ import { MaterialTableComponent } from './samples/material-table/material-table.
 import { MaterialThemeComponent } from './samples/material-theme/material-theme.component';
 import { StyleInheritanceComponent } from './samples/style-inheritance/style-inheritance.component';
 import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
+import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedback.component';
 
 export const DEMO_ROUTES: Routes = [
   {
@@ -43,6 +44,7 @@ export const DEMO_ROUTES: Routes = [
       { path: 'virtual-scroll', component: VirtualScrollComponent },
       { path: 'chart', component: ChartComponent },
       { path: 'markdown', component: MarkdownThirdPartyComponent },
+      { path: 'visual-feedback', component: VisualFeedbackComponent },
       { path: 'bootstrap', component: BoostrapComponent },
       { path: 'material-theme', component: MaterialThemeComponent },
     ],

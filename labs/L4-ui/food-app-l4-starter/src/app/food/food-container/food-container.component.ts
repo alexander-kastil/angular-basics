@@ -1,28 +1,32 @@
-import { Component, OnInit } from "@angular/core";
-import { FoodItem } from "../food.model";
-import { FoodService } from "../food.service";
+import { Component, inject } from '@angular/core';
+import { FoodListComponent } from '../food-list/food-list.component';
+import { FoodItem } from '../food.model';
+import { FoodService } from '../food.service';
+import { FoodEditComponent } from '../food-edit/food-edit.component';
 
 @Component({
-  selector: "app-food-container",
-  templateUrl: "./food-container.component.html",
-  styleUrls: ["./food-container.component.scss"],
+  selector: 'app-food-container',
+  standalone: true,
+  imports: [FoodListComponent, FoodEditComponent],
+  templateUrl: './food-container.component.html',
+  styleUrl: './food-container.component.scss'
 })
-export class FoodContainerComponent implements OnInit {
+export class FoodContainerComponent {
+  fs = inject(FoodService);
   food: FoodItem[] = [];
   selected: FoodItem | null = null;
-
-  constructor(private fs: FoodService) {}
 
   ngOnInit() {
     this.fs.getFood().subscribe((data) => (this.food = data));
   }
 
-  selectFood(f: FoodItem) {
-    this.selected = { ...f };
+  selectFood(food: FoodItem) {
+    console.log('selecting', food);
+    this.selected = { ...food };
   }
 
-  deleteFood(item: FoodItem) {
-    console.log("mock deleting ", item);
+  deleteFood(food: FoodItem) {
+    console.log('deleting', food);
   }
 
   foodSaved(item: FoodItem) {

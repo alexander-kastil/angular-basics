@@ -9,12 +9,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of food">
-      <td>{{ p.name }}</td>
-      <td>{{ p.price }}</td>
-      <td>{{ p.calories }}</td>
-      <td><a (click)="deleteFood(p)">Delete</a></td>
-      <td><a (click)="selectFood(p)">Select</a></td>
-    </tr>
+    @for (p of food; track p) {
+      <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.price }}</td>
+        <td>{{ p.calories }}</td>
+        <td><a (click)="deleteFood(p)">Delete</a></td>
+        <td><a (click)="selectFood(p)">Select</a></td>
+      </tr>
+    }
   </tbody>
 </table>

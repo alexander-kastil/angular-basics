@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-sidemenu',
+  standalone: true,
+  imports: [],
   templateUrl: './sidemenu.component.html',
-  styleUrls: ['./sidemenu.component.scss']
+  styleUrl: './sidemenu.component.scss'
 })
-export class SidemenuComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class SidemenuComponent {
 
 }
