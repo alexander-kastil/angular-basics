@@ -37,7 +37,7 @@
 - String Interpolation, Attribute- & Event-Binding, Two-Way Binding
 - Built-in Control Flow & Deferrable Views
 - Data binding Observables & Signals
-- Custom Pipes & Directives
+- Built in and Custom Pipes & Directives
 
 ### Implementing Nested Components
 
