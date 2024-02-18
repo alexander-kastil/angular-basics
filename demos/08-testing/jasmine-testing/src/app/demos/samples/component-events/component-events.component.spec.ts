@@ -32,7 +32,7 @@ describe('ComponentEventsComponent', () => {
     expect(divResult.nativeElement.innerText).toContain('1');
   });
 
-  it('should increment the count - Native Api', () => {
+  it('should increment the count - native Api', () => {
     const divClick = fixture.debugElement.query(By.css('[data-testid=btnIncrement]'));
     divClick.nativeElement.click();
     divClick.nativeElement.click();

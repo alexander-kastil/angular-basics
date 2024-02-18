@@ -7,7 +7,6 @@ import { of } from 'rxjs';
 import { FoodRowComponent } from '../food-row/food-row.component';
 import { FoodServiceBS } from '../food.service-bs';
 import { FoodListComponent } from './food-list.component';
-import { HttpClient } from '@angular/common/http';
 
 const foodData = [
   { name: 'Pad Thai', rating: 5 },

@@ -1,16 +1,16 @@
 import { SimpleClass } from './simple-class';
 
 describe('Class - Hello world Test', () => {
-  let myclass: SimpleClass;
+  let myClass: SimpleClass;
 
   beforeEach(() => {
-    myclass = new SimpleClass();
+    myClass = new SimpleClass();
   });
 
-  it('contains 12 charactes', () => {
-    expect(myclass.sayHelloWorld().length).toEqual(12)
+  it('contains 12 characters', () => {
+    expect(myClass.sayHelloWorld().length).toEqual(12)
   });
 
   it('says Hello World!', () =>
-    expect(myclass.sayHelloWorld()).toEqual('Hello World!'))
+    expect(myClass.sayHelloWorld()).toEqual('Hello World!'))
 });

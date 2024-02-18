@@ -98,8 +98,8 @@
 
 - Angular Testing Options
 - Testing Classes, Directives and Pipes
-- Injections, Mocks & Spies
-- Intro to Component DOM Testing
+- Component Injections, Mocks & Spies
+- Component DOM testing & test ids
 - Testing Component Interaction (Read, Write, Inputs, Events)
 - Material Testing using Component Harnesses
 - In Short: End to End Testing using Cypress

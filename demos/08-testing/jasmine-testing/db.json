@@ -2,19 +2,19 @@
   "demos": [
     {
       "url": "basic-tests",
-      "title": "Testing Intro"
+      "title": "Introduction"
     },
     {
       "url": "test-pipe",
-      "title": "Test Pipe"
+      "title": "Pipes"
     },
     {
       "url": "directive",
-      "title": "Test Directive"
+      "title": "Directives"
     },
     {
       "url": "simple-service",
-      "title": "Simple Service"
+      "title": "Services"
     },
     {
       "url": "component-class",
