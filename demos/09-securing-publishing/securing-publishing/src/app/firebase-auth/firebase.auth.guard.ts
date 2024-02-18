@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 import { SnackbarService } from '../shared/snackbar/snackbar.service';
 import { FirebaseAuthService } from './firebase-auth.service';
 
-export const authGuard = () => {
+export const firebaseAuthGuard = () => {
   const router = inject(Router);
   const sns = inject(SnackbarService);
   const as = inject(FirebaseAuthService);
