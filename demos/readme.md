@@ -15,7 +15,6 @@
 ### Angular Introduction
 
 - Angular Introduction & Technology Stack
-- Angular Technology Stack
 - Angular CLI Essentials
 - Debugging Angular
 - Bootstrapping & Configuration
