@@ -12,9 +12,8 @@
 - Testing Angular Applications
 - Securing & Publishing Angular
 
-### Angular Introduction & Setup
+### Angular Introduction & Ecosystem
 
-- What is a Single Page Application? – SPA
 - Angular Introduction & Technology Stack
 - Angular Technology Stack
 - Angular CLI Essentials
