@@ -20,6 +20,20 @@ We will also complete the implementation of the Food App by adding data access t
     
 - Hide the sidebar on devices with a horizontal width less than `960px`. We will add a toggle button in another lab. You could use [demo-container.component.scss](/demos/05-ui/user-interface/src/app/demos/demo-container/demo-container.component.scss) as a reference as it contains a media query.
 
+- Add `stylePreprocessorOptions` to angular.json. It is used to include the `src/theme` folder in the scss files. 
+
+    ```typescript
+    "styles": [
+        ...
+    ],
+    "stylePreprocessorOptions": {
+        "includePaths": ["src/theme"]
+    },
+    "scripts": []
+    ```
+
+    >Note: It allows use to use shorter paths when importing global scss chunks into components. For example, we can use `@import 'theme';` instead of `@import 'src/theme';`.
+
 ### Implement a Material Design for Food App
 
 - A possible design for the Food App is shown below. You can use this as a reference when implementing the user interface.
