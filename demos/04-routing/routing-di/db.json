@@ -205,14 +205,20 @@
   "skills": [
     {
       "id": "1",
-      "name": "Cooking Germknödel",
+      "name": "Angular Standalone",
       "hours": 4,
       "completed": true
     },
     {
-      "name": "Cooking Pad Kra pao",
-      "hours": 1,
+      "id": "2",
+      "name": "Cloud Native Apps",
+      "hours": 3,
       "completed": false,
+    },
+    {
+      "name": "Cooking Pad Kra Pao",
+      "hours": 1,
+      "completed": true,
       "id": "3"
     }
   ]

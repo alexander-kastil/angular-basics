@@ -8,7 +8,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Router } from '@angular/router';
 import { SnackbarService } from '../../shared/snackbar/snackbar.service';
 import { Skill } from '../skill.model';
-import { SkillsEntityService } from '../state/skills-entity.service';
+import { SkillsService } from '../skills.service';
 
 @Component({
   selector: 'app-skills-edit',
@@ -28,7 +28,7 @@ export class SkillsEditComponent {
   @Input({ required: true }) id = 0;
   router = inject(Router);
   sns = inject(SnackbarService);
-  es = inject(SkillsEntityService);
+  service = inject(SkillsService);
   fb = inject(FormBuilder);
   skill: Skill = new Skill();
 
@@ -45,7 +45,7 @@ export class SkillsEditComponent {
         this.skillForm.patchValue(new Skill());
       }
       else {
-        this.es.getByKey(id).subscribe((skill) => {
+        this.service.getSkill(id).subscribe((skill) => {
           if (skill) {
             this.skillForm.patchValue(skill);
           }
@@ -58,15 +58,15 @@ export class SkillsEditComponent {
     const skill = skillForm.value as Skill;
     console.log("saveSkill", skill);
     if (skill.id == 0) {
-      this.es.add(skill);
+      this.service.addSkill(skill);
     }
     else {
-      this.es.update(skill);
+      this.service.updateSkill(skill);
     }
-    this.router.navigate(['skills']);
+    this.router.navigate(['main/skills']);
   }
 
   doCancel() {
-    this.router.navigate(['skills']);
+    this.router.navigate(['main/skills']);
   }
 }

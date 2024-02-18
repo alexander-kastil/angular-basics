@@ -56,7 +56,7 @@
   "top-links": [
     {
       "label": "Home",
-      "url": "main"
+      "url": ""
     },
     {
       "label": "Demos",
@@ -178,25 +178,22 @@
   ],
   "skills": [
     {
-      "id": 1,
-      "name": "Custom Theme",
+      "id": "1",
+      "name": "Angular Standalone",
       "hours": 4,
-      "completed": true,
-      "dueDate": "2020-08-06T15:18:22.9829481"
+      "completed": true
     },
     {
-      "id": 2,
-      "name": "Theme Mixins",
+      "id": "2",
+      "name": "Cloud Native Apps",
       "hours": 3,
       "completed": false,
-      "dueDate": "2020-07-06T15:18:22.9848654"
     },
     {
-      "id": 3,
-      "name": "NgRx",
-      "hours": 8,
+      "name": "Cooking Pad Kra Pao",
+      "hours": 1,
       "completed": true,
-      "dueDate": "2020-07-06T15:18:22.9848654"
+      "id": "3"
     }
   ],
   "persons": [

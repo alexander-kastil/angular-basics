@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from './user-model';
 import { userData } from './users-data';
-import { NgFor, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
@@ -15,9 +15,8 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     MarkdownRendererComponent,
     MatCardModule,
     MatTabsModule,
-    NgFor,
-    DatePipe,
-  ],
+    DatePipe
+],
 })
 export class MaterialAsyncComponent {
   displayedColumns = ['email', 'created', 'roles'];

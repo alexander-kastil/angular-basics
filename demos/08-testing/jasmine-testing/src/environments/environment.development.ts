@@ -1,6 +1,6 @@
 export const environment = {
     authEnabled: false,
-    title: 'Security & Publishing',
+    title: 'Fundamentals',
     markdownPath: '/assets/markdown/',
     api: 'http://localhost:3000/',
     netapi: 'https://localhost:5001/',

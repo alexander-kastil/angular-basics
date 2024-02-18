@@ -1,0 +1,22 @@
+<mat-toolbar color="accent">
+  <mat-toolbar-row class="row">
+    <div>Your current SPA Skills:</div>
+    <div>
+      <button
+        mat-raised-button
+        [routerLink]="['/main/skills', 0]"
+        [state]="{ data: getNextId() }"
+        color="primary">
+        Add
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card >
+  <mat-card-content>
+    <div *ngFor="let sk of skills" class="item">
+      <app-skill-row [skill]="sk"></app-skill-row>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -5,7 +5,7 @@
       "title": "Testing Intro"
     },
     {
-      "url": "testpipe",
+      "url": "test-pipe",
       "title": "Test Pipe"
     },
     {
@@ -13,7 +13,7 @@
       "title": "Test Directive"
     },
     {
-      "url": "simpleservice",
+      "url": "simple-service",
       "title": "Simple Service"
     },
     {
@@ -49,7 +49,7 @@
       "title": "Comp Material Async"
     },
     {
-      "url": "integrationtests",
+      "url": "integration-tests",
       "title": "Comp Integration Tests"
     },
     {

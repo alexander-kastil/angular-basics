@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { Skill } from '../skill.model';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-skill-row',
@@ -22,6 +23,7 @@ import { Skill } from '../skill.model';
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
+    MatSlideToggleModule,
     RouterLink,
   ],
 })
@@ -29,7 +31,13 @@ export class SkillRowComponent {
   @Input({ required: true }) skill: Skill = new Skill();
   @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter();
   @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter();
-  fcCompleted = new FormControl(false)
+  fcCompleted = new FormControl(false, { nonNullable: true })
+
+  ngOnInit(): void {
+    this.fcCompleted.valueChanges.subscribe(() => {
+      this.itemCompleted.emit(this.skill);
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['skill']) {
@@ -39,9 +47,5 @@ export class SkillRowComponent {
 
   deleteItem(): void {
     this.itemDeleted.emit(this.skill);
-  }
-
-  toggleItemCompleted(item: Skill): void {
-    this.itemCompleted.emit(item);
   }
 }

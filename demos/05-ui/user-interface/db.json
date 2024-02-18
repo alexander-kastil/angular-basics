@@ -245,19 +245,18 @@
   "skills": [
     {
       "id": "1",
-      "name": "Custom Angular Theme",
+      "name": "Angular Standalone",
       "hours": 4,
       "completed": true
     },
     {
       "id": "2",
-      "name": "Theme Mixins",
+      "name": "Cloud Native Apps",
       "hours": 3,
       "completed": false,
-      "dueDate": "2020-07-06T15:18:22.9848654"
     },
     {
-      "name": "Cooking Pad Krapao",
+      "name": "Cooking Pad Kra Pao",
       "hours": 1,
       "completed": true,
       "id": "3"

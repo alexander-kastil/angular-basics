@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
@@ -21,9 +21,8 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     MatFormFieldModule,
     MatInputModule,
     MatSliderModule,
-    MatButtonModule,
-    NgIf,
-  ],
+    MatButtonModule
+],
 })
 export class MaterialComponent {
   value = 50;
