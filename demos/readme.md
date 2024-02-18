@@ -74,8 +74,7 @@
 
 - Forms Introduction
 - Template Driven Forms vs Reactive (Model Based) Forms
-- Using Forms Builder
-- Typed Forms (Nullability, Nested Objects, Arrays)
+- FormBuilder & Typed Forms (Nullability, Nested Objects, Arrays)
 - FormControl, FormGroups & FormArrays
 - Form Validation Basics (Synchronous / Asynchronous)
 - Custom- & Code-Based Validators
@@ -101,11 +100,10 @@
 ### Testing Angular Applications
 
 - Angular Testing Options
-- Test Setup & Mocking Data
 - Testing Classes, Directives and Pipes
 - Injections, Mocks & Spies
 - Intro to Component DOM Testing
-- Testing Component Interaction (Read, Write, Emit, Inputs)
+- Testing Component Interaction (Read, Write, Inputs, Events)
 - Material Testing using Component Harnesses
 - In Short: End to End Testing using Cypress
 
