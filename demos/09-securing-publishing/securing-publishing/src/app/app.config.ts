@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ApplicationConfig, importProvidersFrom, isDevMode } from '@angular/core';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
@@ -11,11 +11,14 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { MarkdownModule } from 'ngx-markdown';
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
+import { firebaseAuthInterceptor } from './firebase-auth/firebase-auth.interceptor';
 import { appState } from './state/app.state';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        provideHttpClient(),
+        provideHttpClient(withInterceptors([
+            firebaseAuthInterceptor
+        ])),
         provideRouter(routes, withComponentInputBinding()),
         provideAnimations(),
         importProvidersFrom([

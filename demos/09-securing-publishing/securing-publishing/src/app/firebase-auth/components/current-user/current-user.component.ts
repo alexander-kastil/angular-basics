@@ -10,6 +10,6 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
   imports: [AsyncPipe],
 })
 export class CurrentUserComponent {
-  as = inject(FirebaseAuthService);
-  currentUser = this.as.getUser();
+  auth = inject(FirebaseAuthService);
+  currentUser = this.auth.getUser();
 }

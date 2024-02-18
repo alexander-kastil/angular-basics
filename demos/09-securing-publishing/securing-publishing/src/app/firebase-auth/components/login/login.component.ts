@@ -21,10 +21,10 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
     MatInputModule,
     MatButtonModule,
     MatDialogModule
-],
+  ],
 })
 export class LoginComponent {
-  as = inject(FirebaseAuthService);
+  auth = inject(FirebaseAuthService);
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -36,6 +36,6 @@ export class LoginComponent {
 
   logIn(form: FormGroup) {
     let vm: LoginCredentials = form.value;
-    this.as.logIn(vm.email, vm.password);
+    this.auth.logIn(vm.email, vm.password);
   }
 }

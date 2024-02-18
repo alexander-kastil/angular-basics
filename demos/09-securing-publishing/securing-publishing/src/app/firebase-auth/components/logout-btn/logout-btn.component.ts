@@ -13,13 +13,13 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
     MatButtonModule,
     RouterLink,
     AsyncPipe
-],
+  ],
 })
 export class LogoutBtnComponent {
-  as = inject(FirebaseAuthService);
-  currentUser = this.as.getUser();
+  auth = inject(FirebaseAuthService);
+  currentUser = this.auth.getUser();
 
   logOut() {
-    this.as.logOut();
+    this.auth.logOut();
   }
 }

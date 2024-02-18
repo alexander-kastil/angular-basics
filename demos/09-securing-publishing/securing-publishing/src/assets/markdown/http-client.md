@@ -1,4 +1,4 @@
-- Angulars HttpClient allows use to observe the full Response object instead of just the body.
+- Angular's `HttpClient` allows use to observe the full Response object instead of just the body.
 
   ```typescript
   this.client.get<Skill>(`${environment.api}skills`, {

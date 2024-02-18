@@ -1,18 +1,18 @@
-Install firebase tools:
+- Install firebase tools:
 
-```
-npm install -g firebase-tools
-```
+    ```bash
+    npm install -g firebase-tools
+    ```
 
-Login:
+- Login:
 
-```
-firebase login
-```
+    ```bash
+    firebase login
+    ```
 
-Init Project & Deploy:
+- Init Project & Deploy:
 
-```
-firebase init
-firebase deploy
-```
+    ```bash
+    firebase init
+    firebase deploy
+    ```

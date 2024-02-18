@@ -51,7 +51,7 @@ export class FirebaseAuthService {
 
   createUser(email: string, password: string) {
     createUserWithEmailAndPassword(this.fireAuth, email, password).then((userCredential) => {
-      // you could take the user from here
+      // you could access the user from here
       const user = userCredential.user;
     });
   }
@@ -61,7 +61,7 @@ export class FirebaseAuthService {
     password: string
   ) {
     signInWithEmailAndPassword(this.fireAuth, email, password).then((userCredential) => {
-      // you could take the user from here
+      // you could access the user from here
       const user = userCredential.user;
     });
   }

@@ -20,10 +20,10 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
     MatInputModule,
     MatButtonModule,
     MatDialogModule
-],
+  ],
 })
 export class RegisterComponent {
-  as = inject(FirebaseAuthService);
+  auth = inject(FirebaseAuthService);
 
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -40,7 +40,7 @@ export class RegisterComponent {
   });
 
   registerUser(form: FormGroup) {
-    this.as.createUser(form.value.email, form.value.passwords.password);
+    this.auth.createUser(form.value.email, form.value.passwords.password);
   }
 
   passwordsMatch(c: AbstractControl): { invalid: boolean } | null {
