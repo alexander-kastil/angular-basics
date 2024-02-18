@@ -6,9 +6,93 @@ In this lab we will implement a Side Menu and a global Loading Indicator using R
 
 ## Steps Outlined
 
-- Implement a responsive Side Menu
+- Add a Signal based SideMenuService
+- Implement a responsive Side Menu using Angular Material Sidenav
 
-### Implement a responsive Side Menu:
+### Add a Signal based SideMenuService
+
+- Generate `sidemenu.service.ts` using Angular CLI
+
+  ```bash
+  ng g s shared/sidemenu/sidemenu 
+  ```
+
+- Use [sidenav.service.ts](/demos/07-reactive-state/reactive-state/src/app/shared/sidenav/sidenav.service.ts) as a reference to implement the `sidemenu.service.ts`. Do not copy past but basically it would work the same way. 
+
+- Modify nav.component.html to use the SideMenuService
+
+  ```html
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <div class="hamburgerMenu" (click)="toggleMenu()">
+        <mat-icon color="accent">menu</mat-icon>
+      </div>
+  ```
+
+- Add a required css to nav.component.scss
+
+  ```css
+  .hamburgerMenu{
+    cursor: pointer;
+    display: none;
+    padding-top: 0.5rem;
+    margin-right: 1rem;
+  ;
+    @media only screen and (max-width: 960px) {
+      display: block;
+    }
+  }
+  ```
+
+- Next we will refactor the imperative code to get the `navItems` to a reactive approach using Signals. Remove the ngOnInit as we no longer need it.
+
+  ```typescript
+    ngOnInit() {
+      this.nav.getItems().subscribe((data) => {
+        this.navItems = data;
+      });
+    }
+  ```
+
+- Set navItems in a declarative way using the SideMenuService
+
+  ```typescript
+  nav = inject(NavbarService);
+  navItems = this.nav.getItems();
+  ```  
+
+- Update the corresponding html to use the `navItems` Observable. You might need to import the `async` pipe from `@angular/common`.
+
+  ```html
+  @for (item of navItems | async; track item) {
+    <div
+      class="menuItem"
+      routerLink="{{ '/' + item.url }}"
+      routerLinkActive="navLinkActive"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      {{ item.title }}
+    </div>
+    }
+  ```
+
+- Inject the SideMenuService to the `nav.component.ts` and implement the `toggleMenu` method.
+
+  ```typescript
+  export class NavbarComponent {
+    sideMenu = inject(SideMenuService);
+    nav = inject(NavbarService);
+    navItems = this.nav.getItems()
+
+    toggleMenu() {
+      this.sideMenu.toggleMenuVisibility();
+    }
+  }
+  ```
+
+- Check the behavior in the browser
+
+### Implement a responsive Side Menu using Angular Material Sidenav
 
 - Implement a menu.service.ts as a Stateful Service using BehaviorSubjects with the two properties:
 
