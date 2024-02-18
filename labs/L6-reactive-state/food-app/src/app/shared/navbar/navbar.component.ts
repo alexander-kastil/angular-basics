@@ -1,25 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavItem } from './nav-item.model';
 import { NavbarService } from './navbar.service';
-import { MenuService } from '../menu/menu.service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-navbar',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, MatToolbarModule],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent implements OnInit {
-  constructor(private ns: NavbarService, private ms: MenuService) {}
-
+export class NavbarComponent {
+  ns = inject(NavbarService);
   navItems: NavItem[] = [];
 
   ngOnInit() {
     this.ns.getItems().subscribe((data) => {
       this.navItems = data;
     });
-  }
-
-  toggleMenu() {
-    this.ms.toggleMenuVisibility();
   }
 }

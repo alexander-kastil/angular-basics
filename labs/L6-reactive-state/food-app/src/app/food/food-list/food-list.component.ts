@@ -1,22 +1,20 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-  OnChanges,
-} from "@angular/core";
-import { MatTableDataSource } from "@angular/material/table";
-import { FoodItem } from "../food.model";
+import { Component, EventEmitter, Input, Output, SimpleChanges, input } from '@angular/core';
+import { FoodItem } from '../food.model';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: "app-food-list",
-  templateUrl: "./food-list.component.html",
-  styleUrls: ["./food-list.component.scss"],
+  selector: 'app-food-list',
+  standalone: true,
+  imports: [MatToolbarModule, MatCardModule, MatTableModule, MatIconModule, MatButtonModule],
+  templateUrl: './food-list.component.html',
+  styleUrl: './food-list.component.scss'
 })
-export class FoodListComponent implements OnChanges {
-  @Input() food: FoodItem[] = [];
+export class FoodListComponent {
+  food = input<FoodItem[]>([]);
   @Output() foodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
   @Output()
   foodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
@@ -32,8 +30,6 @@ export class FoodListComponent implements OnChanges {
     "editItem",
   ];
   dataSource = new MatTableDataSource([]);
-
-  ngOnInit() { }
 
   ngOnChanges(changes: SimpleChanges) {
     this.dataSource = new MatTableDataSource(changes["food"].currentValue);
@@ -55,3 +51,4 @@ export class FoodListComponent implements OnChanges {
     this.foodAdding.emit(new FoodItem());
   }
 }
+

@@ -1,12 +1,16 @@
-form {
-  width: 100%;
-}
-
-.actions {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
 .mat-mdc-card-title {
-  color: whitesmoke;
+  display: block;
+  margin: 0;
+  color: gainsboro;
+  margin-bottom: 1rem;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin-bottom: 1rem;
+  width: 100%;
 }

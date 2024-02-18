@@ -1,14 +1,10 @@
-<div>
-  <app-food-list
-    [food]="food"
-    (foodSelected)="selectFood($event)"
-    (foodDeleted)="deleteFood($event)"
-    (foodAdding)="addFood($event)"
-  ></app-food-list>
+<app-food-list
+  [food]="food()"
+  (foodSelected)="selectFood($event)"
+  (foodDeleted)="deleteFood($event)"
+  (foodAdding)="addFood()"
+></app-food-list>
 
-  <app-food-edit
-    *ngIf="selected"
-    [food]="selected"
-    (saveFood)="foodSaved($event)"
-  ></app-food-edit>
-</div>
+@if(selected){
+  <app-food-edit [food]="selected" (onFoodSave)="foodSaved($event)" ></app-food-edit>
+}

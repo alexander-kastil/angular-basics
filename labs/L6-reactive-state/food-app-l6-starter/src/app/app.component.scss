@@ -8,6 +8,13 @@
   grid-template-areas:
     "navbar navbar"
     "sidemenu maincontent";
+
+    @media only screen and (max-width: 960px) {
+      grid-template-columns: auto;
+      grid-template-areas:
+        "navbar"
+        "maincontent"
+    }    
 }
 
 .gd-navbar {

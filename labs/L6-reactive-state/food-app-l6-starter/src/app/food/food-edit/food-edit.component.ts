@@ -1,40 +1,38 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Output, computed, effect, inject, input } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, NgForm, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { FoodItem } from '../food.model';
 
 @Component({
   selector: 'app-food-edit',
+  standalone: true,
+  imports: [ReactiveFormsModule, MatCardModule, MatFormField, MatButtonModule, MatInputModule],
   templateUrl: './food-edit.component.html',
-  styleUrls: ['./food-edit.component.scss'],
+  styleUrl: './food-edit.component.scss'
 })
 export class FoodEditComponent {
-  @Input() food: FoodItem = new FoodItem();
-  @Output() saveFood: EventEmitter<FoodItem> = new EventEmitter();
-  form: FormGroup;
+  food = input.required<FoodItem>();
+  @Output() onFoodSave: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+  fb = inject(NonNullableFormBuilder);
 
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      id: this.food.id,
-      name: [this.food.name, [Validators.required, Validators.minLength(3)]],
-      price: [this.food.price, [Validators.required, Validators.min(1)]],
-      calories: this.food.calories,
+  form: FormGroup = this.fb.group({
+    id: 0,
+    name: ["", [Validators.required, Validators.minLength(3)]],
+    price: [0, [Validators.required, Validators.min(1)]],
+    calories: 0,
+  });
+
+  constructor() {
+    effect(() => {
+      console.log('Receiving data on input signal:', this.food());
+      this.form.patchValue(this.food());
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['food']) {
-      this.form.setValue(changes['food'].currentValue);
-    }
-  }
-
-  saveForm(form: any) {
-    console.log('food to save', form.value);
-    this.saveFood.emit(form.value);
+  saveFood(form: FormGroup) {
+    if (this.food()) this.onFoodSave.emit(form.value);
   }
 }

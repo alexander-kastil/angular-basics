@@ -1,40 +1,23 @@
-import { Component, inject, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
-import { MatDrawerMode } from '@angular/material/sidenav';
-import { MenuService } from './shared/menu/menu.service';
-import { LoadingService } from './shared/loading/loading.service';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { SidemenuComponent } from './shared/sidemenu/sidemenu.component';
+import { FoodContainerComponent } from './food/food-container/food-container.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    HomeComponent,
+    NavbarComponent,
+    SidemenuComponent,
+    FoodContainerComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'Food App';
-  mode: MatDrawerMode = 'side';
-  visible = true;
-  ms = inject(MenuService);
-  ls = inject(LoadingService);
-  changeDetector = inject(ChangeDetectorRef);
-  isLoading = this.ls.getLoading();
-
-  constructor() {
-    this.ms.sideNavPosition.subscribe((currentMode) => { this.mode = currentMode });
-    this.ms.sideNavVisible.subscribe((visible) => { this.visible = visible });
-  }
-
-  ngAfterContentChecked(): void {
-    this.changeDetector.detectChanges();
-  }
-
-  getWorbenchStyle() {
-    let result = {};
-    this.ms.sideNavVisible.subscribe((visible) => {
-      result = visible
-        ? {
-          'padding-left': '10px',
-        }
-        : {};
-    });
-    return result;
-  }
 }

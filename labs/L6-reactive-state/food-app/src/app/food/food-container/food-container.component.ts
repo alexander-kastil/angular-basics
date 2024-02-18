@@ -1,53 +1,49 @@
-import { Component, OnInit } from "@angular/core";
-import { FoodItem } from "../food.model";
-import { FoodService } from "../food.service";
+import { Component, inject, signal } from '@angular/core';
+import { FoodListComponent } from '../food-list/food-list.component';
+import { FoodItem } from '../food.model';
+import { FoodService } from '../food.service';
+import { FoodEditComponent } from '../food-edit/food-edit.component';
 
 @Component({
-  selector: "app-food-container",
-  templateUrl: "./food-container.component.html",
-  styleUrls: ["./food-container.component.scss"],
+  selector: 'app-food-container',
+  standalone: true,
+  imports: [FoodListComponent, FoodEditComponent],
+  templateUrl: './food-container.component.html',
+  styleUrl: './food-container.component.scss'
 })
-export class FoodContainerComponent implements OnInit {
-  food: FoodItem[] = [];
+export class FoodContainerComponent {
+  fs = inject(FoodService);
+  food = signal<FoodItem[]>([]);
   selected: FoodItem | null = null;
 
-  constructor(private fs: FoodService) {}
-
   ngOnInit() {
-    this.fs.getFood().subscribe((data) => (this.food = data));
-  }
-
-  addFood(item: FoodItem) {
-    this.selected = item;
-  }
-
-  selectFood(f: FoodItem) {
-    this.selected = { ...f };
-  }
-
-  deleteFood(f: FoodItem) {
-    this.fs.deleteFood(f.id).subscribe(() => {
-      let deleted = this.food.filter((item) => item.id != f.id);
-      this.food = [...deleted];
-      this.selected = null;
+    this.fs.getFood().subscribe((data) => {
+      this.food.set(data);
     });
   }
 
-  foodSaved(f: FoodItem) {
-    if (f.id) {
-      this.fs.updateFood(f).subscribe((result) => {
-        let existing = this.food.find((f) => f.id == result.id);
-        if (existing) {
-          Object.assign(existing, result);
-          this.food = [...this.food];
-        }
-      });
+  selectFood(food: FoodItem) {
+    console.log('selecting', food);
+    this.selected = { ...food };
+  }
+
+  deleteFood(food: FoodItem) {
+    console.log('deleting', food);
+  }
+
+  foodSaved(item: FoodItem) {
+    const clone = [...this.food()];
+    const idx = clone.findIndex((f) => f.id == item.id);
+    if (idx > -1) {
+      clone[idx] = item;
     } else {
-      this.fs.addFood(f).subscribe((result) => {
-        this.food.push(result);
-        this.food = [...this.food];
-      });
+      clone.push(item);
     }
+    this.food.set(clone);
     this.selected = null;
+  }
+
+  addFood() {
+    this.selected = new FoodItem();
   }
 }

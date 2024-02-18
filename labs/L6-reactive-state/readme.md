@@ -6,6 +6,8 @@ In this lab we will implement a Side Menu and a global Loading Indicator using R
 
 ## Steps Outlined
 
+- Implement a responsive Side Menu
+
 ### Implement a responsive Side Menu:
 
 - Implement a menu.service.ts as a Stateful Service using BehaviorSubjects with the two properties:
