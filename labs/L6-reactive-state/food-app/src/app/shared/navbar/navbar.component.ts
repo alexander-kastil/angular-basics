@@ -15,9 +15,10 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  sideMenu = inject(SideMenuService);
   nav = inject(NavbarService);
   navItems = this.nav.getItems()
+  sideMenu = inject(SideMenuService);
+  navVisible = this.sideMenu.getSideNavVisible();
 
   toggleMenu() {
     this.sideMenu.toggleMenuVisibility();

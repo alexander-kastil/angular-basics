@@ -167,3 +167,13 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
     }
   }
   ```
+
+- Last we will hook the hamburgerMenu to the SideMenuService. Modify the nav.component.ts to use the SideMenuService and add a navVisible property which will be a signal<boolean>. We will use this in our style binding to show/hide the hamburgerMenu.
+
+  ```typescript
+  export class NavbarComponent {
+    ...
+    sideMenu = inject(SideMenuService);
+    navVisible = this.sideMenu.getSideNavVisible();
+  }
+  ``` 
