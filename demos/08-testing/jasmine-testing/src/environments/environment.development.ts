@@ -1,6 +1,6 @@
 export const environment = {
     authEnabled: false,
-    title: 'Fundamentals',
+    title: 'Testing Angular Apps',
     markdownPath: '/assets/markdown/',
     api: 'http://localhost:3000/',
     netapi: 'https://localhost:5001/',

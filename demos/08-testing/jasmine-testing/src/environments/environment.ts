@@ -6,7 +6,7 @@ declare global {
 
 export const environment = {
     authEnabled: window['env'].AUTH_ENABLED || true,
-    title: 'Security & Publishing',
+    title: 'Testing Angular Apps',
     markdownPath: '/assets/markdown/',
     api: window['env'].API_URL || 'http://localhost:3000/',
     netapi: window['env'].NETAPI_URL || 'https://localhost:5001/',
