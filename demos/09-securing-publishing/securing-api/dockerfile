@@ -20,7 +20,7 @@ ENTRYPOINT ["dotnet", "securing-api.dll"]
 # docker push arambazamba/securing-api
 
 # Injecting environment variables into the container
-# docker run -it --rm -p 5051:80 securing-api -e "App:AuthEnabled"="false"
+# docker run -it --rm -p 5051:80 securing-api -e "UseFirebaseAuth"="true" -e "FirebaseProjectId"="fbauth-c3b69" 
 
 # Browse using: 
 # http://localhost:5051

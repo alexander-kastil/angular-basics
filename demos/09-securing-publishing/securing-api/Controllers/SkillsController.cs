@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,21 +6,14 @@ namespace ngDemoApp
 {
     // [Authorize]
     [Route("skills")]
-    public class SkillsController : Microsoft.AspNetCore.Mvc.Controller
+    public class SkillsController(SkillDBContext ctx) : Controller
     {
-        private SkillDBContext ctx;
-
-        public SkillsController(SkillDBContext dbctx)
-        {
-            // skillHub = hub;
-            ctx = dbctx;
-        }
 
         // http://localhost:5001/skills
         [HttpGet]
         public ActionResult<Skill[]> GetSkills()
         {
-            return this.ctx.Skills.ToArray();
+            return ctx.Skills.ToArray();
         }
 
         // http://localhost:5001/skills/1
@@ -59,7 +48,7 @@ namespace ngDemoApp
         }
 
         [HttpPut]
-        public IActionResult  UpdateSkill([FromBody] Skill skill)
+        public IActionResult UpdateSkill([FromBody] Skill skill)
         {
             ctx.Skills.Attach(skill);
             ctx.Entry(skill).State = EntityState.Modified;
