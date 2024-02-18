@@ -26,7 +26,7 @@ export const DEMO_ROUTES: Routes = [
       { path: 'responsive-screen', component: ResponsiveScreenComponent },
       { path: 'unsubscribe', component: UnsubscribingComponent },
       { path: 'async-pipe', component: AsyncPipeComponent },
-      { path: 'stateful', component: StatefulComponent },
+      { path: 'stateful-services', component: StatefulComponent },
       { path: 'event-bus', component: EventBusComponent },
       { path: 'loading', component: LoadingHostComponent },
       { path: 'ngrx-data', component: NgrxDataComponent },

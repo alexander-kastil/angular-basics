@@ -1,4 +1,6 @@
-- When using Reactive Forms & FormControls, you can use the `valueChanges` observable to listen to changes on the FormControl. This is a great way to implement debouncing on search fields. You can use the `debounceTime` operator to wait a certain amount of time after each keystroke before emitting the value. This way you can prevent unnecessary API calls.
+- `Reactive Forms` & `FormControls` provide a convenient way to track changes on the input fields. You can subscribe to the `valueChanges` observable of a `FormControl` and perform actions based on the input value. 
+
+- For example, you can implement a debounced search feature by using the `debounceTime` operator. This operator will delay the emission of the value until a specified time has elapsed after the last keystroke. This will help you avoid making unnecessary API calls for every input change.
 
 ```typescript
 this.subsSearchterms = this.searchterm.valueChanges

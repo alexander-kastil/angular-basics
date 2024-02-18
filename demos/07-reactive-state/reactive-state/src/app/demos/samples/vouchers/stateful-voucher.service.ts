@@ -11,43 +11,41 @@ import { Voucher } from './vouchers.model';
 })
 export class StatefulVoucherService {
   http = inject(HttpClient);
-  private vouchers: BehaviorSubject<Voucher[]> = new BehaviorSubject<Voucher[]>(
-    []
-  );
+  #vouchers: BehaviorSubject<Voucher[]> = new BehaviorSubject<Voucher[]>([]);
 
   constructor() {
     this.http.get<Voucher[]>(`${environment.api}vouchers`).subscribe((data) => {
-      this.vouchers.next(data);
+      this.#vouchers.next(data);
     });
 
     setTimeout(() => {
-      var arr = this.vouchers.getValue();
+      var arr = this.#vouchers.getValue();
       arr.push(lateVoucher as Voucher);
-      this.vouchers.next(arr);
+      this.#vouchers.next(arr);
     }, 6000);
   }
 
   getAllVouchers() {
-    return this.vouchers;
+    return this.#vouchers;
   }
 
   getVoucherById(id: number) {
-    return this.vouchers.pipe(map((arr) => arr.find((v) => v.ID == id)));
+    return this.#vouchers.pipe(map((arr) => arr.find((v) => v.ID == id)));
   }
 
   insertVoucher(v: Voucher) {
     this.http.post(environment.api, v).subscribe((result: any) => {
-      var arr = this.vouchers.getValue();
+      var arr = this.#vouchers.getValue();
       arr.push(result as Voucher);
-      this.vouchers.next(arr);
+      this.#vouchers.next(arr);
     });
   }
 
   updateVoucher(v: Voucher) { }
 
   deleteVoucher(id: number) {
-    var arr = this.vouchers.getValue();
+    var arr = this.#vouchers.getValue();
     var updated = arr.filter((v) => v.ID != id);
-    this.vouchers.next(updated);
+    this.#vouchers.next(updated);
   }
 }

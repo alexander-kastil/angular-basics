@@ -17,28 +17,24 @@
       "title": "Template / Async Pipe"
     },
     {
-      "url": "creating",
-      "title": "Observable Basics"
-    },
-    {
       "url": "unsubscribe",
       "title": "Unsubscribing"
+    },
+    {
+      "url": "creating",
+      "title": "Creating & Casting"
     },
     {
       "url": "operators",
       "title": "RxJs Operators"
     },
     {
-      "url": "stateful",
-      "title": "Stateful Service"
+      "url": "stateful-services",
+      "title": "Stateful Services"
     },
     {
       "url": "event-bus",
       "title": "Event Bus"
-    },
-    {
-      "url": "loading",
-      "title": "Loading Indicator"
     },
     {
       "url": "signals-basics",
@@ -50,7 +46,7 @@
     },
     {
       "url": "ngrx-data",
-      "title": "NgRx Intro: @ngrx-data"
+      "title": "@ngrx-data"
     }
   ],
   "top-links": [
@@ -187,7 +183,7 @@
       "id": "2",
       "name": "Cloud Native Apps",
       "hours": 3,
-      "completed": false,
+      "completed": false
     },
     {
       "name": "Cooking Pad Kra Pao",

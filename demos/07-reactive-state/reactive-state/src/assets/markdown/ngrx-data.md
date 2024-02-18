@@ -1,3 +1,5 @@
-- `@ngrx/data` allows low code NgRx functionality for entities
+- `@ngrx/data` is a library that simplifies the use of NgRx for managing data from RESTful APIs. It provides a set of generic `actions`, `reducers`, `selectors`, and `effects` for CRUD operations on entities. You can use it to reduce the amount of boilerplate code you need to write when working with NgRx.
 
-- Navigate to Skills route to see it working
+- One of the features of `@ngrx/data` is that it allows you to define custom data services that can override the default HTTP methods and URL conventions. This can be useful when you need to customize the behavior of your API calls or handle different response formats.
+
+- To see how `@ngrx/data` works in action, you can check out the `skills-route` in this app. It demonstrates how to use `@ngrx/data` to fetch, create, update, and delete skills from a mock API. You can also see how to use the `EntityDataService` to register custom data services for specific entities.
