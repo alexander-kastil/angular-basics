@@ -26,8 +26,7 @@
 - Types, Variables, Literal Types, Functions
 - Objects, Classes, Interfaces
 - Immutability, Cloning & Object Composition
-- Async Operations, Promises 
-- Observables vs Signals
+- Async Operations, Observables & Signals
 - Calculated Signals & Effects
 
 ### Databinding & Completing Basic Tasks
