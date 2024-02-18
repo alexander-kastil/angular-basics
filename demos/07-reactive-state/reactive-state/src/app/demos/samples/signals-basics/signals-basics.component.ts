@@ -1,52 +1,51 @@
-import { Component, Signal, computed, effect, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { of, startWith } from 'rxjs';
-import { BorderDirective } from '../../../shared/formatting/formatting-directives';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+import { Component, Injector, computed, effect, inject, signal } from '@angular/core';
+import { Topic } from './topic.model';
+import { BorderDirective, CenteredDirective } from '../../../shared/formatting/formatting-directives';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 @Component({
     selector: 'app-signals-basics',
     templateUrl: './signals-basics.component.html',
     styleUrls: ['./signals-basics.component.scss'],
     standalone: true,
-    imports: [MarkdownRendererComponent, MatCardModule, MatButtonModule, BorderDirective]
+    imports: [MarkdownRendererComponent, MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatButton, BorderDirective, CenteredDirective]
 })
 export class SignalsBasicsComponent {
-  totalAmount = signal<number>(0);
-  runningAmount = signal<number>(10);
-  amountSignal: Signal<number | undefined>;
-  amount$ = of(10).pipe(startWith(0));
+  injector = inject(Injector)
+
+  netAmount = signal<number>(0);
+  myString = signal('Hello World')
+  topic = signal<Topic>({ name: 'Angular Signals', likes: 0 });
+
+  tax = signal(0.2).asReadonly();
+  grossAmount = computed(() => this.netAmount() * (1 + this.tax()));
 
   constructor() {
     effect(() => {
-      console.log('totalAmount changed', this.totalAmount());
+      console.log('totalAmount changed', this.netAmount());
+      console.log('grossAmount changed', this.grossAmount());
     });
+  }
+
+  logLikes() {
     effect(() => {
-      console.log(this.amountSignal());
+      console.log('there was a like', this.topic());
+    }, { injector: this.injector });
+  }
+
+  updateAmount() {
+    this.netAmount.set(100);
+  }
+
+  addAmount() {
+    this.netAmount.update(curr => curr + 10);
+  }
+
+  likeTopic() {
+    this.topic.update(curr => {
+      curr.likes++;
+      return curr;
     });
-    this.amountSignal = toSignal(this.amount$);
-  }
-
-  OnInit() {
-    effect(() => {
-      console.log('runningAmount changed', this.runningAmount());
-    });
-  }
-
-  signalBasics() {
-    const amount = signal(10);
-    const tax = signal(0.2);
-    const total = computed(() => amount() * (1 + tax()));
-    this.totalAmount.set(total());
-    console.log('total', total());
-  }
-
-  signalTyped() {
-    const amount = signal<number>(20);
-    const tax = signal<number>(0.2);
-    const total = computed<number>(() => amount() * (1 + tax()));
-    this.runningAmount.update(curr => curr + total());
-    console.log('total', total());
   }
 }

@@ -8,6 +8,7 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
 
 - Add a Signal based SideMenuService
 - Implement a responsive Side Menu using Angular Material Sidenav
+- Add client side state management using Signal based Stateful Services
 
 ### Add a Signal based SideMenuService
 
@@ -177,3 +178,10 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
     navVisible = this.sideMenu.getSideNavVisible();
   }
   ``` 
+
+### Add client side state management using Signal based Stateful Services
+
+- Signals and Stateful Services are the tools we will use to manage client side state. In real world scenarios, you would typically use a state management library such as NgRx and [@ngrx/signals](https://ngrx.io/guide/signals). This topic is covered in more detail in the `Advanced Angular Development` course. In this lab, we will use Signals and Stateful Services to learn the basic principles of how state management libraries work.
+ 
+
+ 

@@ -1,0 +1,7 @@
+<app-markdown-renderer [md]="'stateful-signals'"></app-markdown-renderer>
+
+<div boxed>
+  @for (v of vouchers(); track $index) {
+  <div>{{ v.Text }}</div>
+  }
+</div>

@@ -13,6 +13,7 @@ import { SignalsBasicsComponent } from './samples/signals-basics/signals-basics.
 import { SignalsEventBusComponent } from './samples/signals-event-bus/signals-event-bus.component';
 import { StatefulComponent } from './samples/stateful/stateful.component';
 import { UnsubscribingComponent } from './samples/unsubscribing/unsubscribing.component';
+import { StatefulSignalsComponent } from './samples/stateful-signals/stateful-signals.component';
 
 export const DEMO_ROUTES: Routes = [
   {
@@ -32,6 +33,7 @@ export const DEMO_ROUTES: Routes = [
       { path: 'ngrx-data', component: NgrxDataComponent },
       { path: 'signals-basics', component: SignalsBasicsComponent },
       { path: 'signals-bus', component: SignalsEventBusComponent },
+      { path: 'stateful-signals', component: StatefulSignalsComponent },
     ],
   },
 ];

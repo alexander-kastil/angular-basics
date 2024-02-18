@@ -41,6 +41,10 @@
       "title": "Signals Basics"
     },
     {
+      "url": "stateful-signals",
+      "title": "Stateful Signals"
+    },
+    {
       "url": "signals-bus",
       "title": "Signals Event Bus"
     },
