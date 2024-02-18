@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidemenuComponent } from './shared/sidemenu/sidemenu.component';
+import { SideMenuComponent } from './shared/sidemenu/sidemenu.component';
 import { FoodContainerComponent } from './food/food-container/food-container.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NgStyle } from '@angular/common';
+import { environment } from '../environments/environment';
+import { SideMenuService } from './shared/sidemenu/sidemenu.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +16,19 @@ import { FoodContainerComponent } from './food/food-container/food-container.com
     RouterOutlet,
     HomeComponent,
     NavbarComponent,
-    SidemenuComponent,
-    FoodContainerComponent
+    SideMenuComponent,
+    FoodContainerComponent,
+    MatSidenavModule,
+    NgStyle
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Food App';
+  nav = inject(SideMenuService);
+  title = environment.title;
+
+  navPosition = this.nav.getSideNavPosition();
+  navVisible = this.nav.getSideNavVisible();
+  workbenchMargin = {};
 }

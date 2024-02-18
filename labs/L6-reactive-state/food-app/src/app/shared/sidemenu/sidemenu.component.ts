@@ -9,6 +9,6 @@ import { MatListModule } from '@angular/material/list';
   templateUrl: './sidemenu.component.html',
   styleUrl: './sidemenu.component.scss'
 })
-export class SidemenuComponent {
+export class SideMenuComponent {
 
 }

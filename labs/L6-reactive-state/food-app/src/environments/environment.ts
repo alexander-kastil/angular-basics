@@ -1,3 +1,4 @@
 export const environment = {
-    apiUrl: 'assets/menu-items.json',
+    title: 'Food App',
+    apiUrl: 'http://localhost:3000/',
 };

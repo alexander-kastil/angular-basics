@@ -1,31 +1,30 @@
 .grid {
   display: grid;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   gap: 0.5rem;
-  grid-template-rows: 80px auto;
-  grid-template-columns: 180px auto;
+  grid-template-rows: 70px 10px calc(100vh - 100px);
+  grid-template-columns: auto;
   grid-template-areas:
-    "navbar navbar"
-    "sidemenu maincontent";
-
-    @media only screen and (max-width: 960px) {
-      grid-template-columns: auto;
-      grid-template-areas:
-        "navbar"
-        "maincontent"
-    }    
+    "navbar"
+    "loading"
+    "mainrow";
 }
 
 .gd-navbar {
   grid-area: navbar;
 }
 
-.gd-sidemenu {
-  grid-area: sidemenu;
-  background: lightgrey;
+.gd-loading {
+  grid-area: loading;
 }
 
-.gd-maincontent {
-  grid-area: maincontent;
+.gd-mainrow {
+  grid-area: mainrow;
+  background-color: lightgray;
 }
+
+.sidenav{
+  height: 80vh;
+}
+

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidemenuComponent } from './sidemenu.component';
+import { SideMenuComponent } from './sidemenu.component';
 
 describe('SidemenuComponent', () => {
-  let component: SidemenuComponent;
-  let fixture: ComponentFixture<SidemenuComponent>;
+  let component: SideMenuComponent;
+  let fixture: ComponentFixture<SideMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SidemenuComponent]
+      imports: [SideMenuComponent]
     })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(SidemenuComponent);
+      .compileComponents();
+
+    fixture = TestBed.createComponent(SideMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
