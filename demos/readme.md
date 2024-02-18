@@ -67,7 +67,7 @@
 - Responsive Web Design using Media Queries
 - Layout using Flexbox, CSS Grid and Areas
 - Angular Material Overview
-- Using Material Tables, Dialogs & Form Controls
+- Common controls: Tables, Dialogs & Form Controls ...
 - Angular CDK & 3rd Party Components (Virtual Lists, Drag & Drop, Markdown, ...)
 
 ### Forms Design & Validation
