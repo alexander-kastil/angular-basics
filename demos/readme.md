@@ -1,7 +1,7 @@
 # Demos
 
-- Angular Introduction & Setup
-- Mastering TypeScript in the Angular Eco-System
+- Angular Introduction & Ecosystem
+- TypeScript in the Angular Eco-System
 - Databinding & Completing Basic Tasks
 - Implementing Nested Components
 - Routing & Dependency Injection
@@ -21,7 +21,7 @@
 - Bootstrapping & Configuration
 - Maintaining & Updating projects
 
-### Mastering TypeScript in the Angular Eco-System
+### TypeScript in the Angular Eco-System
 
 - TypeScript Overview, ECMA Script Standards
 - Types, Variables, Literal Types, Functions
