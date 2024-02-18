@@ -4,7 +4,7 @@
 
 [HTML Attributes Reference](https://www.w3schools.com/tags/ref_attributes.asp)
 
-[HTML Events Referenc](https://www.w3schools.com/tags/ref_eventattributes.asp)
+[HTML Events Reference](https://www.w3schools.com/tags/ref_eventattributes.asp)
 
 [Attribute Directives](https://angular.io/guide/attribute-directives)
 

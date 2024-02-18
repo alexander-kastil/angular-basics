@@ -1,6 +1,6 @@
 # Security
 
-## Auth Bascis
+## Auth Basics
 
 [JSON Web Tokens - Jwt](https://jwt.io/)
 

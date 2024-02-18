@@ -18,13 +18,13 @@
 
 [Mozilla CSS Grid](https://mozilladevelopers.github.io/playground/css-grid)
 
-[CSS Grid - Subgrids](https://www.smashingmagazine.com/2018/07/css-grid-2/)
+[CSS Grid - sub grids](https://www.smashingmagazine.com/2018/07/css-grid-2/)
 
 [CSS Grid Playground](https://www.cssgridplayground.com/)
 
 [Css Grid Garden](https://cssgridgarden.com/#de)
 
-[Easy Css Grid Protoyping](https://grid.layoutit.com)
+[Easy Css Grid Prototyping](https://grid.layoutit.com)
 
 ## Angular Flex-Layout
 

@@ -45,7 +45,7 @@
 
 ### Cypress
 
-Run in two seperate terminals
+Run in two separate terminals
 
 Serve the app:
 
