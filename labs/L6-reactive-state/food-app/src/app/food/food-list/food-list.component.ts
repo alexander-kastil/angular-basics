@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges, input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges, effect, input } from '@angular/core';
 import { FoodItem } from '../food.model';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -31,8 +31,12 @@ export class FoodListComponent {
   ];
   dataSource = new MatTableDataSource([]);
 
-  ngOnChanges(changes: SimpleChanges) {
-    this.dataSource = new MatTableDataSource(changes["food"].currentValue);
+  constructor() {
+    effect(() => {
+      var food = this.food() as any; //cast required for MatTableDataSource
+      console.log("food", food);
+      this.dataSource = new MatTableDataSource(food);
+    });
   }
 
   applyFilter(filterValue: string) {

@@ -184,4 +184,44 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
 - Signals and Stateful Services are the tools we will use to manage client side state. In real world scenarios, you would typically use a state management library such as NgRx and [@ngrx/signals](https://ngrx.io/guide/signals). This topic is covered in more detail in the `Advanced Angular Development` course. In this lab, we will use Signals and Stateful Services to learn the basic principles of how state management libraries work.
  
 
- 
+- You can take [StatefulSignalService](/demos/07-reactive-state/reactive-state/src/app/demos/samples/stateful-signals/stateful-signals.service.ts) as a reference to implement the `SideMenuService` as a Stateful Service. 
+
+- Add a designated stateful food-state.service.ts;
+
+  ```bash
+  ng g s food/food-state
+  ```
+
+- Inject the FoodService and implement the CRUD-methods in the food-state.service.ts. 
+
+  ```typescript
+  export class FoodStateService {
+    service = inject(FoodService);
+    #food = signal<FoodItem[]>([]);
+
+    constructor() {
+      this.service.getFood().subscribe((data) => {
+        this.#food.set(data);
+      });
+    }
+
+    getFood() {
+      return computed(() => this.#food());
+    }
+
+    getFoodById(id: number) {
+      return computed(() => this.#food().find((f) => f.id === id));
+    }
+
+    ...
+  ```
+
+- Replace the use of the `FoodService` in `food-container.component.ts` with the `FoodStateService`. Update all methods to use the `FoodStateService` instead of the `FoodService`.
+
+  ```typescript
+  export class FoodContainerComponent {
+    food = inject(FoodStateService);
+    foodItems = this.food.getFood();
+    selected: FoodItem | null = null;
+    ...
+  ```
