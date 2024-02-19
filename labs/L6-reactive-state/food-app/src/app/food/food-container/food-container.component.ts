@@ -37,4 +37,8 @@ export class FoodContainerComponent {
   addFood() {
     this.selected = new FoodItem();
   }
+
+  cancelEdit() {
+    this.selected = null;
+  }
 }

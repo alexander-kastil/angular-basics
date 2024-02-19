@@ -16,6 +16,7 @@ import { FoodItem } from '../food.model';
 export class FoodEditComponent {
   food = input.required<FoodItem>();
   @Output() onFoodSave: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+  @Output() onCancelEdit: EventEmitter<void> = new EventEmitter<void>();
   fb = inject(NonNullableFormBuilder);
 
   form: FormGroup = this.fb.group({
@@ -34,5 +35,9 @@ export class FoodEditComponent {
 
   saveFood(form: FormGroup) {
     if (this.food()) this.onFoodSave.emit(form.value);
+  }
+
+  cancelEdit() {
+    this.onCancelEdit.emit();
   }
 }

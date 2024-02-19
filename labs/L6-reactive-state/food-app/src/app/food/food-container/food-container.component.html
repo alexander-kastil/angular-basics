@@ -6,5 +6,9 @@
 ></app-food-list>
 
 @if(selected){
-  <app-food-edit [food]="selected" (onFoodSave)="foodSaved($event)" ></app-food-edit>
+  <app-food-edit 
+    [food]="selected" 
+    (onFoodSave)="foodSaved($event)" 
+    (onFoodCancel)="cancelEdit()"
+    ></app-food-edit>
 }
