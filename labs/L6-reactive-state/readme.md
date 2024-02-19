@@ -192,7 +192,7 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
   ng g s food/food-state
   ```
 
-- Inject the FoodService and implement the CRUD-methods in the food-state.service.ts. 
+- Inject the FoodService use it's methods and process the response in methods that modify the signal state in the food-state.service.ts. 
 
   ```typescript
   export class FoodStateService {
