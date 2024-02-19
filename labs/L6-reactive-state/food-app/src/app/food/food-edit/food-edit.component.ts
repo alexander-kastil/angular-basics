@@ -23,7 +23,7 @@ export class FoodEditComponent {
     id: 0,
     name: ["", [Validators.required, Validators.minLength(3)]],
     price: [0, [Validators.required, Validators.min(1)]],
-    calories: 0,
+    items: [0, Validators.min(0)]
   });
 
   constructor() {
