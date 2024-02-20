@@ -34,7 +34,6 @@ export class FoodListComponent {
   constructor() {
     effect(() => {
       var food = this.food() as any; //cast required for MatTableDataSource
-      console.log("food", food);
       this.dataSource = new MatTableDataSource(food);
     });
   }

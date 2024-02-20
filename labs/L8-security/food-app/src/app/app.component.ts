@@ -5,9 +5,13 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SideMenuComponent } from './shared/sidemenu/sidemenu.component';
 import { FoodContainerComponent } from './food/food-container/food-container.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { NgStyle } from '@angular/common';
+import { AsyncPipe, NgStyle } from '@angular/common';
 import { environment } from '../environments/environment';
 import { SideMenuService } from './shared/sidemenu/sidemenu.service';
+import { FirebaseAuthService } from './firebase-auth/firebase-auth.service';
+import { tap } from 'rxjs';
+import { IntroComponent } from './shared/intro/intro.component';
+import { CenteredDirective } from './shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-root',
@@ -19,23 +23,30 @@ import { SideMenuService } from './shared/sidemenu/sidemenu.service';
     SideMenuComponent,
     FoodContainerComponent,
     MatSidenavModule,
-    NgStyle
+    NgStyle,
+    AsyncPipe,
+    CenteredDirective,
+    IntroComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   nav = inject(SideMenuService);
+  auth = inject(FirebaseAuthService);
   title = environment.title;
 
   navPosition = this.nav.getSideNavPosition();
   navVisible = this.nav.getSideNavVisible();
-  workbenchMargin = {};
+  workbenchMargin: any = {};
+
+  isAuthenticated = this.auth
+    .isAuthenticated()
+    .pipe(tap((auth) => console.log('authState changed to:', auth)));
 
   constructor() {
     effect(() => {
-      this.workbenchMargin = this.navVisible() ? { 'margin-left': '0.5rem' } : {};
-      console.log('Workbench margin:', this.workbenchMargin);
+      this.workbenchMargin = this.navVisible() ? { 'padding-left': '1rem' } : {};
     })
   }
 }

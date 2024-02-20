@@ -1,12 +1,17 @@
+@if(isAuthenticated | async) {
 <div class="grid">
   <div class="gd-navbar">
-    <app-navbar></app-navbar></div>
-  <div class="gd-loading">    
+    <app-navbar></app-navbar>
   </div>
+  <div class="gd-loading"></div>
   <div class="gd-mainrow">
     <mat-sidenav-container>
-      <mat-sidenav #sidenav class="sidenav"
-      [opened]="navVisible()" [mode]="navPosition()">
+      <mat-sidenav
+        #sidenav
+        class="sidenav"
+        [opened]="navVisible()"
+        [mode]="navPosition()"
+      >
         <app-sidemenu></app-sidemenu>
       </mat-sidenav>
       <mat-sidenav-content [ngStyle]="workbenchMargin">
@@ -15,3 +20,8 @@
     </mat-sidenav-container>
   </div>
 </div>
+}@else {
+<div class="centered">
+  <app-intro [title]="title" [img]="'food.png'"></app-intro>
+</div>
+}

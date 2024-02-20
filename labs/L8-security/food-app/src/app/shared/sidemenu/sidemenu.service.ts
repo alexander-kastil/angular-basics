@@ -29,7 +29,6 @@ export class SideMenuService {
     .observe([Breakpoints.XSmall, Breakpoints.Small])
     .pipe(
       tap((matchesBreakpoint) => {
-        console.log(matchesBreakpoint);
         this.visible.set(matchesBreakpoint.matches ? false : true);
         this.position.set(matchesBreakpoint.matches ? 'over' : 'side');
       })

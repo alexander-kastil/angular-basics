@@ -6,11 +6,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SideMenuService } from '../sidemenu/sidemenu.service';
 import { MatIconModule } from '@angular/material/icon';
 import { AsyncPipe } from '@angular/common';
+import { CurrentUserComponent } from '../../firebase-auth/components/current-user/current-user.component';
+import { LogoutBtnComponent } from '../../firebase-auth/components/logout-btn/logout-btn.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, MatToolbarModule, MatIconModule, AsyncPipe],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    MatToolbarModule,
+    MatIconModule,
+    AsyncPipe,
+    CurrentUserComponent,
+    LogoutBtnComponent
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

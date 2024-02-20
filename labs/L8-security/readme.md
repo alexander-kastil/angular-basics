@@ -26,6 +26,8 @@ In this lab we will add Firebase Authentication as an example for easy to implem
 
 -   In the Firebase console, expand `Build` and go to `Authentication` and enable `Email/Password` as a sign-in method. Skip the e-mail validation for now.
 
+- Add an `authEnabled` flag to your environment files and set it to `false`. This will allow you to turn off authentication for local development.,
+
 ## Copy and Use the provided Firebase Authentication artifacts
 
 -   Add the following dependencies to your project:
@@ -34,7 +36,7 @@ In this lab we will add Firebase Authentication as an example for easy to implem
     npm install firebase @angular/fire --save
     ```
 
--   Copy the following [artifacts](./auth-artifacts/) to your project. You can take the following [reference](../../demos/06-security/01-firebase/firebase-auth/) implementation. Fix any import path errors that might exist.
+-   Copy the following [artifacts](./auth-artifacts/) to your project. You can take the following [reference](/demos/09-securing-publishing/securing-publishing/) implementation. Fix any import path errors that might exist.
 
 -   Provide the firebase services in `app.config.ts`:
 
@@ -49,6 +51,7 @@ In this lab we will add Firebase Authentication as an example for easy to implem
 
     ```typescript
     auth = inject(FirebaseAuthService);
+    ...
     isAuthenticated = this.auth
       .isAuthenticated()
       .pipe(tap((auth) => console.log('authState changed to:', auth)));
@@ -60,7 +63,7 @@ In this lab we will add Firebase Authentication as an example for easy to implem
 
     > Note: You can turn off authentication by setting `authEnabled` to `false` in your environment file.
 
--   Review and add `app-current-user` and the `app-logout-btn` to nav.component.html. You might have to add missing imports in the `nav.component.ts` file. The logout button should only be visible when the user is logged in.
+-   Review `app-current-user` and the `app-logout-btn` and add it to `nav.component.html`. You might have to add missing imports in the `nav.component.ts` file. The logout button should only be visible when the user is logged in.
 
 ## Activate Security on the food route
 
