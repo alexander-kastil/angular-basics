@@ -16,12 +16,12 @@ export class BalanceAccount {
 }
 
 export class Voucher {
-  ID: number = 0;
-  Text: string = '';
-  Date: string = '';
-  Amount: number = 0;
-  Paid: boolean = false;
-  Expense: boolean = false;
+  ID = "0";
+  Text = '';
+  Date = '';
+  Amount = 0;
+  Paid = false;
+  Expense = false;
   Remark?: boolean;
   Readonly?: boolean;
   Details?: VoucherDetail[];

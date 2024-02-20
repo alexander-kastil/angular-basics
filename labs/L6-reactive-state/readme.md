@@ -20,17 +20,17 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
 
 - Use [sidenav.service.ts](/demos/07-reactive-state/reactive-state/src/app/shared/sidenav/sidenav.service.ts) as a reference to implement the `sidemenu.service.ts`. Do not copy past but basically it would work the same way. 
 
-- Modify nav.component.html to use the SideMenuService
+- Modify `nav.component.html` to use the `SideMenuService`:
 
   ```html
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <div class="hamburgerMenu" (click)="toggleMenu()">
-        <mat-icon color="accent">menu</mat-icon>
+        <mat-icon>menu</mat-icon>
       </div>
   ```
 
-- Add a required css to nav.component.scss
+- Add a required css to `nav.component.scss`:
 
   ```css
   .hamburgerMenu{
@@ -45,7 +45,7 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
   }
   ```
 
-- Next we will refactor the imperative code to get the `navItems` to a reactive approach using Signals. Remove the ngOnInit as we no longer need it.
+- Next we will refactor the imperative code to get the `navItems` to a reactive approach using Signals. Remove the `ngOnInit` as we no longer need it.
 
   ```typescript
     ngOnInit() {
@@ -55,14 +55,14 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
     }
   ```
 
-- Set navItems in a declarative way using the SideMenuService
+- Set navItems in a declarative way using the `SideMenuService`:
 
   ```typescript
   nav = inject(NavbarService);
   navItems = this.nav.getItems();
   ```  
 
-- Update the corresponding html to use the `navItems` Observable. You might need to import the `async` pipe from `@angular/common`.
+- Update `navbar.component.html` to use the `navItems` Observable. You might need to import the `async` pipe from `@angular/common`.
 
   ```html
   @for (item of navItems | async; track item) {
@@ -209,14 +209,17 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
       return computed(() => this.#food());
     }
 
-    getFoodById(id: number) {
-      return computed(() => this.#food().find((f) => f.id === id));
-    }
+    ...
 
+    deleteFood(id: number) {
+      this.service.deleteFood(id).subscribe(() => {
+        this.#food.update((foods) => foods.filter((f) => f.id !== id));
+      });
+    }
     ...
   ```
 
-- Replace the use of the `FoodService` in `food-container.component.ts` with the `FoodStateService`. Update all methods to use the `FoodStateService` instead of the `FoodService`.
+- Replace the use of the `FoodService` in `food-container.component.ts` with the `FoodStateService` and update all methods to use the `FoodStateService` instead of the `FoodService`.
 
   ```typescript
   export class FoodContainerComponent {

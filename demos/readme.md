@@ -67,7 +67,7 @@
 - Common controls: Tables, Dialogs & Form Controls ...
 - Angular CDK & 3rd Party Components (Virtual Lists, Drag & Drop, Markdown, ...)
 
-### Forms Design & Validation
+### Reactive Forms Design & Validation
 
 - Forms Introduction
 - Template Driven Forms vs Reactive (Model Based) Forms
@@ -87,7 +87,7 @@
 - Capturing Mouse & DOM Events as Observables
 - Observable & Signal Interoperability
 
-### Managing State & Sharing Events
+### Managing client State & Sharing Events
 
 - What is State Management
 - State Management Options: Signals vs Observables
