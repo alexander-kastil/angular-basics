@@ -67,7 +67,7 @@ In this lab we will add Firebase Authentication as an example for easy to implem
 
 ## Activate Security on the food route
 
-- Examine `firebase.auth-guard.service.ts` and activate the guard on the food route in `app.routes.ts`:
+- Examine `firebase.auth.guard.ts` and activate the guard on the food route in `app.routes.ts`:
 
   ```typescript
   export const routes: Routes = [
@@ -82,26 +82,6 @@ In this lab we will add Firebase Authentication as an example for easy to implem
   ```
 
 - Test if you can access the food route when you are not logged in. You should be redirected to the root page.
-
-- Refactor the guard to a functional implementation on your own. A possible Solution could look like this:
-
-  ```typescript
-  export const firebaseGuard = () => {
-    const router = inject(Router);
-    const auth = inject(FirebaseAuthService);
-    const user = auth.getUser();
-    return user.pipe(
-      map((user) => {
-        if (environment.authEnabled == false || user != null) {
-          return true;
-        } else {
-          router.navigate(['/']);
-          return false;
-        }
-      })
-    );
-  }
-  ```
 
   > Note: If you would like to forward the token to the backend, you can use `firebase-auth.interceptor.ts` as a reference and register the interceptor in `app.config.ts`:
 

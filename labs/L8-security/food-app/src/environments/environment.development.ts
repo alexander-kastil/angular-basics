@@ -1,7 +1,7 @@
 export const environment = {
     title: 'Food App',
     apiUrl: 'http://localhost:3000/',
-    authEnabled: true,
+    authEnabled: false,
     firebaseConfig: {
         apiKey: "AIzaSyD2KCTKVd6QucNY_V2QXzsg8db2nJPvNdw",
         authDomain: "fbauth-c3b69.firebaseapp.com",
