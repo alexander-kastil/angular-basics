@@ -1,8 +1,6 @@
-- Navigate to folder `\component-test\simple-food` and examine `simple-food.component.ts` & and `simple-food.component.spec.ts`
+- Examine `simple-food.component.ts` & and `simple-food.component.spec.ts`. 
 
-- Navigate to folder `\demos\foodService\`: `food.service.ts`
-
-- Notice that whe are using `jasmine.createSpyObj()` to mock an Object and fake it's result using `.and.returnValue`:
+- The test mocks `food.service.ts` using a Jasmine Spy Object. Notice that whe are using `jasmine.createSpyObj()` to mock an Object and fake it's result using `.and.returnValue`:
 
 ```typescript
 beforeEach(() => {

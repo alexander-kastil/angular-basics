@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthService } from '../auth.service';
 import { UseSpyComponent } from './use-spy.component';
+import { By } from '@angular/platform-browser';
 
 describe('UseMockComponent with MockAuth Service', () => {
   let spy: any;
@@ -29,7 +30,8 @@ describe('UseMockComponent with MockAuth Service', () => {
   });
 
   it('should have the correct login state on the Template', () => {
-    expect(fixture.nativeElement.querySelector('#auth').textContent).toContain(
+    const span = fixture.debugElement.query(By.css('[data-testid="result"]'));
+    expect(span.nativeElement.innerText).toContain(
       'true'
     );
   });

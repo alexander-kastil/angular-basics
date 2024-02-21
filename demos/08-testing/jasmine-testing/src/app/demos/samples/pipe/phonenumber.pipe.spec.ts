@@ -1,6 +1,6 @@
 import { PhoneNumberPipe } from './phonenumber.pipe';
 
-describe('Pipe - Phonenumber', () => {
+describe('Pipe - Phone number', () => {
   it('create an instance', () => {
     const pipe = new PhoneNumberPipe();
     expect(pipe).toBeTruthy();

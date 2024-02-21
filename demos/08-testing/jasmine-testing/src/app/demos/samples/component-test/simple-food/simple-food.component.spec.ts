@@ -16,19 +16,17 @@ describe('Component - Spy - FoodComponent:', () => {
     spy.getFood.and.returnValue(of(foodData))
 
     TestBed.configureTestingModule({
-    imports: [MatCardModule, NoopAnimationsModule, SimpleFoodComponent],
-    providers: [{ provide: FoodServiceBS, useValue: spy }],
-});
+      imports: [MatCardModule, NoopAnimationsModule, SimpleFoodComponent],
+      providers: [{ provide: FoodServiceBS, useValue: spy }],
+    });
 
     fixture = TestBed.createComponent(SimpleFoodComponent);
     component = fixture.componentInstance;
     component.ngOnInit();
     fixture.detectChanges();
-  });
-
+  })
   it('should call getItems to subscribe data', () => {
     expect(component.food.length).toBe(4)
-
     // you can access the html using fixture.nativeElement.innerHTML
     let html = fixture.nativeElement.innerHTML as HTMLElement;
     console.log(html);
