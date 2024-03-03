@@ -13,16 +13,16 @@ const foodData = of([
   { name: 'Pad Thai', rating: 5 },
   { name: 'Butter Chicken', rating: 5 },
   { name: 'Cannelloni', rating: 4 },
-  { name: 'Cordon Blue', rating: 2 },
+  { name: 'Cordon Blue', rating: 2 }
 ]);
 
 const serviceResult = of([
   { name: 'Pad Thai', rating: 5 },
   { name: 'Butter Chicken', rating: 5 },
-  { name: 'Cannelloni', rating: 4 },
+  { name: 'Cannelloni', rating: 4 }
 ]);
 
-const deleteItem = { id: 4, name: 'Cordon Blue', rating: 2 };
+const deleteItem = { name: 'Cordon Blue', rating: 2 };
 
 describe('Component - Integration Test', () => {
   let fixture: ComponentFixture<FoodListComponent>;
@@ -32,7 +32,6 @@ describe('Component - Integration Test', () => {
   beforeEach(() => {
     service = jasmine.createSpyObj('HttpClient', ['getFood', 'deleteFood']);
     service.getFood.and.returnValue(foodData);
-    service.deleteFood.and.returnValue(of(serviceResult));
 
     fixture = TestBed.configureTestingModule({
       providers: [
@@ -43,7 +42,6 @@ describe('Component - Integration Test', () => {
 
     fixture = TestBed.createComponent(FoodListComponent);
     comp = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -56,4 +54,14 @@ describe('Component - Integration Test', () => {
     expect(rows.length).toEqual(4);
     expect(rows[0].componentInstance.food.name).toEqual('Pad Thai');
   });
+
+  it('should delete a food item when a food row is clicked', () => {
+    service.deleteFood.and.returnValue(of(serviceResult));
+    fixture.detectChanges();
+
+    const rows = fixture.debugElement.queryAll(By.directive(FoodRowComponent));
+    rows[3].query(By.css('button')).triggerEventHandler('click', null);
+    expect(service.deleteFood).toHaveBeenCalledWith(deleteItem);
+  });
+
 });

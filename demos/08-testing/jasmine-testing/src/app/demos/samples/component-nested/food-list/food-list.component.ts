@@ -1,9 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { FoodRowComponent } from '../food-row/food-row.component';
-import { FoodItem } from '../../food.model';
-import { FoodServiceStateful } from '../food-stateful.service';
 import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { FoodItem } from '../../food.model';
+import { FoodRowComponent } from '../food-row/food-row.component';
+import { FoodServiceStateful } from '../food-stateful.service';
 
 @Component({
   selector: 'app-food-list',
@@ -22,7 +22,5 @@ export class FoodListComponent {
 
   deleteFood(food: FoodItem) {
     this.fs.deleteFood(food);
-    // this.food = this.food.filter((i) => i != food);
-    // this.fs.deleteFood(food);
   }
 }
