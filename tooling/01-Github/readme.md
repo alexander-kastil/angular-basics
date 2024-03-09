@@ -58,7 +58,7 @@ git add file.txt | *.ts
 Commit files:
 
 ```
-git commit -m "your checkin comment"
+git commit -m "your check-in comment"
 ```
 
 ## Status & Updates
@@ -75,7 +75,7 @@ Check for remote updates:
 git remote update
 ```
 
-Show Status (Adds/Delets/Changes):
+Show Status (Adds/Deletes/Changes):
 
 ```
 git status
@@ -92,7 +92,7 @@ git branch
 Create Branch:
 
 ```
-git branch feature/myfeature
+git branch feature/my-feature
 ```
 
 Push new Branch to remote:
@@ -119,7 +119,7 @@ git merge [branch_to_merge]
 
 ## Dealing with special Commits
 
-Get a spcific Commit:
+Get a specific Commit:
 
 ```
 git checkout <sha1>
@@ -280,7 +280,7 @@ git submodule update --remote --merge
 
 > Note: Require GIT 2.24.0+ - Check with `git --version`
 
-Initialize repo for gitflow:
+Initialize repo for git-flow:
 
 ```
 git flow init
