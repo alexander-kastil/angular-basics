@@ -8,16 +8,22 @@ import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-form-controls',
-    templateUrl: './form-controls.component.html',
-    styleUrls: ['./form-controls.component.scss'],
-    standalone: true,
-    imports: [MarkdownRendererComponent, MatCardModule, MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule]
+  selector: 'app-form-controls',
+  templateUrl: './form-controls.component.html',
+  styleUrls: ['./form-controls.component.scss'],
+  standalone: true,
+  imports: [MarkdownRendererComponent, MatCardModule, MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule]
 })
 export class FormControlsComponent {
   destroy = inject(DestroyRef);
-  searchTerm = new FormControl<string | null>('', [Validators.required, Validators.minLength(3)]);
+
+  searchTerm = new FormControl<string | null>(
+    '',
+    [Validators.required, Validators.minLength(3)]
+  );
+
   chkSave = new FormControl<boolean>(true);
+  showSave = true;
 
   ngOnInit() {
     this.searchTerm.valueChanges
@@ -34,6 +40,12 @@ export class FormControlsComponent {
     this.searchTerm.statusChanges
       .pipe(takeUntilDestroyed(this.destroy))
       .subscribe((status) => {
+        if (status === 'INVALID') {
+          this.showSave = false;
+        }
+        else {
+          this.showSave = true;
+        }
         console.log('status of search term:', status);
       });
   }

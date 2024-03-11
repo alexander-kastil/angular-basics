@@ -61,8 +61,8 @@ export class ObjectsComponent {
     let fullPerson = { firstName: 'John', name: 'Doe', age: 17, children: 5 };
 
     //anti pattern
-    // let first = fullPerson.firstName;
-    // let alter = fullPerson.age;
+    // const first = fullPerson.firstName;
+    // const alter = fullPerson.age;
 
     //destructuring
     let { firstName, age } = fullPerson;

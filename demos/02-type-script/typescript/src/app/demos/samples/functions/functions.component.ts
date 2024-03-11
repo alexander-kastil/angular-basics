@@ -12,7 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 export class FunctionsComponent {
 
   typedFunctions() {
-    const addFunction = function (x: number, y: number): number {
+    const addFunction = function (x: number, y: number) {
       return x + y;
     };
 
@@ -24,7 +24,7 @@ export class FunctionsComponent {
     // optional param
     function buildName(firstName: string, lastName?: string) {
       if (lastName) {
-        return firstName + ' ' + lastName;
+        return `${firstName} ${lastName}`;
       } else {
         return firstName;
       }

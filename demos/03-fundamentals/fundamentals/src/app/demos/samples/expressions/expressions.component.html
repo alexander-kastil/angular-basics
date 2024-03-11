@@ -12,8 +12,8 @@
       Function Call: {{ addNumbers(10, myObj.b) }}
     </div>
     <div>
-      <div [hidden]="!showDiv()">The original Div</div>
-      <div [hidden]="showDiv()">The alternative Div</div>
+      <div [hidden]="!showOriginalDiv">The original Div</div>
+      <div [hidden]="showOriginalDiv">The alternative Div</div>
       <button
         mat-raised-button
         (click)="showOriginalDiv = !showOriginalDiv"

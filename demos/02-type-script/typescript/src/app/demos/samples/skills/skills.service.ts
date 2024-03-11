@@ -10,13 +10,14 @@ import { Skill } from './skill.model';
 })
 export class SkillsService {
   http = inject(HttpClient);
-  // constructor(private http: HttpClient) { }
 
   // the return type can be avoided - just there to show the antipattern
   getSkills(): Observable<Skill[]> {
     return this.http
       .get<Skill[]>(`${environment.api}skills`)
-      .pipe(tap((data) => console.log('Received skills:', data)));
+      .pipe(
+        tap((data) => console.log('Received skills:', data)),
+      );
   }
 
   getSkillById(id: number) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
@@ -10,9 +10,6 @@ import { MatCardModule } from '@angular/material/card';
   imports: [MatCardModule, MatButtonModule],
 })
 export class UtilsComponent {
-  constructor() { }
-
-  ngOnInit(): void { }
 
   stringFunctions() {
     const productID = 100;
@@ -123,7 +120,7 @@ export class UtilsComponent {
 
     console.log(cherry);
 
-    // filter -> returns all items in arry that match the condition
+    // filter -> returns all items in array that match the condition
     const cheap = fruits.filter((item) => item.price < 6);
     console.log(cheap);
 
@@ -132,7 +129,7 @@ export class UtilsComponent {
       return { name: item.name };
     });
 
-    const lables = fruits.map(function (item) {
+    const lables = fruits.map((item) => {
       return {
         label: `${item.name} costs ${item.price}`,
         stockInEuro: item.quantity * item.price,

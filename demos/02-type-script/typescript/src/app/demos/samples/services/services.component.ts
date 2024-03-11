@@ -18,18 +18,25 @@ import { SkillsService } from '../skills/skills.service';
     MatCardModule,
     MatButtonModule,
     AsyncPipe
-],
+  ],
 })
 export class ServicesComponent {
   service = inject(SkillsService);
   http = inject(HttpClient);
+
   skills: Skill[] = [];
-  skills$ = this.service.getSkills().pipe(
-    tap((data) => {
-      // using tap to log data to console
-      console.log('Data from declarative binding', data);
-    })
-  );
+  ct = 0;
+
+  skills$ = this.service.getSkills();
+  count$ = this.skills$.pipe(map((data) => data.length));
+
+  ngOnInit() {
+    this.service.getSkills().subscribe((data) => {
+      this.skills = data;
+      this.ct = data.length;
+    });
+  }
+
   showDeclarative = this.skills$.pipe(map((data) => data.length > 0));
 
   usingFetch() {
@@ -95,7 +102,7 @@ export class ServicesComponent {
     //untyped
     this.http
       .get(`${environment.api}skills`)
-      .subscribe((data) => console.log(data));
+      .subscribe(data => console.log(data));
 
     //typed - preferred pattern to use get<T>
     this.http

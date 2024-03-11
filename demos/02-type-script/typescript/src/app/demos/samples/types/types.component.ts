@@ -13,7 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 export class TypesComponent {
 
   basicVariables() {
-    const personName = 'Alex';
+    const personName: string = 'Alex';
 
     // Numbers
     const age: number = 54;

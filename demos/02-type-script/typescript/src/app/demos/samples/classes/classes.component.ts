@@ -12,11 +12,10 @@ import { MatCardModule } from '@angular/material/card';
 export class ClassesComponent {
 
   basicClasses() {
-
     class Voucher {
-      ID: number = 0;
-      Text: string = '';
-      Amount: number = 0;
+      ID = 0;
+      Text = '';
+      Amount = 0;
       Date: Date = new Date();
       Total?: number;
     }

@@ -10,11 +10,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-services-basics',
-    templateUrl: './services-basics.component.html',
-    styleUrls: ['./services-basics.component.scss'],
-    standalone: true,
-    imports: [MarkdownRendererComponent, MatCardModule, MatButtonModule, MatProgressBarModule, JsonPipe]
+  selector: 'app-services-basics',
+  templateUrl: './services-basics.component.html',
+  styleUrls: ['./services-basics.component.scss'],
+  standalone: true,
+  imports: [MarkdownRendererComponent, MatCardModule, MatButtonModule, MatProgressBarModule, JsonPipe]
 })
 export class ServicesBasicsComponent {
   service = inject(SkillsService);
@@ -31,7 +31,7 @@ export class ServicesBasicsComponent {
   }
 
   getSkillsById(): void {
-    const id = 123;
+    const id = 1;
     this.loading = true;
     this.service.getSkill(id).subscribe((data) => {
       this.result = data;
@@ -56,7 +56,7 @@ export class ServicesBasicsComponent {
   }
 
   deleteSkill(): void {
-    const id = 44;
+    const id = 2;
     this.service.deleteSkill(id).subscribe(() => {
       this.loading = false;
       this.sns.displayAlert('json-server', `Deleted with id: ${id}`);
@@ -65,7 +65,7 @@ export class ServicesBasicsComponent {
 
   updateSkill(): void {
     const skill = {
-      id: 123,
+      id: 1,
       name: 'RxJS and Signals',
       hours: 10,
       completed: true,

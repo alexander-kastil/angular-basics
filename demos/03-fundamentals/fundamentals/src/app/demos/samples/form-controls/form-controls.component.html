@@ -12,9 +12,13 @@
         matInput
         placeholder="Enter your Search Term - Watch console for output"
         [formControl]="searchTerm"
-      />
+      />    
+    </mat-form-field>
+   @if(showSave) {
+    <div>
       <label for="chkSave">Save:</label>
       <input id="chkSave" type="checkbox" [formControl]="chkSave" />
-    </mat-form-field>
+    </div>
+   }
   </mat-card-content>
 </mat-card>

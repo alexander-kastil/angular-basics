@@ -27,23 +27,23 @@
 @if (skills) {
 <mat-card appearance="outlined">
   <mat-card-content>
-    <div fxLayout="column" fxLayoutGap="10px">
       <h1>The Skills Subscribe</h1>
       @for (sk of skills; track sk) {
       <div class="row">{{ sk.name }}</div>
       }
-    </div>
-  </mat-card-content>
+  </mat-card-content>  
 </mat-card>
+
 } @if (showDeclarative | async) {
 <mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> There are {{count$| async}} </mat-card-title>
+  </mat-card-header>
   <mat-card-content>
-    <div fxLayout="column" fxLayoutGap="10px">
       <h1>The Skills declarative binding</h1>
       @for (sk of skills$ | async; track sk) {
       <div class="row">{{ sk.name }}</div>
       }
-    </div>
   </mat-card-content>
 </mat-card>
 }
