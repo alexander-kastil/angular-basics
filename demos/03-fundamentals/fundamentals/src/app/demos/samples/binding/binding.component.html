@@ -25,11 +25,11 @@
   </mat-card-header>
   <mat-card-content>
     @if (latePerson) {
-    <div>
-      <pre>{{ latePerson | json }}</pre>
-    </div>
+      <div>
+        <pre>{{ latePerson | json }}</pre>
+      </div>
     }@else {
-    <div>Loading...</div>
+      <div>Loading...</div>
     }
   </mat-card-content>
 </mat-card>
@@ -43,7 +43,8 @@
     <div>
       <h2>{{ selectedPerson.name }}, {{ selectedPerson.age }}</h2>
       @if (selectedPerson.imgUrl) {
-      <img [src]="selectedPerson.imgUrl" width="150px" /> }
+        <img [src]="selectedPerson.imgUrl" width="150px" /> 
+      }
     </div>
     <div>
       <select [(ngModel)]="selectedPerson" style="width: 150px">
