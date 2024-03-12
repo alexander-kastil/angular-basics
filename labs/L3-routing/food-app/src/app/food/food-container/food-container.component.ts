@@ -26,6 +26,11 @@ export class FoodContainerComponent {
   }
 
   deleteFood(food: FoodItem) {
+    this.fs.deleteFood(food.id).subscribe((data: any) => {
+      console.log("delete result", data);
+      this.food = this.food.filter(f => f.id != food.id)
+    })
+
     console.log('deleting', food);
   }
 
