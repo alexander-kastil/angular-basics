@@ -6,7 +6,6 @@ import { ParamMapComponent } from './samples/paramMap/param-map/param-map.compon
 import { PmChildComponent } from './samples/paramMap/pm-child/pm-child.component';
 import { PreloadComponent } from './samples/preload/preload.component';
 import { RouteGuardsComponent } from './samples/route-guards/route-guards.component';
-import { RouterBindingComponent } from './samples/router-binding/router-binding.component';
 import { RoutingBasicsComponent } from './samples/routing-basics/routing-basics.component';
 import { StandaloneComponent } from './samples/standalone/standalone.component';
 import { ProvidersComponent } from './samples/providers/providers.component';
@@ -23,7 +22,6 @@ export const DEMO_ROUTES: Routes = [
       { path: 'modules', component: NgModulesComponent },
       { path: 'dependency-injection', component: DependencyInjectionComponent },
       { path: 'routing-basics', component: RoutingBasicsComponent },
-      { path: 'router-binding', component: RouterBindingComponent },
       { path: 'routing-config', component: ChildRoutesComponent },
       { path: 'route-guards', component: RouteGuardsComponent },
       {

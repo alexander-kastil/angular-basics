@@ -15,6 +15,10 @@ export const MAIN_ROUTES: Routes = [
                     import('../demos/demo.routes').then((m) => m.DEMO_ROUTES),
             },
             {
+                path: 'skills-old',
+                redirectTo: 'skills',
+            },
+            {
                 path: 'skills',
                 loadChildren: () =>
                     import('../skills/skills.routes').then(

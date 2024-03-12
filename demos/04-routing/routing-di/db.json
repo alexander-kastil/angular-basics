@@ -41,11 +41,6 @@
       "id": "b414"
     },
     {
-      "url": "router-binding",
-      "title": "Router Binding",
-      "id": "6836"
-    },
-    {
       "url": "route-guards",
       "title": "Route Guards",
       "id": "24e7"
@@ -79,7 +74,12 @@
     {
       "label": "Statistics",
       "url": "main/statistics"
-    }
+    },
+     {
+      "label": "Admin",
+      "url": "main/admin"
+     }
+
   ],
   "vouchers": [
     {
