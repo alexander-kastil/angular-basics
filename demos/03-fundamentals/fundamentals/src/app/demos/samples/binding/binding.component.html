@@ -47,11 +47,17 @@
       }
     </div>
     <div>
-      <select [(ngModel)]="selectedPerson" style="width: 150px">
+      <select [(ngModel)]="selectedId" style="width: 150px">
+        @for (p of persons(); track p) {
+        <option [value]="p.id">{{ p.name }}</option>
+        }
+      </select>
+      <!-- Storing objects as an option value is no longer supported as it leads to a serialization problem. -->
+      <!-- <select [(ngModel)]="selectedPerson" (change)="logVal(selectedPerson)" style="width: 150px">
         @for (p of persons; track p) {
         <option [value]="p">{{ p.name }}</option>
         }
-      </select>
+      </select> -->
     </div>
   </mat-card-content>
 </mat-card>
