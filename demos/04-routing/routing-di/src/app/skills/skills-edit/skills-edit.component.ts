@@ -47,7 +47,7 @@ export class SkillsEditComponent {
       else {
         this.service.getSkill(id).subscribe((skill) => {
           if (skill) {
-            this.skillForm.patchValue(skill);
+            this.skillForm.setValue(skill);
           }
         });
       }

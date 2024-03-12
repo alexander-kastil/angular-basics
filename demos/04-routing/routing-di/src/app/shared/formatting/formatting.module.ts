@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BorderDirective, BoxedDirective, CenteredDirective, ColumnDirective, FontBoldDirective, GapDirective, RowDirective, FullWidthDirective } from './formatting-directives';
+import { BorderDirective, BoxedDirective, CenteredDirective, ColumnDirective, FontBoldDirective, FullWidthDirective, GapDirective, RowDirective } from './formatting-directives';
 
 const components = [
   ColumnDirective,

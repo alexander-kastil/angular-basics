@@ -5,10 +5,10 @@
     <mat-card-title>Using Router Link & Basic Routing</mat-card-title>
   </mat-card-header>
   <mat-card-content class="cmdItems">
-    <button mat-raised-button [routerLink]="['/skills']" color="primary">
+    <button mat-raised-button [routerLink]="['/main/skills']" color="primary">
       Simple Route (Show Skills)
     </button>
-    <button mat-raised-button [routerLink]="['/skills-old']" color="primary">
+    <button mat-raised-button [routerLink]="['/main/skills-old']" color="primary">
       Redirect From old route to new route
     </button>
   </mat-card-content>
@@ -21,7 +21,7 @@
   <mat-card-content class="cmdItems">
     <button
       mat-raised-button
-      [routerLink]="['/skills', 1]"
+      [routerLink]="['/main/skills/edit', 1]"
       [queryParams]="{ readonly: true, clientId: 50 }"
       fragment="section5"
       color="primary"

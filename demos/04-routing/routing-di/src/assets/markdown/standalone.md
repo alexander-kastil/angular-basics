@@ -17,8 +17,6 @@
         md = 'standalone';
         panelOpenState = true;
 
-        constructor() {}
-
         getMarkdown(): string {
             return `${environment.markdownPath}${this.md}.md`;
         }
