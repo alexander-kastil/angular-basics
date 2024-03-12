@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -13,11 +13,10 @@ import { MarkdownRendererComponent } from '../../../../shared/markdown-renderer/
   imports: [
     MarkdownRendererComponent,
     MatCardModule,
-    NgFor,
     MatButtonModule,
     RouterLink,
-    RouterOutlet,
-  ],
+    RouterOutlet
+],
 })
 export class ParamMapComponent {
   links: { label: string; id: number; readonly: boolean }[] = [
