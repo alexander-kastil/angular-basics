@@ -139,6 +139,7 @@
   "cli": {
     "cache": {
       "enabled": false
-    }
+    },
+    "analytics": "7846618e-6ecd-4abe-9a4c-ed3b645a441c"
   }
 }

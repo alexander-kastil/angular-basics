@@ -42,3 +42,8 @@ $app-theme: mat.define-light-theme((
 @import "tables.scss";
 @import "forms.scss";
 @import "markdown.scss";
+
+.divclass{
+  border: 3px solid red;
+  padding: 1rem;
+}
