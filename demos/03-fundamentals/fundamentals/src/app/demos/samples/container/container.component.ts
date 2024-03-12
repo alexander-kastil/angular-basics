@@ -7,15 +7,15 @@ import { PersonsListComponent } from '../persons/persons-list/persons-list.compo
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-container',
-    templateUrl: './container.component.html',
-    styleUrls: ['./container.component.scss'],
-    standalone: true,
-    imports: [
+  selector: 'app-container',
+  templateUrl: './container.component.html',
+  styleUrls: ['./container.component.scss'],
+  standalone: true,
+  imports: [
     MarkdownRendererComponent,
     PersonsListComponent,
     PersonEditComponent
-],
+  ],
 })
 export class ContainerComponent implements OnInit {
   ps = inject(PersonService);
@@ -42,6 +42,7 @@ export class ContainerComponent implements OnInit {
     } else {
       this.persons.push(p);
     }
+    this.current = null
     console.log('Persons array after save', this.persons);
   }
 }
