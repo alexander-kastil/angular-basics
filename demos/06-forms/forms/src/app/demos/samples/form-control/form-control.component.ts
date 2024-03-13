@@ -16,7 +16,6 @@ import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/mark
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MarkdownRendererComponent

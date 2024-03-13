@@ -20,7 +20,6 @@ import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/mark
   standalone: true,
   imports: [
     MatCardModule,
-    FormsModule,
     ColumnDirective,
     ReactiveFormsModule,
     MatFormFieldModule,

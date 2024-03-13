@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormControl, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
 import { asyncMailExistsValidator } from './asyncMailExistsValidator';
@@ -35,6 +35,8 @@ import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/mark
 })
 export class ReactiveValidationComponent implements OnInit {
   ps = inject(PersonService);
+  fb = inject(FormBuilder);
+  mailExistsValidator = inject(asyncMailExistsValidator);
   person: Person = new Person();
   wealthOpts = ['poor', 'rich', 'middle_class'];
 
@@ -55,10 +57,6 @@ export class ReactiveValidationComponent implements OnInit {
     wealth: [this.person.wealth],
   });
 
-  constructor(
-    private fb: FormBuilder,
-    private mailExistsValidator: asyncMailExistsValidator
-  ) { }
 
   ngOnInit() {
     this.loadData();
@@ -102,7 +100,7 @@ export class ReactiveValidationComponent implements OnInit {
     return result;
   }
 
-  validateForm(form: UntypedFormGroup) {
+  validateForm(form: FormGroup) {
     // validated single control
     form.controls['name'].updateValueAndValidity();
     // validated form

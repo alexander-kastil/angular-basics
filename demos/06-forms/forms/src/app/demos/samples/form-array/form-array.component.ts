@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, UntypedFormArray, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
@@ -13,7 +13,6 @@ import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/mark
   styleUrls: ['./form-array.component.scss'],
   standalone: true,
   imports: [
-    FormsModule,
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
@@ -24,6 +23,7 @@ import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/mark
 })
 export class FormArrayComponent {
   fb: FormBuilder = inject(FormBuilder);
+
   skillForm = this.fb.group({
     name: 'Giro',
     skillsGrp: this.fb.array([
@@ -32,7 +32,7 @@ export class FormArrayComponent {
   });
 
   addSkill() {
-    const skillsGrp = this.skillForm.controls['skillsGrp'] as UntypedFormArray;
+    const skillsGrp = this.skillForm.controls['skillsGrp'] as FormArray;
     skillsGrp.push(
       this.fb.group({
         skillname: '',

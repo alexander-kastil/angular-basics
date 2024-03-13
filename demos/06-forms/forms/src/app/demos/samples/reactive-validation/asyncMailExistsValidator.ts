@@ -17,7 +17,7 @@ export class asyncMailExistsValidator implements AsyncValidator {
   ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
     return this.ps.checkMailExists(ctrl.value).pipe(
       map((exists) => {
-        return exists ? { mailexists: true } : null;
+        return exists ? { mailExists: true } : null;
       })
     );
   }
