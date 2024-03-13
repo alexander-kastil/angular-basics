@@ -7,15 +7,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-simple-observable',
-    templateUrl: './creating-observable.component.html',
-    styleUrls: ['./creating-observable.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCardModule,
-        MatButtonModule,
-    ],
+  selector: 'app-simple-observable',
+  templateUrl: './creating-observable.component.html',
+  styleUrls: ['./creating-observable.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCardModule,
+    MatButtonModule,
+  ],
 })
 export class CreatingObservableComponent {
   onErr = (err: any) => console.log(err);
@@ -57,9 +57,7 @@ export class CreatingObservableComponent {
 
     // from casts a promise to an observable so that it can be subscribe
     from(axios.get(url)).subscribe(
-      (data) => console.log('data from axios', data),
-      (err) => console.log('err:', err),
-      () => console.log('complete')
+      (data) => console.log('data from axios', data)
     );
   }
 

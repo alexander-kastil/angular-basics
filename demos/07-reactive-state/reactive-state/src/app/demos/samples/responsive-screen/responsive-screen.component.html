@@ -6,8 +6,8 @@
   </mat-card-header>
 
   <mat-card-content>
-    <div><span>Less than 960px: </span>{{ matches }}</div>
+    <div><span>Using class: '</span>{{ class | async }}'</div>
   </mat-card-content>
 </mat-card>
 
-<div class="divResponsive" [ngClass]="getClass()">The Responsive DIV that changes color on resizing</div>
+<div class="divResponsive" [ngClass]="class | async">The Responsive DIV that changes color on resizing</div>
