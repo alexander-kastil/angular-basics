@@ -4,6 +4,7 @@ import { FirebaseAuthService } from '../firebase-auth/firebase-auth.service';
 import { AsyncPipe } from '@angular/common';
 import { MarkdownModule } from 'ngx-markdown';
 import { environment } from 'src/environments/environment';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-home',
@@ -14,7 +15,7 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent {
     auth = inject(FirebaseAuthService);
-    authEnabled = this.auth.isAuthenticated();
+    authEnabled = toSignal(this.auth.isAuthenticated(), { initialValue: false });
     title = environment.title;
 
     getMarkdown(): string {

@@ -4,13 +4,13 @@
     <img width="50px" src="/assets/images/angular.svg" />
    </div>
    <div>
-    <mat-card-title>{{ title }}</mat-card-title>
-    <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
+    <mat-card-title>{{ title() }}</mat-card-title>
+    <mat-card-subtitle>{{ subtitle() }}</mat-card-subtitle>
    </div>
   </mat-card-header>
   <mat-card-content>
     <div class="showcase" column centered>
-      <img src="assets/images/{{img}}" alt="">
+      <img src="assets/images/{{img()}}" alt="">
     </div>
     <div class="instructions">
       <ng-content select=".instructions"></ng-content>
@@ -19,14 +19,14 @@
   <mat-card-actions>
     <mat-card-actions>
       <div>
-        @if (isAuthenticated==true) {
+        @if (isAuthenticated()==true) {
           <div class="actions" centered>
             <button mat-raised-button routerLink="/main/demos" color="primary">
               Proceed
             </button>
           </div>
         }
-        @if (isAuthenticated==false) {
+        @if (isAuthenticated()==false) {
           <div class="actions cmdItems">
             <button
               mat-raised-button

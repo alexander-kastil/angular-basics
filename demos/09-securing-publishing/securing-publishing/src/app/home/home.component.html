@@ -2,8 +2,7 @@
   title="Angular - Single Page Application Development"
   subtitle="{{title}}"
   img="authentication.png"
-  [isAuthenticated]="authEnabled |async"
-  >
+  [isAuthenticated]="authEnabled() || false">
   <div class="instructions">
     Start json-server using: json-server db.json
   </div>
