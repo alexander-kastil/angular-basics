@@ -9,7 +9,7 @@
       "title": "Template NgModelGroup"
     },
     {
-      "url": "templatevalidation",
+      "url": "template-validation",
       "title": "Template Validation"
     },
     {
@@ -25,16 +25,16 @@
       "title": "Reactive FormsBuilder"
     },
     {
-      "url": "reactivevalidation",
+      "url": "reactive-nested",
+      "title": "Reactive Nested"
+    },
+    {
+      "url": "reactive-validation",
       "title": "Reactive Validation"
     },
     {
-      "url": "formarray",
+      "url": "form-array",
       "title": "Reactive Form Array"
-    },
-    {
-      "url": "signal-forms",
-      "title": "Reactive Forms & Signals"
     }
   ],
   "top-links": [

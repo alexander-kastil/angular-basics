@@ -8,7 +8,7 @@ import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.
 import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
 import { TemplateDrivenComponent } from './samples/template-driven/template-driven.component';
 import { TemplateValidationComponent } from './samples/template-validation/template-validation.component';
-import { SignalFormsComponent } from './samples/signal-forms/signal-forms.component';
+import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
 
 export const DEMO_ROUTES: Routes = [
   {
@@ -19,11 +19,11 @@ export const DEMO_ROUTES: Routes = [
       { path: 'ngmodelgrp', component: NgModelGrpComponent },
       { path: 'reactiveforms', component: ReactiveFormsComponent },
       { path: 'formsbuilder', component: FormsBuilderComponent },
-      { path: 'templatevalidation', component: TemplateValidationComponent },
-      { path: 'reactivevalidation', component: ReactiveValidationComponent },
+      { path: 'template-validation', component: TemplateValidationComponent },
+      { path: 'reactive-validation', component: ReactiveValidationComponent },
       { path: 'formcontrol', component: FormControlComponent },
-      { path: 'formarray', component: FormArrayComponent },
-      { path: 'signal-forms', component: SignalFormsComponent }
+      { path: 'form-array', component: FormArrayComponent },
+      { path: 'reactive-nested', component: ReactiveNestedComponent }
     ],
   },
 ];
