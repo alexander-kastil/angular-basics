@@ -6,12 +6,7 @@ We will also refactor the food-feature to use Signals.
 
 ## Steps Outlined
 
-- Using Signals 
 - Implementing Reactive Forms
-
-## Using Signals 
-
-
 
 ## Implementing Reactive Forms
 
