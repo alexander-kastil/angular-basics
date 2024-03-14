@@ -21,11 +21,11 @@ export class SideNavService {
   }
 
   getSideNavVisible() {
-    return computed(() => this.visible());
+    return this.visible.asReadonly();
   }
 
   getSideNavPosition() {
-    return computed(() => this.position());
+    return this.position.asReadonly();
   }
 
   watchScreen = this.breakpointObserver

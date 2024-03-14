@@ -25,6 +25,7 @@ export const appConfig: ApplicationConfig = {
             provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
             provideAuth(() => getAuth()),
         ]),
+        // NgRx Store
         provideStore(),
         provideState(appState),
         provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true })

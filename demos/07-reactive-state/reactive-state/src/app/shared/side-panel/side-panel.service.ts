@@ -6,7 +6,7 @@ export class SidePanelService {
   #commands = signal<SidePanelActions>(SidePanelActions.HIDE_MARKDOWN);
 
   getCommands() {
-    return computed(() => this.#commands());
+    return this.#commands.asReadonly();
   }
 
   triggerCmd(action: SidePanelActions) {
