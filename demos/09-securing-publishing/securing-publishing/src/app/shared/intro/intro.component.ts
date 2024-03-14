@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, Input, TemplateRef, ViewChild, inject } from '@angular/core';
+import { Component, Input, TemplateRef, ViewChild, inject, input, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,23 +24,23 @@ import { RegisterComponent } from 'src/app/firebase-auth/components/register/reg
   ],
 })
 export class IntroComponent {
-  @ViewChild('register') registerTemplate!: TemplateRef<any>;
-  @ViewChild('login') loginTemplate!: TemplateRef<any>;
-  @Input() isAuthenticated: boolean | null = false;
-  @Input({ required: true }) title = '';
-  @Input({ required: true }) subtitle = '';
-  @Input({ required: true }) img = '';
+  registerTemplate = viewChild.required('register', { read: TemplateRef });
+  loginTemplate = viewChild.required('login', { read: TemplateRef });
+  isAuthenticated = input.required<boolean>();
+  title = input.required<string>();
+  subtitle = input.required<string>();
+  img = input.required<string>();
   dialog = inject(MatDialog);
   router = inject(Router);
 
   logIn() {
     console.log('logIn - authEnabled: ', this.isAuthenticated);
 
-    this.dialog.open(this.loginTemplate, { width: '350px' })
+    this.dialog.open(this.loginTemplate(), { width: '350px' })
       .afterClosed()
       .pipe(
         tap(() => {
-          if (this.isAuthenticated) {
+          if (this.isAuthenticated()) {
             this.router.navigate(['main/demos']);
           } else {
             this.router.navigate(['/']);
@@ -49,11 +49,11 @@ export class IntroComponent {
   }
 
   registerUser() {
-    this.dialog.open(this.registerTemplate, { width: '350px' })
+    this.dialog.open(this.registerTemplate(), { width: '350px' })
       .afterClosed()
       .pipe(
         tap(() => {
-          if (this.isAuthenticated) {
+          if (this.isAuthenticated()) {
             this.router.navigate(['main/demos']);
           } else {
             this.router.navigate(['/']);

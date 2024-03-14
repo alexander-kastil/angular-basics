@@ -1,18 +1,18 @@
 export class VoucherDetail {
-  ID: number = 0;
-  VoucherID: number = 0;
-  AccountID: number = 0;
+  ID = 0;
+  VoucherID = 0;
+  AccountID = 0;
   Account: BalanceAccount | null = null;
-  Text: string = '';
-  Amount: number = 0;
-  Comment: string = '';
+  Text = '';
+  Amount = 0;
+  Comment = '';
 }
 
 export class BalanceAccount {
-  ID: number = 0;
-  Name: string = '';
-  Expense: boolean = false;
-  VoucherDetails: VoucherDetail[] = new Array();
+  ID = 0;
+  Name = '';
+  Expense = false;
+  VoucherDetails: VoucherDetail[] = [];
 }
 
 export class Voucher {

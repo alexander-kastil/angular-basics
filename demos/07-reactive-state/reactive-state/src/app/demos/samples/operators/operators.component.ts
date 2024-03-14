@@ -28,15 +28,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-operators',
-    templateUrl: './operators.component.html',
-    styleUrls: ['./operators.component.scss'],
-    standalone: true,
-    imports: [
+  selector: 'app-operators',
+  templateUrl: './operators.component.html',
+  styleUrls: ['./operators.component.scss'],
+  standalone: true,
+  imports: [
     MarkdownRendererComponent,
     MatCardModule,
     MatButtonModule
-],
+  ],
 })
 export class OperatorsComponent {
   vs = inject(VouchersService);
@@ -153,13 +153,11 @@ export class OperatorsComponent {
     return forkJoin([response1, response2, response3]);
   }
 
-  useSwitchmap() { }
-
   useCombineLatestWith() {
     this.vs
       .getVouchers()
       .pipe(
-        // Mocking a filter emmitting "BP Tankstelle"
+        // Mocking a filter emitting "BP Tankstelle"
         combineLatestWith(of('BP Tankstelle')),
         map(([vouchers, filter]) => {
           return filter == ''

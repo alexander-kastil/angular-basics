@@ -58,9 +58,7 @@ export class CreatingObservableComponent {
 
     // from casts a promise to an observable so that it can be subscribe
     from(axios.get(url)).subscribe(
-      (data) => console.log('data from axios', data),
-      (err) => console.log('err:', err),
-      () => console.log('complete')
+      (data) => console.log('data from axios', data)
     );
   }
 
