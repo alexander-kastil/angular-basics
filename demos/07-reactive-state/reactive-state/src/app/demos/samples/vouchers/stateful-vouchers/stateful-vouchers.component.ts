@@ -12,21 +12,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-    selector: 'app-stateful-vouchers',
-    templateUrl: './stateful-vouchers.component.html',
-    styleUrls: ['./stateful-vouchers.component.scss'],
-    standalone: true,
-    imports: [
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatTableModule,
-        MatIconModule,
-        MatTooltipModule,
-        CurrencyPipe,
-        DatePipe,
-    ],
+  selector: 'app-stateful-vouchers',
+  templateUrl: './stateful-vouchers.component.html',
+  styleUrls: ['./stateful-vouchers.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatIconModule,
+    MatTooltipModule,
+    CurrencyPipe,
+    DatePipe,
+  ],
 })
 export class StatefulVouchersComponent implements OnInit {
   vs = inject(StatefulVoucherService);
@@ -39,7 +39,11 @@ export class StatefulVouchersComponent implements OnInit {
       .getAllVouchers()
       .pipe(
         // initialization: startWith('') will emit an empty string to the stream
-        combineLatestWith(this.filter$.valueChanges.pipe(startWith(''))),
+        combineLatestWith(
+          this.filter$.valueChanges.pipe(
+            startWith('')
+          )
+        ),
         map(([vouchers, filter]) => {
           return filter == ''
             ? vouchers

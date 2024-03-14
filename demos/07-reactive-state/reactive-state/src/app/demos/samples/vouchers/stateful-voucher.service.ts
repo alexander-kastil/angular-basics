@@ -26,7 +26,7 @@ export class StatefulVoucherService {
   }
 
   getAllVouchers() {
-    return this.#vouchers;
+    return this.#vouchers.asObservable();
   }
 
   getVoucherById(id: number) {

@@ -7,15 +7,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-simple-observable',
-    templateUrl: './creating-observable.component.html',
-    styleUrls: ['./creating-observable.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCardModule,
-        MatButtonModule,
-    ],
+  selector: 'app-simple-observable',
+  templateUrl: './creating-observable.component.html',
+  styleUrls: ['./creating-observable.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCardModule,
+    MatButtonModule,
+  ],
 })
 export class CreatingObservableComponent {
   onErr = (err: any) => console.log(err);
@@ -35,6 +35,7 @@ export class CreatingObservableComponent {
       .pipe(
         tap((n) => console.log('before filter: ', n)),
         map((n) => n * 2),
+        tap((n) => n * 2),
         tap((n) => console.log('after filter: ', n)),
       )
       .subscribe((data: number) => console.log('final: ', data));
