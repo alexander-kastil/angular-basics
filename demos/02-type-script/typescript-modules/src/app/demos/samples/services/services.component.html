@@ -26,7 +26,7 @@
 
 <mat-card appearance="outlined" *ngIf="skills">
   <mat-card-content>
-    <div fxLayout="column" fxLayoutGap="10px">
+    <div>
       <h1>The Skills Subscribe</h1>
       <div *ngFor="let sk of skills" class="row">{{ sk.name }}</div>
     </div>
@@ -35,7 +35,7 @@
 
 <mat-card appearance="outlined" *ngIf="showDeclarative | async">
   <mat-card-content>
-    <div fxLayout="column" fxLayoutGap="10px">
+    <div>
       <h1>The Skills declarative binding</h1>
       <div *ngFor="let sk of skills$ | async" class="row">{{ sk.name }}</div>
     </div>

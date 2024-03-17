@@ -1,9 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { PersonService } from '../persons/person.service';
 import { Person } from '../persons/person.model';
-import { PersonEditComponent } from '../persons/person-edit/person-edit.component';
+import { PersonEditComponent } from './person-edit/person-edit.component';
 
-import { PersonsListComponent } from '../persons/persons-list/persons-list.component';
+import { PersonsListComponent } from './persons-list/persons-list.component';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({

@@ -36,14 +36,14 @@
       "id": "be4d"
     },
     {
-      "url": "form-controls",
-      "title": "FormControls Binding",
-      "id": "6fc5"
-    },
-    {
       "url": "control-flow",
       "title": "Control Flow",
       "id": "83ee"
+    },
+    {
+      "url": "form-controls",
+      "title": "FormControls Binding",
+      "id": "6fc5"
     },
     {
       "url": "structural-directives",
@@ -79,11 +79,6 @@
       "url": "container",
       "title": "Container Presenter",
       "id": "540e"
-    },
-    {
-      "url": "repeater",
-      "title": "Repeater with local ref",
-      "id": "62ff"
     },
     {
       "url": "lifecycle",
