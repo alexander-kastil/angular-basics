@@ -81,6 +81,11 @@
       "id": "540e"
     },
     {
+      "url": "container-signals",
+      "title": "Container Signals",
+      "id": "540e"
+    },
+    {
       "url": "lifecycle",
       "title": "Component Lifecycle",
       "id": "543a"

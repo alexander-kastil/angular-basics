@@ -1,1 +1,16 @@
-<p>container-presenter-signals works!</p>
+<app-markdown-renderer [md]="'container-presenter'"></app-markdown-renderer>
+
+<app-person-list-signals
+  [persons]="persons()"
+  (personSelected)="onPersonSelected($event)"
+>
+</app-person-list-signals>
+
+@if (current()) {
+<app-person-edit-signals
+  [person]="current()? current():  new Person()"
+  [editMode]="true"
+  (savePerson)="onPersonSaved($event)"
+>
+</app-person-edit-signals>
+}
