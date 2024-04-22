@@ -5,18 +5,18 @@
   </mat-card-header>
   <mat-card-content class="cmdItems">
     <button mat-raised-button (click)="toggleDisabled()" color="primary">
-      Click to {{ isDisabled ? 'enable' : 'disable' }} the input
+      Click to {{ isDisabled() ? "enable" : "disable" }} the input
     </button>
     <button mat-raised-button (click)="toggleHidden()" color="primary">
-      Click to {{ isHidden ? 'show' : 'hide' }} the input
+      Click to {{ isHidden() ? "show" : "hide" }} the input
     </button>
-    
+
     <div class="inputContainer">
       <input
         type="text"
         placeholder="Enter name"
-        [disabled]="isDisabled"
-        [hidden]="isHidden"
+        [disabled]="isDisabled()"
+        [hidden]="isHidden()"
         [value]="name()"
       />
       {{ name() }}

@@ -15,15 +15,15 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   ],
 })
 export class AttrBindingComponent {
-  isDisabled = true;
-  isHidden = false;
+  isDisabled = signal(true)
+  isHidden = signal(false)
   name = signal('John Doe');
 
   toggleDisabled() {
-    this.isDisabled = !this.isDisabled;
+    this.isDisabled.set(!this.isDisabled());
   }
 
   toggleHidden() {
-    this.isHidden = !this.isHidden;
+    this.isHidden.set(!this.isHidden());
   }
 }

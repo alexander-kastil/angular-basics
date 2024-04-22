@@ -27,9 +27,9 @@ export class BindingComponent implements OnInit {
   selectedId = signal<number>(0);
   selectedPerson: Person = new Person();
 
-  hide = false;
+  hide = signal<boolean>(false);
   latePerson: Person | null = null;
-  isActive: boolean = false;
+  isActive = signal<boolean>(true);
 
   constructor() {
     effect(() => {
@@ -57,12 +57,8 @@ export class BindingComponent implements OnInit {
       });
   }
 
-  // logVal(val: any) {
-  //   console.log('value received from event binding', val);
-  // }
-
   toggleDisplay() {
-    this.hide = !this.hide;
+    this.hide.set(!this.hide());
   }
 
   handleChange(p: Person) {

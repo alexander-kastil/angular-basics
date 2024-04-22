@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
-import { Person } from '../persons/person.model';
 import { PersonService } from '../persons/person.service';
 
 @Component({
@@ -10,13 +10,7 @@ import { PersonService } from '../persons/person.service';
   standalone: true,
   imports: [MarkdownRendererComponent]
 })
-export class DependencyInjectionComponent implements OnInit {
+export class DependencyInjectionComponent {
   ps = inject(PersonService);
-  persons: Person[] = [];
-
-  ngOnInit(): void {
-    this.ps.getPersons().subscribe((persons: Person[]) => {
-      this.persons = persons;
-    });
-  }
+  persons = toSignal(this.ps.getPersons(), { initialValue: [] });
 }
