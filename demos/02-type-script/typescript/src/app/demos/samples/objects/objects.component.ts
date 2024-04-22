@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { format } from 'date-fns';
+import { add, format } from 'date-fns';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
@@ -117,11 +117,18 @@ export class ObjectsComponent {
 
     // Spread operator on objects
     const simplePerson = { name: 'Schnuppi' };
+    const address = { city: "Berlin", street: "Karl Marx Str. 1" }
+
     const dataPerson = {
       birth: format(new Date(), 'MMM d yy'),
       job: 'dev dude',
+      address: address
     };
+
     const shallowClone = { ...dataPerson };
+
+    const deepClone = structuredClone(dataPerson);
+
     const combinedPerson = { ...simplePerson, ...dataPerson };
     console.log(shallowClone, combinedPerson);
   }

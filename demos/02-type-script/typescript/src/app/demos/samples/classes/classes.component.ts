@@ -67,8 +67,11 @@ export class ClassesComponent {
     console.log(jim.status);
 
     class Dog {
-      //private or public creates prop implicitly
+
       constructor(private name: string, public breed: string) { }
+      //private or public creates prop implicitly
+      // name: string;
+      // breed: string;
 
       barkName() {
         return 'Wuff, my name is ' + this.name + ', I am a ' + this.breed;
