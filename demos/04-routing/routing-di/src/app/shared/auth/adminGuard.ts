@@ -7,6 +7,10 @@ import { SnackbarService } from '../snackbar/snackbar.service';
 export const adminGuard = () => {
     const router = inject(Router);
     const sns = inject(SnackbarService);
+
     const allowAccess = !environment.adminAuthEnabled;
-    return allowAccess ? true : router.navigate(['/']).then(() => sns.displayAlert('Error', 'You are not allowed to navigate to this page.'));
+
+    return allowAccess
+        ? true
+        : router.navigate(['/']).then(() => sns.displayAlert('Error', 'You are not allowed to navigate to this page.'));
 };

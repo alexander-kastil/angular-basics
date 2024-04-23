@@ -15,14 +15,14 @@
   </mat-card-header>
   <mat-card-content>
     <button mat-raised-button (click)="changeColor()" color="primary"
-    >Change Color using ngStyle and prop (bgcolor)</button
+    >Change Color using ngStyle and prop (bgColor)</button
   >
   <div
     [ngStyle]="{
       'margin-top': '1rem',
       'padding': '1rem',
       'color': 'white',
-      'background-color': bgcolor
+      'background-color': bgColor
     }"
   >
     {{ msg }}

@@ -89,7 +89,8 @@ export class FullWidthDirective {
   selector: '[boxed]',
   standalone: true,
   hostDirectives: [
-    BorderDirective
+    BorderDirective,
+    CenteredDirective
   ],
 })
 export class BoxedDirective {

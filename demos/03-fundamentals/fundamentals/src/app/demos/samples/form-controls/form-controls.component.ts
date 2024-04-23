@@ -1,11 +1,11 @@
-import { Component, DestroyRef, inject, signal } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { debounceTime } from 'rxjs';
+import { debounceTime, startWith } from 'rxjs';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
@@ -32,8 +32,8 @@ export class FormControlsComponent {
   );
 
   saveForLater = new FormControl<boolean>(true);
+  saveResult = toSignal(this.saveForLater.valueChanges.pipe(startWith(true)));
   showSave = true;
-  saveResult = toSignal(this.saveForLater.valueChanges)
 
   ngOnInit() {
     this.userName.valueChanges
