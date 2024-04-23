@@ -5,32 +5,32 @@ import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-directives',
-    templateUrl: './directives.component.html',
-    styleUrls: ['./directives.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCardModule,
-        MatButtonModule,
-        NgStyle,
-        NgClass,
-    ],
+  selector: 'app-directives',
+  templateUrl: './directives.component.html',
+  styleUrls: ['./directives.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCardModule,
+    MatButtonModule,
+    NgStyle,
+    NgClass,
+  ],
 })
 export class DirectivesComponent {
   msg = 'Change my color';
-  bgcolor = 'blue';
-  cssclass = 'big';
+  bgColor = 'blue';
+  cssClass = 'big';
 
   changeColor() {
-    this.bgcolor = this.bgcolor == 'blue' ? 'red' : 'blue';
+    this.bgColor = this.bgColor == 'blue' ? 'red' : 'blue';
   }
 
   changeClass() {
-    this.cssclass = this.cssclass == 'big' ? 'small' : 'big';
+    this.cssClass = this.cssClass == 'big' ? 'small' : 'big';
   }
 
   getClass() {
-    return 'my-' + this.cssclass;
+    return 'my-' + this.cssClass;
   }
 }
