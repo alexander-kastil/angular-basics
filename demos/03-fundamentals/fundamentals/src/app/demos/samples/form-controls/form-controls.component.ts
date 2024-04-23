@@ -1,5 +1,5 @@
-import { Component, DestroyRef, inject } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -28,10 +28,12 @@ export class FormControlsComponent {
   userName = new FormControl<string | null>(
     '',
     [Validators.required, Validators.minLength(3)],
+    []
   );
 
   saveForLater = new FormControl<boolean>(true);
   showSave = true;
+  saveResult = toSignal(this.saveForLater.valueChanges)
 
   ngOnInit() {
     this.userName.valueChanges

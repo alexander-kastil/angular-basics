@@ -6,17 +6,17 @@
   </mat-card-header>
 
   <mat-card-content class="cmdItems">
-    <button mat-raised-button color="primary" (click)="updateAmount()">
-      Update Net amount
+    <button mat-raised-button color="primary" (click)="setAmount()">
+      Set Net amount
     </button>
-    <button mat-raised-button color="primary" (click)="addAmount()">
+    <button mat-raised-button color="primary" (click)="updateAmount()">
       Add to Net amount
     </button>
-    <button mat-raised-button color="primary" (click)="logLikes()">
-      Log likes
-    </button>
     <button mat-raised-button color="primary" (click)="likeTopic()">
-      Like topic
+      Like topic (increases likes)
+    </button>
+    <button mat-raised-button color="primary" (click)="logLikes()">
+      Log likes (uses effect)
     </button>
   </mat-card-content>
 </mat-card>

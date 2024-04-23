@@ -34,11 +34,11 @@ export class SignalsBasicsComponent {
     }, { injector: this.injector });
   }
 
-  updateAmount() {
+  setAmount() {
     this.netAmount.set(100);
   }
 
-  addAmount() {
+  updateAmount() {
     this.netAmount.update(curr => curr + 10);
   }
 

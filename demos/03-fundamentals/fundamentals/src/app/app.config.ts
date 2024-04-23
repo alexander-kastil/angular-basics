@@ -15,7 +15,6 @@ import { appState } from './state/app.state';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        { provide: LOCALE_ID, useValue: 'de' },
         provideHttpClient(),
         provideRouter(routes),
         provideAnimations(),
@@ -28,6 +27,7 @@ export const appConfig: ApplicationConfig = {
         ]),
         provideStore(),
         provideState(appState),
+        { provide: LOCALE_ID, useValue: 'de' },
         provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true })
     ],
 };

@@ -11,7 +11,7 @@ import { Skill } from './skill.model';
 export class SkillsService {
   http = inject(HttpClient);
 
-  // the return type can be avoided - just there to show the antipattern
+  // the return type can be avoided - just there to show the anti-pattern
   getSkills(): Observable<Skill[]> {
     return this.http
       .get<Skill[]>(`${environment.api}skills`)
