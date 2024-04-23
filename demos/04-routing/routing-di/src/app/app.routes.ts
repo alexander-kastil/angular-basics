@@ -1,8 +1,7 @@
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
-import { NgModule } from '@angular/core';
-import { AdminComponent } from './admin/admin.component';
 
 export const routes: Routes = [
     {
@@ -11,7 +10,7 @@ export const routes: Routes = [
     },
     {
         path: 'main',
-        loadChildren: () => import('./main/main.routes').then(m => m.MainRoutingModule)
+        loadChildren: () => import('./main/main.routes').then(m => m.MAIN_ROUTES)
     },
     {
         path: 'login',

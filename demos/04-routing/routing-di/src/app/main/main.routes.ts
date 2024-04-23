@@ -1,8 +1,7 @@
-import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './main.component';
-import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
 import { AdminComponent } from '../admin/admin.component';
 import { adminGuard } from '../shared/auth/adminGuard';
+import { MainComponent } from './main.component';
 
 export const MAIN_ROUTES: Routes = [
     {
@@ -40,9 +39,3 @@ export const MAIN_ROUTES: Routes = [
         ]
     }
 ];
-
-@NgModule({
-    imports: [RouterModule.forChild(MAIN_ROUTES)],
-    exports: [RouterModule],
-})
-export class MainRoutingModule { }
