@@ -18,7 +18,6 @@ import { ServicesBasicsComponent } from './samples/services-basics/services-basi
 import { StructDirectivesComponent } from './samples/struct-directives/struct-directives.component';
 import { TemplateComponent } from './samples/template/template.component';
 import { ControlFlowComponent } from './samples/control-flow/control-flow.component';
-import { ContainerPresenterSignalsComponent } from './samples/container-presenter-signals/container-presenter-signals.component';
 
 export const DEMO_ROUTES: Routes = [
   {
@@ -37,7 +36,6 @@ export const DEMO_ROUTES: Routes = [
       { path: 'structural-directives', component: StructDirectivesComponent },
       { path: 'binding', component: BindingComponent },
       { path: 'container', component: ContainerComponent },
-      { path: 'container-signals', component: ContainerPresenterSignalsComponent },
       { path: 'projection', component: ContentProjectionComponent },
       { path: 'custom-directives', component: CustomDirectivesComponent },
       { path: 'custom-pipes', component: CustomPipesComponent },
