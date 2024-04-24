@@ -23,6 +23,7 @@ import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/mark
 })
 export class FormControlComponent implements OnInit {
   dog = { name: 'Giro', postal: '3544', city: 'Idolsberg' }
+
   name = new FormControl(this.dog.name, [
     Validators.required,
     Validators.minLength(3),
@@ -48,6 +49,6 @@ export class FormControlComponent implements OnInit {
   }
 
   getValue() {
-    console.log(this.name.value);
+    console.log(`The current name is${this.name.value}`);
   }
 }

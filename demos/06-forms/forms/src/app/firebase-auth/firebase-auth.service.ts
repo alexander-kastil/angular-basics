@@ -11,9 +11,7 @@ export class FirebaseAuthService {
   fireAuth = inject(Auth);
   authState$ = authState(this.fireAuth);
   router = inject(Router);
-  user$ = this.authState$.pipe(
-    tap((state) => console.log('authState changed: ', state))
-  );
+  user$ = this.authState$;
 
   private token = this.authState$.pipe(
     switchMap((user) => {

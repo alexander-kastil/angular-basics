@@ -1,18 +1,18 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormControl, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatOptionModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
 import { asyncMailExistsValidator } from './asyncMailExistsValidator';
-import { MatButtonModule } from '@angular/material/button';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatOptionModule } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select';
 
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { ColumnDirective } from '../../../shared/formatting/formatting-directives';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
+import { ColumnDirective } from '../../../shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-reactive-validation',
@@ -75,6 +75,13 @@ export class ReactiveValidationComponent implements OnInit {
     });
   }
 
+  evalShowError(field: string) {
+    const control = this.personForm.get(field) as FormControl;
+    return control.errors != undefined &&
+      control.errors != undefined &&
+      control.errors['InvalidNameError']
+  }
+
   savePerson(personForm: any): void {
     this.ps.save(personForm);
   }
@@ -82,16 +89,16 @@ export class ReactiveValidationComponent implements OnInit {
   //Sample for custom sync validator
   validateName(control: FormControl): { [s: string]: boolean } | null {
     if (control.value === 'Hugo') {
-      return { nameError: true };
+      return { InvalidNameError: true };
     }
     return null;
   }
 
-  violatesMinLenght() {
+  violatesMinLength() {
     let result = false;
-    let errs: any = this.personForm.controls['name'].errors;
+    let errs: any = this.personForm.controls['name'].errors && this.personForm.controls['name'].dirty;
 
-    if (errs != null) {
+    if (errs == true) {
       console.log('Errors in Name field: ', errs);
       if (errs['minlength']) {
         result = true;

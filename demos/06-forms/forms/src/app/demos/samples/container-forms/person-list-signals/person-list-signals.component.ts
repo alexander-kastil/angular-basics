@@ -12,8 +12,8 @@ import { Person } from '../../person.model';
   styleUrl: './person-list-signals.component.scss'
 })
 export class PersonListSignalsComponent {
-  persons = input.required<Person[]>();
-  personSelected = output<Person>();
+  persons = input.required<Person[]>(); //@Input
+  personSelected = output<Person>(); //@Output
 
   selectPerson(p: Person) {
     this.personSelected.emit(p);

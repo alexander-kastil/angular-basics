@@ -17,16 +17,14 @@
         @if (skillForm.get('name')?.value) {
           <div>
             <h6>Add your skills:</h6>
-            @for (skill of skillForm.controls.skillsGrp.controls; track skill; let i = $index) {
-              <div
-                formArrayName="skillsGrp"
-                >
+            @for (skill of skillForm.controls.skills.controls; track skill; let i = $index) {
+              <div formArrayName="skills">
                 <div [formGroupName]="i" class="row">
                   <mat-form-field>
                     <input
                       matInput
                       placeholder="Skill Name"
-                      formControlName="skillname"
+                      formControlName="skill"
                       />
                     </mat-form-field>
                     <mat-form-field>
@@ -39,8 +37,8 @@
           }
         </mat-card-content>
         <mat-card-actions class="cmdItems">
-          <button mat-raised-button (click)="addSkill()" color="primary">Add Skill</button>
-          <button mat-raised-button (click)="saveForm()" color="primary">Save</button>
+          <button mat-raised-button (click)="addSkill()" [disabled]="checkAddSkill()" color="primary">Add Skill</button>
+          <button mat-raised-button (click)="saveForm()" [disabled]="checkAddSkill()" color="primary">Save</button>
         </mat-card-actions>
       </mat-card>
     </div>
