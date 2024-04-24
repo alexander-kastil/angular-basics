@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Form, FormArray, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 
 import { MatCardModule } from '@angular/material/card';
@@ -26,19 +26,28 @@ export class FormArrayComponent {
 
   skillForm = this.fb.group({
     name: 'Giro',
-    skillsGrp: this.fb.array([
-      this.fb.group({ skillname: 'Hunting', years: 9 }),
+    skills: this.fb.array([
+      this.fb.group({ skill: 'Hunting', years: '9' }),
     ]),
   });
 
   addSkill() {
-    const skillsGrp = this.skillForm.controls['skillsGrp'] as FormArray;
+    const skillsGrp = this.skillForm.controls['skills'] as FormArray;
     skillsGrp.push(
       this.fb.group({
-        skillname: '',
+        skill: '',
         years: '',
       })
     );
+  }
+
+  checkAddSkill() {
+    const skillsGrp = this.skillForm.controls['skills'] as FormArray;
+    const lastSkill = skillsGrp.at(skillsGrp.length - 1);
+    if (lastSkill.value.skill === '' || lastSkill.value.years === '') {
+      return !false;
+    }
+    return !true;
   }
 
   saveForm() {

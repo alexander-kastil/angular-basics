@@ -14,7 +14,7 @@
           required
           minlength="4"
           />
-          @if (personForm.controls['name'].invalid) {
+          @if (personForm.controls['name'] && personForm.controls['name'].invalid) {
             <mat-error>
               Name is required (minimum 4 characters).
             </mat-error>
@@ -30,7 +30,7 @@
             [(ngModel)]="person.age"
             required
             />
-            @if (personForm.controls['age'].invalid) {
+            @if (personForm.controls['age'] && personForm.controls['age'].invalid) {
               <em> Age is required </em>
             }
           </mat-form-field>
@@ -43,7 +43,7 @@
               name="email"
               [(ngModel)]="person.email"
               />
-              @if (personForm.controls['email'].invalid) {
+              @if (personForm.controls['email'] && personForm.controls['email'].invalid) {
                 <em>
                   Must be a valid mail
                 </em>
@@ -64,7 +64,7 @@
               <button
                 mat-raised-button
                 color="primary"
-                (click)="patchValue()">
+                (click)="setValueToField()">
                 Patch Value
               </button>
               <button
@@ -84,29 +84,14 @@
           <mat-card-title>Control State - "Name" Field</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          Name Fld is dirty: {{ personForm.controls['name'].dirty }}<br />
-          Name Fld is pristine: {{ personForm.controls['name'].pristine }}<br />
-          Name Fld is valid: {{ personForm.controls['name'].valid }}<br />
-          Name Fld is invalid: {{ personForm.controls['name'].invalid }}<br />
-          Name Fld is touched: {{ personForm.controls['name'].touched }}<br />
-          Name Fld is untouched: {{ personForm.controls['name'].untouched }}
+          Name Fld is dirty: {{ personForm.controls['name'] && personForm.controls['name'].dirty }}<br />
+          Name Fld is pristine: {{ personForm.controls['name'] && personForm.controls['name'].pristine }}<br />
+          Name Fld is valid: {{ personForm.controls['name'] &&personForm.controls['name'].valid }}<br />
+          Name Fld is invalid: {{ personForm.controls['name'] &&personForm.controls['name'].invalid }}<br />
+          Name Fld is touched: {{ personForm.controls['name'] &&personForm.controls['name'].touched }}<br />
+          Name Fld is untouched: {{ personForm.controls['name'] &&personForm.controls['name'].untouched }}
         </mat-card-content>
       </mat-card>
-
-      <mat-card appearance="outlined">
-        <mat-card-header>
-          <mat-card-title>Control State - "Age" Field</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          Age Fld is dirty: {{ personForm.controls['age'].dirty }}<br />
-          Age Fld is pristine: {{ personForm.controls['age'].pristine }}<br />
-          Age Fld is valid: {{ personForm.controls['age'].valid }}<br />
-          Age Fld is invalid: {{ personForm.controls['age'].invalid }}<br />
-          Age Fld is touched: {{ personForm.controls['age'].touched }}<br />
-          Age Fld is untouched: {{ personForm.controls['age'].untouched }}
-        </mat-card-content>
-      </mat-card>
-
       <mat-card appearance="outlined">
         <mat-card-header>
           <mat-card-title>Form State</mat-card-title>

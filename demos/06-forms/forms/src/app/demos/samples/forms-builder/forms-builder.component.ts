@@ -43,9 +43,14 @@ export class FormsBuilderComponent implements OnInit {
     name: [
       this.person.name, //value
       [Validators.required, Validators.minLength(3)], //sync validators
-      //async validators
+      []//async validators
     ],
-    age: [this.person.age],
+    age: [this.person.age,
+    {
+      validators: [Validators.required],
+      updateOn: 'blur'
+    }
+    ],
     gender: [this.person.gender],
     email: [this.person.email],
     wealth: [this.person.wealth],

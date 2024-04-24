@@ -12,11 +12,11 @@ import { ColumnDirective } from '../../../shared/formatting/formatting-directive
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-    selector: 'app-template-validation',
-    templateUrl: './template-validation.component.html',
-    styleUrls: ['./template-validation.component.scss'],
-    standalone: true,
-    imports: [
+  selector: 'app-template-validation',
+  templateUrl: './template-validation.component.html',
+  styleUrls: ['./template-validation.component.scss'],
+  standalone: true,
+  imports: [
     MatCardModule,
     FormsModule,
     ColumnDirective,
@@ -25,7 +25,7 @@ import { MatCardModule } from '@angular/material/card';
     MatSelectModule,
     MatOptionModule,
     MatButtonModule
-],
+  ],
 })
 export class TemplateValidationComponent implements OnInit {
   @ViewChild('personForm') form: NgForm | null = null;
@@ -38,7 +38,7 @@ export class TemplateValidationComponent implements OnInit {
     });
   }
 
-  patchValue() {
+  setValueToField() {
     this.form?.controls['name'].setValue('Heinrich');
   }
 
