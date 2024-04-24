@@ -7,10 +7,9 @@
 </app-person-list-signals>
 
 @if (current()) {
-<app-person-edit-signals
-  [person]="current()? current():  new Person()"
-  [editMode]="true"
-  (savePerson)="onPersonSaved($event)"
->
-</app-person-edit-signals>
+  <!-- <app-person-edit-signals
+    [person]="current()? current():  new Person()"
+    [editMode]="true"
+    (savePerson)="onPersonSaved($event)">
+  </app-person-edit-signals> -->
 }

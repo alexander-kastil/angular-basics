@@ -1,10 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
-import { PersonListSignalsComponent } from './person-list-signals/person-list-signals.component';
-import { PersonEditSignalsComponent } from './person-edit-signals/person-edit-signals.component';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 import { Person } from '../persons/person.model';
 import { PersonService } from '../persons/person.service';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { PersonEditSignalsComponent } from './person-edit-signals/person-edit-signals.component';
+import { PersonListSignalsComponent } from './person-list-signals/person-list-signals.component';
 
 @Component({
   selector: 'app-container-presenter-signals',
@@ -24,10 +24,8 @@ export class ContainerPresenterSignalsComponent {
   current = signal<Person | null>(null);
 
   onPersonSelected(p: Person) {
-    this.current.set(p);
-    // this.current = p;
-    // this.current = { ...p };
-    // this.current = Object.assign({},p)
+    console.log('Person selected:', p);
+    this.current.set({ ...p });
   }
 
   onPersonSaved(p: Person) {
