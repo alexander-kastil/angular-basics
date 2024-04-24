@@ -11,8 +11,6 @@
 
 mat-toolbar-row {
   min-height: var(--toolbar-big);
-  display: flex;
-  flex-direction: row;
   gap: var(--gap-medium);
 }
 

@@ -1,10 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
-import { Person } from '../persons/person.model';
-import { PersonService } from '../persons/person.service';
 import { PersonEditSignalsComponent } from './person-edit-signals/person-edit-signals.component';
 import { PersonListSignalsComponent } from './person-list-signals/person-list-signals.component';
+import { PersonService } from '../person.service';
+import { Person } from '../person.model';
 
 @Component({
   selector: 'app-container-presenter-signals',

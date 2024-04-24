@@ -1,6 +1,6 @@
 import { Component, input, output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { Person } from '../../persons/person.model';
+import { Person } from '../../person.model';
 
 @Component({
   selector: 'app-person-list-signals',

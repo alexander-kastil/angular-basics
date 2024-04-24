@@ -1,15 +1,13 @@
 .gdSidenavContent {
-  min-width: 450px;
-  height: 100%;
   display: grid;
-  gap: var(--gap-small);
   grid-template-rows: 60px var(--gap-small) auto;
   grid-template-columns: auto 5rem;
   grid-template-areas:
-    "toolbar toolbar"
-    "workbench sidebar"
-    "mdeditor sidebar";
-
+  "toolbar toolbar"
+  "workbench sidebar"
+  "mdeditor sidebar";
+  gap: var(--gap-small);
+  
   @media only screen and (max-width: 960px) {
     grid-template-columns: auto;
     grid-template-areas:
@@ -17,6 +15,9 @@
       "workbench"
       "mdeditor";
   }
+
+  min-width: 400px;
+  height: 100%;
 }
 
 .gdToolbar {

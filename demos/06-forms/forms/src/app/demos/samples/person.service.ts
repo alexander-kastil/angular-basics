@@ -1,15 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { Person } from './person.model';
 import { delay } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PersonService {
+  http = inject(HttpClient);
+
   getPerson(): Observable<Person> {
     return of({
+      id: 1,
       name: 'Heinz',
       gender: 'male',
       age: 20,
@@ -21,6 +26,10 @@ export class PersonService {
         postalCode: '3544',
       },
     }).pipe(delay(1500));
+  }
+
+  getPersons(): Observable<Person[]> {
+    return this.http.get<Person[]>(environment.api + 'persons');
   }
 
   save(form: NgForm) {

@@ -26,18 +26,6 @@
 
 [Easy Css Grid Prototyping](https://grid.layoutit.com)
 
-## Angular Flex-Layout
-
-Supports Flexbox & CSS Grid
-
-[Angular Flex Layout Api Documentation](https://github.com/angular/flex-layout/wiki/Declarative-API-Overview)
-
-For Angular 8 install release 8.x of Flex Layout:
-
-```
-npm i -S @angular/flex-layout
-```
-
 ## Angular Material
 
 [Angular Material](https://material.angular.io)
