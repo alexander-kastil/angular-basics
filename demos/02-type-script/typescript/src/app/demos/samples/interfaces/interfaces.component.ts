@@ -12,12 +12,12 @@ import { MatCardModule } from '@angular/material/card';
 export class InterfacesComponent {
 
   interfacesBasics() {
-    interface IHumanBeeing {
+    interface IHumanBeing {
       name: string;
       birthDate: Date;
     }
 
-    class Knight implements IHumanBeeing {
+    class Knight implements IHumanBeing {
       name: string = '';
       birthDate: Date = new Date();
       weapon = 'Battle Axe';

@@ -7,12 +7,11 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 
 choco install googlechrome -y
 choco install vscode -y
-choco install dotnet-6.0-sdk -y
-choco install azure-cli -y
+choco install dotnet-8.0-sdk -y
 choco install git -y
 choco install gh -y
 choco install curl -y
-choco install nodejs-lts --version=16.15.0 -y
+choco install nodejs-lts --version=18.17.0 -y
 
 # Refresh Path Env
 Write-Host "Refresh Path Env - 2/4" -ForegroundColor yellow

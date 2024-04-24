@@ -24,16 +24,14 @@
 </mat-card>
 
 @if (loading) {
-  <mat-progress-bar mode="query"></mat-progress-bar>
-}
-
-@if (loading==false) {
-  <mat-card appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>Result from call</mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="result">
-      <pre>{{ result | json }}</pre>
-    </mat-card-content>
-  </mat-card>
+<mat-progress-bar mode="query"></mat-progress-bar>
+} @else {
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Result from call</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="result">
+    <pre>{{ result | json }}</pre>
+  </mat-card-content>
+</mat-card>
 }

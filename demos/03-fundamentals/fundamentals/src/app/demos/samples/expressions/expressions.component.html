@@ -4,19 +4,15 @@
     <mat-card-title>{{ title }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div>Calculation: 1 + 3 + {{ nbr }} = {{ 1 + 3 + nbr }}</div>
-    <div>
-      Conditional: {{ nbr > 0 ? 'Positive' : 'Negative' }}
-    </div>
-    <div>
-      Function Call: {{ addNumbers(10, myObj.b) }}
-    </div>
+    <div>Calculation: 1 + 3 + {{ nbr() }} = {{ 1 + 3 + nbr() }}</div>
+    <div>Conditional: {{ nbr() > 0 ? "Positive" : "Negative" }}</div>
+    <div>Function Call: {{ addNumbers(10, myObj.b) }}</div>
     <div>
       <div [hidden]="!showOriginalDiv">The original Div</div>
       <div [hidden]="showOriginalDiv">The alternative Div</div>
       <button
         mat-raised-button
-        (click)="showOriginalDiv = !showOriginalDiv"
+        (click)="toggleDisplay()"
         color="primary"
       >
         Toggle the div
