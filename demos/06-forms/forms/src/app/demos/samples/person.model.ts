@@ -1,4 +1,5 @@
 export class Person {
+  id = 0;
   age = 0;
   name = '';
   email = '';

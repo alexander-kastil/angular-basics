@@ -5,16 +5,16 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
-import { Person } from '../person.model';
+import { Person } from '../../persons/person.model';
 
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-    selector: 'app-persons-list',
-    templateUrl: './persons-list.component.html',
-    styleUrls: ['./persons-list.component.scss'],
-    standalone: true,
-    imports: [MatCardModule],
+  selector: 'app-persons-list',
+  templateUrl: './persons-list.component.html',
+  styleUrls: ['./persons-list.component.scss'],
+  standalone: true,
+  imports: [MatCardModule],
 })
 export class PersonsListComponent {
   @Input() persons: Person[] | null = [];

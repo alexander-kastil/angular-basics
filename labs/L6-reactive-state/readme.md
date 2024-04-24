@@ -35,12 +35,11 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
   ```css
   .hamburgerMenu{
     cursor: pointer;
-    display: none;
     padding-top: 0.5rem;
     margin-right: 1rem;
   ;
-    @media only screen and (max-width: 960px) {
-      display: block;
+    @media (min-width: 960px) {
+      display: none;
     }
   }
   ```

@@ -1,11 +1,11 @@
 {
   "demos": [
     {
-      "url": "templatedriven",
+      "url": "template-driven",
       "title": "Template driven Forms"
     },
     {
-      "url": "ngmodelgrp",
+      "url": "model-grp",
       "title": "Template NgModelGroup"
     },
     {
@@ -13,15 +13,15 @@
       "title": "Template Validation"
     },
     {
-      "url": "formcontrol",
+      "url": "form-control",
       "title": "Standalone Form Control"
     },
     {
-      "url": "reactiveforms",
+      "url": "reactive-forms",
       "title": "Reactive Forms"
     },
     {
-      "url": "formsbuilder",
+      "url": "forms-builder",
       "title": "Reactive FormsBuilder"
     },
     {
@@ -35,6 +35,10 @@
     {
       "url": "form-array",
       "title": "Reactive Form Array"
+    },
+    {
+      "url": "container-forms",
+      "title": "Container Forms"
     }
   ],
   "top-links": [
@@ -189,6 +193,40 @@
       "hours": 1,
       "completed": false,
       "id": 3
+    }
+  ],
+  "persons": [
+    {
+      "id": "1",
+      "name": "Cleo",
+      "age": 15,
+      "gender": "female",
+      "married": true,
+      "imgUrl": "/assets/images/cleo.png"
+    },
+    {
+      "id": "2",
+      "name": "Soi",
+      "age": 9,
+      "gender": "female",
+      "married": false,
+      "imgUrl": "/assets/images/soi.png"
+    },
+    {
+      "id": "3",
+      "name": "Giro",
+      "age": 11,
+      "gender": "male",
+      "married": false,
+      "imgUrl": "/assets/images/giro.png"
+    },
+    {
+      "id": "4",
+      "name": "Flora",
+      "age": 14,
+      "gender": "female",
+      "married": false,
+      "imgUrl": "/assets/images/flora.png"
     }
   ]
 }

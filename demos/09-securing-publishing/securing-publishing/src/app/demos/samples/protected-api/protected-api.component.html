@@ -1,10 +1,10 @@
 <app-markdown-renderer [md]="'secured-api'"></app-markdown-renderer>
-<mat-card appearance="outlined" *ngIf="currentUser != null" fxLayout="column" fxLayoutGap="10px">
+<mat-card appearance="outlined" *ngIf="currentUser != null">
     <mat-card-header>
       <mat-card-title>Secured Api</mat-card-title
       >
     </mat-card-header>
-    <mat-card-content fxLayout="column" fxLayoutGap="16px">
+    <mat-card-content>
       <button mat-raised-button (click)="callCoreApi()" color="primary">
         Call Secured .NET Core Api
       </button>

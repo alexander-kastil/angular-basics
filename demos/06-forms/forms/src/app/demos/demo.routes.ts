@@ -9,21 +9,23 @@ import { ReactiveValidationComponent } from './samples/reactive-validation/react
 import { TemplateDrivenComponent } from './samples/template-driven/template-driven.component';
 import { TemplateValidationComponent } from './samples/template-validation/template-validation.component';
 import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
+import { ContainerPresenterSignalsComponent } from './samples/container-forms/container-presenter-signals.component';
 
 export const DEMO_ROUTES: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
     children: [
-      { path: 'templatedriven', component: TemplateDrivenComponent },
-      { path: 'ngmodelgrp', component: NgModelGrpComponent },
-      { path: 'reactiveforms', component: ReactiveFormsComponent },
-      { path: 'formsbuilder', component: FormsBuilderComponent },
+      { path: 'template-driven', component: TemplateDrivenComponent },
+      { path: 'model-grp', component: NgModelGrpComponent },
+      { path: 'reactive-forms', component: ReactiveFormsComponent },
+      { path: 'forms-builder', component: FormsBuilderComponent },
       { path: 'template-validation', component: TemplateValidationComponent },
       { path: 'reactive-validation', component: ReactiveValidationComponent },
-      { path: 'formcontrol', component: FormControlComponent },
+      { path: 'form-control', component: FormControlComponent },
       { path: 'form-array', component: FormArrayComponent },
-      { path: 'reactive-nested', component: ReactiveNestedComponent }
+      { path: 'reactive-nested', component: ReactiveNestedComponent },
+      { path: 'container-forms', component: ContainerPresenterSignalsComponent }
     ],
   },
 ];
