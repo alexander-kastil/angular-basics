@@ -1,5 +1,5 @@
-import { Component, input, output } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, effect, input, output } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,7 +14,7 @@ import { Person } from '../../persons/person.model';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule,
+    ReactiveFormsModule,
     MatRadioModule,
     MatButtonModule,
   ],
@@ -22,32 +22,32 @@ import { Person } from '../../persons/person.model';
   styleUrl: './person-edit-signals.component.scss'
 })
 export class PersonEditSignalsComponent {
-  person = input<Person>(new Person());
-  editMode = input<boolean>(false);
-  savePerson = output<Person>();
+  person = input<Person | null>(new Person());
+  onSavePerson = output<Person>();
 
-  // fcName = new FormControl(this.person()?.name ?? '');
-  // fcAge = new FormControl(this.person()?.age ?? 0);
-  // fcGender = new FormControl(this.person()?.gender ?? 'M');
+  fcName = new FormControl(this.person()?.name ?? '');
+  fcAge = new FormControl(this.person()?.age ?? 0);
+  fcGender = new FormControl(this.person()?.gender ?? 'M');
 
-  // @Input() person: Person = new Person();
-  // @Input() editMode: boolean = false;
-  // @Output() savePerson: EventEmitter<Person> = new EventEmitter<Person>();
+  constructor() {
+    effect(() => {
+      if (this.person() !== null) {
+        var p = this.person() as Person;
+        this.fcName.setValue(p.name);
+        this.fcAge.setValue(p.age);
+        this.fcGender.setValue(p.gender);
+      }
+    });
+  }
 
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   if (changes['person']) {
-  //     console.log('receiving updated person:', changes['person'].currentValue);
-  //   }
-  // }
-
-  doSave() {
+  savePerson() {
     if (this.person() !== null) {
       const p = this.person() as Person;
-      this.savePerson.emit(p);
+      this.onSavePerson.emit(p);
     }
   }
 
-  doDelete() {
+  deletePerson() {
     console.log(`deleting ${this.person()?.name}`);
   }
 }

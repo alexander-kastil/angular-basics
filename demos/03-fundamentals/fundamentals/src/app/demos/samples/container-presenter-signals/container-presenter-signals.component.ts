@@ -29,15 +29,14 @@ export class ContainerPresenterSignalsComponent {
   }
 
   onPersonSaved(p: Person) {
-    // console.log('mock saving to service:', p);
-    // const existing: Person | undefined = this.persons().find((i) => i.id == p.id);
-    // if (existing) {
-    //   Object.assign(existing, p);
-    // } else {
-    //   this.persons.push(p);
-    // }
-    // this.current.set(null);
-    // console.log('Persons array after save', this.persons);
+    console.log('mock saving to service:', p);
+    const existing: Person | undefined = this.persons().find((i) => i.id == p.id);
+    if (existing) {
+      Object.assign(existing, p);
+    } else {
+      this.persons().push(p);
+    }
+    this.current.set(null);
+    console.log('Persons array after save', this.persons);
   }
-
 }
