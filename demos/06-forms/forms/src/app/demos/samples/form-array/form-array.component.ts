@@ -41,7 +41,14 @@ export class FormArrayComponent {
     );
   }
 
-  checkAddSkill() {
+  removeSkill(index: number) {
+    const skillsGrp = this.skillForm.controls['skills'] as FormArray;
+    skillsGrp.removeAt(index);
+  }
+
+
+
+  checkArrayValid() {
     const skillsGrp = this.skillForm.controls['skills'] as FormArray;
     const lastSkill = skillsGrp.at(skillsGrp.length - 1);
     if (lastSkill.value.skill === '' || lastSkill.value.years === '') {

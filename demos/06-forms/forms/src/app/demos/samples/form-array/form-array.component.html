@@ -30,6 +30,9 @@
                     <mat-form-field>
                       <input matInput placeholder="Years" formControlName="years" />
                     </mat-form-field>
+                    <div>
+                      <button mat-raised-button (click)="removeSkill(i)" color="primary" >Remove</button>
+                    </div>
                   </div>
                 </div>
               }
@@ -37,8 +40,8 @@
           }
         </mat-card-content>
         <mat-card-actions class="cmdItems">
-          <button mat-raised-button (click)="addSkill()" [disabled]="checkAddSkill()" color="primary">Add Skill</button>
-          <button mat-raised-button (click)="saveForm()" [disabled]="checkAddSkill()" color="primary">Save</button>
+          <button mat-raised-button (click)="addSkill()" [disabled]="checkArrayValid()" color="primary">Add Skill</button>
+          <button mat-raised-button (click)="saveForm()" [disabled]="checkArrayValid()" color="primary">Save</button>
         </mat-card-actions>
       </mat-card>
     </div>
