@@ -14,7 +14,7 @@ export class SideNavService {
   http = inject(HttpClient);
   breakpointObserver = inject(BreakpointObserver);
   visible = signal(true);
-  position = signal<MatDrawerMode>('side');
+  position = signal<MatDrawerMode>('side'); // side | over
 
   constructor() {
     this.watchScreen.subscribe();

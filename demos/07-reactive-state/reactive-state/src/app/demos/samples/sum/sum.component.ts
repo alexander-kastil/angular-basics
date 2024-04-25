@@ -16,5 +16,6 @@ export class SumComponent {
 
   sum = this.vs
     .getAllVouchers()
-    .pipe(map((vs) => vs.reduce((runningSum, v) => runningSum + v.Amount, 0)));
+    .pipe(
+      map((vs) => vs.reduce((runningSum, v) => runningSum + v.Amount, 0)));
 }

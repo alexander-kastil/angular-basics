@@ -10,10 +10,12 @@ import { Voucher } from './vouchers.model';
 export class VouchersService {
   http = inject(HttpClient);
 
+  // specified the return type is not necessary
   getVouchers(): Observable<Voucher[]> {
     return this.http.get<Voucher[]>(`${environment.api}vouchers/`);
   }
 
+  // proposed without specifying the return type
   getVoucher(id: number) {
     return this.http.get<Voucher>(`${environment.api}vouchers/${id}`);
   }
