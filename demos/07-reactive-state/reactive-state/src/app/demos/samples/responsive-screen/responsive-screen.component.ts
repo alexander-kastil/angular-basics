@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { AsyncPipe, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatCardModule } from '@angular/material/card';
 import { map } from 'rxjs';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
@@ -13,17 +14,17 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   imports: [
     MarkdownRendererComponent,
     MatCardModule,
-    NgClass,
-    AsyncPipe
+    NgClass
   ]
 })
 export class ResponsiveScreenComponent {
   breakpointObserver = inject(BreakpointObserver);
-  class = this.breakpointObserver
+
+  class = toSignal(this.breakpointObserver
     .observe(['(min-width: 960px)'])
     .pipe(
       map((state: BreakpointState) => {
         return state.matches ? 'largeClass' : 'smallClass';
       })
-    );
+    ));
 }
