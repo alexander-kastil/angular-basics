@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { environment } from '../../../../environments/environment';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { Skill } from 'src/app/skills/skill.model';
 
 @Component({
   selector: 'app-http-client',
@@ -26,7 +27,7 @@ export class HttpClientComponent {
   key = 'mock-key';
 
   observeResponse() {
-    this.http.get(`${environment.api}skills`, {
+    this.http.get<Skill>(`${environment.api}skills`, {
       observe: 'response',
     })
       .subscribe((response: HttpResponse<any>) => {
@@ -44,7 +45,7 @@ export class HttpClientComponent {
     });
 
     this.http
-      .get(`${environment.api}skills`, { headers: header })
+      .get<Skill>(`${environment.api}skills`, { headers: header })
       .subscribe((data) => {
         console.log('Response using headers variable: ', data);
         this.result = data;

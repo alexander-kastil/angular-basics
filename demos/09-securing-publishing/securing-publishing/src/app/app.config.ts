@@ -16,9 +16,9 @@ import { appState } from './state/app.state';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        provideHttpClient(withInterceptors([
-            firebaseAuthInterceptor
-        ])),
+        provideHttpClient(
+            withInterceptors([firebaseAuthInterceptor])
+        ),
         provideRouter(routes, withComponentInputBinding()),
         provideAnimations(),
         importProvidersFrom([

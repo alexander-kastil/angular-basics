@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, Input, TemplateRef, ViewChild, inject, input, viewChild } from '@angular/core';
+import { Component, TemplateRef, inject, input, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
@@ -34,8 +34,6 @@ export class IntroComponent {
   router = inject(Router);
 
   logIn() {
-    console.log('logIn - authEnabled: ', this.isAuthenticated);
-
     this.dialog.open(this.loginTemplate(), { width: '350px' })
       .afterClosed()
       .pipe(
