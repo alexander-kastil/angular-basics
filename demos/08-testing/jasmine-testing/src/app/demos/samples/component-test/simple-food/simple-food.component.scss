@@ -1,5 +1,8 @@
-.foodrow {
+.foodRow {
   cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  margin: 0 0.5rem;
+  
   &:hover {
     text-decoration: underline;
   }

@@ -32,7 +32,7 @@ describe('Component - Spy - FoodComponent:', () => {
   })
 
   it('should have the correct food items on the Template', () => {
-    let divs = fixture.nativeElement.querySelectorAll('.foodrow');
+    let divs = fixture.nativeElement.querySelectorAll('.foodRow');
     expect(divs.length).toBe(4);
     expect(divs[2].textContent).toContain('Cannelloni');
   });
