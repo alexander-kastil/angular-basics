@@ -1,6 +1,7 @@
 import { Voucher } from './voucher.mode';
 
 export class VoucherValidator {
+
   static validate(voucher: Voucher) {
     let detailSumOk = false;
     if (voucher.Details != null) {

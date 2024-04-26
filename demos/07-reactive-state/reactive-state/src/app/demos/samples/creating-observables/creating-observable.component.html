@@ -18,11 +18,13 @@
     <button mat-raised-button color="primary" (click)="usePromiseToObs()">
       Casting Promises
     </button>
-    <button mat-raised-button color="primary" (click)="useNewObs()">new Observabl()</button>
+    <button mat-raised-button color="primary" (click)="useNewObs()">
+      new Observable()
+    </button>
     <button mat-raised-button color="primary" (click)="wrappingCallbacks()">
       Wrapping Callbacks
     </button>
 
-
+    <div>Location: {{ locationSignal() }}</div>
   </mat-card-content>
 </mat-card>

@@ -46,8 +46,6 @@ export class FormArrayComponent {
     skillsGrp.removeAt(index);
   }
 
-
-
   checkArrayValid() {
     const skillsGrp = this.skillForm.controls['skills'] as FormArray;
     const lastSkill = skillsGrp.at(skillsGrp.length - 1);

@@ -25,11 +25,13 @@ export class SidePanelComponent {
   icon = "create";
 
   toggleEditor() {
+
     if (this.editorDisplayed) {
       this.eb.triggerCmd(SidePanelActions.HIDE_MARKDOWN);
     } else {
       this.eb.triggerCmd(SidePanelActions.SHOW_MARKDOWN);
     }
+
     this.editorDisplayed = !this.editorDisplayed;
     this.icon = this.editorDisplayed ? "close" : "create";
   }

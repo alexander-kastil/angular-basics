@@ -10,13 +10,9 @@ import { VouchersService } from '../vouchers/voucher.service';
 export class StatefulSignalsService {
   http = inject(HttpClient);
   vs = inject(VouchersService);
-
-  // can not use toSignal here, because the result  is not writable
-  // Signal<Voucher[] | undefined>
   #vouchers: WritableSignal<Voucher[]> = signal<Voucher[]>([]);
 
   constructor() {
-    // to set the signal the current pattern is to subscribe to the observable
     this.http.get<Voucher[]>(`${environment.api}vouchers`).subscribe((data) => {
       this.#vouchers.set(data);
     });

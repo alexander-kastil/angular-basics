@@ -17,6 +17,7 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
 })
 export class FormControlsComponent {
   searchTerm = new FormControl<string>('');
+
   output = this.searchTerm.valueChanges.pipe(
     tap((val) => console.log('searching...' + val)),
     debounceTime(750)

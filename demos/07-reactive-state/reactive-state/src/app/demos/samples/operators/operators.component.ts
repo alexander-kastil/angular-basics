@@ -22,7 +22,6 @@ import {
 import { VouchersService } from '../vouchers/voucher.service';
 import { Voucher } from '../vouchers/vouchers.model';
 import { DoublerService } from './doubler.service';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
@@ -61,10 +60,12 @@ export class OperatorsComponent {
         // Obs Operator map()
         map((va) => {
           // ES6 array.map()
-          return va.map((v) => ({
-            ...v,
-            Label: `${v.Text} costs € ${v.Amount}`,
-          }));
+          return va.map((v) => (
+            {
+              ...v,
+              Label: `${v.Text} costs € ${v.Amount}`,
+            }
+          ));
         })
       )
       .subscribe((data) => this.log('use map() - RxJS 5 pattern', data));
@@ -153,6 +154,12 @@ export class OperatorsComponent {
     return forkJoin([response1, response2, response3]);
   }
 
+  useForkJoin() {
+    this.requestMockVM().subscribe((arr) => {
+      this.response = arr;
+    });
+  }
+
   useCombineLatestWith() {
     this.vs
       .getVouchers()
@@ -166,11 +173,5 @@ export class OperatorsComponent {
         })
       )
       .subscribe((data) => this.log('useCombineLatestWith', data));
-  }
-
-  useForkJoin() {
-    this.requestMockVM().subscribe((arr) => {
-      this.response = arr;
-    });
   }
 }

@@ -5,6 +5,7 @@ import { filter, map, tap } from 'rxjs/operators';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-simple-observable',
@@ -62,7 +63,6 @@ export class CreatingObservableComponent {
     );
   }
 
-
   useNewObs() {
     let skills = [
       {
@@ -114,4 +114,7 @@ export class CreatingObservableComponent {
       console.log('current Geolocation:', loc);
     });
   }
+
+  // Cast to a signal
+  locationSignal = toSignal(this.getGeolocation$());
 }
