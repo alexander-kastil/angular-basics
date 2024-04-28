@@ -1,0 +1,24 @@
+<div class="grid">
+  <div class="gd-navbar">
+    <app-navbar *ngIf="isAuthenticated | async"></app-navbar>
+  </div>
+  <div class="gd-loading">
+    <app-loading *ngIf="isLoading | async"></app-loading>
+  </div>
+  <div class="gd-mainrow">
+    <mat-sidenav-container>
+      <mat-sidenav
+        #sidenav
+        class="sidenav"
+        [opened]="ms.sideNavVisible | async"
+        [mode]="mode"
+      >
+        <app-sidemenu *ngIf="isAuthenticated | async"></app-sidemenu>
+      </mat-sidenav>
+      <mat-sidenav-content [ngStyle]="getWorbenchStyle()">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    <router-outlet *ngIf="(isAuthenticated | async) == false"></router-outlet>
+  </div>
+</div>
