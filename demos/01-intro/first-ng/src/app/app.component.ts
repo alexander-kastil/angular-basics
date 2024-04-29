@@ -17,5 +17,5 @@ import { SidemenuComponent } from './shared/sidemenu/sidemenu.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'first-ng';
+  title = 'first angular app';
 }

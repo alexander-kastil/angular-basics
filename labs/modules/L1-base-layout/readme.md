@@ -53,7 +53,7 @@ Also install the [Angular Language Service - Visual Studio Code extension](https
 Create Angular Project using the [Angular CLI](https://angular.io/cli/new):
 
 ```
-ng new food-app-l0 --routing true --style scss 
+ng new food-app-l0 --routing true --style scss --standalone false
 cd food-app-l0
 ```
 
