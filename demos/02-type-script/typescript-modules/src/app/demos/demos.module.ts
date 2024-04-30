@@ -33,7 +33,7 @@ const demoRoutes: Routes = [
       { path: 'classes', component: ClassesComponent },
       { path: 'functions', component: FunctionsComponent },
       { path: 'interfaces', component: InterfacesComponent },
-      { path: 'gernerics', component: GenericsComponent },
+      { path: 'generics', component: GenericsComponent },
       { path: 'services', component: ServicesComponent },
     ],
   },

@@ -15,10 +15,10 @@
       "url": "interfaces",
       "title": "Interfaces"
     },
-    { "url": "gernerics", "title": "Generics" },
+    { "url": "generics", "title": "Generics" },
     {
       "url": "services",
-      "title": "Async Operations"
+      "title": "Consuming REST"
     }
   ],
   "top-links": [
