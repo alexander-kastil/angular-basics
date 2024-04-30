@@ -47,7 +47,7 @@ Implement a `food/food-service.ts` using the following `food.model.ts` model:
 ng g service food/food
 ```
 
-Inject the [Angular HttpClient](https://angular.io/guide/http) client into `food/food-service.ts` be adding `HttpClientModule` to `app.module.ts`
+Inject the [Angular HttpClient](https://angular.io/guide/http) client into `food/food-service.ts` by adding `HttpClientModule` to `app.module.ts`
 
 Implement a `getFood()` method in food-service and load the data from `assets/food.json`:
 
@@ -60,13 +60,13 @@ Implement a `getFood()` method in food-service and load the data from `assets/fo
 ```
 Use the following reference: 
 
-- [Load Data in Service](/demos/03-fundamentals/ng-fundamentals/src/app/demos/samples/persons/person.service.ts)
+- [Load Data in Service](../../../demos/03-fundamentals/fundamentals-modules/src/app/demos/samples/persons/person.service.ts)
 
 Implement a Container-Presenter Pattern in `food/food-container`, `food/food-list` and `food/food-edit`. Use the following reference: 
 
-- [Container](/demos/03-fundamentals/ng-fundamentals/src/app/demos/samples/container)
+- [Container](../../../demos/03-fundamentals/fundamentals-modules/src/app/demos/samples/container)
 
-- [Presenter](/demos/03-fundamentals/ng-fundamentals/src/app/demos/samples/persons)
+- [Presenter](../../demos/03-fundamentals/fundamentals-modules/src/app/demos/samples/persons)
 
 You might also have to import [FormsModule](https://angular.io/guide/frequent-ngmodules) into `app.module.ts` in order to use the `ngModel` directive in `food-edit.component.html`
 

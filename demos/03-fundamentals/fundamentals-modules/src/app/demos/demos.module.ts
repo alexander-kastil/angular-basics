@@ -104,12 +104,12 @@ const demoRoutes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule,
+    MaterialModule,
+    MarkdownRendererModule,
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
-    MaterialModule,
-    HttpClientModule,
     SharedModule,
-    MarkdownRendererModule,
     CenteredDirective,
     BorderDirective
   ],

@@ -20,4 +20,8 @@ export class ExpressionsComponent {
   showDiv() {
     return this.showOriginalDiv;
   }
+
+  increaseNbr() {
+    this.nbr++;
+  }
 }

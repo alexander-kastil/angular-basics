@@ -1,8 +1,7 @@
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { delay, of } from 'rxjs';
 import { Person } from '../persons/person.model';
 import { PersonService } from '../persons/person.service';
-import { delay, of, take } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-binding',
@@ -35,6 +34,10 @@ export class BindingComponent implements OnInit {
       .subscribe((data) => {
         this.latePerson = data;
       });
+  }
+
+  displayMessage() {
+    console.log('please dont go ...');
   }
 
   toggleDisplay() {

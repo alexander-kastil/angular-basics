@@ -1,27 +1,41 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import axios from 'axios'; //alias import
 import { environment } from '../../../../environments/environment';
 import { Skill } from '../skills/skill.model';
 import { SkillsService } from '../skills/skills.service';
-import { map, tap } from 'rxjs';
-import { ta } from 'date-fns/locale';
+import { Subscription, map, tap } from 'rxjs';
 
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss'],
 })
-export class ServicesComponent {
+export class ServicesComponent implements OnInit {
   service = inject(SkillsService);
   http = inject(HttpClient);
+  skillSubscription: Subscription;
+
+  // imperative binding
   skills: Skill[];
+
+  ngOnInit(): void {
+    this.skillSubscription = this.service.getSkills().subscribe((data) => {
+      console.log('Data from imperative binding', data);
+      this.skills = data;
+    });
+  }
+
+  ngOnDestroy() {
+    this.skillSubscription.unsubscribe();
+  }
+
+  // declarative binding
   skills$ = this.service.getSkills().pipe(
-    tap((data) => {
-      // using tap to log data to console
-      console.log('Data from declarative binding', data);
-    })
+    tap((data) => console.log('Data from declarative binding', data)),
+    map((data) => data),
   );
+
   showDeclarative = this.skills$.pipe(map((data) => data.length > 0));
 
   usingFetch() {
