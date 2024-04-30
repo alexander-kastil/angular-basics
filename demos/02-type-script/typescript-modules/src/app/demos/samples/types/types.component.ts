@@ -36,7 +36,7 @@ export class TypesComponent {
     const finished = false;
 
     // strings
-    const dogName = 'Giro';
+    const dogName: string = 'Giro';
     const otherDogName = 'Soi';
     const myString = 'ten';
 
@@ -123,7 +123,7 @@ export class TypesComponent {
   }
 
   literalTypes() {
-    type choice = 'ok' | 'not bad';
+    type choice = 'ok' | 'not bad' | 'very bad';
 
     function processChoice(ch: choice) {
       if (ch == 'ok') {

@@ -12,6 +12,8 @@ export class FunctionsComponent {
       return x + y;
     };
 
+    const lambdaAddFunction = (x: number, y: number): number => x + y;
+
     const result = addFunction(10, 20);
     console.log(result);
   }
