@@ -16,7 +16,7 @@ In this lab we will add simple routing to the food app.
     { path: "food", component: FoodContainerComponent },
     { path: "about", component: AboutComponent },
     ```
-- Add [RouterLink](https://angular.io/api/router/RouterLink) directives to `navbar.component.html` to enable navigation. Apply a style for the active link - use [this reference](/demos/04-routing/routing-modules/src/app/shared/navbar/navbar.component.html)
+- Add [RouterLink](https://angular.io/api/router/RouterLink) directives to `navbar.component.html` to enable navigation. Apply a style for the active link - use [this reference](../../../demos/04-routing/routing-di-modules/src/app/shared/navbar/navbar.component.html)
 
 - Test the routing
 

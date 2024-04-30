@@ -14,13 +14,13 @@ Add Angular Material to your project:
 
 - Install Angular Material using the [Material Getting Started](https://material.angular.io/guide/getting-started) and choose a theme of your choice.
 
-- Implement a `material.module.ts` and copy its default content from the [Demo App](/demos/05-ui/user-interface/src/app/material.module.ts).
+- Implement a `material.module.ts` and copy its default content from the [Demo App](../../../demos/05-ui/user-interface-modules/src/app/material.module.ts).
 
 - Test the installation of Angular Material by replacing the `div` in the `navbar.component.html` with a [Material Toolbar](https://material.angular.io/components/toolbar/overview)
 
 Implement the Base Layout using CSS Grid:
 
-- Change to base layout in app.component to use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/). Use the [Demo App](/demos/05-ui/user-interface/src/app/app.component.html) Layout as a reference.
+- Change to base layout in app.component to use [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/). Use the [Demo App](../../../demos/05-ui/user-interface-modules/src/app/app.component.html) Layout as a reference.
     
 - Hide the sidebar on devices with a horizontal width less than `960px`. We will add a toggle button in another lab.
 
@@ -75,7 +75,7 @@ In this task we will add data access to food-app. We will use [json-server](http
     json-server db.json
     ```
 
-- Extend `food.service.ts` to implement Get, Create, Read, Update and Delete against the json-server api and use it in your app. Use the following [reference](/demos/05-ui/user-interface/src/app/skills/skills.service.ts)
+- Extend `food.service.ts` to implement Get, Create, Read, Update and Delete against the json-server api and use it in your app. Use the following [reference](../../../demos/05-ui/user-interface-modules/src/app/skills/skills.service.ts)
 
 - If you want to generate and id for a new food item to be added, you could use this code fragment:
 
@@ -92,7 +92,7 @@ In this task we will add data access to food-app. We will use [json-server](http
 
 Implement a custom material theme with a [custom color palette](https://material.io/resources/color/#!/?view.left=0&view.right=0) and replace the theme that you have chosen at the beginning of this lab:
 
-- Use the [Demo App Theme](/demos/05-ui/user-interface/src/theme/mat-theme.scss) as a reference.
+- Use the [Demo App Theme](../../../demos/05-ui/user-interface-modules/src/theme/mat-theme.scss) as a reference.
 
 Add the `burger.png` file as a centered image to the `home.component.html` and use a custom [web font](https://fonts.google.com/) in the welcome text by registering it in `index.html`.
 
