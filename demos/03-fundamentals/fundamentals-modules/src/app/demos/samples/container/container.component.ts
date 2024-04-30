@@ -19,8 +19,8 @@ export class ContainerComponent implements OnInit {
   }
 
   onPersonSelected(p: Person) {
-    // this.current = p;
-    this.current = { ...p };
+    this.current = p;
+    // this.current = { ...p };
     // this.current = Object.assign({},p)
   }
 

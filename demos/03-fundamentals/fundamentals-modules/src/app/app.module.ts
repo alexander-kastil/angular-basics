@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { SkillsModule } from './skills/skills.module';
+import { ThemeService } from './shared/theme/theme.service';
 
 registerLocaleData(localeDe);
 
@@ -29,7 +30,9 @@ registerLocaleData(localeDe);
     SkillsModule,
     SharedModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'de' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'de' }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -10,7 +10,12 @@ import { debounceTime } from 'rxjs';
 })
 export class FormControlsComponent {
   destroy = inject(DestroyRef);
-  searchTerm = new FormControl<string | null>('', [Validators.required, Validators.minLength(3)]);
+
+  searchTerm = new FormControl<string>(
+    '',
+    [Validators.required, Validators.minLength(3)]
+  );
+
   chkSave = new FormControl<boolean>(true);
 
   ngOnInit() {
@@ -28,7 +33,7 @@ export class FormControlsComponent {
     this.searchTerm.statusChanges
       .pipe(takeUntilDestroyed(this.destroy))
       .subscribe((status) => {
-        console.log('status of search term:', status);
+        console.log('Current value is valid:', status);
       });
   }
 }
