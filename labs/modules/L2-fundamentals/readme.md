@@ -66,7 +66,7 @@ Implement a Container-Presenter Pattern in `food/food-container`, `food/food-lis
 
 - [Container](../../../demos/03-fundamentals/fundamentals-modules/src/app/demos/samples/container)
 
-- [Presenter](../../demos/03-fundamentals/fundamentals-modules/src/app/demos/samples/persons)
+- [Presenter](../../../demos/03-fundamentals/fundamentals-modules/src/app/demos/samples/persons/)
 
 You might also have to import [FormsModule](https://angular.io/guide/frequent-ngmodules) into `app.module.ts` in order to use the `ngModel` directive in `food-edit.component.html`
 
