@@ -15,4 +15,4 @@ In this lab we will add Firebase Authentication to our app and publish it to Fir
 
     ![web-app](_images/config.jpg)
 
-- Take the [fbauth-folder](/demos/09-securing-publishing/securing-ui/src/app/fbauth/) from the demo app as a reference and add it to your app.
+- Take the [fbauth-folder](../../../demos/09-securing-publishing/securing-publishing-modules/src/app/fbauth/) from the demo app as a reference and add it to your app.
