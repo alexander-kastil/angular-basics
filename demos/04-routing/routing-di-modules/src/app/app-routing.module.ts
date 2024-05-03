@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
-import { AdminComponent } from './admin/admin.component';
+import { RouterModule, Routes } from '@angular/router';
 import { AdminAComponent } from './admin/admin-a/admin-a.component';
 import { AdminBComponent } from './admin/admin-b/admin-b.component';
-import { SkillsListComponent } from './skills/skills-list/skills-list.component';
-import { SkillsEditComponent } from './skills/skills-edit/skills-edit.component';
-import { SkillResolverService } from './skills/skill-resolver.service';
+import { AdminComponent } from './admin/admin.component';
 import { authGuard } from './authGuard';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -51,7 +48,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./statistics/statistics.module').then((m) => m.StatisticsModule),
   },
-  { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
   { path: '**', component: PageNotFoundComponent },
 
 ];
