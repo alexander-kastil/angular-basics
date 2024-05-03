@@ -22,12 +22,9 @@ const routes: Routes = [
   },
   {
     path: 'skills',
-    component: SkillsListComponent,
-  },
-  {
-    path: 'skills/:id',
-    component: SkillsEditComponent,
-    resolve: { skillData: SkillResolverService },
+    loadChildren: () =>
+      import('./skills/skills.module').then((m) => m.SkillsModule),
+
   },
   {
     path: 'customers',
@@ -50,14 +47,12 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: 'skills-old',
-    redirectTo: 'skills',
-  },
-  {
     path: 'statistics',
     loadChildren: () =>
       import('./statistics/statistics.module').then((m) => m.StatisticsModule),
-  }, { path: '**', component: PageNotFoundComponent },
+  },
+  { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+  { path: '**', component: PageNotFoundComponent },
 
 ];
 
