@@ -20,6 +20,7 @@ export class StatefulSignalsService {
 
   getAllVouchers() {
     return computed(() => this.#vouchers());
+    // return this.#vouchers.asReadonly();
   }
 
   getVoucherById(id: number) {
@@ -27,8 +28,8 @@ export class StatefulSignalsService {
   }
 
   insertVoucher(v: Voucher) {
-    this.http.post(`${environment.api}vouchers`, v).subscribe((result: any) => {
-      this.#vouchers.update((arr: Voucher[]) => [...arr, result as Voucher]);
+    this.http.post<Voucher>(`${environment.api}vouchers`, v).subscribe(result => {
+      this.#vouchers.update((arr: Voucher[]) => [...arr, result]);
     });
   }
 

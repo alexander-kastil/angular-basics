@@ -6,7 +6,7 @@ import { PersonService } from '../persons/person.service';
 @Component({
   selector: 'app-binding',
   templateUrl: './binding.component.html',
-  styleUrls: ['./binding.component.scss'],
+  styleUrls: ['./binding.component.scss']
 })
 export class BindingComponent implements OnInit {
   ps = inject(PersonService);

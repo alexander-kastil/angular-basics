@@ -20,7 +20,7 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
 
 - Use [sidenav.service.ts](/demos/07-reactive-state/reactive-state/src/app/shared/sidenav/sidenav.service.ts) as a reference to implement the `sidemenu.service.ts`. Do not copy past but basically it would work the same way. 
 
-- Modify `nav.component.html` to use the `SideMenuService`:
+- Modify `navbar.component.html` to use the `SideMenuService`:
 
   ```html
   <mat-toolbar color="primary">

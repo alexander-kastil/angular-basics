@@ -44,18 +44,18 @@ export class ReactiveValidationComponent implements OnInit {
 
   ngOnInit() {
     this.loadData();
-    this.subscribeChanges();
+    this.personForm.valueChanges.subscribe((vals) => {
+      console.log('changes happening @form: ', vals);
+    });
+
+    this.personForm.statusChanges.subscribe((status) => {
+      console.log('status changes happening @form: ', status);
+    }
   }
 
   private loadData() {
     this.ps.getPerson().subscribe((p) => {
       this.personForm.patchValue(p);
-    });
-  }
-
-  private subscribeChanges() {
-    this.personForm.valueChanges.subscribe((vals) => {
-      console.log('changes happening @form: ', vals);
     });
   }
 

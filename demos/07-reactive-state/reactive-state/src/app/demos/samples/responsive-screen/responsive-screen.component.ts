@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { NgClass } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatCardModule } from '@angular/material/card';
@@ -26,5 +26,5 @@ export class ResponsiveScreenComponent {
       map((state: BreakpointState) => {
         return state.matches ? 'largeClass' : 'smallClass';
       })
-    ));
+    ), { initialValue: 'smallClass' });
 }

@@ -110,6 +110,6 @@ const demoRoutes: Routes = [
     RowDirective,
     MarkdownRendererModule
   ],
-  providers: [DemoService],
+  providers: [],
 })
 export class DemosModule { }

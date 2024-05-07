@@ -68,6 +68,7 @@ export class DemoContainerComponent {
 
   navPosition = this.nav.getSideNavPosition();
   navVisible = this.nav.getSideNavVisible();
+
   workbenchMargin = {}
 
   constructor() {

@@ -3,8 +3,8 @@
   height: 100%;
   overflow: hidden;
   display: grid;
-  gap: 5px;
-  grid-template-rows: var(--toolbar-big) 5px auto;
+  gap: var(--gap-small);
+  grid-template-rows: var(--toolbar-big) var(--gap-small) auto;
   grid-template-columns: auto var(--toolbar-xl);
   grid-template-areas:
     "toolbar toolbar"

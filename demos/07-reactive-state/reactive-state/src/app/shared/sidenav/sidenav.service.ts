@@ -13,6 +13,7 @@ import { NavItem } from '../navbar/nav-item.model';
 export class SideNavService {
   http = inject(HttpClient);
   breakpointObserver = inject(BreakpointObserver);
+
   visible = signal(true);
   position = signal<MatDrawerMode>('side'); // side | over
 

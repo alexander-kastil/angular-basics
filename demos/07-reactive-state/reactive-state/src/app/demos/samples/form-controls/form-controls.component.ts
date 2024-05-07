@@ -13,7 +13,15 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   templateUrl: './form-controls.component.html',
   styleUrls: ['./form-controls.component.scss'],
   standalone: true,
-  imports: [MarkdownRendererComponent, MatCardModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, BorderDirective, AsyncPipe]
+  imports: [
+    MarkdownRendererComponent,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    BorderDirective,
+    AsyncPipe
+  ]
 })
 export class FormControlsComponent {
   searchTerm = new FormControl<string>('');
