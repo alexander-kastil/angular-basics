@@ -1,7 +1,7 @@
-import { Router, RouterLink } from '@angular/router';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { Router, RouterLink } from '@angular/router';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
@@ -10,10 +10,10 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   styleUrls: ['./routing-basics.component.scss'],
   standalone: true,
   imports: [
-    MarkdownRendererComponent,
     MatCardModule,
     MatButtonModule,
     RouterLink,
+    MarkdownRendererComponent
   ],
 })
 export class RoutingBasicsComponent {
