@@ -1,5 +1,4 @@
-
-import { HttpClientModule } from '@angular/common/http';
+import { } from '@angular/common/http';
 import { Component, Input, inject, signal } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MarkdownModule } from 'ngx-markdown';
@@ -11,12 +10,10 @@ import { RendererStateService } from './renderer-state.service';
   templateUrl: './markdown-renderer.component.html',
   styleUrls: ['./markdown-renderer.component.scss'],
   standalone: true,
-
   imports: [
-    HttpClientModule,
     MarkdownModule,
     MatExpansionModule
-],
+  ],
 })
 export class MarkdownRendererComponent {
   @Input({ required: true }) md = '';
