@@ -3,11 +3,10 @@ import { NavItem } from './nav-item.model';
 import { NavbarService } from './navbar.service';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+    selector: 'app-navbar',
+    imports: [],
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
   ns = inject(NavbarService);
