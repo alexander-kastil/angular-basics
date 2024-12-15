@@ -23,10 +23,10 @@
 ### TypeScript in the Angular Ecosystem
 
 - TypeScript Overview, ECMA Script Standards
-- Types, Variables, Literal Types, Functions
-- Objects, Classes, Interfaces
+- Const, Variables, Utility Functions
+- Client Side Models: Classes, Interfaces & Types
 - Immutability, Cloning & Object Composition
-- Async Operations, Observables & Signals
+- Async Operations, Observables, Signals & Resources
 - Calculated Signals & Effects
 
 ### Databinding & Completing Basic Tasks
