@@ -1,0 +1,12 @@
+.checked {
+  margin-top: 1rem;
+  min-height: 2rem;
+}
+
+input[type=checkbox]{
+  margin-left: var(--gap-small);
+}
+
+div{
+  margin-bottom: var(--gap-medium);
+}

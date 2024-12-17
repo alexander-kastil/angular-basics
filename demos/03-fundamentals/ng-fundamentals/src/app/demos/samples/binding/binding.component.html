@@ -1,0 +1,118 @@
+<app-markdown-renderer [md]="'binding'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Bindings - Change text and watch changes</mat-card-title>
+  </mat-card-header>
+  <mat-card-content column>
+    <label>Interpolation - One Way Binding:</label>
+    <div>{{ selectedPerson.name }}</div>
+    <label>One Way Attribute Binding</label>
+    <input type="text" [value]="selectedPerson.name" />
+    <label for="lblOneWayModel">One Way (Model) Binding</label>
+    <input type="text" [ngModel]="selectedPerson.name" />
+    <label for="lblTwoWay">Two Way (Model) Binding</label>
+    <!-- banana in a box -->
+    <input type="text" [(ngModel)]="selectedPerson.name" />
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title
+      >Binding and Nullability - data with latency
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    @if (latePerson) {
+      <div>
+        <pre>{{ latePerson | json }}</pre>
+      </div>
+    }@else {
+      <div>Loading...</div>
+    }
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Img & Select Binding</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div>
+      <h2>{{ selectedPerson.name }}, {{ selectedPerson.age }} years</h2>
+      @if (selectedPerson.imgUrl) {
+        <img [src]="selectedPerson.imgUrl" width="150px" /> 
+      }
+    </div>
+    <div>
+      <select [(ngModel)]="selectedId" style="width: 150px">
+        @for (p of persons(); track p) {
+        <option [value]="p.id">{{ p.name }}</option>
+        }
+      </select>
+      <!-- Storing objects as an option value is no longer supported as it leads to a serialization problem. -->
+      <!-- <select [(ngModel)]="selectedPerson" (change)="logVal(selectedPerson)" style="width: 150px">
+        @for (p of persons; track p) {
+        <option [value]="p">{{ p.name }}</option>
+        }
+      </select> -->
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Attribute Binding on a div </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <button mat-raised-button (click)="toggleDisplay()" color="primary">
+      Toggle
+    </button>
+
+    <div class="wrapper">
+      <span [style.visibility]="hide() ? 'hidden' : 'visible'">Msg 1</span>
+      <span [style.visibility]="!hide() ? 'hidden' : 'visible'">Msg 2</span>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Bindings Radio Button Groups </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <input
+        type="radio"
+        name="gender"
+        [(ngModel)]="selectedPerson.gender"
+        value="male"
+      />
+      Male
+      <input
+        type="radio"
+        name="gender"
+        [(ngModel)]="selectedPerson.gender"
+        value="female"
+      />
+      Female
+    </div>
+    <div>{{ selectedPerson.name }} is {{ selectedPerson.gender }}</div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Bindings Checkboxes </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <span>Is Active:</span>
+      <input type="checkbox" [(ngModel)]="isActive" />
+    </div>
+    <div>Current State: {{ isActive() }}</div>
+  </mat-card-content>
+</mat-card>

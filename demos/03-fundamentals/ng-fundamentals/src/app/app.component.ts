@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
+import { environment } from '../environments/environment.development';
+import { IntroComponent } from './shared/intro/intro.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
+  imports: [RouterOutlet]
 })
 export class AppComponent {
-  title = 'ng-fundamentals';
+  titleService: Title = inject(Title);
+  title: string = environment.title;
+
+  ngOnInit() {
+    this.titleService.setTitle(this.title);
+  }
 }

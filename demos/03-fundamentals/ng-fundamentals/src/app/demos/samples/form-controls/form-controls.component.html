@@ -1,0 +1,26 @@
+<app-markdown-renderer [md]="'form-controls'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Observable from FormControl </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Enter your Name - min 3 chars"
+        [formControl]="userName"
+      />
+    </mat-form-field>
+    @if(showSave) {
+    <div class="alignRight">
+      <mat-slide-toggle [formControl]="saveForLater"
+        >Save for later
+      </mat-slide-toggle>
+    </div>
+    }
+  </mat-card-content>
+  <div>
+    Will be saved: {{ saveResult() }}
+  </div>
+</mat-card>

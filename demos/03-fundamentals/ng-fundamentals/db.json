@@ -1,0 +1,293 @@
+{
+  "demos": [
+    {
+      "url": "services-basics",
+      "title": "Services Basics",
+      "id": "4c94"
+    },
+    {
+      "url": "di",
+      "title": "Dependency Injection",
+      "id": "834d"
+    },
+    {
+      "url": "expressions",
+      "title": "Expressions & Events",
+      "id": "7d3b"
+    },
+    {
+      "url": "template",
+      "title": "Separated Component",
+      "id": "926b"
+    },
+    {
+      "url": "inline",
+      "title": "Inline Component",
+      "id": "ad5c"
+    },
+    {
+      "url": "binding",
+      "title": "Binding: ngModel",
+      "id": "c884"
+    },
+    {
+      "url": "attribute-binding",
+      "title": "Attribute Binding",
+      "id": "be4d"
+    },
+    {
+      "url": "control-flow",
+      "title": "Control Flow",
+      "id": "83ee"
+    },
+    {
+      "url": "form-controls",
+      "title": "FormControls Binding",
+      "id": "6fc5"
+    },
+    {
+      "url": "structural-directives",
+      "title": "Structural Directives",
+      "id": "402d"
+    },
+    {
+      "url": "directives",
+      "title": "Builtin Directives",
+      "id": "4fc9"
+    },
+    {
+      "url": "custom-directives",
+      "title": "Custom Directives",
+      "id": "1c9b"
+    },
+    {
+      "url": "pipes",
+      "title": "Pipes",
+      "id": "249a"
+    },
+    {
+      "url": "custom-pipes",
+      "title": "Custom Pipes",
+      "id": "7abf"
+    },
+    {
+      "url": "container",
+      "title": "Container Presenter",
+      "id": "540e"
+    },    
+    {
+      "url": "lifecycle",
+      "title": "Component Lifecycle",
+      "id": "543a"
+    }
+  ],
+  "top-links": [
+    {
+      "label": "Home",
+      "url": "main",
+      "id": "769a"
+    },
+    {
+      "label": "Demos",
+      "url": "main/demos",
+      "id": "e3b6"
+    },
+    {
+      "label": "Skills",
+      "url": "main/skills",
+      "id": "6156"
+    }
+  ],
+  "vouchers": [
+    {
+      "ID": 2,
+      "Text": "BP Tankstelle",
+      "Date": "2016-11-15T00:00:00",
+      "Amount": 650,
+      "Paid": false,
+      "Expense": false,
+      "Remark": true,
+      "Details": [
+        {
+          "ID": 4,
+          "VoucherID": 2,
+          "AccountID": 2,
+          "Account": null,
+          "Text": "Diesel",
+          "Amount": 45,
+          "Comment": null
+        },
+        {
+          "ID": 6,
+          "VoucherID": 2,
+          "AccountID": 2,
+          "Account": null,
+          "Text": "Reifenwechsel",
+          "Amount": 20,
+          "Comment": null
+        }
+      ],
+      "id": "296e"
+    },
+    {
+      "ID": 3,
+      "Text": "Amazon",
+      "Date": "2016-11-15T00:00:00",
+      "Amount": 0,
+      "Paid": false,
+      "Expense": false,
+      "Remark": false,
+      "Details": [
+        {
+          "ID": 7,
+          "VoucherID": 3,
+          "AccountID": 6,
+          "Account": null,
+          "Text": "Game of Thrones, Season 6",
+          "Amount": 29,
+          "Comment": null
+        },
+        {
+          "ID": 2,
+          "VoucherID": 3,
+          "AccountID": 1,
+          "Account": null,
+          "Text": "USB Stick",
+          "Amount": 11,
+          "Comment": null
+        },
+        {
+          "ID": 3,
+          "VoucherID": 3,
+          "AccountID": 1,
+          "Account": null,
+          "Text": "DVI Kabel",
+          "Amount": 45,
+          "Comment": null
+        }
+      ],
+      "id": "c6e6"
+    },
+    {
+      "ID": 5,
+      "Text": "Inserted by WebApi",
+      "Date": "2016-11-08T11:28:42.9",
+      "Amount": 0,
+      "Paid": false,
+      "Expense": false,
+      "Remark": false,
+      "Details": [],
+      "id": "c3bc"
+    },
+    {
+      "ID": 1,
+      "Text": "Demo AG",
+      "Date": "2016-11-06T10:50:04.1195889",
+      "Amount": 800,
+      "Paid": false,
+      "Expense": false,
+      "Remark": true,
+      "Details": [
+        {
+          "ID": 5,
+          "VoucherID": 1,
+          "AccountID": 4,
+          "Account": null,
+          "Text": "Remote Support",
+          "Amount": 800,
+          "Comment": null
+        }
+      ],
+      "id": "404c"
+    },
+    {
+      "ID": 4,
+      "Text": "Media Markt",
+      "Date": "2016-11-05T10:50:04.1215883",
+      "Amount": 100,
+      "Paid": true,
+      "Expense": true,
+      "Remark": false,
+      "Details": [
+        {
+          "ID": 1,
+          "VoucherID": 4,
+          "AccountID": 1,
+          "Account": null,
+          "Text": "Ladekabel",
+          "Amount": 100,
+          "Comment": null
+        }
+      ],
+      "id": "c22b"
+    }
+  ],
+  "skills": [
+    {
+      "id": "1",
+      "name": "Angular Standalone",
+      "hours": 4,
+      "completed": true
+    },
+    {
+      "id": "2",
+      "name": "Cloud Native Apps",
+      "hours": 3,
+      "completed": false
+    },
+    {
+      "name": "Cooking Pad Kra Pao",
+      "hours": 1,
+      "completed": true,
+      "id": "3"
+    },
+    {
+      "id": 0,
+      "name": "Cooking Pad Krapao",
+      "hours": 1,
+      "completed": false,
+      "dueDate": "2024-03-18T14:34:52.243Z"
+    }
+  ],
+  "persons": [
+    {
+      "id": "1",
+      "name": "Cleo",
+      "age": 15,
+      "gender": "female",
+      "married": true,
+      "imgUrl": "/assets/images/cleo.png"
+    },
+    {
+      "id": "2",
+      "name": "Soi",
+      "age": 9,
+      "gender": "female",
+      "married": false,
+      "imgUrl": "/assets/images/soi.png"
+    },
+    {
+      "id": "3",
+      "name": "Giro",
+      "age": 11,
+      "gender": "male",
+      "married": false,
+      "imgUrl": "/assets/images/giro.png"
+    },
+    {
+      "id": "4",
+      "name": "Flora",
+      "age": 14,
+      "gender": "female",
+      "married": false,
+      "imgUrl": "/assets/images/flora.png"
+    }
+  ],
+  "comments": [{
+    "id": 1,
+    "url": "",
+    "title": "Using @ngrx/signals",
+    "comment": "To use @ngrx/signals, we need to install it first.",
+    "saved": "2020-09-16T20:10:06.925Z"
+  }]
+}

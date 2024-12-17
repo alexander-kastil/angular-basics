@@ -1,0 +1,1 @@
+- Content projection allows us to pass content into a component from the outside. This is useful when we want to create a component that acts as a container for other components which might provide a global layout or styling for the content.

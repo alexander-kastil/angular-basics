@@ -1,0 +1,36 @@
+<app-markdown-renderer [md]="'pipes'"></app-markdown-renderer>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Person Card - initial</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    Person: {{ person.name }}, {{ person.age }}<br />
+    Salary: {{ person.salary }}<br />
+    DoB: {{ person.dateOfBirth }}<br />
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Person Card - using Pipes</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    Person: {{ person.name }}, {{ person.age }}<br />
+    Salary: {{ person.salary | currency }}<br />
+    Salary: {{ person.salary | currency:'€' }}<br />
+    DoB: {{ person.dateOfBirth | date: "longDate" }}<br />
+    DoB: {{ person.dateOfBirth | date: "ww - yy" }}<br />
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>JSON Pipe</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Without JSON pipe:</p>
+    <pre>{{ person }}</pre>
+    <p>With JSON pipe in 'pre'-tag:</p>
+    <pre>{{ person | json }}</pre>
+  </mat-card-content>
+</mat-card>
