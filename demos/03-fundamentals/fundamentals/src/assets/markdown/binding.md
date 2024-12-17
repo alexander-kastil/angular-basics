@@ -1,1 +1,0 @@
-- Classic Angular binding is done using the `ngModel` directive defined in `FormsModule`

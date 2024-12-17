@@ -1,4 +1,0 @@
-- Directives are Attributes that you can attach to most tags. The encapsulate reusable functionality. Often the make use of ElementRef and @HostListener. Find the following examples in the code:
-  - toEuro
-  - isEditable
-  - border and centered standalone directives

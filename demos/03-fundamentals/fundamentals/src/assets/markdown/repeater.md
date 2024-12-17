@@ -1,1 +1,0 @@
-- RepeaterComponent adds a #personRef to app-person-edit and uses that local reference to call the edit method on the PersonEditComponent.
