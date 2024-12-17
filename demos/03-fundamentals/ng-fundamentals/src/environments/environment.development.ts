@@ -1,6 +1,7 @@
 export const environment = {
-    authEnabled: false,
-    title: 'Typescript',
+    authEnabled: true,
+    title: 'Fundamentals',
+    splashImage: 'fundamentals.jpg',
     markdownPath: 'markdown/',
     api: 'http://localhost:3000/',
     netapi: 'https://localhost:5001/',

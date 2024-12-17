@@ -14,6 +14,8 @@ import { environment } from '../../environments/environment';
 export class HomeComponent {
     auth = inject(FirebaseAuthService);
     authEnabled = this.auth.isAuthenticated();
+    subtitle = environment.title;
+    image = environment.splashImage;
 
     getMarkdown(): string {
         return `${environment.markdownPath}intro.md`;
