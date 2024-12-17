@@ -5,12 +5,12 @@ declare global {
 }
 
 export const environment = {
-    authEnabled: window['env'].AUTH_ENABLED || true,
+    authEnabled: true,
     title: 'Fundamentals',
     splashImage: 'fundamentals.jpg',
     markdownPath: 'markdown/',
-    api: window['env'].API_URL || 'http://localhost:3000/',
-    netapi: window['env'].NETAPI_URL || 'https://localhost:5001/',
+    api: 'http://localhost:3000/',
+    netapi: 'https://localhost:5001/',
     firebaseConfig: {
         apiKey: "AIzaSyAxdC7L8YvDZrOMyuzSBKU6GvvG74BsJoI",
         authDomain: "ng-app-a70fb.firebaseapp.com",
