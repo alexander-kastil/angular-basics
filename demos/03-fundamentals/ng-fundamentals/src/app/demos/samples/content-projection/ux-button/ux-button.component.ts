@@ -1,23 +1,19 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { Component, input, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-    selector: 'ux-button',
-    templateUrl: './ux-button.component.html',
-    styleUrls: ['./ux-button.component.scss'],
-    standalone: true,
-    imports: [MatButtonModule, MatIconModule],
+  selector: 'ux-button',
+  templateUrl: './ux-button.component.html',
+  styleUrls: ['./ux-button.component.scss'],
+  standalone: true,
+  imports: [MatButtonModule, MatIconModule],
 })
-export class uxButtonComponent implements OnInit {
-  @Input() disabled: boolean = false;
-  @Input() label: string = '';
-  @Input() icon: string = '';
-  @Output() click: EventEmitter<void> = new EventEmitter();
-
-  constructor() {}
-
-  ngOnInit() {}
+export class uxButtonComponent {
+  readonly disabled = input<boolean>(false);
+  readonly label = input<string>('');
+  readonly icon = input<string>('');
+  click = output();
 
   buttonClicked() {
     this.click.emit();

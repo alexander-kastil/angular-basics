@@ -1,12 +1,11 @@
 import {
   Component,
-  EventEmitter,
-  Input,
-  Output,
-  SimpleChanges
+  SimpleChanges,
+  effect,
+  input,
+  output
 } from '@angular/core';
 import { Person } from '../../persons/person.model';
-
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -17,14 +16,12 @@ import { MatCardModule } from '@angular/material/card';
   imports: [MatCardModule],
 })
 export class PersonsListComponent {
-  @Input() persons: Person[] | null = [];
-  @Output() personSelected = new EventEmitter<Person>();
+  persons = input<Person[] | null>([]);
+  personSelected = output<Person>();
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['persons']) {
-      console.log('receiving new persons:', changes['persons'].currentValue);
-    }
-  }
+  personsChanged = effect(() => {
+    console.log('person changed:', this.persons());
+  });
 
   selectPerson(p: Person) {
     this.personSelected.emit(p);

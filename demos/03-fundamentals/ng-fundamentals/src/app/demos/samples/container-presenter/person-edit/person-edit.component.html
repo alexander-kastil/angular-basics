@@ -8,8 +8,8 @@
         matInput
         type="text"
         placeholder="Enter name"
-        [(ngModel)]="person.name"
-        [disabled]="!editMode"
+        [(ngModel)]="person().name"
+        [disabled]="!editMode()"
       />
     </mat-form-field>
     <mat-form-field>
@@ -17,18 +17,18 @@
         matInput
         type="number"
         placeholder="Enter age"
-        [(ngModel)]="person.age"
-        [disabled]="!editMode"
+        [(ngModel)]="person().age"
+        [disabled]="!editMode()"
       />
     </mat-form-field>
     <div>
       <label>Gender:</label>
       <mat-radio-group
         aria-label="Select an gender"
-        [(ngModel)]="person.gender"
+        [(ngModel)]="person().gender"
       >
-        <mat-radio-button value="male" [disabled]="!editMode" color="primary" >Male</mat-radio-button>
-        <mat-radio-button value="female"  [disabled]="!editMode" color="primary" >Female</mat-radio-button>
+        <mat-radio-button value="male" [disabled]="!editMode()" color="primary" >Male</mat-radio-button>
+        <mat-radio-button value="female"  [disabled]="!editMode()" color="primary" >Female</mat-radio-button>
       </mat-radio-group>
     </div>
   </mat-card-content>

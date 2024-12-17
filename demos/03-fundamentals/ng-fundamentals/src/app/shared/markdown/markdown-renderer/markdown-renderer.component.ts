@@ -1,4 +1,4 @@
-import { Component, Input, inject, signal } from '@angular/core';
+import { Component, inject, signal, input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MarkdownModule } from 'ngx-markdown';
 import { environment } from '../../../../environments/environment';
@@ -14,7 +14,7 @@ import { RendererStateService } from './renderer-state.service';
   ]
 })
 export class MarkdownRendererComponent {
-  @Input({ required: true }) md = '';
+  readonly md = input.required<string>();
   state = inject(RendererStateService);
   panelOpenState = signal(false);
   isInit = false;
@@ -26,7 +26,7 @@ export class MarkdownRendererComponent {
   }
 
   getMarkdown(): string {
-    return `${environment.markdownPath}${this.md}.md`;
+    return `${environment.markdownPath}${this.md()}.md`;
   }
 
   setSate(visible: boolean) {

@@ -1,17 +1,17 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommentItem } from '../../comment.model';
+import { Component, input, output } from '@angular/core';
 import { MatButton } from '@angular/material/button';
+import { CommentItem } from '../../comment.model';
 
 @Component({
-    selector: 'app-comments-list',
-    templateUrl: './comments-list.component.html',
-    styleUrls: ['./comments-list.component.scss'],
-    imports: [MatButton]
+  selector: 'app-comments-list',
+  templateUrl: './comments-list.component.html',
+  styleUrls: ['./comments-list.component.scss'],
+  imports: [MatButton]
 })
 export class CommentsListComponent {
-  @Input() Comments: CommentItem[] | null = null;
-  @Output() onCommentEdit = new EventEmitter<CommentItem>();
-  @Output() onCommentDelete = new EventEmitter<CommentItem>();
+  readonly Comments = input<CommentItem[] | null>(null);
+  onCommentEdit = output<CommentItem>();
+  onCommentDelete = output<CommentItem>();
 
   editComment(item: CommentItem) {
     this.onCommentEdit.emit(item);

@@ -20,7 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    @for (p of persons; track p) {
+    @for (p of persons(); track p) {
       <tr>
         <td>{{ p.name }}</td>
         <td>{{ p.gender }}</td>
