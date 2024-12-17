@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { addBusinessDays } from 'date-fns';
-import { MarkdownRendererComponent } from '../../../shared/markdown/markdown-renderer/markdown-renderer.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { SnackbarService } from '../../../shared/snackbar/snackbar.service';
 import { Skill } from './skill.model';
 import { SkillsService } from './skills.service';

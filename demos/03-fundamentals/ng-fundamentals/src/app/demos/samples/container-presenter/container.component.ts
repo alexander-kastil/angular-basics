@@ -4,7 +4,7 @@ import { Person } from '../persons/person.model';
 import { PersonEditComponent } from './person-edit/person-edit.component';
 
 import { PersonsListComponent } from './persons-list/persons-list.component';
-import { MarkdownRendererComponent } from '../../../shared/markdown/markdown-renderer/markdown-renderer.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-container',

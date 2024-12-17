@@ -1,5 +1,5 @@
 export const environment = {
-    authEnabled: true,
+    authEnabled: false,
     title: 'Fundamentals',
     splashImage: 'fundamentals.jpg',
     markdownPath: 'markdown/',

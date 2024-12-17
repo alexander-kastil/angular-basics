@@ -6,7 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { delay, of } from 'rxjs';
 import { Person } from '../persons/person.model';
 import { PersonService } from '../persons/person.service';
-import { MarkdownRendererComponent } from '../../../shared/markdown/markdown-renderer/markdown-renderer.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-binding',

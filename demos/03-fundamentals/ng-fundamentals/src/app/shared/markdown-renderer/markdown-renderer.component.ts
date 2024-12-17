@@ -1,8 +1,8 @@
 import { Component, inject, signal, input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MarkdownModule } from 'ngx-markdown';
-import { environment } from '../../../../environments/environment';
 import { RendererStateService } from './renderer-state.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-markdown-renderer',

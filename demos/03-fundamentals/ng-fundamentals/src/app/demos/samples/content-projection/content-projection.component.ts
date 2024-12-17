@@ -5,7 +5,7 @@ import { uxButtonComponent } from './ux-button/ux-button.component';
 import { uxSplitComponent } from './ux-split/ux-split.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown/markdown-renderer/markdown-renderer.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-content-projection',
