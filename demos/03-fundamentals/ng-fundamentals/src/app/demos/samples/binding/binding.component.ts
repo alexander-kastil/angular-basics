@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { delay, of } from 'rxjs';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { Person } from '../persons/person.model';
 import { PersonService } from '../persons/person.service';
+import { MarkdownRendererComponent } from '../../../shared/markdown/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-binding',

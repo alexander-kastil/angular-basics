@@ -8,11 +8,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment.development';
-import { EditorContainerComponent } from '../../shared/markdown-editor/components/editor-container/editor-container.component';
 import { SidePanelComponent } from '../../shared/side-panel/side-panel.component';
 import { SidePanelService } from '../../shared/side-panel/side-panel.service';
 import { SideNavService } from '../../shared/sidenav/sidenav.service';
 import { DemoService } from '../demo-base/demo.service';
+import { EditorContainerComponent } from '../../shared/markdown/markdown-editor/components/editor-container/editor-container.component';
 
 @Component({
   selector: 'app-demo-container',

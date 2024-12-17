@@ -1,7 +1,7 @@
 import { Component, Input, inject, signal } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MarkdownModule } from 'ngx-markdown';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../../environments/environment';
 import { RendererStateService } from './renderer-state.service';
 
 @Component({

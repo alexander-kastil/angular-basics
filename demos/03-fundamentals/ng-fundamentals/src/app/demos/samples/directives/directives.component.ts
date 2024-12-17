@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgStyle, NgClass } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-directives',

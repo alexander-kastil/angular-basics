@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown/markdown-renderer/markdown-renderer.component';
 import { PersonService } from '../persons/person.service';
 
 @Component({

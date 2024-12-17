@@ -1,7 +1,7 @@
 import { Component, effect, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
-import { ColumnDirective } from '../../../formatting/formatting-directives';
+import { ColumnDirective } from '../../../../formatting/formatting-directives';
 import { CommentItem } from '../../comment.model';
 import { editorStore } from '../../editor.store';
 import { CommentEditComponent } from '../comment-edit/comment-edit.component';

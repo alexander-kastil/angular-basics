@@ -1,20 +1,20 @@
+import { CurrencyPipe, DatePipe, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { JsonPipe, CurrencyPipe, DatePipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-pipes',
-    templateUrl: './pipes.component.html',
-    styleUrls: ['./pipes.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCardModule,
-        JsonPipe,
-        CurrencyPipe,
-        DatePipe,
-    ],
+  selector: 'app-pipes',
+  templateUrl: './pipes.component.html',
+  styleUrls: ['./pipes.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCardModule,
+    JsonPipe,
+    CurrencyPipe,
+    DatePipe,
+  ],
 })
 export class PipesComponent {
   person = {

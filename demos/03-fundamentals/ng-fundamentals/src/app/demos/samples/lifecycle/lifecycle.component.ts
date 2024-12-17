@@ -1,23 +1,20 @@
 import {
   Component,
-  OnInit,
   OnChanges,
   OnDestroy,
-  AfterContentInit,
-  AfterContentChecked,
+  OnInit
 } from '@angular/core';
-import { Router } from '@angular/router';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-lifecycle',
-    templateUrl: './lifecycle.component.html',
-    styleUrls: ['./lifecycle.component.scss'],
-    standalone: true,
-    imports: [MarkdownRendererComponent],
+  selector: 'app-lifecycle',
+  templateUrl: './lifecycle.component.html',
+  styleUrls: ['./lifecycle.component.scss'],
+  standalone: true,
+  imports: [MarkdownRendererComponent],
 })
 export class LifecycleComponent implements OnInit, OnChanges, OnDestroy {
-  constructor(private router: Router) {
+  constructor() {
     console.log('constructor');
   }
 
