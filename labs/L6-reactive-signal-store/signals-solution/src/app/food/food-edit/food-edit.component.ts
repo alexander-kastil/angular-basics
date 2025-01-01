@@ -7,17 +7,16 @@ import { ColumnDirective } from '../../shared/formatting/formatting-directives';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-food-edit',
-  standalone: true,
-  imports: [
-    MatCardModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    ColumnDirective
-  ],
-  templateUrl: './food-edit.component.html',
-  styleUrl: './food-edit.component.scss'
+    selector: 'app-food-edit',
+    imports: [
+        MatCardModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        ColumnDirective
+    ],
+    templateUrl: './food-edit.component.html',
+    styleUrl: './food-edit.component.scss'
 })
 export class FoodEditComponent {
   fb = inject(FormBuilder)

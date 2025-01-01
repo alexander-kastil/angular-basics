@@ -32,14 +32,14 @@ export class FoodContainerComponent {
   }
 
   foodSaved(item: FoodItem) {
-    const clone = [...this.food()];
-    const idx = clone.findIndex((f) => f.id == item.id);
-    if (idx > -1) {
-      clone[idx] = item;
-    } else {
-      clone.push(item);
-    }
-    this.food.set(clone);
+    this.food.update(foods => {
+      const idx = foods.findIndex(f => f.id === item.id);
+      if (idx > -1) {
+        foods[idx] = item;
+        return [...foods];
+      }
+      return [...foods, item];
+    });
     this.selected = null;
   }
 

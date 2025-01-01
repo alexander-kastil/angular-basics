@@ -5,11 +5,10 @@ import { FoodService } from '../food.service';
 import { FoodEditComponent } from '../food-edit/food-edit.component';
 
 @Component({
-  selector: 'app-food-container',
-  standalone: true,
-  imports: [FoodListComponent, FoodEditComponent],
-  templateUrl: './food-container.component.html',
-  styleUrl: './food-container.component.scss'
+    selector: 'app-food-container',
+    imports: [FoodListComponent, FoodEditComponent],
+    templateUrl: './food-container.component.html',
+    styleUrl: './food-container.component.scss'
 })
 export class FoodContainerComponent {
   fs = inject(FoodService);

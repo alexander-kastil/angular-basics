@@ -8,11 +8,10 @@ import { MatInputModule } from '@angular/material/input';
 
 
 @Component({
-  selector: 'app-food-edit',
-  standalone: true,
-  imports: [FormsModule, MatCardModule, MatFormField, MatButtonModule, MatInputModule],
-  templateUrl: './food-edit.component.html',
-  styleUrl: './food-edit.component.scss'
+    selector: 'app-food-edit',
+    imports: [FormsModule, MatCardModule, MatFormField, MatButtonModule, MatInputModule],
+    templateUrl: './food-edit.component.html',
+    styleUrl: './food-edit.component.scss'
 })
 export class FoodEditComponent {
   @Input({ required: true }) food: FoodItem = new FoodItem();
