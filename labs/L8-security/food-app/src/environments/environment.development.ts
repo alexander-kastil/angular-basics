@@ -3,12 +3,12 @@ export const environment = {
     apiUrl: 'http://localhost:3000/',
     authEnabled: false,
     firebaseConfig: {
-        apiKey: "AIzaSyD2KCTKVd6QucNY_V2QXzsg8db2nJPvNdw",
-        authDomain: "fbauth-c3b69.firebaseapp.com",
-        projectId: "fbauth-c3b69",
-        storageBucket: "fbauth-c3b69.appspot.com",
-        messagingSenderId: "806028708587",
-        appId: "1:806028708587:web:3e72fbf28e01b3b7b1ccae",
-        measurementId: "G-HLH5FQ0E74"
+        apiKey: "AIzaSyDD0plJVXZXt74JeJvNCBB-07S9uN-KaFA",
+        authDomain: "ngbasic-61ebb.firebaseapp.com",
+        projectId: "ngbasic-61ebb",
+        storageBucket: "ngbasic-61ebb.firebasestorage.app",
+        messagingSenderId: "624848102527",
+        appId: "1:624848102527:web:cf586b3dd464b6a843cb4a",
+        measurementId: "G-J3F2ZHP1JL"
     }
 };

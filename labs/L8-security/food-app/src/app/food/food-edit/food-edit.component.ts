@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, effect, inject, input } from '@angular/core';
+import { Component, effect, inject, input, output } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -7,16 +7,15 @@ import { MatInputModule } from '@angular/material/input';
 import { FoodItem } from '../food.model';
 
 @Component({
-  selector: 'app-food-edit',
-  standalone: true,
-  imports: [ReactiveFormsModule, MatCardModule, MatFormField, MatButtonModule, MatInputModule],
-  templateUrl: './food-edit.component.html',
-  styleUrl: './food-edit.component.scss'
+    selector: 'app-food-edit',
+    imports: [ReactiveFormsModule, MatCardModule, MatFormField, MatButtonModule, MatInputModule],
+    templateUrl: './food-edit.component.html',
+    styleUrl: './food-edit.component.scss'
 })
 export class FoodEditComponent {
   food = input.required<FoodItem>();
-  @Output() onFoodSave: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-  @Output() onCancelEdit: EventEmitter<void> = new EventEmitter<void>();
+  readonly onFoodSave = output<FoodItem>();
+  readonly onCancelEdit = output<void>();
   fb = inject(NonNullableFormBuilder);
 
   form: FormGroup = this.fb.group({

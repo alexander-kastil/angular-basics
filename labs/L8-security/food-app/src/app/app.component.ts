@@ -1,31 +1,24 @@
+import { AsyncPipe, NgStyle } from '@angular/common';
 import { Component, effect, inject } from '@angular/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { tap } from 'rxjs';
+import { environment } from '../environments/environment';
+import { FirebaseAuthService } from './firebase-auth/firebase-auth.service';
+import { IntroComponent } from './shared/intro/intro.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SideMenuComponent } from './shared/sidemenu/sidemenu.component';
-import { FoodContainerComponent } from './food/food-container/food-container.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { AsyncPipe, NgStyle } from '@angular/common';
-import { environment } from '../environments/environment';
 import { SideMenuService } from './shared/sidemenu/sidemenu.service';
-import { FirebaseAuthService } from './firebase-auth/firebase-auth.service';
-import { tap } from 'rxjs';
-import { IntroComponent } from './shared/intro/intro.component';
-import { CenteredDirective } from './shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [
     RouterOutlet,
-    HomeComponent,
     NavbarComponent,
     SideMenuComponent,
-    FoodContainerComponent,
     MatSidenavModule,
     NgStyle,
     AsyncPipe,
-    CenteredDirective,
     IntroComponent
   ],
   templateUrl: './app.component.html',
