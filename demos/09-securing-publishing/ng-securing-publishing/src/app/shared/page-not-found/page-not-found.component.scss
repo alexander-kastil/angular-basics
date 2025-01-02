@@ -1,0 +1,30 @@
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+mat-card-content{
+    min-height: 150px;
+    min-width: 300px;
+    margin: 3rem;
+    line-height: 250%;
+}
+
+mat-card-title{
+    font-size: var(--font-big);
+}
+
+.mat-mdc-card-title{
+    margin-bottom: var(--gap-medium);
+}
+
+img{
+    margin-top: var(--gap-medium);
+}
+
+span{
+    // font-family: 'Raleway';
+    font-weight: bolder;
+}

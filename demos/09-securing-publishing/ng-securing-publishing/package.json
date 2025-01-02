@@ -1,5 +1,5 @@
 {
-  "name": "ng-fundamentals",
+  "name": "ng-reactive-state",
   "version": "19.0.0",
   "author": {
     "name": "Alexander Kastil",
@@ -34,7 +34,7 @@
     "firebase": "^10.14.1",
     "lodash": "^4.17.21",
     "marked": "^15.0.0",
-    "ngx-markdown": "^18.0.0",
+    "ngx-markdown": "19.0.0",
     "prismjs": "^1.29.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.3.0",

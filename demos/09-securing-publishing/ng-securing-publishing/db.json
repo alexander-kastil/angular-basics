@@ -1,121 +1,49 @@
 {
   "demos": [
     {
-      "url": "style-inheritance",
-      "title": "Styles in Angular",
-      "id": "5eee"
+      "url": "http-client",
+      "title": "Http Client",
+      "component": "HttpClientComponent"
     },
     {
-      "url": "css-binding",
-      "title": "CSS Binding",
-      "id": "578b"
+      "url": "firebase",
+      "title": "Firebase Authentication",
+      "component": "FirebaseComponent"
     },
     {
-      "url": "inline-css",
-      "title": "Inline CSS",
-      "id": "65ab"
+      "url": "interceptor",
+      "title": "Auth Interceptor",
+      "component": "InterceptorComponent"
     },
     {
-      "url": "flexbox",
-      "title": "Flexbox",
-      "id": "893c"
+      "url": "app-auth",
+      "title": "App Authentication",
+      "component": "AppAuthComponent"
     },
     {
-      "url": "flexbox-media-query",
-      "title": "Flexbox Media Queries",
-      "id": "0333"
+      "url": "secured-api",
+      "title": "Secured Api",
+      "component": "ProtectedApiComponent"
     },
     {
-      "url": "css-grid",
-      "title": "CSS Grid",
-      "id": "3f8a"
+      "url": "auth-guard",
+      "title": "Auth Guard",
+      "component": "AuthGuardComponent"
     },
     {
-      "url": "material",
-      "title": "Angular Material",
-      "id": "d714"
-    },
-    {
-      "url": "mat-form-field",
-      "title": "MatFormFields",
-      "id": "1504"
-    },
-    {
-      "url": "material-table",
-      "title": "Material Table",
-      "id": "809e"
-    },
-    {
-      "url": "classic-dialog",
-      "title": "Material Dialog Classic",
-      "id": "8568"
-    },
-    {
-      "url": "material-dialog",
-      "title": "Dialog with @Input()",
-      "id": "bfbd"
-    },
-    {
-      "url": "stepper",
-      "title": "Material Stepper",
-      "id": "34aa"
-    },
-    {
-      "url": "material-theme",
-      "title": "Material Theme",
-      "id": "91fe"
-    },
-    {
-      "url": "fonts",
-      "title": "Using Webfonts",
-      "id": "0cef"
-    },
-    {
-      "url": "drag-drop",
-      "title": "Drag & Drop",
-      "id": "6c58"
-    },
-    {
-      "url": "virtual-scroll",
-      "title": "VirtualScroll",
-      "id": "ebaf"
-    },
-    {
-      "url": "visual-feedback",
-      "title": "Visual Feedback",
-      "id": "ebssf"
-    },
-    {
-      "url": "chart",
-      "title": "Chart",
-      "id": "6e5d"
-    },
-    {
-      "url": "markdown",
-      "title": "Markdown Renderer",
-      "id": "361e"
-    },
-    {
-      "url": "bootstrap",
-      "title": "Bootstrap",
-      "id": "fa73"
+      "url": "publish",
+      "title": "Publishing",
+      "component": "PublishComponent"
     }
   ],
   "top-links": [
     {
       "label": "Home",
-      "url": "",
-      "id": "6f68"
+      "url": "main"
     },
     {
       "label": "Demos",
-      "url": "main/demos",
-      "id": "fe81"
-    },
-    {
-      "label": "Skills",
-      "url": "main/skills",
-      "id": "d479"
+      "url": "main/demos"
     }
   ],
   "vouchers": [
@@ -146,8 +74,7 @@
           "Amount": 20,
           "Comment": null
         }
-      ],
-      "id": "5364"
+      ]
     },
     {
       "ID": 3,
@@ -185,8 +112,7 @@
           "Amount": 45,
           "Comment": null
         }
-      ],
-      "id": "e9f7"
+      ]
     },
     {
       "ID": 5,
@@ -196,8 +122,7 @@
       "Paid": false,
       "Expense": false,
       "Remark": false,
-      "Details": [],
-      "id": "4dbc"
+      "Details": []
     },
     {
       "ID": 1,
@@ -217,8 +142,7 @@
           "Amount": 800,
           "Comment": null
         }
-      ],
-      "id": "e98a"
+      ]
     },
     {
       "ID": 4,
@@ -238,8 +162,7 @@
           "Amount": 100,
           "Comment": null
         }
-      ],
-      "id": "d069"
+      ]
     }
   ],
   "skills": [
@@ -260,6 +183,40 @@
       "hours": 1,
       "completed": true,
       "id": "3"
+    }
+  ],
+  "persons": [
+    {
+      "id": 1,
+      "name": "Cleo",
+      "age": 15,
+      "gender": "female",
+      "married": true,
+      "imgUrl": "/assets/images/cleo.png"
+    },
+    {
+      "id": 2,
+      "name": "Soi",
+      "age": 9,
+      "gender": "female",
+      "married": false,
+      "imgUrl": "/assets/images/soi.png"
+    },
+    {
+      "id": 3,
+      "name": "Giro",
+      "age": 11,
+      "gender": "male",
+      "married": false,
+      "imgUrl": "/assets/images/giro.png"
+    },
+    {
+      "id": 4,
+      "name": "Flora",
+      "age": 14,
+      "gender": "female",
+      "married": false,
+      "imgUrl": "/assets/images/flora.png"
     }
   ]
 }
