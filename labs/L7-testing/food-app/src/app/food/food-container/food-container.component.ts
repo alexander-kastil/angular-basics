@@ -4,11 +4,12 @@ import { FoodListComponent } from '../food-list/food-list.component';
 import { FoodStateService } from '../food-state.service';
 import { FoodItem } from '../food.model';
 
+
 @Component({
-    selector: 'app-food-container',
-    imports: [FoodListComponent, FoodEditComponent],
-    templateUrl: './food-container.component.html',
-    styleUrl: './food-container.component.scss'
+  selector: 'app-food-container',
+  imports: [FoodListComponent, FoodEditComponent],
+  templateUrl: './food-container.component.html',
+  styleUrl: './food-container.component.scss'
 })
 export class FoodContainerComponent {
   fs = inject(FoodStateService);

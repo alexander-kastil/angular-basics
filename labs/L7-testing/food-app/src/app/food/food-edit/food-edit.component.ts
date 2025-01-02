@@ -6,11 +6,12 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FoodItem } from '../food.model';
 
+
 @Component({
-    selector: 'app-food-edit',
-    imports: [ReactiveFormsModule, MatCardModule, MatFormField, MatButtonModule, MatInputModule],
-    templateUrl: './food-edit.component.html',
-    styleUrl: './food-edit.component.scss'
+  selector: 'app-food-edit',
+  imports: [ReactiveFormsModule, MatCardModule, MatFormField, MatButtonModule, MatInputModule],
+  templateUrl: './food-edit.component.html',
+  styleUrl: './food-edit.component.scss'
 })
 export class FoodEditComponent {
   food = input.required<FoodItem>();

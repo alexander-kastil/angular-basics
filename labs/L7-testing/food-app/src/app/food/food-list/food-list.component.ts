@@ -7,10 +7,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FoodItem } from '../food.model';
 
 @Component({
-    selector: 'app-food-list',
-    imports: [MatToolbarModule, MatCardModule, MatTableModule, MatIconModule, MatButtonModule],
-    templateUrl: './food-list.component.html',
-    styleUrl: './food-list.component.scss'
+  selector: 'app-food-list',
+  imports: [MatToolbarModule, MatCardModule, MatTableModule, MatIconModule, MatButtonModule],
+  templateUrl: './food-list.component.html',
+  styleUrl: './food-list.component.scss'
 })
 export class FoodListComponent {
   food = input<FoodItem[]>([]);

@@ -1,34 +1,67 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FoodContainerComponent } from './food-container.component';
+import { FoodStateService } from '../food-state.service';
+import { FoodItem } from '../food.model';
 
-describe('food-list-container', () => {
-  //add your setup here
+describe('FoodContainerComponent', () => {
+    let component: FoodContainerComponent;
+    let fixture: ComponentFixture<FoodContainerComponent>;
 
-  it('should render the food-list.component', () => {
-    pending();
-  });
+    beforeEach(async () => {
+        const spy = jasmine.createSpyObj('FoodStateService', ['getFood', 'deleteFood', 'addFood', 'updateFood']);
+        spy.getFood.and.returnValue([]);
 
-  it('should render the food-edit.component', () => {
-    pending();
-  });
+        await TestBed.configureTestingModule({
+            imports: [FoodContainerComponent],
+            providers: [
+                { provide: FoodStateService, useValue: spy }
+            ]
+        }).compileComponents();
 
-  it('should add an empty food the add is clicked', async () => {
-    pending();
-  });
+        fixture = TestBed.createComponent(FoodContainerComponent);
+        component = fixture.componentInstance;
+    });
 
-  it('should select the correct food item', () => {
-    pending();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 
-  it('should save a new food item', (done: DoneFn) => {
-    pending();
-  });
+    it('should select food item', () => {
+        const testFood: FoodItem = { id: 1, name: 'Test Food', price: 10, items: 5 };
+        component.selectFood(testFood);
+        expect(component.selected).toEqual(testFood);
+        expect(component.selected).not.toBe(testFood); // Should be a copy
+    });
 
-  it('should update food item', () => {
-    pending();
-  });
+    it('should delete food item', () => {
+        const testFood: FoodItem = { id: 1, name: 'Test Food', price: 10, items: 5 };
+        component.deleteFood(testFood);
+        expect(component.fs.deleteFood).toHaveBeenCalledWith(1);
+    });
 
-  it('should delete the food item', () => {
-    pending();
-  });
+    it('should add new food item', () => {
+        const testFood: FoodItem = { id: 1, name: 'Test Food', price: 10, items: 5 };
+        component.foodSaved(testFood);
+        expect(component.selected).toBeNull();
+    });
+
+    it('should update existing food item', () => {
+        const testFood: FoodItem = { id: 1, name: 'Test Food', price: 10, items: 5 };
+        component.foodSaved(testFood);
+        expect(component.fs.updateFood).toHaveBeenCalledWith(testFood);
+        expect(component.selected).toBeNull();
+    });
+
+    it('should prepare new food item for adding', () => {
+        component.addFood();
+        expect(component.selected).toBeTruthy();
+        expect(component.selected?.id).toBe(0);
+    });
+
+    it('should cancel editing', () => {
+        const testFood = new FoodItem();
+        component.selected = testFood;
+        component.cancelEdit();
+        expect(component.selected).toBeNull();
+    });
 });
-

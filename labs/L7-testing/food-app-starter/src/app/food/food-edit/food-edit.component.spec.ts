@@ -7,7 +7,7 @@ describe('FoodEditComponent', () => {
     pending();
   });
 
-  it('should render a blank form when an "empty" food item is passed', () => {
+  it('should initialize form with food input data', () => {
     pending();
   });
 
@@ -15,7 +15,23 @@ describe('FoodEditComponent', () => {
     pending();
   });
 
-  it('should emmit the correct item when saving', () => {
+  it('should emit food data when saveFood is called with valid form', () => {
+    pending();
+  });
+
+  it('should emit when cancelEdit is called', () => {
+    pending();
+  });
+
+  it('should validate required fields', () => {
+    pending();
+  });
+
+  it('should validate minimum length for name', () => {
+    pending();
+  });
+
+  it('should validate minimum value for price', () => {
     pending();
   });
 });

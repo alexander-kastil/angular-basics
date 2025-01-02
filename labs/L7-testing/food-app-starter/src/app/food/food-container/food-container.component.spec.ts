@@ -3,31 +3,31 @@ import { FoodContainerComponent } from './food-container.component';
 describe('food-list-container', () => {
   //add your setup here
 
-  it('should render the food-list.component', () => {
+  it('should create', () => {
     pending();
   });
 
-  it('should render the food-edit.component', () => {
+  it('should select food item', () => {
     pending();
   });
 
-  it('should add an empty food the add is clicked', async () => {
+  it('should delete food item', () => {
     pending();
   });
 
-  it('should select the correct food item', () => {
+  it('should add new food item', () => {
     pending();
   });
 
-  it('should save a new food item', (done: DoneFn) => {
+  it('should update existing food item', () => {
     pending();
   });
 
-  it('should update food item', () => {
+  it('should prepare new food item for adding', () => {
     pending();
   });
 
-  it('should delete the food item', () => {
+  it('should cancel editing', () => {
     pending();
   });
 });

@@ -7,15 +7,23 @@ describe('FoodListComponent', () => {
     pending();
   });
 
-  it('should have a row for each data item in the table', async () => {
+  it('should display food items in table', () => {
     pending();
   });
 
-  it('should trigger delete when clicked', () => {
+  it('should filter food items', () => {
     pending();
   });
 
-  it('should trigger select when clicked', () => {
+  it('should emit selected food item', () => {
+    pending();
+  });
+
+  it('should emit food item for deletion', () => {
+    pending();
+  });
+
+  it('should emit new food item when adding', () => {
     pending();
   });
 });

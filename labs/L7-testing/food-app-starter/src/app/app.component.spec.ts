@@ -11,4 +11,8 @@ describe('AppComponent', () => {
   it(`should have as title 'Food App'`, () => {
     pending();
   });
+
+  it('should clear workbench margin when nav is hidden', () => {
+    pending();
+  });
 });
