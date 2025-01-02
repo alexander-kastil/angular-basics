@@ -1,45 +1,43 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, effect, inject, input, output } from '@angular/core';
+import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { FoodItem } from '../food.model';
+
 
 @Component({
   selector: 'app-food-edit',
+  imports: [ReactiveFormsModule, MatCardModule, MatFormField, MatButtonModule, MatInputModule],
   templateUrl: './food-edit.component.html',
-  styleUrls: ['./food-edit.component.scss'],
+  styleUrl: './food-edit.component.scss'
 })
-export class FoodEditComponent implements OnInit {
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      id: 0,
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      price: [0, Validators.min(1)],
-      calories: 0,
+export class FoodEditComponent {
+  food = input.required<FoodItem>();
+  readonly onFoodSave = output<FoodItem>();
+  readonly onCancelEdit = output<void>();
+  fb = inject(NonNullableFormBuilder);
+
+  form: FormGroup = this.fb.group({
+    id: 0,
+    name: ["", [Validators.required, Validators.minLength(3)]],
+    price: [0, [Validators.required, Validators.min(1)]],
+    items: [0, Validators.min(0)]
+  });
+
+  constructor() {
+    effect(() => {
+      console.log('Receiving data on input signal:', this.food());
+      this.form.patchValue(this.food());
     });
   }
 
-  @Input() food: FoodItem = new FoodItem();
-  @Output() saveFood: EventEmitter<FoodItem> = new EventEmitter();
-
-  form: FormGroup;
-
-  ngOnInit() { }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['food']) {
-      console.log('receiving food', changes['food'].currentValue);
-      this.form.setValue(changes['food'].currentValue);
-    }
+  saveFood(form: FormGroup) {
+    if (this.food()) this.onFoodSave.emit(form.value);
   }
 
-  saveForm(form: any) {
-    console.log('food to save', form.value);
-    this.saveFood.emit(form.value);
+  cancelEdit() {
+    this.onCancelEdit.emit();
   }
 }

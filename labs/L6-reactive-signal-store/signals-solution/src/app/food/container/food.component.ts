@@ -8,11 +8,10 @@ import { FoodEditComponent } from '../food-edit/food-edit.component';
 import { FoodItem } from '../food.model';
 
 @Component({
-  selector: 'app-food',
-  standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatProgressBarModule, FoodListComponent, FoodEditComponent],
-  templateUrl: './food.component.html',
-  styleUrl: './food.component.scss'
+    selector: 'app-food',
+    imports: [MatToolbarModule, MatButtonModule, MatProgressBarModule, FoodListComponent, FoodEditComponent],
+    templateUrl: './food.component.html',
+    styleUrl: './food.component.scss'
 })
 export class FoodComponent {
   store = inject(foodStore)

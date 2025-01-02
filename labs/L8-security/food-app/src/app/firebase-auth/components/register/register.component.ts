@@ -8,23 +8,22 @@ import { MatInput } from '@angular/material/input';
 import { FirebaseAuthService } from '../../firebase-auth.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatCard,
-    MatCardHeader,
-    MatCardTitle,
-    MatCardContent,
-    MatFormField,
-    MatInput,
-    MatError,
-    MatCardActions,
-    MatButton,
-    MatDialogClose,
-  ],
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.scss'],
+    imports: [
+        ReactiveFormsModule,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatFormField,
+        MatInput,
+        MatError,
+        MatCardActions,
+        MatButton,
+        MatDialogClose,
+    ]
 })
 export class RegisterComponent {
   auth = inject(FirebaseAuthService)

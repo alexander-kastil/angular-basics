@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges, input } from '@angular/core';
-import { FoodItem } from '../food.model';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon';
+import { Component, EventEmitter, Output, SimpleChanges, input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FoodItem } from '../food.model';
 
 @Component({
   selector: 'app-food-list',

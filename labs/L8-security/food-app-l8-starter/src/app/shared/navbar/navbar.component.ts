@@ -8,11 +8,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive, MatToolbarModule, MatIconModule, AsyncPipe],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+    selector: 'app-navbar',
+    imports: [RouterLink, RouterLinkActive, MatToolbarModule, MatIconModule, AsyncPipe],
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
   nav = inject(NavbarService);

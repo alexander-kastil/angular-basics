@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
-  selector: 'app-sidemenu',
-  templateUrl: './sidemenu.component.html',
-  styleUrls: ['./sidemenu.component.scss']
+    selector: 'app-sidemenu',
+    imports: [MatToolbarModule, MatListModule],
+    templateUrl: './sidemenu.component.html',
+    styleUrl: './sidemenu.component.scss'
 })
-export class SidemenuComponent {
+export class SideMenuComponent {
+
 }

@@ -1,0 +1,30 @@
+<app-markdown-renderer [md]="'virtual-scroll'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Enjoy the scroll ...</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <cdk-virtual-scroll-viewport [itemSize]="16 * 7">
+      <div
+        class="row"
+        *cdkVirtualFor="
+          let item of items;
+          let index = index;
+          let even = even;
+          let odd = odd
+        "
+      >
+       <div>
+        <img src="images/whippet.jpg">
+       </div>
+       <div>
+        <div>Item: {{ item }}</div>
+        <div>Index: {{ index }}</div>
+        <div>Event: {{ even ? "Yes" : "No" }}</div>
+        <div>Odd: {{ odd ? "Yes" : "No" }}</div>
+       </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </mat-card-content>
+</mat-card>

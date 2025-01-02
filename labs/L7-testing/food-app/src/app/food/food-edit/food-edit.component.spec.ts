@@ -1,88 +1,70 @@
-import { CommonModule } from '@angular/common';
-import { SimpleChange } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '../../material.module';
-import { foodEmptyItem, foodSingleItem } from '../food.mocks';
+import { NoopAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { FoodItem } from '../food.model';
 import { FoodEditComponent } from './food-edit.component';
 
 describe('FoodEditComponent', () => {
+  let component: FoodEditComponent;
   let fixture: ComponentFixture<FoodEditComponent>;
-  let comp: FoodEditComponent;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [FoodEditComponent],
-      imports: [
-        MaterialModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        CommonModule,
-      ],
+  const mockFood: FoodItem = {
+    id: 1,
+    name: 'Pizza',
+    price: 10,
+    items: 5
+  };
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [FoodEditComponent, NoopAnimationsModule],
+      providers: [provideAnimations()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FoodEditComponent);
-    comp = fixture.componentInstance;
+    component = fixture.componentInstance;
+    fixture.componentRef.setInput('food', mockFood);
     fixture.detectChanges();
   });
 
-  it('should create to component', () => {
-    expect(comp).toBeTruthy();
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 
-  it('should render a blank form when an "empty" food item is passed', () => {
-    comp.ngOnChanges({
-      food: new SimpleChange(null, foodEmptyItem, false),
-    });
-    fixture.detectChanges();
-
-    let fcName = comp.form.controls['name'];
-    expect(fcName).toBeTruthy();
-    expect(fcName.value).toBe('');
-
-    let fcPrice = comp.form.controls['price'];
-    expect(fcPrice).toBeTruthy();
-    expect(fcPrice.value).toBe(0);
+  it('should initialize form with food input data', () => {
+    expect(component.form.value).toEqual(mockFood);
   });
 
-  it('should render an food item', () => {
-    comp.ngOnChanges({
-      food: new SimpleChange(null, foodSingleItem, false),
-    });
-    fixture.detectChanges();
-
-    let fcName = comp.form.controls['name'];
-    expect(fcName).toBeTruthy();
-    expect(fcName.value).toBe('Pad Thai');
-
-    let fcPrice = comp.form.controls['price'];
-    expect(fcPrice).toBeTruthy();
-    expect(fcPrice.value).toBe(5);
+  it('should emit food data when saveFood is called with valid form', () => {
+    spyOn(component.onFoodSave, 'emit');
+    component.saveFood(component.form);
+    expect(component.onFoodSave.emit).toHaveBeenCalledWith(mockFood);
   });
 
-  it('should emmit the correct item when saving', () => {
-    comp.ngOnChanges({
-      food: new SimpleChange(null, foodSingleItem, false),
+  it('should emit when cancelEdit is called', () => {
+    spyOn(component.onCancelEdit, 'emit');
+    component.cancelEdit();
+    expect(component.onCancelEdit.emit).toHaveBeenCalled();
+  });
+
+  it('should validate required fields', () => {
+    component.form.patchValue({
+      name: '',
+      price: 0
     });
-    fixture.detectChanges();
+    expect(component.form.valid).toBeFalse();
+  });
 
-    let fcName = comp.form.controls['name'];
-    expect(fcName.value).toEqual('Pad Thai');
-
-    fcName.setValue('Fried Noodles');
-    fixture.detectChanges();
-    expect(fcName.value).toEqual('Fried Noodles');
-
-    const spy = spyOn(comp.saveFood, 'emit');
-    let btn = fixture.nativeElement.querySelector('#btnSave');
-    btn.click();
-    expect(spy).toHaveBeenCalled();
-    expect(spy).toHaveBeenCalledWith({
-      id: 1,
-      name: 'Fried Noodles',
-      price: 5,
-      calories: 500,
+  it('should validate minimum length for name', () => {
+    component.form.patchValue({
+      name: 'ab'
     });
+    expect(component.form.get('name')?.errors?.['minlength']).toBeTruthy();
+  });
+
+  it('should validate minimum value for price', () => {
+    component.form.patchValue({
+      price: 0
+    });
+    expect(component.form.get('price')?.errors?.['min']).toBeTruthy();
   });
 });

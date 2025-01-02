@@ -1,26 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../menu/menu.service';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SideMenuService } from '../sidemenu/sidemenu.service';
 import { NavbarService } from './navbar.service';
-import { NavItem } from './nav-item.model';
+
 
 @Component({
   selector: 'app-navbar',
+  imports: [RouterLink, RouterLinkActive, MatToolbarModule, MatIconModule, AsyncPipe],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent implements OnInit {
-  constructor(public ns: NavbarService, public ms: MenuService) { }
-
-  navItems: NavItem[] = [];
-
-  ngOnInit() {
-    this.ns.getItems().subscribe((data) => {
-      this.navItems = data;
-    });
-  }
+export class NavbarComponent {
+  nav = inject(NavbarService);
+  navItems = this.nav.getItems()
+  sideMenu = inject(SideMenuService);
+  navVisible = this.sideMenu.getSideNavVisible();
 
   toggleMenu() {
-    this.ms.toggleMenuVisibility();
+    this.sideMenu.toggleMenuVisibility();
   }
 }
-

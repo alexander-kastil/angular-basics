@@ -3,11 +3,10 @@ import { FoodItem } from '../food.model';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-food-edit',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './food-edit.component.html',
-  styleUrl: './food-edit.component.scss'
+    selector: 'app-food-edit',
+    imports: [FormsModule],
+    templateUrl: './food-edit.component.html',
+    styleUrl: './food-edit.component.scss'
 })
 export class FoodEditComponent {
   @Input({ required: true }) food: FoodItem = new FoodItem();

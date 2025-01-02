@@ -26,12 +26,8 @@ In this lab we will complete some unit tests to ensure that our application is w
 
 - Complete the pending tests in the following files:
 
-    - food.service.spec.ts
+    - app.component.spec.ts
     - navbar.component.spec.ts
     - food-list.component.spec.ts
     - food-edit.component.spec.ts
-    - food-container.component.spec.ts
-    
-    > Note: Mock data is provided in `food.mocks.ts`
-
-- Try to reach a [code coverage](https://angular.io/guide/testing-code-coverage) of more than 80%
+    - food-container.component.spec.ts   

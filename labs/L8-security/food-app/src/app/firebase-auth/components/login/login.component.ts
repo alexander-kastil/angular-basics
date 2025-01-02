@@ -10,24 +10,23 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } 
 import { ColumnDirective } from '../../../shared/formatting/formatting-directives';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatCard,
-    MatCardHeader,
-    MatCardTitle,
-    MatCardContent,
-    MatFormField,
-    MatInput,
-    MatError,
-    MatCardActions,
-    MatButton,
-    MatDialogClose,
-    ColumnDirective
-  ],
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    imports: [
+        ReactiveFormsModule,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatFormField,
+        MatInput,
+        MatError,
+        MatCardActions,
+        MatButton,
+        MatDialogClose,
+        ColumnDirective
+    ]
 })
 export class LoginComponent {
   auth = inject(FirebaseAuthService)

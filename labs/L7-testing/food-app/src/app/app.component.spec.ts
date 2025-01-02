@@ -1,43 +1,48 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { HttpClientModule } from '@angular/common/http';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { provideHttpClient } from '@angular/common/http';
+import { signal } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { SidemenuComponent } from './shared/sidemenu/sidemenu.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
+import { environment } from '../environments/environment';
+import { AppComponent } from './app.component';
+import { SideMenuService } from './shared/sidemenu/sidemenu.service';
 
 describe('AppComponent', () => {
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let sideMenuService: SideMenuService;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
-        HttpClientModule,
-        MatSidenavModule,
-        NoopAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatListModule],
-      declarations: [
         AppComponent,
-        NavbarComponent,
-        SidemenuComponent],
+        NoopAnimationsModule,
+      ],
+      providers: [
+        SideMenuService,
+        provideHttpClient()
+      ]
     }).compileComponents();
-  }));
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    sideMenuService = TestBed.inject(SideMenuService);
+    fixture.detectChanges();
+  });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'FirstAngular'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Food App');
+  it(`should have title from environment`, () => {
+    expect(component.title).toBe(environment.title);
   });
+
+  it('should clear workbench margin when nav is hidden', () => {
+    const spy = signal(false);
+    spyOn(sideMenuService, 'getSideNavVisible').and.returnValue(spy);
+    component.navVisible = spy;
+    fixture.detectChanges();
+    expect(component.workbenchMargin).toEqual({});
+  });
+
 });
-

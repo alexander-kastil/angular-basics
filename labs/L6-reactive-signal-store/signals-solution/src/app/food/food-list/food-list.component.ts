@@ -6,11 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { ClickableDirective } from '../../shared/formatting/formatting-directives';
 
 @Component({
-  selector: 'app-food-list',
-  standalone: true,
-  imports: [MatTableModule, MatCardModule, MatIconModule, ClickableDirective],
-  templateUrl: './food-list.component.html',
-  styleUrl: './food-list.component.scss'
+    selector: 'app-food-list',
+    imports: [MatTableModule, MatCardModule, MatIconModule, ClickableDirective],
+    templateUrl: './food-list.component.html',
+    styleUrl: './food-list.component.scss'
 })
 export class FoodListComponent {
   @Input({ required: true }) food !: FoodItem[];

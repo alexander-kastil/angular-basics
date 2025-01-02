@@ -4,11 +4,10 @@ import { AsyncPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-logout-btn',
-  templateUrl: './logout-btn.component.html',
-  styleUrls: ['./logout-btn.component.scss'],
-  standalone: true,
-  imports: [MatButton, AsyncPipe],
+    selector: 'app-logout-btn',
+    templateUrl: './logout-btn.component.html',
+    styleUrls: ['./logout-btn.component.scss'],
+    imports: [MatButton, AsyncPipe]
 })
 export class LogoutBtnComponent {
   auth = inject(FirebaseAuthService);

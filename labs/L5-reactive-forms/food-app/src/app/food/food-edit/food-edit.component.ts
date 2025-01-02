@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output, computed, effect, inject, input } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, NgForm, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, effect, inject, input, output } from '@angular/core';
+import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormField } from '@angular/material/form-field';
@@ -15,7 +15,7 @@ import { FoodItem } from '../food.model';
 })
 export class FoodEditComponent {
   food = input.required<FoodItem>();
-  @Output() onFoodSave: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+  onFoodSave = output<FoodItem>();
   fb = inject(NonNullableFormBuilder);
 
   form: FormGroup = this.fb.group({

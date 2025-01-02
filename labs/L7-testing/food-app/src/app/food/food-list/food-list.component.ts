@@ -1,42 +1,39 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-  OnChanges,
-} from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, effect, input, output } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { FoodItem } from '../food.model';
 
 @Component({
   selector: 'app-food-list',
+  imports: [MatToolbarModule, MatCardModule, MatTableModule, MatIconModule, MatButtonModule],
   templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.scss'],
+  styleUrl: './food-list.component.scss'
 })
-export class FoodListComponent implements OnChanges {
-  @Input() food: FoodItem[] = [];
-  @Output() foodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-  @Output()
-  foodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-  @Output()
-  foodAdding: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+export class FoodListComponent {
+  food = input<FoodItem[]>([]);
+  readonly foodSelected = output<FoodItem>();
+  readonly foodDeleted = output<FoodItem>();
+  readonly foodAdding = output<FoodItem>();
 
   displayedColumns: string[] = [
     "id",
     "name",
     "price",
-    "calories",
+    "items",
     "deleteItem",
     "editItem",
   ];
   dataSource = new MatTableDataSource([]);
 
-  ngOnInit() { }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.dataSource = new MatTableDataSource(changes["food"].currentValue);
+  constructor() {
+    effect(() => {
+      var food = this.food() as any; //cast required for MatTableDataSource
+      console.log("food", food);
+      this.dataSource = new MatTableDataSource(food);
+    });
   }
 
   applyFilter(filterValue: string) {
@@ -55,3 +52,4 @@ export class FoodListComponent implements OnChanges {
     this.foodAdding.emit(new FoodItem());
   }
 }
+

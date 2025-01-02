@@ -1,53 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FoodEditComponent } from '../food-edit/food-edit.component';
+import { FoodListComponent } from '../food-list/food-list.component';
+import { FoodStateService } from '../food-state.service';
 import { FoodItem } from '../food.model';
-import { FoodService } from '../food.service';
+
 
 @Component({
   selector: 'app-food-container',
+  imports: [FoodListComponent, FoodEditComponent],
   templateUrl: './food-container.component.html',
-  styleUrls: ['./food-container.component.scss'],
+  styleUrl: './food-container.component.scss'
 })
-export class FoodContainerComponent implements OnInit {
-  food: FoodItem[] = [];
+export class FoodContainerComponent {
+  fs = inject(FoodStateService);
+  food = this.fs.getFood();
   selected: FoodItem | null = null;
 
-  constructor(private fs: FoodService) { }
-
-  ngOnInit() {
-    this.fs.getFood().subscribe((data) => (this.food = data));
+  selectFood(food: FoodItem) {
+    console.log('selecting', food);
+    this.selected = { ...food };
   }
 
-  addFood(item: FoodItem) {
-    this.selected = item;
+  deleteFood(food: FoodItem) {
+    this.fs.deleteFood(food.id);
   }
 
-  selectFood(f: FoodItem) {
-    this.selected = { ...f };
-  }
-
-  deleteFood(f: FoodItem) {
-    this.fs.deleteFood(f.id).subscribe(() => {
-      let deleted = this.food.filter((item) => item.id != f.id);
-      this.food = [...deleted];
-      this.selected = null;
-    });
-  }
-
-  foodSaved(f: FoodItem) {
-    if (f.id) {
-      this.fs.updateFood(f).subscribe((result) => {
-        let existing = this.food.find((f) => f.id == result.id);
-        if (existing) {
-          Object.assign(existing, result);
-          this.food = [...this.food];
-        }
-      });
+  foodSaved(item: FoodItem) {
+    if (item.id === 0) {
+      this.fs.addFood(item);
     } else {
-      this.fs.addFood(f).subscribe((result) => {
-        this.food.push(result);
-        this.food = [...this.food];
-      });
+      this.fs.updateFood(item);
     }
+    this.selected = null;
+  }
+
+  addFood() {
+    this.selected = new FoodItem();
+  }
+
+  cancelEdit() {
     this.selected = null;
   }
 }

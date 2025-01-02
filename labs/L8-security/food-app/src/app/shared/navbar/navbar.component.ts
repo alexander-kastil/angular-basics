@@ -10,19 +10,18 @@ import { CurrentUserComponent } from '../../firebase-auth/components/current-use
 import { LogoutBtnComponent } from '../../firebase-auth/components/logout-btn/logout-btn.component';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [
-    RouterLink,
-    RouterLinkActive,
-    MatToolbarModule,
-    MatIconModule,
-    AsyncPipe,
-    CurrentUserComponent,
-    LogoutBtnComponent
-  ],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+    selector: 'app-navbar',
+    imports: [
+        RouterLink,
+        RouterLinkActive,
+        MatToolbarModule,
+        MatIconModule,
+        AsyncPipe,
+        CurrentUserComponent,
+        LogoutBtnComponent
+    ],
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
   nav = inject(NavbarService);

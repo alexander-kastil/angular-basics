@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { JsonPipe } from '@angular/common';
+import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { environment } from '../../environments/environment';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss'],
+    selector: 'app-about',
+    imports: [MatCardModule, JsonPipe],
+    templateUrl: './about.component.html',
+    styleUrl: './about.component.scss'
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
   config = environment;
 
-  constructor() {}
-
-  ngOnInit() {}
 }

@@ -1,38 +1,37 @@
-import { Component, inject, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
-import { MatDrawerMode } from '@angular/material/sidenav';
-import { MenuService } from './shared/menu/menu.service';
-import { LoadingService } from './shared/loading/loading.service';
+import { NgStyle } from '@angular/common';
+import { Component, effect, inject } from '@angular/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterOutlet } from '@angular/router';
+import { environment } from '../environments/environment';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { SideMenuComponent } from './shared/sidemenu/sidemenu.component';
+import { SideMenuService } from './shared/sidemenu/sidemenu.service';
+
 
 @Component({
   selector: 'app-root',
+  imports: [
+    RouterOutlet,
+    NavbarComponent,
+    SideMenuComponent,
+    MatSidenavModule,
+    NgStyle
+  ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Food App';
-  mode: MatDrawerMode = 'side';
-  ms = inject(MenuService);
-  ls = inject(LoadingService);
-  changeDetector = inject(ChangeDetectorRef);
-  isLoading = this.ls.getLoading();
+  nav = inject(SideMenuService);
+  title = environment.title;
+
+  navPosition = this.nav.getSideNavPosition();
+  navVisible = this.nav.getSideNavVisible();
+  workbenchMargin = {};
 
   constructor() {
-    this.ms.sideNavPosition.subscribe((currentMode) => { this.mode = currentMode });
-  }
-
-  ngAfterContentChecked(): void {
-    this.changeDetector.detectChanges();
-  }
-
-  getWorbenchStyle() {
-    let result = {};
-    this.ms.sideNavVisible.subscribe((visible) => {
-      result = visible
-        ? {
-          'padding-left': '10px',
-        }
-        : {};
-    });
-    return result;
+    effect(() => {
+      this.workbenchMargin = this.navVisible() ? { 'margin-left': '0.5rem' } : {};
+      console.log('Workbench margin:', this.workbenchMargin);
+    })
   }
 }

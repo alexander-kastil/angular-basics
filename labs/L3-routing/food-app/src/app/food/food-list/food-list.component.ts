@@ -2,11 +2,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FoodItem } from '../food.model';
 
 @Component({
-  selector: 'app-food-list',
-  standalone: true,
-  imports: [],
-  templateUrl: './food-list.component.html',
-  styleUrl: './food-list.component.scss'
+    selector: 'app-food-list',
+    imports: [],
+    templateUrl: './food-list.component.html',
+    styleUrl: './food-list.component.scss'
 })
 export class FoodListComponent {
   @Input({ required: true }) food: FoodItem[] = [];

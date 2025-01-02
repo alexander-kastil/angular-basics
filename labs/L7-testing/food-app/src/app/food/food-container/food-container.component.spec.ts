@@ -1,90 +1,67 @@
-import { HarnessLoader } from '@angular/cdk/testing';
-import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
-import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonHarness } from '@angular/material/button/testing';
-import { By } from '@angular/platform-browser';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { of } from 'rxjs';
-import { MaterialModule } from '../../material.module';
-import { FoodEditComponent } from '../food-edit/food-edit.component';
-import { FoodListComponent } from '../food-list/food-list.component';
-import {
-  foodDeleteItem,
-  foodDeleteResult,
-  foodEmptyItem,
-  foodLoadData,
-  foodSingleItem
-} from '../food.mocks';
-import { FoodService } from '../food.service';
 import { FoodContainerComponent } from './food-container.component';
+import { FoodStateService } from '../food-state.service';
+import { FoodItem } from '../food.model';
 
-describe('food-list-container', () => {
-  let fs: any;
-  let comp: FoodContainerComponent;
-  let fixture: ComponentFixture<FoodContainerComponent>;
-  let loader: HarnessLoader;
-  let btnAdd: MatButtonHarness;
+describe('FoodContainerComponent', () => {
+    let component: FoodContainerComponent;
+    let fixture: ComponentFixture<FoodContainerComponent>;
 
-  beforeEach(async () => {
-    fs = jasmine.createSpyObj([
-      'getFood',
-      'deleteFood',
-      'addFood',
-      'updateFood',
-    ]);
-    fs.getFood.and.returnValue(of(foodLoadData));
+    beforeEach(async () => {
+        const spy = jasmine.createSpyObj('FoodStateService', ['getFood', 'deleteFood', 'addFood', 'updateFood']);
+        spy.getFood.and.returnValue([]);
 
-    await TestBed.configureTestingModule({
-      declarations: [FoodContainerComponent, FoodListComponent, FoodEditComponent],
-      imports: [
-        CommonModule,
-        NoopAnimationsModule,
-        MaterialModule,
-        FormsModule,
-        ReactiveFormsModule,
-      ],
-      providers: [{ provide: FoodService, useValue: fs }],
-    }).compileComponents();
+        await TestBed.configureTestingModule({
+            imports: [FoodContainerComponent],
+            providers: [
+                { provide: FoodStateService, useValue: spy }
+            ]
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(FoodContainerComponent);
-    comp = fixture.componentInstance;
-    fixture.detectChanges();
+        fixture = TestBed.createComponent(FoodContainerComponent);
+        component = fixture.componentInstance;
+    });
 
-    loader = TestbedHarnessEnvironment.loader(fixture);
-    btnAdd = await loader.getHarness(
-      MatButtonHarness.with({ text: 'Add Food' })
-    );
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 
-  it('should render the food-list.component', () => {
-    fs.getFood.and.returnValue(of(foodLoadData));
-    fixture.detectChanges();
-    const fl = fixture.debugElement.queryAll(By.directive(FoodListComponent));
-    expect(fl).toBeDefined();
-  });
+    it('should select food item', () => {
+        const testFood: FoodItem = { id: 1, name: 'Test Food', price: 10, items: 5 };
+        component.selectFood(testFood);
+        expect(component.selected).toEqual(testFood);
+        expect(component.selected).not.toBe(testFood); // Should be a copy
+    });
 
-  it('should render the food-edit.component', () => {
-    fs.getFood.and.returnValue(of(foodLoadData));
-    fixture.detectChanges();
-    const fl = fixture.debugElement.queryAll(By.directive(FoodEditComponent));
-    expect(fl).toBeDefined();
-  });
+    it('should delete food item', () => {
+        const testFood: FoodItem = { id: 1, name: 'Test Food', price: 10, items: 5 };
+        component.deleteFood(testFood);
+        expect(component.fs.deleteFood).toHaveBeenCalledWith(1);
+    });
 
-  it('should add an empty food the add is clicked', async () => {
-    await btnAdd.click();
-    expect(comp.selected).toEqual(foodEmptyItem);
-  });
+    it('should add new food item', () => {
+        const testFood: FoodItem = { id: 1, name: 'Test Food', price: 10, items: 5 };
+        component.foodSaved(testFood);
+        expect(component.selected).toBeNull();
+    });
 
-  it('should select thte correct food item', () => {
-    comp.selectFood(foodSingleItem);
-    expect(comp.selected).toEqual(foodSingleItem);
-  });
+    it('should update existing food item', () => {
+        const testFood: FoodItem = { id: 1, name: 'Test Food', price: 10, items: 5 };
+        component.foodSaved(testFood);
+        expect(component.fs.updateFood).toHaveBeenCalledWith(testFood);
+        expect(component.selected).toBeNull();
+    });
 
-  it('should delete the food item', () => {
-    fs.deleteFood.and.returnValue(of(foodDeleteResult));
-    comp.deleteFood(foodDeleteItem);
-    expect(comp.food).toEqual(foodDeleteResult);
-  });
+    it('should prepare new food item for adding', () => {
+        component.addFood();
+        expect(component.selected).toBeTruthy();
+        expect(component.selected?.id).toBe(0);
+    });
+
+    it('should cancel editing', () => {
+        const testFood = new FoodItem();
+        component.selected = testFood;
+        component.cancelEdit();
+        expect(component.selected).toBeNull();
+    });
 });

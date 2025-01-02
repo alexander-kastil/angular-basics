@@ -3,11 +3,10 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-current-user',
-  templateUrl: './current-user.component.html',
-  styleUrls: ['./current-user.component.scss'],
-  standalone: true,
-  imports: [AsyncPipe],
+    selector: 'app-current-user',
+    templateUrl: './current-user.component.html',
+    styleUrls: ['./current-user.component.scss'],
+    imports: [AsyncPipe]
 })
 export class CurrentUserComponent {
   auth = inject(FirebaseAuthService);
