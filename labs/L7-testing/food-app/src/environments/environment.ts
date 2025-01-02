@@ -1,3 +1,4 @@
 export const environment = {
-  api: "http://localhost:3000/",
+    title: 'Food App',
+    apiUrl: 'http://localhost:3000/',
 };
