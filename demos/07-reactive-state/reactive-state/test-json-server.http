@@ -1,4 +1,0 @@
-DELETE http://localhost:3000/vouchers/1
-Accept: application/json
-
-
