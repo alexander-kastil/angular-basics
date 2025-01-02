@@ -7,11 +7,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-food-list',
-  standalone: true,
-  imports: [MatToolbarModule, MatCardModule, MatTableModule, MatIconModule, MatButtonModule],
-  templateUrl: './food-list.component.html',
-  styleUrl: './food-list.component.scss'
+    selector: 'app-food-list',
+    imports: [MatToolbarModule, MatCardModule, MatTableModule, MatIconModule, MatButtonModule],
+    templateUrl: './food-list.component.html',
+    styleUrl: './food-list.component.scss'
 })
 export class FoodListComponent {
   food = input<FoodItem[]>([]);

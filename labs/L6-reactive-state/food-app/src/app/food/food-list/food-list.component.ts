@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, effect, input } from '@angular/core';
+import { Component, effect, input, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,19 +7,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FoodItem } from '../food.model';
 
 @Component({
-  selector: 'app-food-list',
-  standalone: true,
-  imports: [MatToolbarModule, MatCardModule, MatTableModule, MatIconModule, MatButtonModule],
-  templateUrl: './food-list.component.html',
-  styleUrl: './food-list.component.scss'
+    selector: 'app-food-list',
+    imports: [MatToolbarModule, MatCardModule, MatTableModule, MatIconModule, MatButtonModule],
+    templateUrl: './food-list.component.html',
+    styleUrl: './food-list.component.scss'
 })
 export class FoodListComponent {
   food = input<FoodItem[]>([]);
-  @Output() foodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-  @Output()
-  foodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-  @Output()
-  foodAdding: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+  readonly foodSelected = output<FoodItem>();
+  readonly foodDeleted = output<FoodItem>();
+  readonly foodAdding = output<FoodItem>();
 
   displayedColumns: string[] = [
     "id",
