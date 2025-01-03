@@ -67,6 +67,8 @@
 
 - Add food.json to the assets folder:
 
+  >Note: As this project was scaffolded with a previous version of Angular CLI, the assets folder is used instead of `public`. 
+
   ```json
   [
     { "id": 1, "name": "Butter Chicken", "price": 9, "calories": 1200 },
@@ -88,22 +90,17 @@
 
 - Implement a Container-Presenter Pattern in `food/food-container` using `food/food-list` and `food/food-edit`. Use the following reference: 
 
-- [Container](/demos/03-fundamentals/fundamentals/src/app/demos/samples/container)
+- [Container](/demos/03-fundamentals/ng-fundamentals/src/app/demos/samples/container-presenter)
 
-- [Presenter](/demos/03-fundamentals/fundamentals/src/app/demos/samples/persons)
+- [Person List](/demos/03-fundamentals/ng-fundamentals/src/app/demos/samples/container-presenter/persons-list)
+
+- [Person Edit](/demos/03-fundamentals/ng-fundamentals/src/app/demos/samples/container-presenter/persons-edit)
 
   >Note: You can complete the container component on your own or use the following code as a reference
 
 - Add the following code to `food-container.component.ts`. It imports the two presenter components and injects the `FoodService`. It also provides a selected item and a list of items to the presenters. To load the data it uses a subscribe method to the `getFood()` method of the `FoodService`. 
 
   ```typescript
-  @Component({
-    selector: 'app-food-container',
-    standalone: true,
-    imports: [FoodListComponent, FoodEditComponent],
-    templateUrl: './food-container.component.html',
-    styleUrl: './food-container.component.scss'
-  })
   export class FoodContainerComponent {
     fs = inject(FoodService);
     food: FoodItem[] = [];
@@ -115,11 +112,17 @@
 
     selectFood(food: FoodItem) {
       console.log('selecting', food);
+      this.selected = { ...food };
     }
 
     deleteFood(food: FoodItem) {
       console.log('deleting', food);
     }
+
+    foodSaved(item: FoodItem) {
+      
+    }
+  }
   ```  
 
 ## Implement the list component
@@ -157,7 +160,7 @@
   </table>
   ```
 
-- Add the following code to `food-list.component.ts` to implement the `selectFood` and `deleteFood` methods. It also emits the `foodSelected` and `foodDeleted` events.
+- Add the following code to `food-list.component.ts` to implement the `selectFood` and `deleteFood` methods. It also emits the `foodSelected` and `foodDeleted` using @Output. Using @Input and @Output are older patterns that have been replaced by [Signal input](https://angular.dev/guide/components/inputs#reading-inputs) and [output](https://angular.dev/guide/components/outputs). We will use the older pattern in this lab to enable you to participate in older Angular projects. In a later lab we will use the newer pattern.
 
   ```typescript
   @Component({
@@ -200,14 +203,6 @@
 - Implement a simple form to allow editing of a food item in `food/food-edit`. 
 
   >Note: You can complete the container component on your own or use the following code as a reference
-
-- Update `selectFood(...)` in `food-container.component.ts` to set the selected item and pass it to the edit component. You will need to pass a copy to the selected item to the edit component. Otherwise the inner component will change the outer component's state.
-
-  ```typescript
-  selectFood(food: FoodItem) {
-    this.selected = Object.assign({}, food);
-  }
-  ```
 
 - Add an `@Input` to receive the selected item and an `@Output` to emit the save event in `food-edit.component.ts`. The `ngOnChanges` method is used to access the item when a new value is passed to the input.
 
@@ -290,14 +285,9 @@
 
   ```typescript
   foodSaved(item: FoodItem) {
-    const clone = Object.assign([], this.food) as Array<FoodItem>;
-    let idx = clone.findIndex((c) => c.id == item.id);
-    if (idx > -1) {
-      clone[idx] = item;
-    } else {
-      clone.push(item);
-    }
-    this.food = clone;
+    this.food = item.id 
+      ? this.food.map(food => food.id === item.id ? item : food)
+      : [...this.food, item];
     this.selected = null;
   }
   ```
@@ -305,5 +295,10 @@
 - Handle the `onFoodSave` event in `food-container.component.html` and pass the selected item to the `foodSaved` method. Note the `$event` allows you to access the emitted value.
 
   ```html
-  <app-food-edit [food]="selected" (onFoodSave)="foodSaved($event)"></app-food-edit>
+  @if(selected){
+    <app-food-edit 
+      [food]="selected" 
+      (onFoodSave)="foodSaved($event)">
+    </app-food-edit>
+  }
   ```

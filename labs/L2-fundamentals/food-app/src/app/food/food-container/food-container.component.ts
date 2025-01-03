@@ -5,10 +5,10 @@ import { FoodService } from '../food.service';
 import { FoodEditComponent } from '../food-edit/food-edit.component';
 
 @Component({
-    selector: 'app-food-container',
-    imports: [FoodListComponent, FoodEditComponent],
-    templateUrl: './food-container.component.html',
-    styleUrl: './food-container.component.scss'
+  selector: 'app-food-container',
+  imports: [FoodListComponent, FoodEditComponent],
+  templateUrl: './food-container.component.html',
+  styleUrl: './food-container.component.scss'
 })
 export class FoodContainerComponent {
   fs = inject(FoodService);
@@ -29,14 +29,9 @@ export class FoodContainerComponent {
   }
 
   foodSaved(item: FoodItem) {
-    const clone = Object.assign([], this.food) as Array<FoodItem>;
-    let idx = clone.findIndex((c) => c.id == item.id);
-    if (idx > -1) {
-      clone[idx] = item;
-    } else {
-      clone.push(item);
-    }
-    this.food = clone;
+    this.food = item.id
+      ? this.food.map(food => food.id === item.id ? item : food)
+      : [...this.food, item];
     this.selected = null;
   }
 }
