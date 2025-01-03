@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: 'assets/menu-items.json',
+    apiUrl: 'menu-items.json',
 };

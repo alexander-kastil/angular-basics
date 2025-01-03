@@ -15,8 +15,10 @@ It will load the menu items in the navbar using a navbar.service that takes its 
 ## Steps Outlined
 
 - Check the environment setup
-- Scaffold the project and create the layout
+- Scaffold the project and add base configuration
+- Create the base layout
 - Add the menu service and load the menu items in the navbar
+- Add support for GitHub Copilot (optional)
 
 ## Check the environment setup:
 
@@ -37,7 +39,7 @@ npm i -g @angular/cli
 
 Also install the [Angular Language Service - Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template).
 
-## Scaffold the project and create the layout:
+## Scaffold the project and add base configuration:
 
 - Create Angular Project using the [Angular CLI](https://angular.io/cli/new):
 
@@ -55,8 +57,9 @@ Also install the [Angular Language Service - Visual Studio Code extension](https
   ```typescript
   export const appConfig: ApplicationConfig = {
     providers: [
-      provideHttpClient(),
-      provideRouter(routes)
+      provideZoneChangeDetection({ eventCoalescing: true }),
+      provideRouter(routes),
+      provideHttpClient()
     ]
   };
   ```
@@ -67,9 +70,15 @@ Also install the [Angular Language Service - Visual Studio Code extension](https
 
   ```json
   "@schematics/angular:component": {
-            "style": "scss"
+    "style": "scss"
   }
   ```
+
+- Add the environment configuration to the project on `src/environments`. This will be used to load the menu items in the navbar later on:
+
+  ```bash
+  ng g environments
+  ```  
 
 - Delete the default content of `app.component.html` and start the Angular dev server. By keeping it running while you are working, you can see the changes in real time and also get error messages in the terminal:
 
@@ -80,6 +89,14 @@ Also install the [Angular Language Service - Visual Studio Code extension](https
   >Note: You can split your terminal to execute other CLI commands
 
   ![terminal](_images/terminal.jpg)
+
+- Disable build caching to avoid refresh errors during development:
+
+  ```bash
+  ng cache disable
+  ```
+
+### Create the base layout
 
 - Examine the [Angular CLI reference](https://angular.io/cli/generate#component-command) on how to add components and execute the following commands in the terminal. Notice that `sidemenu` and `navbar` will be created in the shared folder. You can also use the global `--dry-run` option to see what files will be created without actually creating them:
 
@@ -92,17 +109,21 @@ Also install the [Angular Language Service - Visual Studio Code extension](https
 - Add a `src/theme/reset.scss` to the project Import the css-reset from [http://meyerweb.com](https://meyerweb.com/eric/tools/css/reset/) to `reset.scss`. Import `reset.scss` in `styles.scss`. While adding the styles directly to `styles.scss` is possible, it is better to keep the styles in a separate file to keep the `styles.scss` file clean and maintainable.
 
   ```scss
-  @import 'theme/reset';
+  @use 'theme/reset';
   ```
 
 - Import the three components we created earlier to `app.component.ts`:
 
   ```typescript
+  import { Component } from '@angular/core';
+  import { HomeComponent } from './home/home.component';
+  import { NavbarComponent } from './shared/navbar/navbar.component';
+  import { SidemenuComponent } from './shared/sidemenu/sidemenu.component';
+
   @Component({
     selector: 'app-root',
     standalone: true,
     imports: [
-      RouterOutlet,
       HomeComponent,
       NavbarComponent,
       SidemenuComponent
@@ -114,6 +135,8 @@ Also install the [Angular Language Service - Visual Studio Code extension](https
     title = 'first-ng';
   }
   ```
+
+  >Note: In future guides the import statements will be skipped for brevity
 
 - Add the following content to `app.component.html`:
 
@@ -185,7 +208,7 @@ Also install the [Angular Language Service - Visual Studio Code extension](https
   }
   ```
 
-- Add `assets/menu-items.json` will contain the mock menu items. We will replace this with a real backend service later on.
+- Add `menu-items.json` from [artifacts](./artifacts/) to `public/menu-items.json` will contain the data for the menu items. `public` is a folder that will serve static assets. In Angular version prior to 18 the public folder was located at `src/assets`.
 
   ```json
   [
@@ -226,9 +249,11 @@ Also install the [Angular Language Service - Visual Studio Code extension](https
 
   ```typescript
   export const environment = {
-    apiUrl: 'assets/menu-items.json',
+    apiUrl: 'menu-items.json',
   };  
   ```
+
+  >Note: With the assets folder this path was : 'assets/menu-items.json',
 
 - Inject Angular HttpClient that you configured in `app.config.ts` in the constructor of `navbar.service.ts` and load `assets/menu-items.json`:
 
@@ -291,3 +316,26 @@ Also install the [Angular Language Service - Visual Studio Code extension](https
   ```bash
   ng s -o
   ```
+
+### Add support for GitHub Copilot (optional)
+
+>Note: If you do not want to use GitHub Copilot you can skip this step.
+
+GitHub Copilot is an AI pair programmer that offers a [free tier](https://github.com/features/copilot/plans?cft=copilot_li.features_copilot) that you can use to speed up your development process. 
+
+It is available as a Visual Studio Code extension. You can install it from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). There is also an extension for [intellij](https://plugins.jetbrains.com/plugin/17718-github-copilot) available. Both extensions require a [GitHub account](https://github.com/pricing) that is also free.
+
+- Install the extensions in Visual Studio Code:
+
+  ```bash
+  code --install-extension GitHub.copilot
+  code --install-extension GitHub.copilot-chat
+  ```
+
+- Follow these [steps](https://code.visualstudio.com/docs/copilot/setup) to activate GitHub Copilot.
+
+We will configure settings for this project that enhance the GitHub copilot experience for Angular development by overriding (ground) newer Angular patterns that might not be contained in the Large Language Model (LLM) that GitHub Copilot is based on.
+
+- Read and copy `.angular.copilot.md` and `.angular.tests.copilot.md` from [artifacts](./artifacts/) to the root of the project. These files contain settings that will be used by GitHub Copilot to generate code snippets for Angular development. 
+
+- To register these files copy settings.json from [artifacts](./artifacts/) to `.vscode` in the root of the project. This will enable the settings for the project.  
