@@ -229,13 +229,13 @@ Also install the [Angular Language Service - Visual Studio Code extension](https
   
   >Note: A copy of `menu-items.json` is located in the folder of this lab
 
-- Assets is a special folder in Angular that is used to store static files like images, fonts, and JSON files. To check this stop the Angular dev server using CTRL+C and build the application:
+- `public` is a special folder in Angular that is used to store static files like images, fonts, and JSON files. To check this stop the Angular dev server using CTRL+C and build the application:
 
   ```json
   ng build
   ```
 
-- Examine the structure of the `dist` folder and notice the `assets` folder containing `menu-items.json`:
+- Examine the structure of the `dist` folder and notice the `public` folder containing `menu-items.json`:
 
   ![explorer](_images/explorer.jpg)  
 
