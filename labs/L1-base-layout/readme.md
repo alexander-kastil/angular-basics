@@ -2,7 +2,7 @@
 
 In this lab we will create a base Angular App with a layout and a navbar service.
 
-Create the Angular app with the following layout containing the following components:
+The resulting Angular app will implement the following layout containing the following components:
 
 - home
 - shared/sidemenu
@@ -10,7 +10,7 @@ Create the Angular app with the following layout containing the following compon
 
   ![layout](_images/food-layout.png)
 
-It will load the menu items in the navbar using a navbar.service that takes its values from `assets/menu-items.json`:
+Menu items in the navbar using a navbar.service that takes its values from `assets/menu-items.json`:
 
 ## Steps Outlined
 
