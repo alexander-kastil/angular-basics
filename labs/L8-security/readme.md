@@ -36,7 +36,7 @@ In this lab we will add Firebase Authentication as an example for easy to implem
     npm install firebase @angular/fire --save
     ```
 
--   Copy the following [artifacts](./auth-artifacts/) to your project. You can take the following [reference](/demos/09-securing-publishing/securing-publishing/) implementation. Fix any import path errors that might exist.
+-   Copy the following [artifacts](./auth-artifacts/) to your project. You can take the following [reference](/demos/09-securing-publishing/ng-securing-publishing/) implementation. Fix any import path errors that might exist.
 
 -   Provide the firebase services in `app.config.ts`:
 
@@ -87,6 +87,6 @@ In this lab we will add Firebase Authentication as an example for easy to implem
 
   ```typescript
   provideHttpClient(
-      withInterceptors(firebaseAuthInterceptor)
-    ),
+    withInterceptors(firebaseAuthInterceptor)
+  ),
   ```
