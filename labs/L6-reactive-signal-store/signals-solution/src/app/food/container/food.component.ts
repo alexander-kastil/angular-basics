@@ -8,10 +8,10 @@ import { FoodEditComponent } from '../food-edit/food-edit.component';
 import { FoodItem } from '../food.model';
 
 @Component({
-    selector: 'app-food',
-    imports: [MatToolbarModule, MatButtonModule, MatProgressBarModule, FoodListComponent, FoodEditComponent],
-    templateUrl: './food.component.html',
-    styleUrl: './food.component.scss'
+  selector: 'app-food',
+  imports: [MatToolbarModule, MatButtonModule, MatProgressBarModule, FoodListComponent, FoodEditComponent],
+  templateUrl: './food.component.html',
+  styleUrl: './food.component.scss'
 })
 export class FoodComponent {
   store = inject(foodStore)
@@ -21,11 +21,11 @@ export class FoodComponent {
   }
 
   saveFood(item: FoodItem) {
-    if (item.id != 0) {
+    const isUpdate = item.id !== 0;
+    if (isUpdate) {
       this.store.updateFood(item);
     } else {
-      item.id = this.store.nextId();
-      this.store.addFood(item);
+      this.store.addFood({ ...item, id: this.store.nextId() });
     }
     this.store.clearSelected();
   }

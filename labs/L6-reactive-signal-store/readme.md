@@ -1,22 +1,27 @@
 # Using @ngrx/signals in Angular Apps
 
-In this lab we will solve the following tasks:
+This lab guides you through the process of transitioning an Angular application to use `@ngrx/signals` for state management. You will create a `SignalStore`, implement CRUD operations with loading indicators, apply a container/presenter pattern, and enhance data handling with `rxMethod` and server persistence. This lab will give you the essential knowledge to use `@ngrx/signals` to manage the state of a complex application.
 
--   Take the `standalone app` from `lab-01` and setup a basic `SignalStore`
--   Re-build the classic Angular solution from `lab-02` to `lab-04`
--   Provide CRUD and loading for food using `@ngrx/signal`
--   Implement a `container presenter pattern`
--   Enhance our app by using `rxMethod` and persist data to the server
+**Steps Outlined:**
+
+1.  **Setup a basic Signal Store**
+2.  **Provide CRUD and loading for food using `@ngrx/signals Signal Store`**
+3.  **Implement a container presenter pattern using signals and `input signals`**
+4.  **Enhance our app by using `rxMethod` and persist data to the server**
 
 ### Setup a basic Signal Store
 
--   Copy the `signals-starter` and install `@ngrx/signals`:
+This step focuses on setting up the foundation for using `@ngrx/signals` by creating a basic `SignalStore` and integrating it into an existing Angular application.
+
+**Details:**
+
+1.  **Install `@ngrx/signals`:** The first step involves installing the necessary `@ngrx/signals` package using npm.
 
     ```bash
     npm i -S @ngrx/signals
     ```
 
--   Add a `food/food.model.ts` to the project. You could copy this file from a previous lab:
+2.  **Add `food.model.ts`:**  A basic model `FoodItem` is added to the project. This model represents the structure of the data that the application will be working with.
 
     ```typescript
     export class FoodItem {
@@ -27,7 +32,7 @@ In this lab we will solve the following tasks:
     }
     ```
 
--   Add a `food/food.service.ts` to the project. You could copy this file from a previous lab:
+3.  **Add `food.service.ts`:** A service `FoodService` is added to the project. This service will be responsible for all HTTP requests regarding the food items in our application.
 
     ```typescript
     @Injectable({
@@ -54,7 +59,7 @@ In this lab we will solve the following tasks:
     }
     ```
 
--   Add a `food/store/food.store.ts` to implement the signal store:
+4.  **Add `food.store.ts`:**  A `SignalStore` named `foodStore` is created using the `signalStore` function, including initial state.
 
     ```typescript
     type FoodState = {
@@ -73,7 +78,7 @@ In this lab we will solve the following tasks:
     )
     ```
 
--   Add a `MatToolbar` to `food.component.ts` and inject the base store:
+5.  **Inject the `foodStore`:** The `foodStore` signal is injected into the `FoodComponent`, using the `inject` function.
 
     ```typescript
     @Component({
@@ -88,7 +93,7 @@ In this lab we will solve the following tasks:
     }
     ```
 
--   Place the `MatToolbar` in the template and show the food count:
+6.  **Add `MatToolbar`:** The `MatToolbar` is added in the template to display the item count, leveraging the `store` property.
 
     ```html
     <mat-toolbar>
@@ -98,11 +103,15 @@ In this lab we will solve the following tasks:
     </mat-toolbar>
     ```
 
--   Test your work by running the app with `ng s -o`
+7.  **Run the app:** The application is launched with `ng s -o` to verify the initial setup.
 
 ### Provide CRUD and loading for food using `@ngrx/signals Signal Store`
 
--   Next we will use withComputed() to expose count as a store property. To do so update food.store.ts. To not forget to update the corresponding html template:
+This step builds upon the basic store by adding computed properties and methods for handling CRUD operations. It introduces computed signals, and methods for adding, removing, updating, and selecting food items within the store.
+
+**Details:**
+
+1.  **Add `withComputed`:** The `withComputed` function is used to expose the `count` of food items as a computed signal in `food.store.ts`. The computed signal is derived from the length of the food array within the store.
 
     ```typescript
     withComputed((store) => ({
@@ -110,7 +119,7 @@ In this lab we will solve the following tasks:
     }))
     ```
 
--   Provide add, remove, update and select:
+2.  **Implement CRUD methods:** The `withMethods` function is used to add methods for adding, removing, updating, and selecting food items within the store. These methods modify the store state using the `patchState` function.
 
     ```typescript
     withMethods((store) => ({
@@ -138,9 +147,7 @@ In this lab we will solve the following tasks:
     })),
     ```
 
-    > Note: With the current implementation we are not persisting the changes to the server.
-
--   In order to be able to load the initial item from the server, we will need to modify `food.store.ts` and it's withMethods section and add a `loadFood()` method:
+3.  **Implement `loadFood`:** The `withMethods` function is extended to include a `loadFood` method, which uses `FoodService` to load food items from the server and update the store's state.
 
     ```typescript
     withMethods((store, service = inject(FoodService)) => ({
@@ -153,9 +160,7 @@ In this lab we will solve the following tasks:
     }))
     ```
 
-    > Note: If we have set up @ngrx/data we could have used the `getAll()` method instead of `getFood()`.
-
--   To make sure that loadFood is called we will use withHooks() and call it in the `onInit()` hook:
+4.  **Call `loadFood` on initialization:** The `withHooks` function is used to call the `loadFood` method when the store is initialized, ensuring that data is fetched when the component loads.
 
     ```typescript
     withHooks({
@@ -165,7 +170,7 @@ In this lab we will solve the following tasks:
     })
     ```
 
--   Just to check add the following to the template and run the app:
+5.  **Display food items:** A basic loop is added to the `food.component.html` template to display loaded food items.
 
     ```html
     <div>
@@ -179,32 +184,32 @@ In this lab we will solve the following tasks:
 
 ### Implement a container presenter pattern using signals and `input signals`
 
--   Next lets add a food-list and a food-edit component:
+This step focuses on implementing a container/presenter pattern, where the `FoodComponent` acts as a container and the `FoodListComponent` and `FoodEditComponent` act as presenters. `input signals` are used to pass data to the presenters and output events for data manipulation.
 
-    ```typescript
+**Details:**
+
+1.  **Create list and edit components:**  `FoodListComponent` and `FoodEditComponent` are generated with the Angular CLI.
+
+    ```bash
     ng g c food/food-list
     ng g c food/food-edit
     ```
 
--   Food list should look like this. You can take the lab result from the previous module as a reference:
-
-    ![Food List](_images/food-list.png)
-
--   Add the following to the `food-list.component.ts`:
+2.  **Implement `FoodListComponent`:**  The `FoodListComponent` is implemented to display a list of food items using a Material table. It receives food items through the `@Input` decorator and emits an event when a food item is selected.
 
     ```typescript
     @Component({
-        selector: 'app-food-list',
-        standalone: true,
-        imports: [MatTableModule, MatCardModule],
-        templateUrl: './food-list.component.html',
-        styleUrl: './food-list.component.scss'
+    selector: 'app-food-list',
+    imports: [MatTableModule, MatCardModule, MatIconModule, ClickableDirective],
+    templateUrl: './food-list.component.html',
+    styleUrl: './food-list.component.scss'
     })
     export class FoodListComponent {
-        @Input({ required: true }) food !: FoodItem[];
-        @Output() onFoodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+        readonly food = input.required<FoodItem[]>();
+        readonly onFoodSelected = output<FoodItem>();
+        readonly onFoodDeleted = output<FoodItem>();
 
-        displayedColumns: string[] = ['id', 'name', 'price', 'calories'];
+        displayedColumns: string[] = ['id', 'name', 'price', 'calories', 'delete', 'select'];
         dataSource: MatTableDataSource<FoodItem> = new MatTableDataSource<FoodItem>([]);
 
         ngOnChanges(changes: SimpleChanges) {
@@ -216,14 +221,8 @@ In this lab we will solve the following tasks:
         applyFilter(filterValue: string) {
             this.dataSource.filter = filterValue.trim().toLowerCase();
         }
-
-        selectFood(p: FoodItem) {
-            this.onFoodSelected.emit(p);
-        }
     }
     ```
-
--   Add the following to the `food-list.component.html`:
 
     ```html
     <mat-card appearance="outlined">
@@ -257,8 +256,6 @@ In this lab we will solve the following tasks:
     </mat-card>
     ```
 
--   Add the following to the `food-list.component.scss`:
-
     ```css
         mat-card {
         margin-bottom: 1rem;
@@ -273,51 +270,45 @@ In this lab we will solve the following tasks:
     }
     ```
 
--   Food edit should look like this. You can take the lab from the previous module as a reference:
-
-    ![Food edit](_images/food-edit.png)
-
--   Add the following to the `food-edit.component.ts`:
+3.  **Implement `FoodEditComponent`:** The `FoodEditComponent` is implemented to display a form for editing food items. It receives a food item through the `@Input` decorator and emits an event when the form is saved.
 
     ```typescript
     @Component({
-        selector: 'app-food-edit',
-        standalone: true,
-        imports: [
-            MatCardModule,
-            MatInputModule,
-            MatButtonModule,
-            ReactiveFormsModule,
-            ColumnDirective
-        ],
-        templateUrl: './food-edit.component.html',
-        styleUrl: './food-edit.component.scss'
+    selector: 'app-food-edit',
+    imports: [
+        MatCardModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        ColumnDirective
+    ],
+    templateUrl: './food-edit.component.html',
+    styleUrl: './food-edit.component.scss'
     })
-        export class FoodEditComponent {
+    export class FoodEditComponent {
         fb = inject(FormBuilder)
-        @Input({ required: true }) food: FoodItem | null = null;
-        @Output() onFoodSaved: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+        readonly food = input<FoodItem | null>(null);
+        readonly onFoodSaved = output<FoodItem>();
 
         foodForm: FormGroup = this.fb.group({
-            id: [this.food?.id],
-            name: [this.food?.name, [Validators.required, Validators.minLength(3)]],
-            price: [this.food?.price, [Validators.required, Validators.min(1)]],
-            calories: this.food?.calories,
+            id: [this.food()?.id],
+            name: [this.food()?.name, [Validators.required, Validators.minLength(3)]],
+            price: [this.food()?.price, [Validators.required, Validators.min(1)]],
+            calories: this.food()?.calories,
         });
 
-        ngOnChanges(changes: SimpleChanges): void {
-            if (changes['food']) {
-            this.foodForm.setValue(changes['food'].currentValue);
+        handleChanges = effect(() => {
+            if (this.food()) {
+            const item = this.food() as FoodItem;
+            this.foodForm.setValue(item);
             }
-        }
+        });
 
         saveForm(): void {
             this.onFoodSaved.emit(this.foodForm.value);
         }
     }
     ```
-
--   Add the following to the `food-edit.component.html`:
 
     ```html
     <mat-card appearance="outlined">
@@ -368,7 +359,7 @@ In this lab we will solve the following tasks:
     </mat-card>
     ```
 
--   Last but not least we will hook the container / presenter pattern by replacing the temporary html in `food.component.html`:
+4.  **Hook container/presenter pattern:** The `FoodComponent` template is updated to use the `FoodListComponent` and `FoodEditComponent`, passing data and handling events.
 
     ```html
     <app-food-list  [food]="store.food()" (onFoodSelected)="selectFood($event)"></app-food-list>
@@ -378,8 +369,6 @@ In this lab we will solve the following tasks:
     }
     ```
 
--   Add the following css to `food.component.scss`:
-
     ```css
     .addRow{
         display: flex;
@@ -388,7 +377,7 @@ In this lab we will solve the following tasks:
     }
     ```
 
--   Add the following code to `food.component.ts`. This time you will have to add the imports by yourself:
+5.  **Implement logic in `FoodComponent`:** The `FoodComponent` is updated to handle the logic for selecting a food item and saving a food item, calling the appropriate methods in the `store`.
 
     ```typescript
     export class FoodComponent {
@@ -399,10 +388,11 @@ In this lab we will solve the following tasks:
         }
 
         saveFood(item: FoodItem) {
-            if (item.id) {
-                    this.store.updateFood(item);
+            const isUpdate = item.id !== 0;
+            if (isUpdate) {
+                this.store.updateFood(item);
             } else {
-                this.store.addFood(item);
+                this.store.addFood({ ...item, id: this.store.nextId() });
             }
             this.store.clearSelected();
         }
@@ -411,9 +401,11 @@ In this lab we will solve the following tasks:
 
 ### Enhance our app by using `rxMethod` and persist data to the server
 
--   The loadFood() method works, but the pattern we used to solve it is not very elegant. We can do better by using rxMethod().
+This step enhances the application by using `rxMethod` to handle asynchronous operations with a loading indicator. It also persists data to the server by updating the methods in `food.store.ts`.
 
--   Extend the state with a loading flag. Do not forget to update the initial state:
+**Details:**
+
+1.  **Add `loading` flag to store:** The `FoodState` in `food.store.ts` is extended with a `loading` flag, and initial state is updated accordingly.
 
     ```typescript
     type FoodState = {
@@ -423,7 +415,7 @@ In this lab we will solve the following tasks:
     }
     ```
 
--   Add a Material Progress Bar to the template:
+2.  **Add progress bar:** A Material progress bar is added to the template to indicate loading state.
 
     ```html
     <div class="progress">
@@ -432,8 +424,6 @@ In this lab we will solve the following tasks:
         }
     </div>
     ```
-
--   Add the following css to `food.component.scss`:
 
     ```css
     .progress{
@@ -444,20 +434,13 @@ In this lab we will solve the following tasks:
     }
     ```
 
--   Let's look at the current implementation of `loadFood()`. It works but it is not very elegant. We can do better by using `rxMethod()`.
+3.  **Install `@ngrx/operators`:** The `@ngrx/operators` package is installed to provide the `tapResponse` operator.
 
-    ```typescript
-    loadFood: () => {
-        patchState(store, { loading: true });
-        service.getFood().subscribe((items) => {
-            patchState(store, { food: items })
-        })
-    }
+    ```bash
+    npm i -S @ngrx/operators
     ```
 
--   Execute `npm i -S @ngrx/operators`. The operators library provides some useful operators that are frequently used when managing state and side effects. It adds [tapResponse](https://ngrx.io/guide/operators/operators#tapresponse) which you will have to import and we will use in the next step.
-
--   Replace it with this implementation:
+4.  **Refactor `loadFood` with `rxMethod`:** The `loadFood` method in `food.store.ts` is refactored to use `rxMethod` and the `tapResponse` operator to handle asynchronous operations and loading states.
 
     ```typescript
     loadFood: rxMethod<void>(
@@ -476,23 +459,16 @@ In this lab we will solve the following tasks:
     ),
     ```
 
--   Implement a `logError` function:
+5.  **Implement `logError`:** A basic `logError` function is created to handle errors consistently in our methods.
 
     ```typescript
-    const logError = (error: Error) => console.error("error: ", error);
+     const logError = (error: Error) => console.error("error: ", error);
     ```
 
--   In `food.store.ts` try to update the following methods and let the use `rxMethod` and `food.service.ts`. A possible solution will be provided in the next step:
-
-    -   addFood()
-    -   updateFood()
-    -   removeFood()
-        > Note: If you are using @ngrx/data you could also combine the data service with the signal store.
-
--   Update `addFood()`:
+6.  **Update CRUD methods with `rxMethod`:** The `addFood`, `updateFood`, and `removeFood` methods in `food.store.ts` are updated to use `rxMethod` and the `tapResponse` operator to handle asynchronous operations and loading states.
 
     ```typescript
-    addFood: rxMethod<FoodItem>(
+        addFood: rxMethod<FoodItem>(
         pipe(
             switchMap((food: FoodItem) => {
                 patchState(store, { loading: true });
@@ -510,8 +486,6 @@ In this lab we will solve the following tasks:
         )
     ),
     ```
-
--   Update `updateFood()`:
 
     ```typescript
     updateFood: rxMethod<FoodItem>(
@@ -535,8 +509,6 @@ In this lab we will solve the following tasks:
     ),
     ```
 
--   Update `removeFood()`:
-
     ```typescript
     removeFood: rxMethod<number>(
         pipe(
@@ -556,8 +528,7 @@ In this lab we will solve the following tasks:
         )
     ),
     ```
-
-- Add the following standalone directive to the shared/formatting folder and use it for the subsequent steps:   
+7.  **Implement `ClickableDirective`** A standalone directive is created to handle the click function on elements.
 
     ```typescript
     @Directive({
@@ -567,22 +538,20 @@ In this lab we will solve the following tasks:
     })
     export class ClickableDirective {}
     ```
-
-- Implement `addFood()` on your own by using the following nextId() function. Update the id of the new item before saving:
+8.  **Implement `addFood()`**: Implement the `addFood()` method by using the `nextId()` computed property which increments the new id for new food item.
 
     ```typescript
     nextId: computed(() => store.food().reduce((max, p) => p.id > max ? p.id : max, 0) + 1),
-    ```    
-
-- Implement `deleteFood()` on your own by adding a delete button and an edit button to the food list. Remove selectFood() from the row.
+    ```
+9. **Implement `deleteFood()`**: Implement the `deleteFood()` functionality by adding a delete button to the food list table and remove the selectFood() method on the row.
 
     ```html
-    <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let element" class="icon-cell">
-        <a (click)="deleteFood(element)">
-          <mat-icon class="mat-18" matTooltip="Delete">delete</mat-icon>
-        </a>
-      </td>
-    </ng-container>
+        <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" class="icon-cell">
+            <a (click)="deleteFood(element)">
+            <mat-icon class="mat-18" matTooltip="Delete">delete</mat-icon>
+            </a>
+        </td>
+        </ng-container>
     ```
