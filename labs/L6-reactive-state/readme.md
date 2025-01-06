@@ -18,7 +18,7 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
   ng g s shared/sidemenu/sidemenu 
   ```
 
-- Use [sidenav.service.ts](/demos/07-reactive-state/reactive-state/src/app/shared/sidenav/sidenav.service.ts) as a reference to implement the `sidemenu.service.ts`. Do not copy past but basically it would work the same way. 
+- Use [sidenav.service.ts](/demos/07-reactive-state/ng-reactive-state/src/app/shared/sidenav/sidenav.service.ts) as a reference to implement the `sidemenu.service.ts`. Do not copy past but basically it would work the same way. 
 
 - Modify `navbar.component.html` to use the `SideMenuService`:
 
@@ -183,7 +183,7 @@ In this lab we will implement a responsive `SideMenu` using `Signals` and `State
 - Signals and Stateful Services are the tools we will use to manage client side state. In real world scenarios, you would typically use a state management library such as NgRx and [@ngrx/signals](https://ngrx.io/guide/signals). This topic is covered in more detail in the `Advanced Angular Development` course. In this lab, we will use Signals and Stateful Services to learn the basic principles of how state management libraries work.
  
 
-- You can take [StatefulSignalService](/demos/07-reactive-state/reactive-state/src/app/demos/samples/stateful-signals/stateful-signals.service.ts) as a reference to implement the `SideMenuService` as a Stateful Service. 
+- You can take [StatefulSignalService](/demos/07-reactive-state/ng-reactive-state/src/app/demos/samples/stateful-signals/stateful-signals.service.ts) as a reference to implement the `SideMenuService` as a Stateful Service. 
 
 - Add a designated stateful food-state.service.ts;
 
