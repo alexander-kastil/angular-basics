@@ -10,11 +10,11 @@ In this lab, you will create a foundational Angular application complete with a 
 - Add support for GitHub Copilot (optional)  
    
 ## Check the Environment Setup  
-Before you start, ensure that you have the necessary development tools installed. This includes [Visual Studio Code](https://code.visualstudio.com/download), a compatible version of Node.js (preferably [Node 18.17.1](https://nodejs.org/download/release/v18.17.1/)), and the latest version of the [Angular CLI](https://angular.io/cli). You can verify your installation by executing the following commands in your terminal:  
+Before you start, ensure that you have the necessary development tools installed. This includes [Visual Studio Code](https://code.visualstudio.com/download), a compatible version of Node.js (preferably [Node 22.13.0](https://nodejs.org/download/release/v22.13.0/)), and the latest version of the [Angular CLI](https://angular.io/cli). You can verify your installation by executing the following commands in your terminal:  
    
 ```bash  
 node --version  
-ng version  
+ng --version  
 ```  
    
 If you need to update the Angular CLI to the current version, use the following command:  
