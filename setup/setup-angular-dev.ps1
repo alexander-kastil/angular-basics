@@ -16,7 +16,6 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
 # Install VS Code Extensions
 Write-Host "VS Code Extensions - 3/4" -ForegroundColor yellow
 
-code --install-extension ms-dotnettools.csharp
 code --install-extension ms-vscode.azurecli
 code --install-extension ms-vscode.azure-account
 code --install-extension ms-azuretools.vscode-docker
