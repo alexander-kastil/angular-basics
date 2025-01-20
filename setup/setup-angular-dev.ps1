@@ -6,7 +6,7 @@ winget install --id=Microsoft.VisualStudioCode -e
 winget install --id=Git.Git -e
 winget install --id=GitHub.cli -e
 winget install --id=curl.curl -e
-winget install --id=OpenJS.NodeJS.LTS -e --version=22.1.0
+winget install --id=OpenJS.NodeJS.LTS -e --version=22.13.0
 
 # Refresh Path Env
 Write-Host "Refresh Path Env - 2/4" -ForegroundColor yellow
