@@ -36,7 +36,6 @@
   ```typescript
   @Component({
     selector: 'app-root',
-    standalone: true,
     imports: [
       ...
       FoodContainerComponent
@@ -165,7 +164,6 @@
   ```typescript
   @Component({
     selector: 'app-food-list',
-    standalone: true,
     templateUrl: './food-list.component.html',
     styleUrl: './food-list.component.scss'
   })
