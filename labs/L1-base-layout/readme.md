@@ -47,7 +47,7 @@ export const appConfig: ApplicationConfig = {
 };  
 ```  
    
-Now, inspect `app.routing.ts`, which manages the application's routing logic. Add your desired routes to the routes array. Also, verify the default style configuration in `angular.json`:  
+Now, inspect `app.routes.ts`, which manages the application's routing logic. Add your desired routes to the routes array. Also, verify the default style configuration in `angular.json`:  
    
 ```json  
 "@schematics/angular:component": {  

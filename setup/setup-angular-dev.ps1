@@ -27,6 +27,8 @@ code --install-extension xabikos.jasminesnippets
 code --install-extension github.copilot
 code --install-extension redhat.vscode-yaml
 code --install-extension alex-pattison.theme-cobalt3
+code --install-extension esbenp.prettier-vscode
+code --install-extension humao.rest-client
 
 # Install NVM
 Write-Host "Installing Node using NVM, Angular & json-server - 4/4" -ForegroundColor yellow
