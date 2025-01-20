@@ -31,13 +31,13 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension humao.rest-client
 
 # Install NVM
-Write-Host "Installing Node using NVM, Angular & json-server - 4/4" -ForegroundColor yellow
+Write-Host "Installing Angular CLI & json-server - 4/4" -ForegroundColor yellow
+
+# Install Angular
+npm i -g @angular/cli
 
 # Install Json-server
-npm install -g json-server
-
-# Install Node & Angular
-npm i -g @angular/cli
+npm install -g json-server@0.17.4
 
 # Finished Msg
 Write-Host "Finished Software installation" -ForegroundColor yellow
