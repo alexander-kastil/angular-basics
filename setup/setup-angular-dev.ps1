@@ -1,17 +1,12 @@
-# Install chocolatey
-Write-Host "Installing Chocolatey - 1/4" -ForegroundColor yellow
+# Install winget packages
+Write-Host "Installing software using winget - 1/4" -ForegroundColor yellow
 
-Set-ExecutionPolicy Bypass -Scope Process -Force; 
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; 
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-choco install googlechrome -y
-choco install vscode -y
-choco install dotnet-8.0-sdk -y
-choco install git -y
-choco install gh -y
-choco install curl -y
-choco install nodejs-lts --version=18.17.0 -y
+winget install --id=Google.Chrome -e
+winget install --id=Microsoft.VisualStudioCode -e
+winget install --id=Git.Git -e
+winget install --id=GitHub.cli -e
+winget install --id=curl.curl -e
+winget install --id=OpenJS.NodeJS.LTS -e --version=22.1.0
 
 # Refresh Path Env
 Write-Host "Refresh Path Env - 2/4" -ForegroundColor yellow
