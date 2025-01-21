@@ -23,7 +23,7 @@ To begin with, we will add an `about` component to our application, enabling use
    ];  
    ```  
    
-4. **Implement navigation links**: In `navbar.component.html`, add [RouterLink](https://angular.io/api/router/RouterLink) directives to enable navigation between your components. Additionally, ensure to apply styles for the active link to enhance user experience. You can refer to the following example for inspiration: [Navbar Component Example](https://your-reference-link-here).  
+4. **Implement navigation links**: In `navbar.component.html`, add [RouterLink](https://angular.io/api/router/RouterLink) directives to enable navigation between your components. Additionally, ensure to apply styles for the active link to enhance user experience. You can refer to the following example for inspiration: [Navbar Component Example](/demos/04-routing/ng-routing-di/src/app/shared/navbar/navbar.component.html).  
    
 5. **Test the routing configuration**: Finally, verify that the routing setup works as expected by navigating through the application and checking that the correct components render based on the selected route.  
    
