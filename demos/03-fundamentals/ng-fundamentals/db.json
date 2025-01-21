@@ -256,7 +256,7 @@
       "age": 15,
       "gender": "female",
       "married": true,
-      "imgUrl": "/assets/images/cleo.png"
+      "imgUrl": "/images/cleo.png"
     },
     {
       "id": "2",
@@ -264,7 +264,7 @@
       "age": 9,
       "gender": "female",
       "married": false,
-      "imgUrl": "/assets/images/soi.png"
+      "imgUrl": "/images/soi.png"
     },
     {
       "id": "3",
@@ -272,7 +272,7 @@
       "age": 11,
       "gender": "male",
       "married": false,
-      "imgUrl": "/assets/images/giro.png"
+      "imgUrl": "/images/giro.png"
     },
     {
       "id": "4",
@@ -280,7 +280,7 @@
       "age": 14,
       "gender": "female",
       "married": false,
-      "imgUrl": "/assets/images/flora.png"
+      "imgUrl": "/images/flora.png"
     }
   ],
   "comments": [{

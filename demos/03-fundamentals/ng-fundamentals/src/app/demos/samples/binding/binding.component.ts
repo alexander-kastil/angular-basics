@@ -18,7 +18,7 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     MatCardModule,
     FormsModule,
     MatButtonModule,
-    JsonPipe
+    JsonPipe,
   ],
 })
 export class BindingComponent implements OnInit {
@@ -33,25 +33,23 @@ export class BindingComponent implements OnInit {
 
   constructor() {
     effect(() => {
-      this.selectedPerson = this.persons().find(p => p.id === this.selectedId()) || new Person();
+      this.selectedPerson =
+        this.persons().find((p) => p.id === this.selectedId()) || new Person();
     });
   }
 
   ngOnInit() {
-    this.ps.getPersons()
-      .subscribe((data) => {
-        if (data?.length > 0) {
-          this.persons.set(data);
-          this.selectedId.set(data[0].id);
-        }
-      });
+    this.ps.getPersons().subscribe((data) => {
+      if (data?.length > 0) {
+        this.persons.set(data);
+        this.selectedId.set(data[0].id);
+      }
+    });
 
     //convert person to observable using of rxjs operator
     const p: Person = { id: 17, name: 'Heidi', age: 13, gender: 'female' };
     of(p)
-      .pipe(
-        delay(4000)
-      )
+      .pipe(delay(4000))
       .subscribe((data) => {
         this.latePerson = data;
       });

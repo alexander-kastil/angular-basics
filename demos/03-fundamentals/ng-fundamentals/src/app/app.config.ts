@@ -11,18 +11,18 @@ import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-    providers: [
-        provideHttpClient(),
-        provideRouter(routes),
-        provideAnimations(),
-        provideMarkdown(),
-        importProvidersFrom([
-            MatSnackBarModule,
-            MatDialogModule,
-            MatDialogModule,
-            MatSnackBarModule,
-        ]),
-        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-        provideAuth(() => getAuth()),
-    ],
+  providers: [
+    provideHttpClient(),
+    provideRouter(routes),
+    provideAnimations(),
+    provideMarkdown(),
+    importProvidersFrom([
+      MatSnackBarModule,
+      MatDialogModule,
+      MatDialogModule,
+      MatSnackBarModule,
+    ]),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
+  ],
 };

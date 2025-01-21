@@ -3,62 +3,62 @@ import { Directive } from '@angular/core';
 @Directive({
   selector: '[column]',
   host: {
-    'style': `
+    style: `
     display: flex;
     flex-direction: column;
-    `},
-  standalone: true
+    `,
+  },
+  standalone: true,
 })
-export class ColumnDirective {
-}
+export class ColumnDirective {}
 
 @Directive({
   selector: '[row]',
   host: {
-    'style': `
+    style: `
     display: flex;
     flex-direction: row;
-    `},
-  standalone: true
+    `,
+  },
+  standalone: true,
 })
-export class RowDirective {
-}
+export class RowDirective {}
 
 @Directive({
   selector: '[rowgap]',
   host: {
-    'style': `
+    style: `
       display: flex;
       flex-direction: row;
       gap: var(--gap-medium);
-    `},
-  standalone: true
+    `,
+  },
+  standalone: true,
 })
-export class GapDirective {
-}
+export class GapDirective {}
 
 @Directive({
   selector: '[centered]',
   host: {
-    'style': `
+    style: `
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-    `},
-  standalone: true
+    `,
+  },
+  standalone: true,
 })
-export class CenteredDirective {
-}
+export class CenteredDirective {}
 
 @Directive({
   selector: '[border]',
   host: {
-    'style': `
+    style: `
     border:1px solid var(--color-accent);
     margin: var(--gap-medium);
-    padding: var(--gap-medium)` },
-  standalone: true
+    padding: var(--gap-medium)`,
+  },
+  standalone: true,
 })
-export class BorderDirective {
-}
+export class BorderDirective {}

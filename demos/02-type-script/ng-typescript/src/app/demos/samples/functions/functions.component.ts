@@ -3,17 +3,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-    selector: 'app-functions',
-    templateUrl: './functions.component.html',
-    styleUrls: ['./functions.component.scss'],
-    imports: [MatCardModule, MatButtonModule]
+  selector: 'app-functions',
+  templateUrl: './functions.component.html',
+  styleUrls: ['./functions.component.scss'],
+  imports: [MatCardModule, MatButtonModule],
 })
 export class FunctionsComponent {
-
   typedFunctions() {
     const addFunction = function (x: number, y: number) {
       return x + y;
     };
+
+    const subscractFunction = (x: number, y: number) => x - y;
 
     const result = addFunction(10, 20);
     console.log(result);

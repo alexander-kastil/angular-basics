@@ -2,7 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { PersonService } from '../persons/person.service';
 import { Person } from '../persons/person.model';
 import { PersonEditComponent } from './person-edit/person-edit.component';
-
 import { PersonsListComponent } from './persons-list/persons-list.component';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
@@ -14,7 +13,7 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   imports: [
     MarkdownRendererComponent,
     PersonsListComponent,
-    PersonEditComponent
+    PersonEditComponent,
   ],
 })
 export class ContainerComponent implements OnInit {
@@ -42,7 +41,7 @@ export class ContainerComponent implements OnInit {
     } else {
       this.persons.push(p);
     }
-    this.current = null
+    this.current = null;
     console.log('Persons array after save', this.persons);
   }
 }

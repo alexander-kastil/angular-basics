@@ -8,16 +8,13 @@ import { map, tap } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { Skill } from '../skills/skill.model';
 import { SkillsService } from '../skills/skills.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
-    selector: 'app-services',
-    templateUrl: './services.component.html',
-    styleUrls: ['./services.component.scss'],
-    imports: [
-        MatCardModule,
-        MatButtonModule,
-        AsyncPipe
-    ]
+  selector: 'app-services',
+  templateUrl: './services.component.html',
+  styleUrls: ['./services.component.scss'],
+  imports: [MatCardModule, MatButtonModule, AsyncPipe],
 })
 export class ServicesComponent {
   service = inject(SkillsService);
@@ -28,6 +25,8 @@ export class ServicesComponent {
 
   skills$ = this.service.getSkills();
   count$ = this.skills$.pipe(map((data) => data.length));
+
+  skillSignal = toSignal(this.service.getSkills(), { initialValue: [] });
 
   ngOnInit() {
     this.service.getSkills().subscribe((data) => {
@@ -87,7 +86,9 @@ export class ServicesComponent {
   }
 
   async usingAxios() {
-    await axios.get(`${environment.api}skills`).then((result) => console.log(result.data));
+    await axios
+      .get(`${environment.api}skills`)
+      .then((result) => console.log(result.data));
 
     const sk: Skill = {
       name: 'Azure',
@@ -101,7 +102,7 @@ export class ServicesComponent {
     //untyped
     this.http
       .get(`${environment.api}skills`)
-      .subscribe(data => console.log(data));
+      .subscribe((data) => console.log(data));
 
     //typed - preferred pattern to use get<T>
     this.http

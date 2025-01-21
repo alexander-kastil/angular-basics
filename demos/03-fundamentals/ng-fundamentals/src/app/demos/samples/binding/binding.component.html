@@ -7,10 +7,13 @@
   <mat-card-content column>
     <label>Interpolation - One Way Binding:</label>
     <div>{{ selectedPerson.name }}</div>
+    
     <label>One Way Attribute Binding</label>
     <input type="text" [value]="selectedPerson.name" />
+    
     <label for="lblOneWayModel">One Way (Model) Binding</label>
     <input type="text" [ngModel]="selectedPerson.name" />
+    
     <label for="lblTwoWay">Two Way (Model) Binding</label>
     <!-- banana in a box -->
     <input type="text" [(ngModel)]="selectedPerson.name" />

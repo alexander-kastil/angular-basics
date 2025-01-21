@@ -10,6 +10,11 @@
     <div>
       <div [hidden]="!showOriginalDiv()">The original Div</div>
       <div [hidden]="showOriginalDiv()">The alternative Div</div>
+      @if (showOriginalDiv()) {
+        <div>The original Div</div>
+      } @else {
+        <div>The alternative Div</div>
+      }
       <button
         mat-raised-button
         (click)="toggleDisplay()"

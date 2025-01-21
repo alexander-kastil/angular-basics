@@ -65,6 +65,11 @@
       "label": "Demos",
       "url": "main/demos",
       "id": "2aae"
+    },
+    {
+      "label": "Skills",
+      "url": "main/skills",
+      "id": "2bae"
     }
   ],
   "vouchers": [

@@ -19,8 +19,8 @@ import { SkillsService } from './skills.service';
     MatCardModule,
     MatButtonModule,
     MatProgressBarModule,
-    JsonPipe
-  ]
+    JsonPipe,
+  ],
 })
 export class ServicesBasicsComponent {
   service = inject(SkillsService);
@@ -36,8 +36,7 @@ export class ServicesBasicsComponent {
     });
   }
 
-  getSkillsById(): void {
-    const id = 1;
+  getSkillsById(id: number): void {
     this.loading = true;
     this.service.getSkill(id).subscribe((data) => {
       this.result = data;

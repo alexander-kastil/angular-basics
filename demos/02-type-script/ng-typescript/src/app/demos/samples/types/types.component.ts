@@ -4,13 +4,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-    selector: 'app-types',
-    templateUrl: './types.component.html',
-    styleUrls: ['./types.component.scss'],
-    imports: [MatCardModule, MatButtonModule]
+  selector: 'app-types',
+  templateUrl: './types.component.html',
+  styleUrls: ['./types.component.scss'],
+  imports: [MatCardModule, MatButtonModule],
 })
 export class TypesComponent {
-
   basicVariables() {
     const personName: string = 'Alex';
 
@@ -78,8 +77,7 @@ export class TypesComponent {
   }
 
   useEnums() {
-
-    // classic enum -> anti pattern 
+    // classic enum -> anti pattern
     enum StateOfMind {
       happy = 2,
       unhappy = 4,
@@ -87,7 +85,7 @@ export class TypesComponent {
     }
 
     // preferred
-    type stateOfMind = "happy" | "unhappy" | "ok";
+    type stateOfMind = 'happy' | 'unhappy' | 'ok';
 
     const isHappy: StateOfMind = StateOfMind.happy;
 
@@ -123,7 +121,6 @@ export class TypesComponent {
     const v: Voucher = {
       ID: 1,
       Text: 'Media Markt',
-      Amount: 22,
       Paid: false,
       Date: new Date().toDateString(),
       Expense: true,

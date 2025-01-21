@@ -5,7 +5,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterLink,
+  RouterOutlet,
+} from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment.development';
 import { SidePanelComponent } from '../../shared/side-panel/side-panel.component';
@@ -27,11 +33,11 @@ import { EditorContainerComponent } from '../../shared/markdown/markdown-editor/
     RouterOutlet,
     SidePanelComponent,
     EditorContainerComponent,
-    MatIconModule
-  ]
+    MatIconModule,
+  ],
 })
 export class DemoContainerComponent {
-  destroy = inject(DestroyRef)
+  destroy = inject(DestroyRef);
   router = inject(Router);
   route = inject(ActivatedRoute);
   ds = inject(DemoService);
@@ -42,8 +48,8 @@ export class DemoContainerComponent {
   title: string = environment.title;
   demos = toSignal(this.ds.getItems());
 
-  header = toSignal(this.router.events
-    .pipe(
+  header = toSignal(
+    this.router.events.pipe(
       takeUntilDestroyed(this.destroy),
       filter((event) => event instanceof NavigationEnd),
       map(() => {
@@ -55,7 +61,8 @@ export class DemoContainerComponent {
           ? `Component: ${route.component.name.substring(1)}`
           : 'Please select a demo';
       })
-    ));
+    )
+  );
 
   isLoading = false;
 
@@ -63,5 +70,7 @@ export class DemoContainerComponent {
 
   sidenavMode = this.sideNav.getSideNavPosition();
   sidenavVisible = this.sideNav.getSideNavVisible();
-  workbenchMargin = computed(() => this.sidenavVisible() ? { 'margin-left': '5px' } : { 'margin-left': '0px' });
+  workbenchMargin = computed(() =>
+    this.sidenavVisible() ? { 'margin-left': '5px' } : { 'margin-left': '0px' }
+  );
 }

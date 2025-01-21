@@ -1,0 +1,40 @@
+import { Component, inject, OnInit } from '@angular/core';
+import { SkillsService } from '../skills.service';
+import { Skill } from '../skill.model';
+import { SkillRowComponent } from '../skill-row/skill-row.component';
+import { MatCardModule } from '@angular/material/card';
+import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+@Component({
+  selector: 'app-skills-list',
+  templateUrl: './skills-list.component.html',
+  styleUrls: ['./skills-list.component.scss'],
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    RouterLink,
+    MatCardModule,
+    SkillRowComponent,
+  ],
+})
+export class SkillsListComponent implements OnInit {
+  service = inject(SkillsService);
+  skills: Skill[] = [];
+
+  ngOnInit(): void {
+    this.service.getSkills().subscribe((data) => {
+      this.skills = data;
+    });
+  }
+
+  getNextId(): number {
+    return (
+      this.skills.reduce((accumulator: number, currSkill: Skill) => {
+        return (accumulator =
+          accumulator > currSkill?.id ? accumulator : currSkill?.id);
+      }, 0) + 1
+    );
+  }
+}

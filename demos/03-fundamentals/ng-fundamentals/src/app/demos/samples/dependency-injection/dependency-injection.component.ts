@@ -8,7 +8,7 @@ import { PersonService } from '../persons/person.service';
   templateUrl: './dependency-injection.component.html',
   styleUrls: ['./dependency-injection.component.scss'],
   standalone: true,
-  imports: [MarkdownRendererComponent]
+  imports: [MarkdownRendererComponent],
 })
 export class DependencyInjectionComponent {
   ps = inject(PersonService);

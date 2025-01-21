@@ -12,4 +12,8 @@ export class PersonService {
   getPersons() {
     return this.http.get<Person[]>(`${environment.api}persons`);
   }
+
+  savePerson(p: Person) {
+    return this.http.post(`${environment.api}persons`, p);
+  }
 }

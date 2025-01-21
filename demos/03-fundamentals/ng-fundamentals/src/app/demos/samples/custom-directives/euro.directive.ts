@@ -5,8 +5,8 @@ import { Directive, ElementRef, HostListener, inject } from '@angular/core';
   standalone: true,
 })
 export class EuroDirective {
-  elementRef = inject(ElementRef)
-  private el: HTMLInputElement;
+  elementRef = inject(ElementRef);
+  el: HTMLInputElement;
 
   constructor() {
     this.el = this.elementRef.nativeElement;

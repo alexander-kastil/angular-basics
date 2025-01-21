@@ -3,13 +3,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-    selector: 'app-utils',
-    templateUrl: './utils.component.html',
-    styleUrls: ['./utils.component.scss'],
-    imports: [MatCardModule, MatButtonModule]
+  selector: 'app-utils',
+  templateUrl: './utils.component.html',
+  styleUrls: ['./utils.component.scss'],
+  imports: [MatCardModule, MatButtonModule],
 })
 export class UtilsComponent {
-
   stringFunctions() {
     const productID = 100;
     const category = 'music';
@@ -94,10 +93,10 @@ export class UtilsComponent {
       price: number;
       region: string;
     }[] = [
-        { name: 'apples', quantity: 2, price: 3, region: 'europe' },
-        { name: 'bananas', quantity: 0, price: 5, region: 'caribean' },
-        { name: 'cherries', quantity: 5, price: 8, region: 'europe' },
-      ]; // -> Json Objects from REST call
+      { name: 'apples', quantity: 2, price: 3, region: 'europe' },
+      { name: 'bananas', quantity: 0, price: 5, region: 'caribean' },
+      { name: 'cherries', quantity: 5, price: 8, region: 'europe' },
+    ]; // -> Json Objects from REST call
 
     // forEach
     fruits.forEach(function (fruit) {

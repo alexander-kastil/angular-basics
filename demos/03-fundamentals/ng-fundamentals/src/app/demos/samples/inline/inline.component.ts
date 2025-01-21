@@ -15,7 +15,6 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
       </mat-card-content>
     </mat-card>
   `,
-  styleUrls: ['./inline.component.scss'],
   standalone: true,
   imports: [MarkdownRendererComponent, MatCardModule],
 })
