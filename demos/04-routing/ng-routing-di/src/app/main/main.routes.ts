@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AdminComponent } from '../admin/admin.component';
 import { MainComponent } from './main.component';
+import { adminGuard } from '../shared/auth/adminGuard';
 
 export const MAIN_ROUTES: Routes = [
   {
@@ -31,6 +32,7 @@ export const MAIN_ROUTES: Routes = [
       {
         path: 'admin',
         component: AdminComponent,
+        canActivate: [adminGuard],
       },
     ],
   },
