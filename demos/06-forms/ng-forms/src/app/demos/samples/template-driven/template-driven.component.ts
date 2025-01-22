@@ -27,7 +27,7 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     MatOptionModule,
     MatRadioModule,
     MatButtonModule,
-    MarkdownRendererComponent
+    MarkdownRendererComponent,
   ],
 })
 export class TemplateDrivenComponent implements OnInit {
@@ -42,6 +42,7 @@ export class TemplateDrivenComponent implements OnInit {
   }
 
   savePerson(personForm: NgForm): void {
-    this.ps.save(personForm);
+    const p = { ...this.person, ...personForm.value };
+    this.ps.save(p);
   }
 }

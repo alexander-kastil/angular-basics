@@ -1,5 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatOptionModule } from '@angular/material/core';
@@ -27,7 +32,7 @@ import { PersonService } from '../person.service';
     MatOptionModule,
     MatRadioModule,
     MatButtonModule,
-    MarkdownRendererComponent
+    MarkdownRendererComponent,
   ],
 })
 export class ReactiveFormsComponent implements OnInit {
@@ -47,13 +52,15 @@ export class ReactiveFormsComponent implements OnInit {
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {
       // Could be setValue if model is implemented with all props in form
-      // Otherwise use patchValue      
+      // Otherwise use patchValue
       this.personForm.patchValue(p);
+
       // this.personForm.setValue(p);
     });
   }
 
   savePerson(personForm: any): void {
-    this.ps.save(personForm);
+    const p = { ...this.person, ...personForm.value };
+    this.ps.save(p);
   }
 }

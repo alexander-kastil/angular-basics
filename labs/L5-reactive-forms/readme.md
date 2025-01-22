@@ -6,7 +6,7 @@ In this lab, we will enhance the Food Edit Component by transforming it into a R
 - Implementing Reactive Forms  
    
 ## Implementing Reactive Forms  
-1. Refactor the `food-container.component`, `food-list.component`, and `food-edit.component` to utilize Reactive Forms through the FormBuilder service. For guidance and best practices, refer to the [Signal-based Container / Presenter Demo](/demos/06-forms/forms/src/app/demos/samples/container-forms/).  
+1. Refactor the `food-container.component`, `food-list.component`, and `food-edit.component` to utilize Reactive Forms through the FormBuilder service. For guidance and best practices, refer to the [Signal-based Container / Presenter Demo](/demos/06-forms/ng-forms/src/app/demos/samples/container-forms/).  
      
 2. Implement validation rules for the food name to ensure it is both required and has a minimum length of 3 characters. Additionally, enforce validation on the price field to confirm that it is a positive number.   
   
