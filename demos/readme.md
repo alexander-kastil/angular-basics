@@ -2,9 +2,9 @@
 
 - Angular Introduction 
 - TypeScript in the Angular Ecosystem
-- Services, Dependecy Injection, Databinding 
+- Services, Dependecy Injection & Databinding 
 - Completing Basic Tasks & Implementing Nested Components
-- Implement Routing
+- Routing & Lazy Loading
 - Designing a responsive User Interface
 - Forms Design & Validation
 - Reactive Programming using Signals & RxJS
@@ -17,8 +17,9 @@
 - Angular Introduction & Technology Stack
 - Angular & CLI Essentials
 - Debugging Angular
-- Bootstrapping & Configuration
+- Configuration and Bootstrapping
 - Maintaining & Updating projects
+- Use and optimze GitHub Copilot in Angular Projects
 
 ### TypeScript in the Angular Ecosystem
 
@@ -28,24 +29,24 @@
 - Immutability, Cloning & Object Composition
 - Async Operations using Promises, Observables, Signals & Resources
 
-### Services, Dependecy Injection, Databinding 
+### Services, Dependecy Injection & Databinding 
 
 - Dependency Injection & Provides
 - Services & Data Request
 - Injecting Providers to Components 
 - Expressions, Templates & Directives
 - String Interpolation, Attribute- & Event-Binding, Two-Way Binding
-- Built-in Control Flow & Deferrable Views
 - Data binding Observables & Signals
+
+### Completing Basic Tasks & Implementing Nested Components
+
+- Built-in Control Flow & Deferrable Views
 - Built in and Custom Pipes & Directives
-
-### Implementing Nested Components
-
 - Benefits of Nested Components
 - Container vs Presentational Components
 - Data binding & Events using @Input & @Output
 - Nesting using Signal inputs & model outputs
-- View Child, View Children & Signal Queries
+- View queries: viewChild, viewChildren 
 
 ### Routing & Lazy Loading
 
@@ -53,8 +54,8 @@
 - Working with Parameterized Routes
 - Component Input Bindings
 - Modules vs Standalone Components
-- Modules Use Cases & Lazy Loading
-- Route Guards & Data Preloading
+- Lazy Loading Components and Modules
+- Data Preloading
 
 ### Designing a responsive User Interface
 
@@ -99,17 +100,19 @@
 - Angular Testing Options
 - Testing Classes, Directives and Pipes
 - Component Injections, Mocks & Spies
-- Component DOM testing & test ids
+- Component DOM testing & Test Ids
 - Testing Component Interaction (Read, Write, Inputs, Events)
+- Testing Nested Components
 - Material Testing using Component Harnesses
-- In Short: End to End Testing using Cypress
+- Implement Tests using GitHub Copilot
+- Using GitHub Copilot TestGeneration Instructions
 
 ### Securing & Publishing Angular
 
 - Authentication / Authorization Basics in Spa’s
 - Token based Auth: Understanding Jwt, OAuth 2.0 & OpenID Connect
 - Observe Response and Setting Custom Http Headers
-- Using Interceptors to Automate Authentication Tokens
-- Angular Routes & functional Route Guards
-- Hosting Options Overview (Docker, Firebase, Azure Static Web App, …)
+- Using Interceptors to add Authentication Tokens
+- Angular Routes & Functional Route Guards
+- Hosting Options Overview 
 - Publishing Angular Apps
