@@ -4,18 +4,18 @@
     export const appConfig: ApplicationConfig = {
         providers: [
             provideHttpClient(),
-            provideRouter(routes, withComponentInputBinding()),
+            provideRouter(
+                routes,
+                withComponentInputBinding()
+            ),
             provideAnimations(),
+            provideMarkdown(),
             importProvidersFrom([
-                MarkdownModule.forRoot(),
                 MatSnackBarModule,
                 MatDialogModule,
-                provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-                provideAuth(() => getAuth()),
+                MatDialogModule,
+                MatSnackBarModule,
             ]),
-            provideStore(),
-            provideState(appState),
-            provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true })
         ],
     };
     ```

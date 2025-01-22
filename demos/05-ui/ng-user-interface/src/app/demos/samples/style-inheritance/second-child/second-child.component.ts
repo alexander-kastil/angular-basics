@@ -5,12 +5,12 @@ import { Component, ViewEncapsulation } from '@angular/core';
   template: ` <div class="divclass">Second Child</div> `,
   styles: [
     `
-    .divclass {
-      border: green 4px solid;
-      padding: 1rem;
-    }
-  `,
+      .divclass {
+        border: green 4px solid;
+        padding: 1rem;
+      }
+    `,
   ],
   standalone: true,
 })
-export class SecondChildComponent { }
+export class SecondChildComponent {}

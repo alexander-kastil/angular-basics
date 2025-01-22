@@ -1,75 +1,71 @@
 {
   "demos": [
     {
-      "url": "standalone-comp",
-      "title": "Standalone Components",
-      "id": "fd7c"
-    },
-    {
       "url": "dependency-injection",
       "title": "Dependency Injection",
-      "id": "0a0a"
+      "id": 1
     },
     {
       "url": "providers",
       "title": "Providers",
-      "id": "e164"
-    },
-    {
-      "url": "modules",
-      "title": "Angular Modules",
-      "id": "d175"
-    },
-    {
-      "url": "lazy-loading",
-      "title": "Lazy Loading",
-      "id": "6f8d"
+      "id": 2
     },
     {
       "url": "routing-config",
       "title": "Routing Configuration",
-      "id": "25df"
+      "id": 3
+    },
+    {
+      "url": "this-that",
+      "title": "Catch all routes",
+      "id": 4
     },
     {
       "url": "routing-basics",
-      "title": "Routing Basics",
-      "id": "b674"
+      "title": "Routing Basics", 
+      "id": 5
     },
     {
       "url": "param-map",
       "title": "paramMap",
-      "id": "b414"
+      "id": 6
+    },
+    {
+      "url": "lazy-loading",
+      "title": "Lazy Loading",
+      "id": 7
+    },
+    {
+      "url": "modules",
+      "title": "Using Modules",
+      "id": 8
     },
     {
       "url": "route-guards",
       "title": "Route Guards",
-      "id": "24e7"
+      "id": 9
     },
     {
       "url": "preload",
       "title": "Data preloading",
-      "id": "19c3"
-    },
-    {
-      "url": "this-that",
-      "title": "Not Found"
+      "id": 10
     }
   ],
   "top-links": [
     {
       "label": "Home",
       "url": "",
-      "id": "7965"
+      "id": 1
     },
     {
       "label": "Demos",
       "url": "main/demos",
-      "id": "2aae"
+      "id": 2
     },
     {
-      "label": "Skills",
+      "label": "Skills", 
       "url": "main/skills",
-      "id": "2bae"
+      "id": 3
     }
   ],
   "vouchers": [

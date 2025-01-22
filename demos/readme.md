@@ -2,9 +2,9 @@
 
 - Angular Introduction 
 - TypeScript in the Angular Ecosystem
-- Databinding & Completing Basic Tasks
-- Implementing Nested Components
-- Routing & Dependency Injection
+- Services, Dependecy Injection, Databinding 
+- Completing Basic Tasks & Implementing Nested Components
+- Implement Routing
 - Designing a responsive User Interface
 - Forms Design & Validation
 - Reactive Programming using Signals & RxJS
@@ -26,13 +26,13 @@
 - Const, Variables, Utility Functions
 - Client Side Models: Classes, Interfaces & Types
 - Immutability, Cloning & Object Composition
-- Async Operations, Observables, Signals & Resources
-- Calculated Signals & Effects
+- Async Operations using Promises, Observables, Signals & Resources
 
-### Databinding & Completing Basic Tasks
+### Services, Dependecy Injection, Databinding 
 
-- Components & Dependency Injection 
+- Dependency Injection & Provides
 - Services & Data Request
+- Injecting Providers to Components 
 - Expressions, Templates & Directives
 - String Interpolation, Attribute- & Event-Binding, Two-Way Binding
 - Built-in Control Flow & Deferrable Views
@@ -47,9 +47,8 @@
 - Nesting using Signal inputs & model outputs
 - View Child, View Children & Signal Queries
 
-### Routing & Dependency Injection
+### Routing & Lazy Loading
 
-- Register Providers & Dependency Injection
 - Routing & Navigation Basics
 - Working with Parameterized Routes
 - Component Input Bindings
@@ -83,11 +82,12 @@
 - Imperative vs Reactive Programming Styles
 - Observable, Observer, Async pipe & Unsubscribing
 - Common RxJS Operators
-- Creating Observables & Casting to Observables
 - Capturing Mouse & DOM Events as Observables
+- Introduction to Signals
+- Computed-, Linked-Signals & Effects
 - Observable & Signal Interoperability
 
-### Managing client State & Sharing Events
+### Managing Client State & Sharing Events
 
 - What is State Management
 - State Management Options: Signals vs Observables

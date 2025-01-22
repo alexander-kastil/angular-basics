@@ -11,16 +11,17 @@ import { NestedChildComponent } from '../nested-child/nested-child.component';
     </div>
   `,
   styles: [
-    `.divclass {
+    `
+      .divclass {
         border: blue 4px solid;
         padding: 1rem;
-      };
+      }
       h3 {
         margin: 2rem;
-      };
-    `
+      }
+    `,
   ],
   standalone: true,
   imports: [NestedChildComponent],
 })
-export class FirstChildComponent { }
+export class FirstChildComponent {}
