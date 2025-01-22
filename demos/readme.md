@@ -94,6 +94,7 @@
 - State Management Options: Signals vs Observables
 - Stateful Services using Signals
 - Sharing Events between Components
+- Introduction to Signal Store
 
 ### Testing Angular Applications
 
