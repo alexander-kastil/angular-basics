@@ -27,26 +27,26 @@
 - Const, Variables, Utility Functions
 - Client Side Models: Classes, Interfaces & Types
 - Immutability, Cloning & Object Composition
-- Async Operations using Promises, Observables, Signals & Resources
+- Async Operations using Promises, Observables, Signals 
 
 ### Services, Dependecy Injection & Databinding 
 
 - Dependency Injection & Provides
 - Services & Data Request
 - Injecting Providers to Components 
-- Expressions, Templates & Directives
-- String Interpolation, Attribute- & Event-Binding, Two-Way Binding
+- Templates & Directives & Event Binding 
+- Interpolation, Expressions, Attribute- & Two-Way Binding
 - Data binding Observables & Signals
+- Introduction to Change Detection
 
 ### Completing Basic Tasks & Implementing Nested Components
 
 - Built-in Control Flow & Deferrable Views
-- Built in and Custom Pipes & Directives
+- Built-in and Custom Pipes & Directives
 - Benefits of Nested Components
 - Container vs Presentational Components
-- Data binding & Events using @Input & @Output
-- Nesting using Signal inputs & model outputs
-- View queries: viewChild, viewChildren 
+- Nesting Components using Signal inputs & model outputs
+- View Queries: viewChild, viewChildren 
 
 ### Routing & Lazy Loading
 

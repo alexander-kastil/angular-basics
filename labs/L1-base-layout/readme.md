@@ -26,7 +26,7 @@ Make sure you have [Visual Studio Code](https://code.visualstudio.com/download),
 
 ```bash
 node --version
-ng version
+ng --version
 ```
 
 Update to the current version of Angular CLI:
