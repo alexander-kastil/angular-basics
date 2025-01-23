@@ -535,18 +535,8 @@ This step enhances the application by using `rxMethod` to handle asynchronous op
         )
     ),
     ```
-7.  **Implement `ClickableDirective`** A standalone directive is created to handle the click function on elements.
 
-    ```typescript
-    @Directive({
-        selector: '[clickable]',
-        standalone: true,
-        host: { 'style': 'cursor:pointer;' },
-    })
-    export class ClickableDirective {}
-    ```
-
-8. **Implement `deleteFood()`**: Implement the `deleteFood()` functionality by adding a delete button to the food list table and remove the selectFood() method on the row.
+7. **Implement `deleteFood()`**: Implement the `deleteFood()` functionality by adding a delete button to the food list table and remove the selectFood() method on the row.
 
     ```html
     <ng-container matColumnDef="delete">
