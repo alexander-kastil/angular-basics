@@ -98,7 +98,7 @@ This step focuses on setting up the foundation for using `@ngrx/signals` by crea
     ```html
     <mat-toolbar>
         <mat-toolbar-row>
-            Items in foodStore: {{ store.food.length }}
+            Items in foodStore: {{ store.food().length }}
         </mat-toolbar-row>
     </mat-toolbar>
     ```
