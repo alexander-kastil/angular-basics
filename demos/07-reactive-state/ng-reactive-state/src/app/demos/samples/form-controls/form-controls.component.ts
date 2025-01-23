@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { debounceTime, tap } from 'rxjs';
+import { debounceTime, map, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { BorderDirective } from '../../../shared/formatting/formatting-directives';
 import { MatInputModule } from '@angular/material/input';
@@ -20,14 +20,15 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     MatInputModule,
     ReactiveFormsModule,
     BorderDirective,
-    AsyncPipe
-  ]
+    AsyncPipe,
+  ],
 })
 export class FormControlsComponent {
   searchTerm = new FormControl<string>('');
 
   output = this.searchTerm.valueChanges.pipe(
-    tap((val) => console.log('searching...' + val)),
+    tap((val) => console.log(`searching...${val}`)),
+    map((val) => val?.toUpperCase()),
     debounceTime(750)
-  )
+  );
 }

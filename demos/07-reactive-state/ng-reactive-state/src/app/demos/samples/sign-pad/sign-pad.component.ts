@@ -1,4 +1,11 @@
-import { Component, DestroyRef, ElementRef, ViewChild, inject, viewChild } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  ElementRef,
+  ViewChild,
+  inject,
+  viewChild,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Subscription, fromEvent, map, tap } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,11 +17,7 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   templateUrl: './sign-pad.component.html',
   styleUrls: ['./sign-pad.component.scss'],
   standalone: true,
-  imports: [
-    MarkdownRendererComponent,
-    BorderDirective,
-    MatButtonModule,
-  ],
+  imports: [MarkdownRendererComponent, BorderDirective, MatButtonModule],
 })
 export class SignPadComponent {
   canvas = viewChild.required<ElementRef>('signPad');
@@ -39,5 +42,4 @@ export class SignPadComponent {
       });
     }
   }
-
 }

@@ -8,7 +8,6 @@ import { SnackbarService } from '../snackbar/snackbar.service';
 import { CurrentUserComponent } from '../../firebase-auth/components/current-user/current-user.component';
 import { LogoutBtnComponent } from '../../firebase-auth/components/logout-btn/logout-btn.component';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -20,16 +19,16 @@ import { LogoutBtnComponent } from '../../firebase-auth/components/logout-btn/lo
     RouterLinkActive,
     AsyncPipe,
     LogoutBtnComponent,
-    CurrentUserComponent
-  ]
+    CurrentUserComponent,
+  ],
 })
 export class NavbarComponent {
-  ms = inject(SideNavService);
+  nav = inject(SideNavService);
   sns = inject(SnackbarService);
-  menuItems = this.ms.getTopItems();
+  menuItems = this.nav.getTopItems();
 
   toggleMenu() {
-    this.ms.toggleMenuVisibility();
+    this.nav.toggleMenuVisibility();
   }
 
   toggleApps() {

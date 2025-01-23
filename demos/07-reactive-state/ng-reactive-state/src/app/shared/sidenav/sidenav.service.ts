@@ -13,19 +13,19 @@ import { NavItem } from '../navbar/nav-item.model';
 export class SideNavService {
   http = inject(HttpClient);
   breakpointObserver = inject(BreakpointObserver);
-  visible = signal(true);
-  position = signal<MatDrawerMode>('side');
+  #visible = signal(true);
+  #position = signal<MatDrawerMode>('side');
 
   constructor() {
     this.watchScreen.subscribe();
   }
 
   getSideNavVisible() {
-    return computed(() => this.visible());
+    return computed(() => this.#visible());
   }
 
   getSideNavPosition() {
-    return computed(() => this.position());
+    return computed(() => this.#position());
   }
 
   watchScreen = this.breakpointObserver
@@ -33,13 +33,13 @@ export class SideNavService {
     .pipe(
       tap((matchesBreakpoint) => {
         console.log(matchesBreakpoint);
-        this.visible.set(matchesBreakpoint.matches ? false : true);
-        this.position.set(matchesBreakpoint.matches ? 'over' : 'side');
+        this.#visible.set(matchesBreakpoint.matches ? false : true);
+        this.#position.set(matchesBreakpoint.matches ? 'over' : 'side');
       })
     );
 
   setSideNavEnabled(val: boolean) {
-    this.visible.set(val);
+    this.#visible.set(val);
   }
 
   adjustSidenavToScreen(mq: string): boolean {
@@ -47,7 +47,7 @@ export class SideNavService {
   }
 
   toggleMenuVisibility() {
-    this.visible.update((val) => !val);
+    this.#visible.update((val) => !val);
   }
 
   getTopItems(): Observable<NavItem[]> {

@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-simple-observable',
@@ -16,6 +17,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     MarkdownRendererComponent,
     MatCardModule,
     MatButtonModule,
+    JsonPipe,
   ],
 })
 export class CreatingObservableComponent {
@@ -37,7 +39,7 @@ export class CreatingObservableComponent {
         tap((n) => console.log('before filter: ', n)),
         map((n) => n * 2),
         tap((n) => n * 2),
-        tap((n) => console.log('after filter: ', n)),
+        tap((n) => console.log('after filter: ', n))
       )
       .subscribe((data: number) => console.log('final: ', data));
   }
@@ -58,8 +60,8 @@ export class CreatingObservableComponent {
     axios.get(url).then((data) => console.log('received data', data));
 
     // from casts a promise to an observable so that it can be subscribe
-    from(axios.get(url)).subscribe(
-      (data) => console.log('data from axios', data)
+    from(axios.get(url)).subscribe((data) =>
+      console.log('data from axios', data)
     );
   }
 
