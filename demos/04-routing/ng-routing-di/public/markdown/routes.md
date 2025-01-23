@@ -1,3 +1,5 @@
+`app.routes.ts` defines the navigation paths in your Angular application, mapping URLs to specific components. It also enables lazy loading of feature modules, improving initial load time by loading modules only when their routes are activated.
+
 - Examine Routes in `app.routes.ts`, `main.routes.ts` & `demo.routes.ts`
 
     ```typescript

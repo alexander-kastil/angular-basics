@@ -1,3 +1,5 @@
+Dependency Injection (DI) in Angular is a design pattern that allows components to request dependencies instead of creating them, promoting loose coupling and testability. It uses a hierarchical injector system to provide services and other dependencies throughout the application.
+
 - Examine the use of `inject` in `dependency-injection.component.ts`. It replaces the use of the constructor for dependency injection. Services and tokens have to provided in order to be available for injection.
 
   ```typescript

@@ -1,3 +1,5 @@
+Angular's functional preloaders allow you to define custom logic for preloading data associated with a route before it's activated, improving perceived performance. These preloaders can fetch data in the background while the user is on a different route, making the target route feel faster when navigated to.
+
 - Examine `demo.routes.ts` that registeres as funtional resolver for the `demos` route:
 
   ```

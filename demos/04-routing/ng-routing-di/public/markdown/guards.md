@@ -1,3 +1,5 @@
+Route guards in Angular are used to control navigation to specific routes, allowing you to implement authentication, authorization, and data loading checks before a route is activated. They act as gatekeepers, preventing access to routes based on defined conditions, ensuring security and data integrity.
+
 - Examine `main.routes.ts` and notice `canActivate`:
 
 ```typescript

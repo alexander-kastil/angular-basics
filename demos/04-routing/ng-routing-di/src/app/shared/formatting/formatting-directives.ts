@@ -3,78 +3,77 @@ import { Directive } from '@angular/core';
 @Directive({
   selector: '[column]',
   host: {
-    'style': `
+    style: `
     display: flex;
     flex-direction: column;
-    `},
-  standalone: true
+    `,
+  },
+  standalone: true,
 })
-export class ColumnDirective {
-}
+export class ColumnDirective {}
 
 @Directive({
   selector: '[row]',
   host: {
-    'style': `
+    style: `
     display: flex;
     flex-direction: row;
-    `},
-  standalone: true
+    `,
+  },
+  standalone: true,
 })
-export class RowDirective {
-}
+export class RowDirective {}
 
 @Directive({
   selector: '[rowgap]',
   host: {
-    'style': `
+    style: `
       display: flex;
       flex-direction: row;
       gap: var(--gap-medium);
-    `},
-  standalone: true
+    `,
+  },
+  standalone: true,
 })
-export class GapDirective {
-}
+export class GapDirective {}
 
 @Directive({
   selector: '[centered]',
   host: {
-    'style': `
+    style: `
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-    `},
-  standalone: true
+    `,
+  },
+  standalone: true,
 })
-export class CenteredDirective {
-}
+export class CenteredDirective {}
 
 @Directive({
   selector: '[border]',
-  host: { 'style': 'border:1px solid var(--color-accent); padding: var(--gap-medium)' },
-  standalone: true
+  host: {
+    style: 'border:1px solid var(--color-accent); padding: var(--gap-medium)',
+  },
+  standalone: true,
 })
-export class BorderDirective {
-}
+export class BorderDirective {}
 
 @Directive({
   selector: '[bold]',
-  host: { 'style': 'font-weight:bold;' },
-  standalone: true
+  host: { style: 'font-weight:bold;' },
+  standalone: true,
 })
-export class FontBoldDirective {
-}
+export class FontBoldDirective {}
 
 @Directive({
   selector: '[height-medium]',
-  host: { 'style': 'height:100px;' },
+  host: { style: 'height:100px;' },
   standalone: true,
-  hostDirectives: [BorderDirective]
+  hostDirectives: [BorderDirective],
 })
-export class HeightDirective {
-}
+export class HeightDirective {}
 
 @Directive({
   selector: '[full-width]',
@@ -82,15 +81,25 @@ export class HeightDirective {
   hostDirectives: [HeightDirective],
   standalone: true,
 })
-export class WidthDirective {
-}
+export class WidthDirective {}
 
 @Directive({
   selector: '[boxed]',
   standalone: true,
-  hostDirectives: [
-    BorderDirective
-  ],
+  hostDirectives: [BorderDirective],
 })
-export class BoxedDirective {
-}
+export class BoxedDirective {}
+
+@Directive({
+  selector: '[margined]',
+  host: { style: 'margin: 1rem;' },
+  standalone: true,
+})
+export class MarginedDirective {}
+
+@Directive({
+  selector: '[boxed-margined]',
+  standalone: true,
+  hostDirectives: [BoxedDirective, MarginedDirective],
+})
+export class BoxedMarginedDirective {}

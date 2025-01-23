@@ -1,4 +1,4 @@
-- Modules can also be used to lazy load features and thus reduce the number of requests to the server and reduce `http-requests` and allow offline availability.
+Lazy loading in Angular allows you to load components (and their associated modules) only when they are needed, typically triggered by a route activation. This significantly reduces the initial bundle size, resulting in faster application load times and improved overall performance.
 
 - Examine `main.routes.ts` an how it lazy loads `StatisticsModule`:
 

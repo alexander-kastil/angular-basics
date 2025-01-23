@@ -1,3 +1,5 @@
+In Angular DI, providers are blueprints that instruct the injector how to create and deliver instances of dependencies. They essentially map a token (usually a class) to a factory, value, or another provider, enabling Angular to resolve requested dependencies.
+
 - Examine `app.config.ts` and how it registers providers for the application:
 
     ```typescript
