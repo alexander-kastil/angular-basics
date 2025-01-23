@@ -195,7 +195,7 @@ This step focuses on implementing a container/presenter pattern, where the `Food
     ng g c food/food-edit
     ```
 
-2.  **Implement `FoodListComponent`:**  The `FoodListComponent` is implemented to display a list of food items using a Material table. It receives food items through the `@Input` decorator and emits an event when a food item is selected.
+2.  **Implement `FoodListComponent`:**  The `FoodListComponent` is implemented to display a list of food items using a Material table. It receives food items through the `input` and emits an event when a food item is selected using the `output`.
 
     ```typescript
     @Component({
@@ -270,7 +270,7 @@ This step focuses on implementing a container/presenter pattern, where the `Food
     }
     ```
 
-3.  **Implement `FoodEditComponent`:** The `FoodEditComponent` is implemented to display a form for editing food items. It receives a food item through the `@Input` decorator and emits an event when the form is saved.
+3.  **Implement `FoodEditComponent`:** The `FoodEditComponent` is implemented to display a form for editing food items. It receives a food item through the `input` and emits an event using `output` when the form is saved.
 
     ```typescript
     @Component({
