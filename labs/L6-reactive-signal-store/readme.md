@@ -200,7 +200,7 @@ This step focuses on implementing a container/presenter pattern, where the `Food
     ```typescript
     @Component({
     selector: 'app-food-list',
-    imports: [MatTableModule, MatCardModule, MatIconModule, ClickableDirective],
+    imports: [MatTableModule, MatCardModule, MatIconModule],
     templateUrl: './food-list.component.html',
     styleUrl: './food-list.component.scss'
     })
@@ -257,7 +257,7 @@ This step focuses on implementing a container/presenter pattern, where the `Food
     ```
 
     ```css
-        mat-card {
+    mat-card {
         margin-bottom: 1rem;
     }
 
