@@ -383,7 +383,6 @@ This step focuses on implementing a container/presenter pattern, where the `Food
     nextId: computed(() => store.food().reduce((max, p) => p.id > max ? p.id : max, 0) + 1),
     ```
 
-
 6.  **Implement logic in `FoodComponent`:** The `FoodComponent` is updated to handle the logic for selecting a food item and saving a food item, calling the appropriate methods in the `store`.
 
     ```typescript
