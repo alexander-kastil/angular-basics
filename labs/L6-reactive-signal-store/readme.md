@@ -377,7 +377,14 @@ This step focuses on implementing a container/presenter pattern, where the `Food
     }
     ```
 
-5.  **Implement logic in `FoodComponent`:** The `FoodComponent` is updated to handle the logic for selecting a food item and saving a food item, calling the appropriate methods in the `store`.
+5.  **Implement `addFood()`**: Implement the `addFood()` method by using the `nextId()` computed property which increments the new id for new food item.
+
+    ```typescript
+    nextId: computed(() => store.food().reduce((max, p) => p.id > max ? p.id : max, 0) + 1),
+    ```
+
+
+6.  **Implement logic in `FoodComponent`:** The `FoodComponent` is updated to handle the logic for selecting a food item and saving a food item, calling the appropriate methods in the `store`.
 
     ```typescript
     export class FoodComponent {
@@ -538,12 +545,8 @@ This step enhances the application by using `rxMethod` to handle asynchronous op
     })
     export class ClickableDirective {}
     ```
-8.  **Implement `addFood()`**: Implement the `addFood()` method by using the `nextId()` computed property which increments the new id for new food item.
 
-    ```typescript
-    nextId: computed(() => store.food().reduce((max, p) => p.id > max ? p.id : max, 0) + 1),
-    ```
-9. **Implement `deleteFood()`**: Implement the `deleteFood()` functionality by adding a delete button to the food list table and remove the selectFood() method on the row.
+8. **Implement `deleteFood()`**: Implement the `deleteFood()` functionality by adding a delete button to the food list table and remove the selectFood() method on the row.
 
     ```html
     <ng-container matColumnDef="delete">
