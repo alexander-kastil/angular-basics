@@ -546,12 +546,12 @@ This step enhances the application by using `rxMethod` to handle asynchronous op
 9. **Implement `deleteFood()`**: Implement the `deleteFood()` functionality by adding a delete button to the food list table and remove the selectFood() method on the row.
 
     ```html
-        <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element" class="icon-cell">
-            <a (click)="deleteFood(element)">
-            <mat-icon class="mat-18" matTooltip="Delete">delete</mat-icon>
-            </a>
-        </td>
-        </ng-container>
+    <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element" class="icon-cell">
+        <a (click)="deleteFood(element)">
+        <mat-icon class="mat-18" matTooltip="Delete">delete</mat-icon>
+        </a>
+    </td>
+    </ng-container>
     ```
