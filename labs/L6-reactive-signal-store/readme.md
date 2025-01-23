@@ -377,7 +377,7 @@ This step focuses on implementing a container/presenter pattern, where the `Food
     }
     ```
 
-5.  **Implement `addFood()`**: Implement the `addFood()` method by using the `nextId()` computed property which increments the new id for new food item.
+5.  **Implement `nextId()`**: Implement the `nextId()` computed property which increments the new id for new food item.
 
     ```typescript
     nextId: computed(() => store.food().reduce((max, p) => p.id > max ? p.id : max, 0) + 1),
