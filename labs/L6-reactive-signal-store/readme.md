@@ -221,6 +221,12 @@ This step focuses on implementing a container/presenter pattern, where the `Food
         applyFilter(filterValue: string) {
             this.dataSource.filter = filterValue.trim().toLowerCase();
         }
+
+        selectFood(food: FoodItem) {          
+        }
+
+        deleteFood(food: FoodItem) {            
+        }
     }
     ```
 
@@ -245,6 +251,24 @@ This step focuses on implementing a container/presenter pattern, where the `Food
             <ng-container matColumnDef="calories">
                 <th mat-header-cell *matHeaderCellDef>Calories</th>
                 <td mat-cell *matCellDef="let element">{{ element.calories }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" clickable>
+                <a (click)="deleteFood(element)">
+                <mat-icon class="mat-18" matTooltip="Delete">delete</mat-icon>
+                </a>
+            </td>
+            </ng-container>
+
+            <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" clickable>
+                <a (click)="selectFood(element)">
+                <mat-icon class="mat-18" matTooltip="Edit">edit</mat-icon>
+                </a>
+            </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
